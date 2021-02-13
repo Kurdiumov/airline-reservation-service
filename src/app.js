@@ -1,9 +1,4 @@
-const result = require("dotenv").config();
-if (result.error) {
-  console.error(result.error);
-  throw result.error;
-}
-
+require("dotenv-safe").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
