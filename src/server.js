@@ -15,13 +15,13 @@ db.on("error", (err) => {
   console.error("connection error: ", err);
 });
 db.once("open", () => {
-  console.log("Connected to DB.");
+  console.log("DB successfully connected");
   const app = express();
 
   app.use(bodyParser.urlencoded({ extended: true }));
 
-  app.get("/api", (req, res) => {
-    res.send("Hello World!");
+  app.get("/backendStatus", (req, res) => {
+    res.json({ status: "connected" });
   });
 
   if (process.env.NODE_ENV === "production") {

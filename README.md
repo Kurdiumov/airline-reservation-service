@@ -1,2 +1,1 @@
-# airline-reservation-service-backend
-Backend for airline reservation service
+# airline-reservation-service

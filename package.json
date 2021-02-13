@@ -1,13 +1,14 @@
 {
   "name": "airline-reservation-service",
   "version": "1.0.0",
-  "description": "Backend for airline reservation service",
   "main": "./src/server.js",
   "scripts": {
     "install-client": "cd client && npm install",
     "build-client": "cd client && npm run build",
     "heroku-postbuild": "npm run install-client && npm run build-client",
+    "install-all": "npm install && cd client && npm install",
     "start": "node ./src/server.js",
+    "watch": "nodemon ./src/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -24,5 +25,8 @@
     "dotenv-safe": "^8.2.0",
     "express": "^4.17.1",
     "mongoose": "^5.11.16"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
   }
 }
