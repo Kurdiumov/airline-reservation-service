@@ -1,0 +1,23 @@
+{
+  "name": "airline-reservation-service-backend",
+  "version": "1.0.0",
+  "description": "Backend for airline reservation service",
+  "main": "./src/app.js",
+  "scripts": {
+    "start": "node ./src/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kurdiumov/airline-reservation-service-backend.git"
+  },
+  "author": "Rostyslav Kurdiumov <rostyslav.kurdiumov@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Kurdiumov/airline-reservation-service-backend/issues"
+  },
+  "homepage": "https://github.com/Kurdiumov/airline-reservation-service-backend#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
