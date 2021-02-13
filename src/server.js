@@ -2,6 +2,7 @@ require("dotenv-safe").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
+const path = require("path");
 
 const mongooseConnectionString = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.k8a6n.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`;
 
@@ -19,9 +20,13 @@ db.once("open", () => {
 
   app.use(bodyParser.urlencoded({ extended: true }));
 
-  app.get("/", (req, res) => {
+  app.get("/api", (req, res) => {
     res.send("Hello World!");
   });
+
+  if (process.env.NODE_ENV === "production") {
+    app.use(express.static(path.join(__dirname, "/../client/build")));
+  }
 
   app.listen(process.env.PORT, () => {
     console.log(`Server listening at http://localhost:${process.env.PORT}`);
