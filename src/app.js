@@ -1,11 +1,34 @@
+const result = require("dotenv").config();
+if (result.error) {
+  console.error(result.error);
+  throw result.error;
+}
+
 const express = require("express");
-const app = express();
-const port = process.env.PORT || 5000;
+const mongoose = require("mongoose");
+const bodyParser = require("body-parser");
 
-app.get("/", (req, res) => {
-  res.send("Hello World!");
+const mongooseConnectionString = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.k8a6n.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`;
+
+mongoose.connect(mongooseConnectionString, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
 });
+const db = mongoose.connection;
+db.on("error", (err) => {
+  console.error("connection error: ", err);
+});
+db.once("open", () => {
+  console.log("Connected to DB.");
+  const app = express();
 
-app.listen(port, () => {
-  console.log(`Server listening at http://localhost:${port}`);
+  app.use(bodyParser.urlencoded({ extended: true }));
+
+  app.get("/", (req, res) => {
+    res.send("Hello World!");
+  });
+
+  app.listen(process.env.PORT, () => {
+    console.log(`Server listening at http://localhost:${process.env.PORT}`);
+  });
 });
