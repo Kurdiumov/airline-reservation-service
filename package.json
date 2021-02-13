@@ -1,14 +1,15 @@
 {
   "name": "airline-reservation-service",
   "version": "1.0.0",
-  "main": "./src/server.js",
+  "main": "./src/app.js",
+  "type": "module",
   "scripts": {
     "install-client": "cd client && npm install",
     "build-client": "cd client && npm run build",
     "heroku-postbuild": "npm run install-client && npm run build-client",
     "install-all": "npm install && cd client && npm install",
-    "start": "node ./src/server.js",
-    "watch": "nodemon ./src/server.js",
+    "start": "node ./src/app.js",
+    "watch": "nodemon ./src/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -22,8 +23,11 @@
   },
   "homepage": "https://github.com/Kurdiumov/airline-reservation-service#readme",
   "dependencies": {
+    "@hapi/joi": "^17.1.1",
+    "bcryptjs": "^2.4.3",
     "dotenv-safe": "^8.2.0",
     "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.11.16"
   },
   "devDependencies": {
