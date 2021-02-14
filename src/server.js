@@ -22,7 +22,9 @@ export default () => {
   });
 
   if (process.env.NODE_ENV === "production") {
-    app.use(express.static(path.join(path.resolve(), "/../client/build")));
+    const staticPath = path.join(path.resolve(), "client/build");
+    app.use(express.static(staticPath));
+    console.log("Serving client static files at", staticPath);
   }
 
   app.listen(process.env.PORT, () => {
