@@ -1,0 +1,59 @@
+@import "../Assets/variables.scss";
+
+.loginForm {
+  display: flex;
+  flex-flow: column;
+  width: 400px;
+  align-items: center;
+  margin: 0 auto;
+  padding: 1rem;
+  font-size: 1.2rem;
+
+  div {
+    margin-top: 2rem;
+    display: flex;
+    width: 90%;
+    justify-content: space-between;
+    a {
+      color: #000;
+      text-decoration: underline;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+  }
+
+  label {
+    width: 100%;
+    text-align: left;
+    margin: 1rem auto 5px auto;
+    font-weight: bold;
+  }
+
+  input {
+    border: none;
+    background-image: none;
+    background-color: transparent;
+    box-shadow: none;
+    border-radius: 0;
+    outline: none;
+
+    &[type="email"],
+    &[type="password"],
+    &[type="text"] {
+      width: 100%;
+      height: 2rem;
+      border: 1px solid grey;
+      line-height: normal;
+    }
+
+    &[type="submit"] {
+      color: $auth-form-submit-button-text-color;
+      background-color: $auth-form-submit-button-background-color;
+      min-width: 6rem;
+      min-height: 2rem;
+      border-radius: 1rem;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+  }
+}
