@@ -1,13 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./assets/index.scss";
-import App from "./Components/App";
+import "./Assets/styles.scss";
+import AppRouter from "./Routes/AppRouter";
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById("root")
-);
+ReactDOM.render(<AppRouter />, document.getElementById("root"));
 
 fetch("/backendStatus");
