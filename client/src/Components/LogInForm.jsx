@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import validator from 'validator';
 import "./AuthForm.scss";
 
 class LogInForm extends Component {
@@ -9,7 +10,11 @@ class LogInForm extends Component {
 
     this.state = {
       email: "",
-      password: ""
+      password: "",
+      errors: {
+        email: "",
+        password: ""
+      }
     };
   }
 
@@ -21,14 +26,22 @@ class LogInForm extends Component {
 
   handleSubmit = async (event) => {
     event.preventDefault();
-    // TODO Validate input
-    console.warn("TODO: Validate input");
+
+    this.validateEmail();
+    this.validatePassword();
+
+    if (this.state.errors.email || this.state.errors.password) {
+      return;
+    }
 
     try {
       const response = await fetch(this.url, {
         method: "POST",
         headers: new Headers({ "content-type": "application/json" }),
-        body: JSON.stringify(this.state)
+        body: JSON.stringify({
+          email: this.state.email,
+          password: this.state.password
+        })
       });
 
       if (response.status === 200) {
@@ -48,7 +61,20 @@ class LogInForm extends Component {
     }
   };
 
+  validateEmail = () => {
+    let newState = { ...this.state };
+    newState.errors.email = validator.isEmail(this.state.email) ? "": "Email is not valid.";
+    this.setState(newState);
+  };
+
+  validatePassword = () => {
+    let newState = { ...this.state };
+    newState.errors.password = !validator.isEmpty(this.state.password) ? "": "Password must be provided.";
+    this.setState(newState);
+  };
+
   render = () => {
+    const { errors } = this.state;
     return (
       <form onSubmit={this.handleSubmit} className="loginForm">
         <label htmlFor="email">Email:</label>
@@ -57,8 +83,10 @@ class LogInForm extends Component {
           id="email"
           name="email"
           onChange={this.handleChange}
+          onBlur={this.validateEmail}
           value={this.state.email}
         />
+        { errors.email && <span className="error">{errors.email}</span> }
         <label htmlFor="password">Password:</label>
         <input
           type="password"
@@ -66,8 +94,10 @@ class LogInForm extends Component {
           name="password"
           autoComplete="on"
           onChange={this.handleChange}
+          onBlur={this.validatePassword}
           value={this.state.name}
         />
+        { errors.password && <span className="error">{errors.password}</span> }
         <div>
           <Link to="/signup">Sign up</Link>
           <input type="submit" value="LOG IN" className="button" />
