@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import validator from 'validator';
 import "./AuthForm.scss";
 
@@ -14,7 +14,9 @@ class LogInForm extends Component {
       errors: {
         email: "",
         password: ""
-      }
+      },
+      responseError: "",
+      redirect: false
     };
   }
 
@@ -44,18 +46,25 @@ class LogInForm extends Component {
         })
       });
 
+      let newState = { ...this.state };
       if (response.status === 200) {
         console.log(
           "Login successful, auth-token:",
           response.headers.get("auth-token")
         );
-        // TODO Redirect
-        console.warn("redirect here");
+        
         // TODO Set Token
         console.warn("set token here");
+
+        newState.redirect = "/";
+        this.setState(newState);
         return;
       }
-      throw new Error(response.statusText);
+
+      const responseText = await response.text();
+      
+      newState.responseError = responseText;
+      this.setState(newState);
     } catch (err) {
       console.error("An error occurred:", err);
     }
@@ -74,9 +83,12 @@ class LogInForm extends Component {
   };
 
   render = () => {
+    if (this.state.redirect) return <Redirect to={this.state.redirect}/>;
+     
     const { errors } = this.state;
     return (
       <form onSubmit={this.handleSubmit} className="loginForm">
+        {this.state.responseError && <span className="responseError">{this.state.responseError}</span>}
         <label htmlFor="email">Email:</label>
         <input
           type="email"

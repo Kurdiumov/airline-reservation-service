@@ -1,6 +1,6 @@
 @import "../Assets/variables.scss";
 
-.loginForm {
+.loginForm, .signUpForm {
   display: flex;
   flex-flow: column;
   width: 400px;
@@ -8,6 +8,11 @@
   margin: 0 auto;
   padding: 1rem;
   font-size: 1.2rem;
+
+  span.responseError {
+    color: red;
+    font-size: 1.2rem;
+  }
 
   span.error {
     color: red;
