@@ -27,7 +27,7 @@ class SignUpForm extends Component {
 
   handleChange = (event) => {
     let newState = { ...this.state };
-    newState[event.target.id] = event.target.value;
+    newState[event.target.name] = event.target.value;
     this.setState(newState);
   };
 
@@ -191,13 +191,13 @@ class SignUpForm extends Component {
   render = () => {
     const { errors } = this.state;
     return (
-      <form onSubmit={this.handleSubmit} className="signUpForm">
+      <form onSubmit={this.handleSubmit} className="signUpForm" >
         {this.state.responseError && <span className="responseError">{this.state.responseError}</span>}
         <label htmlFor="email">Email:</label>
         <input
           type="email"
-          id="email"
           name="email"
+          autoComplete="username"
           onChange={this.handleChange}
           onBlur={this.validateEmail}
           value={this.state.email}
@@ -207,8 +207,8 @@ class SignUpForm extends Component {
         <label htmlFor="name">First name:</label>
         <input
           type="text"
-          id="name"
           name="name"
+          autoComplete="given-name"
           onChange={this.handleChange}
           onBlur={this.validateName}
           value={this.state.name}
@@ -218,8 +218,8 @@ class SignUpForm extends Component {
         <label htmlFor="surname">Last name:</label>
         <input
           type="text"
-          id="surname"
           name="surname"
+          autoComplete="family-name"
           onChange={this.handleChange}
           onBlur={this.validateSurname}
           value={this.state.surname}
@@ -229,9 +229,8 @@ class SignUpForm extends Component {
         <label htmlFor="password">Password:</label>
         <input
           type="password"
-          id="password"
           name="password"
-          autoComplete="on"
+          autoComplete="new-password"
           onChange={this.handleChange}
           onBlur={this.validatePassword}
           value={this.state.password}
@@ -241,9 +240,8 @@ class SignUpForm extends Component {
         <label htmlFor="repeatedPassword">Repeat password:</label>
         <input
           type="password"
-          id="repeatedPassword"
           name="repeatedPassword"
-          autoComplete="on"
+          autoComplete="new-password"
           onChange={this.handleChange}
           onBlur={this.validateRepeatedPassword}
           value={this.state.repeatedPassword}

@@ -21,7 +21,7 @@ class LogInForm extends Component {
 
   handleChange = (event) => {
     let newState = { ...this.state };
-    newState[event.target.id] = event.target.value;
+    newState[event.target.name] = event.target.value;
     this.setState(newState);
   };
 
@@ -88,8 +88,8 @@ class LogInForm extends Component {
         <label htmlFor="email">Email:</label>
         <input
           type="email"
-          id="email"
           name="email"
+          autoComplete="username"
           onChange={this.handleChange}
           onBlur={this.validateEmail}
           value={this.state.email}
@@ -98,9 +98,8 @@ class LogInForm extends Component {
         <label htmlFor="password">Password:</label>
         <input
           type="password"
-          id="password"
           name="password"
-          autoComplete="on"
+          autoComplete="current-password"
           onChange={this.handleChange}
           onBlur={this.validatePassword}
           value={this.state.name}
