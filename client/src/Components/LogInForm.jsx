@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import validator from 'validator';
 import "./AuthForm.scss";
 
@@ -15,8 +15,7 @@ class LogInForm extends Component {
         email: "",
         password: ""
       },
-      responseError: "",
-      redirect: false
+      responseError: ""
     };
   }
 
@@ -46,7 +45,6 @@ class LogInForm extends Component {
         })
       });
 
-      let newState = { ...this.state };
       if (response.status === 200) {
         console.log(
           "Login successful, auth-token:",
@@ -56,13 +54,13 @@ class LogInForm extends Component {
         // TODO Set Token
         console.warn("set token here");
 
-        newState.redirect = "/";
-        this.setState(newState);
+        this.props.history.push("/");
         return;
       }
 
       const responseText = await response.text();
       
+      let newState = { ...this.state };
       newState.responseError = responseText;
       this.setState(newState);
     } catch (err) {
@@ -83,8 +81,6 @@ class LogInForm extends Component {
   };
 
   render = () => {
-    if (this.state.redirect) return <Redirect to={this.state.redirect}/>;
-     
     const { errors } = this.state;
     return (
       <form onSubmit={this.handleSubmit} className="loginForm">

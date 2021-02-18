@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import validator from "validator";
 import "./AuthForm.scss";
 
@@ -21,8 +21,7 @@ class SignUpForm extends Component {
         password: "",
         repeatedPassword: ""
       },
-      responseError: "",
-      redirect: false
+      responseError: ""
     };
   }
 
@@ -51,16 +50,15 @@ class SignUpForm extends Component {
         })
       });
 
-      let newState = { ...this.state };
       if (response.status === 201) {
         const json = await response.json();
         console.log("Register successful, response:", json);
         
-        newState.redirect = "/login";
-        this.setState(newState);
+        this.props.history.push("/login");
         return;
       }
 
+      let newState = { ...this.state };
       const responseText = await response.text();
       newState.responseError = responseText;
       this.setState(newState);
@@ -191,8 +189,6 @@ class SignUpForm extends Component {
   };
 
   render = () => {
-    if (this.state.redirect) return <Redirect to={this.state.redirect}/>;
-    
     const { errors } = this.state;
     return (
       <form onSubmit={this.handleSubmit} className="signUpForm">
