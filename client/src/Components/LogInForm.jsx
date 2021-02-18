@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import validator from 'validator';
+import { connect } from "react-redux";
+import validator from "validator";
+import { login } from "../Actions/auth";
 import "./AuthForm.scss";
 
 class LogInForm extends Component {
@@ -46,20 +48,14 @@ class LogInForm extends Component {
       });
 
       if (response.status === 200) {
-        console.log(
-          "Login successful, auth-token:",
-          response.headers.get("auth-token")
-        );
-        
-        // TODO Set Token
-        console.warn("set token here");
-
+        const token = response.headers.get("auth-token");
+        this.props.login(token);
         this.props.history.push("/");
         return;
       }
 
       const responseText = await response.text();
-      
+
       let newState = { ...this.state };
       newState.responseError = responseText;
       this.setState(newState);
@@ -70,13 +66,17 @@ class LogInForm extends Component {
 
   validateEmail = () => {
     let newState = { ...this.state };
-    newState.errors.email = validator.isEmail(this.state.email) ? "": "Email is not valid.";
+    newState.errors.email = validator.isEmail(this.state.email)
+      ? ""
+      : "Email is not valid.";
     this.setState(newState);
   };
 
   validatePassword = () => {
     let newState = { ...this.state };
-    newState.errors.password = !validator.isEmpty(this.state.password) ? "": "Password must be provided.";
+    newState.errors.password = !validator.isEmpty(this.state.password)
+      ? ""
+      : "Password must be provided.";
     this.setState(newState);
   };
 
@@ -84,7 +84,9 @@ class LogInForm extends Component {
     const { errors } = this.state;
     return (
       <form onSubmit={this.handleSubmit} className="loginForm">
-        {this.state.responseError && <span className="responseError">{this.state.responseError}</span>}
+        {this.state.responseError && (
+          <span className="responseError">{this.state.responseError}</span>
+        )}
         <label htmlFor="email">Email:</label>
         <input
           type="email"
@@ -94,7 +96,7 @@ class LogInForm extends Component {
           onBlur={this.validateEmail}
           value={this.state.email}
         />
-        { errors.email && <span className="error">{errors.email}</span> }
+        {errors.email && <span className="error">{errors.email}</span>}
         <label htmlFor="password">Password:</label>
         <input
           type="password"
@@ -104,7 +106,7 @@ class LogInForm extends Component {
           onBlur={this.validatePassword}
           value={this.state.name}
         />
-        { errors.password && <span className="error">{errors.password}</span> }
+        {errors.password && <span className="error">{errors.password}</span>}
         <div>
           <Link to="/signup">Sign up</Link>
           <input type="submit" value="LOG IN" className="button" />
@@ -114,4 +116,6 @@ class LogInForm extends Component {
   };
 }
 
-export default LogInForm;
+export default connect(null, {
+  login
+})(LogInForm);
