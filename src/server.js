@@ -29,6 +29,11 @@ export default () => {
     const staticPath = path.join(path.resolve(), "client/build");
     app.use(express.static(staticPath));
     console.log("Serving client static files at", staticPath);
+
+    // Catch-All Route Fallback
+    app.get("*", (req, res) => {
+      res.sendFile(path.resolve("client/build", "index.html"));
+    });
   }
 
   app.listen(process.env.PORT, () => {
