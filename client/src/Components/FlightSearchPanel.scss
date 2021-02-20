@@ -1,0 +1,94 @@
+.flightSearchPanel {
+  height: 350px;
+  width: 680px;
+  background-color: lightgray;
+  display: flex;
+
+  form {
+    width: 50%;
+    background-color: cadetblue;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    padding: 1rem;
+
+    input {
+      height: 2.5rem;
+      box-shadow: none;
+      border-radius: 0;
+      outline: none;
+      border: none;
+      font-size: 1.2rem;
+    }
+
+    input[type="text"] {
+      padding-left: 1rem;
+    }
+
+    .searchLocations {
+      display: flex;
+      flex-flow: column;
+
+      input:first-child {
+        margin-bottom: 5px;
+      }
+    }
+
+    .searchDates {
+      display: flex;
+
+      input {
+        width: 50%;
+
+        &:first-child {
+          margin-right: 5px;
+        }
+      }
+    }
+  }
+
+  .flightSearchLocations {
+      width: 50%;
+    background-color: aquamarine;
+    padding: 1rem 1rem;
+    overflow-y: scroll;
+
+    ul {
+      margin: 0;
+      padding: 0;
+
+      li {
+        list-style: none;
+
+        div {
+          margin: 1rem 0;
+
+          &:nth-child(1) {
+            margin-top: 0;
+          }
+        }
+      }
+    }
+
+    .country {
+      font-weight: bold;
+      text-align: left;
+      margin-bottom: 0.5rem;
+    }
+
+    .airport {
+      display: flex;
+      justify-content: space-between;
+      margin: 0.2rem 0.5rem;
+      cursor: pointer;
+
+      .airportName {
+      }
+
+      .airportCode {
+        font-size: 0.8rem;
+        color: grey;
+      }
+    }
+  }
+}

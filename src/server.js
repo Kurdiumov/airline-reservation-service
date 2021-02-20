@@ -2,6 +2,7 @@ import path from "path";
 import cors from "cors";
 import express from "express";
 import auth from "./routes/auth.js";
+import flights from "./routes/flights.js";
 import authenticateJWT from "./middlewares/authenticateJWT.js";
 
 export default () => {
@@ -13,6 +14,7 @@ export default () => {
   );
   app.use(express.json());
   app.use("/api/user", auth);
+  app.use("/api/flights", flights);
 
   app.get("/backendStatus", (req, res) => {
     res.json({ status: "connected" });
