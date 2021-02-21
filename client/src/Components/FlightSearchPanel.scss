@@ -43,7 +43,6 @@
         line-height: $search-form-input-height;
         vertical-align: middle;
       }
-
       
     }
 
@@ -60,9 +59,31 @@
       display: flex;
       flex-flow: column;
 
-      input:first-child {
-        margin-bottom: 5px;
+      &>div {
+        position: relative;
+        display: flex;
+
+        input:first-child {
+          margin-bottom: 5px;
+        }
+
+        input {
+          width: 100%;
+          cursor: default;
+        }
+
+        .airportCode {
+          position: absolute;
+          right: 5px;
+          bottom: 10px;
+          user-select: none;
+          font-size: $text-size-s;
+        }
       }
+
+      
+
+      
     }
 
     .searchDates {
@@ -163,7 +184,7 @@
 
           &.disabled {
             color: $search-form-disabled-color;
-            cursor: initial;
+            cursor: default;
 
             &:hover {
               background-color: $search-form-input-background-color;
