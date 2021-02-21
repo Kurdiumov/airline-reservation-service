@@ -19,6 +19,11 @@
     justify-content: space-between;
     padding: 1rem;
 
+    .invalid {
+      border: 2px solid red;
+      border-radius: 5px;
+    }
+
     input,
     .button {
       height: $search-form-input-height;
@@ -38,11 +43,10 @@
       user-select: none;
       cursor: pointer;
 
-      &>span {
+      & > span {
         line-height: $search-form-input-height;
         vertical-align: middle;
       }
-      
     }
 
     input[type="text"] {
@@ -58,7 +62,7 @@
       display: flex;
       flex-flow: column;
 
-      &>div {
+      & > div {
         position: relative;
         display: flex;
 
@@ -77,12 +81,9 @@
           bottom: 10px;
           user-select: none;
           font-size: $text-size-s;
+          color: $search-form-secondary-color;
         }
       }
-
-      
-
-      
     }
 
     .searchDates {
@@ -130,13 +131,14 @@
         font-size: $text-size-l;
         font-weight: bold;
         text-align: left;
-        margin-bottom: 0.5rem;
+        cursor: default;
       }
 
       .airport {
+        position: relative;
         display: flex;
         justify-content: space-between;
-        margin: 0.2rem 0.5rem;
+        padding: 0.2rem 0.5rem;
         cursor: pointer;
 
         .airportName {
@@ -146,6 +148,13 @@
         .airportCode {
           font-size: $text-size-s;
           color: $search-form-secondary-color;
+          position: absolute;
+          bottom: 5px;
+          right: 0.5rem;
+        }
+
+        &:hover {
+          background-color: lighten($search-side-panel-background-color, 30%);
         }
       }
     }
@@ -171,7 +180,6 @@
           width: $search-form-input-height;
           height: $search-form-input-height;
           cursor: pointer;
-          
 
           &:active {
             outline: none;
@@ -200,7 +208,6 @@
     }
   }
 }
-
 
 @keyframes slideInFromLeft {
   0% {

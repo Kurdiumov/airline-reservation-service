@@ -19,11 +19,19 @@ class FlightSearchPanel extends Component {
       selected: {
         origin: null,
         destination: null,
+        returnDate: null,
+        departureDate: null,
         passengers: {
           adults: 1,
           children: 0,
           infants: 0
         }
+      },
+      invalid: {
+        originInput: false,
+        destinationInput: false,
+        departureDateInput: false,
+        returnDateInput: false
       },
       focusedInput: null
     };
@@ -65,6 +73,37 @@ class FlightSearchPanel extends Component {
 
   handleSubmit = async (event) => {
     event.preventDefault();
+    console.log("Sending stuff!");
+
+    let state = { ...this.state };
+
+    let allInputsAreValid = true;
+    if (!state.selected.origin) {
+      state.invalid.originInput = true;
+      allInputsAreValid = false;
+    }
+
+    if (!state.selected.destination) {
+      state.invalid.destinationInput = true;
+      allInputsAreValid = false;
+    }
+
+    if (!state.selected.departureDate) {
+      state.invalid.departureDateInput = true;
+      allInputsAreValid = false;
+    }
+
+    if (!state.selected.returnDate) {
+      state.invalid.returnDateInput = true;
+      allInputsAreValid = false;
+    }
+
+    if (!allInputsAreValid) {
+      this.setState(state);
+      return;
+    }
+
+    // ToDo: Redirect to search page
   };
 
   airportClicked = (event) => {
@@ -94,6 +133,7 @@ class FlightSearchPanel extends Component {
     let newState = { ...this.state };
     newState.selected.origin = airport;
     newState.originInputValue = airport.name;
+    newState.invalid.originInput = false;
     newState.focusedInput = null;
     this.setState(newState);
 
@@ -104,6 +144,7 @@ class FlightSearchPanel extends Component {
     let newState = { ...this.state };
     newState.selected.destination = airport;
     newState.destinationInputValue = airport.name;
+    newState.invalid.destinationInput = false;
     newState.focusedInput = null;
     this.setState(newState);
 
@@ -113,6 +154,7 @@ class FlightSearchPanel extends Component {
   onOriginInputChange = (event) => {
     let newState = { ...this.state };
     newState.originInputValue = event.target.value;
+    newState.invalid.originInput = false;
     newState.selected.origin = null;
     this.setState(newState);
 
@@ -122,6 +164,7 @@ class FlightSearchPanel extends Component {
   onDestinationInputChange = (event) => {
     let newState = { ...this.state };
     newState.destinationInputValue = event.target.value;
+    newState.invalid.destinationInput = false;
     newState.selected.destination = null;
     this.setState(newState);
 
@@ -288,6 +331,9 @@ class FlightSearchPanel extends Component {
                 onInput={this.onOriginInputChange}
                 onFocus={this.onFocusChanged}
                 value={this.state.originInputValue}
+                className={
+                  this.state.invalid.originInput === true ? "invalid" : ""
+                }
               />
               <span
                 id="Origin"
@@ -305,6 +351,9 @@ class FlightSearchPanel extends Component {
                 onInput={this.onDestinationInputChange}
                 onFocus={this.onFocusChanged}
                 value={this.state.destinationInputValue}
+                className={
+                  this.state.invalid.destinationInput === true ? "invalid" : ""
+                }
               />
               <span
                 id="Destination"
@@ -316,11 +365,27 @@ class FlightSearchPanel extends Component {
             </div>
           </div>
           <div className="searchDates">
-            <input type="text" onFocus={this.onFocusChanged} />
-            <input type="text" onFocus={this.onFocusChanged} />
+            <input
+              type="text"
+              onFocus={this.onFocusChanged}
+              className={
+                this.state.invalid.departureDateInput === true ? "invalid" : ""
+              }
+            />
+            <input
+              type="text"
+              onFocus={this.onFocusChanged}
+              className={
+                this.state.invalid.returnDateInput === true ? "invalid" : ""
+              }
+            />
           </div>
 
-          <div className="button" id="Passengers" onClick={this.onFocusChanged}>
+          <div
+            id="Passengers"
+            onClick={this.onFocusChanged}
+            className={"button"}
+          >
             {this.getAdultsPassengersText()}
             {this.state.selected.passengers.children > 0 &&
               this.getChildrenPassengersText()}
