@@ -1,12 +1,20 @@
+@import "../Assets/variables.scss";
+
 .flightSearchPanel {
-  height: 350px;
-  width: 680px;
+  height: $search-form-height;
+  width: $search-form-width;
   background-color: none;
   display: flex;
+  color: $search-form-primary-color;
+
+  .secondary {
+    font-size: $text-size-m;
+    color: $search-form-secondary-color;
+  }
 
   form {
     width: 50%;
-    background-color: cadetblue;
+    background-color: $search-form-background-color;
     display: flex;
     flex-flow: column;
     justify-content: space-between;
@@ -14,13 +22,17 @@
 
     input,
     .button {
-      height: 2.5rem;
+      height: $search-form-input-height;
       box-shadow: none;
       border-radius: 0;
       outline: none;
       border: none;
-      font-size: 1.2rem;
-      background-color: #fff;
+      font-size: $text-size-l;
+      background-color: $search-form-input-background-color;
+
+      &::placeholder {
+        color: $search-form-placeholder-color;
+      }
     }
 
     .button {
@@ -28,9 +40,11 @@
       cursor: pointer;
 
       &>span {
-        line-height: 2.5rem;
+        line-height: $search-form-input-height;
         vertical-align: middle;
       }
+
+      
     }
 
     input[type="text"] {
@@ -38,6 +52,7 @@
     }
 
     input[type="submit"] {
+      color: $search-form-primary-color;
       cursor: pointer;
     }
 
@@ -65,7 +80,7 @@
 
   .sidePanel {
     width: 50%;
-    background-color: #f6f6f6;
+    background-color: $search-side-panel-background-color;
     padding: 1rem 1rem;
     overflow-y: scroll;
 
@@ -87,10 +102,12 @@
     }
 
     .noResults {
+      padding-top: 50%;
     }
 
     &.airportsList {
       .country {
+        font-size: $text-size-l;
         font-weight: bold;
         text-align: left;
         margin-bottom: 0.5rem;
@@ -103,59 +120,60 @@
         cursor: pointer;
 
         .airportName {
-          font-size: 1rem;
+          font-size: $text-size-m;
         }
 
         .airportCode {
-          font-size: 0.8rem;
-          color: grey;
+          font-size: $text-size-s;
+          color: $search-form-secondary-color;
         }
       }
     }
 
     &.passengers {
       div {
-        font-size: 1.5rem;
         margin: auto;
-        height: 2rem;
+        height: $search-form-input-height;
         width: 80%;
         display: flex;
         justify-content: space-between;
         margin: 2rem;
-        border: 2px solid lightgray;
-        background-color: #fff;
+        border: 2px solid $search-form-border-color;
+        background-color: $search-form-input-background-color;
 
         button {
-          font-size: 1.2rem;
-          background-color: #fff;
+          color: $search-form-primary-color;
+          font-size: $text-size-l;
+          background-color: $search-form-input-background-color;
           border-radius: 0;
           outline: none;
           border: none;
-          width: 2rem;
-          height: 2rem;
+          width: $search-form-input-height;
+          height: $search-form-input-height;
           cursor: pointer;
+          
 
           &:active {
             outline: none;
           }
 
           &:hover {
-            background-color: darken(#fff, 5%);
+            background-color: darken($search-form-input-background-color, 5%);
           }
 
           &.disabled {
-            color: darkgray;
+            color: $search-form-disabled-color;
             cursor: initial;
 
             &:hover {
-              background-color: #fff;
+              background-color: $search-form-input-background-color;
             }
           }
         }
 
         span {
           margin: auto;
-          font-size: 1.2rem;
+          font-size: $text-size-l;
           user-select: none;
         }
       }

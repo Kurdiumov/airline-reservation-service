@@ -7,16 +7,16 @@
   align-items: center;
   margin: 0 auto;
   padding: 1rem;
-  font-size: 1.2rem;
+  font-size: $text-size-l;
 
   span.responseError {
     color: red;
-    font-size: 1.2rem;
+    font-size: $text-size-l;
   }
 
   span.error {
     color: red;
-    font-size: 1rem;
+    font-size: $text-size-m;
     width: 100%;
     margin-top: 5px;
     text-align: left;
@@ -31,7 +31,7 @@
       color: #000;
       text-decoration: underline;
       font-weight: bold;
-      font-size: 1.2rem;
+      font-size: $text-size-l;
     }
   }
 
@@ -65,7 +65,7 @@
       min-width: 6rem;
       min-height: 2rem;
       border-radius: 1rem;
-      font-size: 1rem;
+      font-size: $text-size-m;
       cursor: pointer;
     }
   }

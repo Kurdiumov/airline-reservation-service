@@ -230,13 +230,13 @@ class FlightSearchPanel extends Component {
       return (
         <span>
           {adultsCount}
-          <span> Adults </span>
+          <span className="secondary"> adults </span>
         </span>
       );
     return (
       <span>
         {adultsCount}
-        <span> Adult </span>
+        <span className="secondary"> adult </span>
       </span>
     );
   };
@@ -247,13 +247,13 @@ class FlightSearchPanel extends Component {
       return (
         <span>
           {childrenCount}
-          <span> Children </span>
+          <span className="secondary"> children </span>
         </span>
       );
     return (
       <span>
         {childrenCount}
-        <span> Child </span>
+        <span className="secondary"> child </span>
       </span>
     );
   };
@@ -264,13 +264,13 @@ class FlightSearchPanel extends Component {
       return (
         <span>
           {infantsCount}
-          <span> Infants </span>
+          <span className="secondary"> infants </span>
         </span>
       );
     return (
       <span>
         {infantsCount}
-        <span> Infant </span>
+        <span className="secondary"> infant </span>
       </span>
     );
   };
@@ -315,16 +315,17 @@ class FlightSearchPanel extends Component {
       );
     };
 
-    const getPassengers = () => {
+    const getPassengersPanel = () => {
       return (
         <div className="sidePanel passengers">
           <div>
             <button
               className={
-                (this.state.selected.passengers.adults === 1 ||
-                  this.state.selected.passengers.adults ===
-                    this.state.selected.passengers.infants) &&
-                "disabled"
+                this.state.selected.passengers.adults === 1 ||
+                this.state.selected.passengers.adults ===
+                  this.state.selected.passengers.infants
+                  ? "disabled"
+                  : ""
               }
               onClick={() =>
                 this.onAdultPassengersCountChange(
@@ -336,12 +337,13 @@ class FlightSearchPanel extends Component {
             </button>
             <span>
               {this.getAdultsPassengersText()}
-              <span> (14+)</span>
+              <span className="secondary"> (14+)</span>
             </span>
             <button
               className={
-                this.state.selected.passengers.adults === passengersLimit &&
-                "disabled"
+                this.state.selected.passengers.adults === passengersLimit
+                  ? "disabled"
+                  : ""
               }
               onClick={() =>
                 this.onAdultPassengersCountChange(
@@ -356,7 +358,7 @@ class FlightSearchPanel extends Component {
           <div>
             <button
               className={
-                this.state.selected.passengers.children === 0 && "disabled"
+                this.state.selected.passengers.children === 0 ? "disabled" : ""
               }
               onClick={() =>
                 this.onChildPassengersCountChange(
@@ -368,12 +370,13 @@ class FlightSearchPanel extends Component {
             </button>
             <span>
               {this.getChildrenPassengersText()}
-              <span> (2-14)</span>
+              <span className="secondary"> (2-14)</span>
             </span>
             <button
               className={
-                this.state.selected.passengers.children === passengersLimit &&
-                "disabled"
+                this.state.selected.passengers.children === passengersLimit
+                  ? "disabled"
+                  : ""
               }
               onClick={() =>
                 this.onChildPassengersCountChange(
@@ -388,7 +391,7 @@ class FlightSearchPanel extends Component {
           <div>
             <button
               className={
-                this.state.selected.passengers.infants === 0 && "disabled"
+                this.state.selected.passengers.infants === 0 ? "disabled" : ""
               }
               onClick={() =>
                 this.onInfantPassengersCountChange(
@@ -400,12 +403,14 @@ class FlightSearchPanel extends Component {
             </button>
             <span>
               {this.getInfantsPassengersText()}
-              <span> (0-2)</span>
+              <span className="secondary"> (0-2)</span>
             </span>
             <button
               className={
                 this.state.selected.passengers.infants ===
-                  this.state.selected.passengers.adults && "disabled"
+                this.state.selected.passengers.adults
+                  ? "disabled"
+                  : ""
               }
               onClick={() =>
                 this.onInfantPassengersCountChange(
@@ -443,7 +448,7 @@ class FlightSearchPanel extends Component {
           </div>
         )}
 
-        {this.state.focusedInput === "Passengers" && getPassengers()}
+        {this.state.focusedInput === "Passengers" && getPassengersPanel()}
       </div>
     );
   };
