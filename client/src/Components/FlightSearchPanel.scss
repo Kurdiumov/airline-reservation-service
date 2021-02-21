@@ -88,9 +88,29 @@
 
     .searchDates {
       display: flex;
+      justify-content: space-between;
+      position: relative;
 
-      input {
+      .invalid {
+        border: 2px solid red;
+        border-radius: 5px;
+      }
+
+      span {
+        line-height: 1rem;
+        margin: 0.5rem 0 0 1rem;
+        text-align: left;
+        display: block;
+
+        &.secondary {
+          font-weight: bold;
+          margin: 0.5rem 0 0 0.5rem;
+        }
+      }
+
+      div {
         width: 50%;
+        height: $search-form-date-input-height;
 
         &:first-child {
           margin-right: 5px;

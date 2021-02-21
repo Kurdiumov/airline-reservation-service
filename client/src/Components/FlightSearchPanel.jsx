@@ -19,8 +19,8 @@ class FlightSearchPanel extends Component {
       selected: {
         origin: null,
         destination: null,
-        returnDate: null,
-        departureDate: null,
+        returnDate: "One way",
+        departureDate: this.getTodaysDate(),
         passengers: {
           adults: 1,
           children: 0,
@@ -39,6 +39,10 @@ class FlightSearchPanel extends Component {
     this.getAvailableSources();
     this.getAvailableDestinations();
   }
+
+  getTodaysDate = () => {
+    return new Date().toISOString().slice(0, 10);
+  };
 
   getAvailableSources = async () => {
     const json = await this.fetchFromBackend(availableSourcesUrl, {
@@ -73,7 +77,6 @@ class FlightSearchPanel extends Component {
 
   handleSubmit = async (event) => {
     event.preventDefault();
-    console.log("Sending stuff!");
 
     let state = { ...this.state };
 
@@ -104,6 +107,7 @@ class FlightSearchPanel extends Component {
     }
 
     // ToDo: Redirect to search page
+    console.warn("Should redirect to search page here...");
   };
 
   airportClicked = (event) => {
@@ -365,20 +369,31 @@ class FlightSearchPanel extends Component {
             </div>
           </div>
           <div className="searchDates">
-            <input
-              type="text"
-              onFocus={this.onFocusChanged}
+            <div
+              id="DepartureDate"
+              onClick={this.onFocusChanged}
               className={
-                this.state.invalid.departureDateInput === true ? "invalid" : ""
+                this.state.invalid.departureDateInput === true
+                  ? "button invalid"
+                  : "button"
               }
-            />
-            <input
-              type="text"
-              onFocus={this.onFocusChanged}
+            >
+              <span className="secondary">Departure</span>
+              <span>{this.state.selected.departureDate}</span>
+            </div>
+
+            <div
+              id="ReturnDate"
+              onClick={this.onFocusChanged}
               className={
-                this.state.invalid.returnDateInput === true ? "invalid" : ""
+                this.state.invalid.returnDateInput === true
+                  ? "button invalid"
+                  : "button"
               }
-            />
+            >
+              <span className="secondary">Return</span>
+              <span>{this.state.selected.returnDate}</span>
+            </div>
           </div>
 
           <div
@@ -397,7 +412,24 @@ class FlightSearchPanel extends Component {
         </form>
       );
     };
-
+    const getOriginPanel = () => {
+      return (
+        <div className="sidePanel airportsList">
+          {this.getCountriesAndAirportsList(this.state.originInputValue, {
+            ...this.state.data.availableSources
+          })}
+        </div>
+      );
+    };
+    const getDestinationPanel = () => {
+      return (
+        <div className="sidePanel airportsList">
+          {this.getCountriesAndAirportsList(this.state.destinationInputValue, {
+            ...this.state.data.availableDestinations
+          })}
+        </div>
+      );
+    };
     const getPassengersPanel = () => {
       return (
         <div className="sidePanel passengers">
@@ -508,30 +540,30 @@ class FlightSearchPanel extends Component {
         </div>
       );
     };
+    const getDepartureDatePanel = () => {
+      return (
+        <div className="sidePanel departureDate">
+          Departure date picker should appear here
+        </div>
+      );
+    };
+    const getReturnDatePanel = () => {
+      return (
+        <div className="sidePanel returnDate">
+          Return date picker should appear here
+        </div>
+      );
+    };
 
     return (
       <div className="flightSearchPanel">
         {getForm()}
-        {this.state.focusedInput === "Origin" && (
-          <div className="sidePanel airportsList">
-            {this.getCountriesAndAirportsList(this.state.originInputValue, {
-              ...this.state.data.availableSources
-            })}
-          </div>
-        )}
 
-        {this.state.focusedInput === "Destination" && (
-          <div className="sidePanel airportsList">
-            {this.getCountriesAndAirportsList(
-              this.state.destinationInputValue,
-              {
-                ...this.state.data.availableDestinations
-              }
-            )}
-          </div>
-        )}
-
+        {this.state.focusedInput === "Origin" && getOriginPanel()}
+        {this.state.focusedInput === "Destination" && getDestinationPanel()}
         {this.state.focusedInput === "Passengers" && getPassengersPanel()}
+        {this.state.focusedInput === "DepartureDate" && getDepartureDatePanel()}
+        {this.state.focusedInput === "ReturnDate" && getReturnDatePanel()}
       </div>
     );
   };
