@@ -1,7 +1,7 @@
 .flightSearchPanel {
   height: 350px;
   width: 680px;
-  background-color: lightgray;
+  background-color: none;
   display: flex;
 
   form {
@@ -12,17 +12,33 @@
     justify-content: space-between;
     padding: 1rem;
 
-    input {
+    input,
+    .button {
       height: 2.5rem;
       box-shadow: none;
       border-radius: 0;
       outline: none;
       border: none;
       font-size: 1.2rem;
+      background-color: #fff;
+    }
+
+    .button {
+      user-select: none;
+      cursor: pointer;
+
+      &>span {
+        line-height: 2.5rem;
+        vertical-align: middle;
+      }
     }
 
     input[type="text"] {
       padding-left: 1rem;
+    }
+
+    input[type="submit"] {
+      cursor: pointer;
     }
 
     .searchLocations {
@@ -47,9 +63,9 @@
     }
   }
 
-  .flightSearchLocations {
-      width: 50%;
-    background-color: aquamarine;
+  .sidePanel {
+    width: 50%;
+    background-color: #f6f6f6;
     padding: 1rem 1rem;
     overflow-y: scroll;
 
@@ -70,24 +86,78 @@
       }
     }
 
-    .country {
-      font-weight: bold;
-      text-align: left;
-      margin-bottom: 0.5rem;
+    .noResults {
     }
 
-    .airport {
-      display: flex;
-      justify-content: space-between;
-      margin: 0.2rem 0.5rem;
-      cursor: pointer;
-
-      .airportName {
+    &.airportsList {
+      .country {
+        font-weight: bold;
+        text-align: left;
+        margin-bottom: 0.5rem;
       }
 
-      .airportCode {
-        font-size: 0.8rem;
-        color: grey;
+      .airport {
+        display: flex;
+        justify-content: space-between;
+        margin: 0.2rem 0.5rem;
+        cursor: pointer;
+
+        .airportName {
+          font-size: 1rem;
+        }
+
+        .airportCode {
+          font-size: 0.8rem;
+          color: grey;
+        }
+      }
+    }
+
+    &.passengers {
+      div {
+        font-size: 1.5rem;
+        margin: auto;
+        height: 2rem;
+        width: 80%;
+        display: flex;
+        justify-content: space-between;
+        margin: 2rem;
+        border: 2px solid lightgray;
+        background-color: #fff;
+
+        button {
+          font-size: 1.2rem;
+          background-color: #fff;
+          border-radius: 0;
+          outline: none;
+          border: none;
+          width: 2rem;
+          height: 2rem;
+          cursor: pointer;
+
+          &:active {
+            outline: none;
+          }
+
+          &:hover {
+            background-color: darken(#fff, 5%);
+          }
+
+          &.disabled {
+            color: darkgray;
+            cursor: initial;
+
+            &:hover {
+              background-color: #fff;
+            }
+          }
+        }
+
+        span {
+          margin: auto;
+          font-size: 1.2rem;
+          user-select: none;
+        }
       }
     }
   }

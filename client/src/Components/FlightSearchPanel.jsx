@@ -4,6 +4,7 @@ import "./FlightSearchPanel.scss";
 
 const availableSourcesUrl = `${process.env.REACT_APP_API_URL}/api/flights/availableSources`;
 const availableDestinationsUrl = `${process.env.REACT_APP_API_URL}/api/flights/availableSources`; //TODO Change endpoint
+const passengersLimit = 8;
 
 class FlightSearchPanel extends Component {
   constructor(props) {
@@ -17,7 +18,12 @@ class FlightSearchPanel extends Component {
       destinationInputValue: "",
       selected: {
         origin: null,
-        destination: null
+        destination: null,
+        passengers: {
+          adults: 1,
+          children: 0,
+          infants: 0
+        }
       },
       focusedInput: null
     };
@@ -113,6 +119,34 @@ class FlightSearchPanel extends Component {
     this.setState(newState);
   };
 
+  onAdultPassengersCountChange = (newValue) => {
+    if (newValue > passengersLimit) return;
+    if (newValue < 1) return;
+
+    let newState = { ...this.state };
+    newState.selected.passengers.adults = newValue;
+    this.setState(newState);
+  };
+
+  onChildPassengersCountChange = (newValue) => {
+    if (newValue > passengersLimit) return;
+    if (newValue < 0) return;
+
+    let newState = { ...this.state };
+    newState.selected.passengers.children = newValue;
+    this.setState(newState);
+  };
+
+  onInfantPassengersCountChange = (newValue) => {
+    if (newValue > passengersLimit) return;
+    if (newValue < 0) return;
+    if (newValue > this.state.selected.passengers.adults) return;
+
+    let newState = { ...this.state };
+    newState.selected.passengers.infants = newValue;
+    this.setState(newState);
+  };
+
   filterAvailableSources = (sources, filter) => {
     let filtered = {};
 
@@ -137,10 +171,10 @@ class FlightSearchPanel extends Component {
   };
 
   getCountriesAndAirportsList = (filter, sources) => {
-    filter = filter.toLowerCase();
+    filter = filter.toLowerCase().trim();
     const filteredSources = this.filterAvailableSources(sources, filter);
 
-    return Object.keys(filteredSources).map((country) => {
+    const result = Object.keys(filteredSources).map((country) => {
       return (
         <li key={country}>
           <div>
@@ -150,6 +184,14 @@ class FlightSearchPanel extends Component {
         </li>
       );
     });
+    if (result.length === 0) {
+      return (
+        <div className="noResults">
+          There are no results based on your criteria :(
+        </div>
+      );
+    }
+    return <ul>{result}</ul>;
   };
 
   getAirportList = (country) => {
@@ -169,13 +211,64 @@ class FlightSearchPanel extends Component {
 
   onFocusChanged = (event) => {
     let newState = { ...this.state };
-    newState.focusedInput = event.target.id;
+    newState.focusedInput = event.currentTarget.id;
     this.setState(newState);
   };
 
-  render = () => {
+  getAdultsPassengersText = () => {
+    const adultsCount = this.state.selected.passengers.adults;
+    if (adultsCount > 1)
+      return (
+        <span>
+          {adultsCount}
+          <span> Adults </span>
+        </span>
+      );
     return (
-      <div className="flightSearchPanel">
+      <span>
+        {adultsCount}
+        <span> Adult </span>
+      </span>
+    );
+  };
+
+  getChildrenPassengersText = () => {
+    const childrenCount = this.state.selected.passengers.children;
+    if (childrenCount > 1)
+      return (
+        <span>
+          {childrenCount}
+          <span> Children </span>
+        </span>
+      );
+    return (
+      <span>
+        {childrenCount}
+        <span> Child </span>
+      </span>
+    );
+  };
+
+  getInfantsPassengersText = () => {
+    const infantsCount = this.state.selected.passengers.infants;
+    if (infantsCount > 1)
+      return (
+        <span>
+          {infantsCount}
+          <span> Infants </span>
+        </span>
+      );
+    return (
+      <span>
+        {infantsCount}
+        <span> Infant </span>
+      </span>
+    );
+  };
+
+  render = () => {
+    const getForm = () => {
+      return (
         <form onSubmit={this.handleSubmit} autoComplete="off">
           <div className="searchLocations">
             <input
@@ -199,33 +292,149 @@ class FlightSearchPanel extends Component {
             <input type="text" onFocus={this.onFocusChanged} />
             <input type="text" onFocus={this.onFocusChanged} />
           </div>
-          <input type="text" onFocus={this.onFocusChanged} />
+
+          <div className="button" id="Passengers" onClick={this.onFocusChanged}>
+            {this.getAdultsPassengersText()}
+            {this.state.selected.passengers.children > 0 &&
+              this.getChildrenPassengersText()}
+            {this.state.selected.passengers.infants > 0 > 0 &&
+              this.getInfantsPassengersText()}
+          </div>
 
           <input type="submit" value="Search" onFocus={this.onFocusChanged} />
         </form>
+      );
+    };
 
+    const getPassengers = () => {
+        return (<div className="sidePanel passengers">
+            <div>
+              <button
+                className={
+                  (this.state.selected.passengers.adults === 1 ||
+                    this.state.selected.passengers.adults ===
+                      this.state.selected.passengers.infants) &&
+                  "disabled"
+                }
+                onClick={() =>
+                  this.onAdultPassengersCountChange(
+                    this.state.selected.passengers.adults - 1
+                  )
+                }
+              >
+                -
+              </button>
+              <span>
+                {this.getAdultsPassengersText()}
+                <span> (14+)</span>
+              </span>
+              <button
+                className={
+                  this.state.selected.passengers.adults === passengersLimit &&
+                  "disabled"
+                }
+                onClick={() =>
+                  this.onAdultPassengersCountChange(
+                    this.state.selected.passengers.adults + 1
+                  )
+                }
+              >
+                +
+              </button>
+            </div>
+
+            <div>
+              <button
+                className={
+                  this.state.selected.passengers.children === 0 && "disabled"
+                }
+                onClick={() =>
+                  this.onChildPassengersCountChange(
+                    this.state.selected.passengers.children - 1
+                  )
+                }
+              >
+                -
+              </button>
+              <span>
+                {this.getChildrenPassengersText()}
+                <span> (2-14)</span>
+              </span>
+              <button
+                className={
+                  this.state.selected.passengers.children === passengersLimit &&
+                  "disabled"
+                }
+                onClick={() =>
+                  this.onChildPassengersCountChange(
+                    this.state.selected.passengers.children + 1
+                  )
+                }
+              >
+                +
+              </button>
+            </div>
+
+            <div>
+              <button
+                className={
+                  this.state.selected.passengers.infants === 0 && "disabled"
+                }
+                onClick={() =>
+                  this.onInfantPassengersCountChange(
+                    this.state.selected.passengers.infants - 1
+                  )
+                }
+              >
+                -
+              </button>
+              <span>
+                {this.getInfantsPassengersText()}
+                <span> (0-2)</span>
+              </span>
+              <button
+                className={
+                  this.state.selected.passengers.infants ===
+                    this.state.selected.passengers.adults && "disabled"
+                }
+                onClick={() =>
+                  this.onInfantPassengersCountChange(
+                    this.state.selected.passengers.infants + 1
+                  )
+                }
+              >
+                +
+              </button>
+            </div>
+            <p>Choose passengers based on their age at the time of travel.</p>
+          </div>
+        )
+    }
+
+    return (
+      <div className="flightSearchPanel">
+        {getForm()}
         {this.state.focusedInput === "Origin" && (
-          <div className="flightSearchLocations availableSourcesList">
-            <ul>
-              {this.getCountriesAndAirportsList(this.state.originInputValue, {
-                ...this.state.data.availableSources
-              })}
-            </ul>
+          <div className="sidePanel airportsList">
+            {this.getCountriesAndAirportsList(this.state.originInputValue, {
+              ...this.state.data.availableSources
+            })}
           </div>
         )}
 
         {this.state.focusedInput === "Destination" && (
-          <div className="flightSearchLocations availableDestinationsList">
-            <ul>
-              {this.getCountriesAndAirportsList(
-                this.state.destinationInputValue,
-                {
-                  ...this.state.data.availableDestinations
-                }
-              )}
-            </ul>
+          <div className="sidePanel airportsList">
+            {this.getCountriesAndAirportsList(
+              this.state.destinationInputValue,
+              {
+                ...this.state.data.availableDestinations
+              }
+            )}
           </div>
         )}
+
+        {this.state.focusedInput === "Passengers" &&
+          getPassengers()}
       </div>
     );
   };
