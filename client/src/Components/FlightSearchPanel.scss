@@ -3,8 +3,8 @@
 .flightSearchPanel {
   height: $search-form-height;
   width: $search-form-width;
-  background-color: none;
-  display: flex;
+  display: grid;
+  grid-template-columns: 50% 50%;
   color: $search-form-primary-color;
 
   .secondary {
@@ -13,7 +13,6 @@
   }
 
   form {
-    width: 50%;
     background-color: $search-form-background-color;
     display: flex;
     flex-flow: column;
@@ -100,10 +99,10 @@
   }
 
   .sidePanel {
-    width: 50%;
     background-color: $search-side-panel-background-color;
     padding: 1rem 1rem;
     overflow-y: scroll;
+    animation: 0.3s ease-out 0s 1 slideInFromLeft;
 
     ul {
       margin: 0;
@@ -199,5 +198,20 @@
         }
       }
     }
+  }
+}
+
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-75%);
+    opacity: 0%;
+  }
+  75% {
+    opacity: 10%;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 100%;
   }
 }
