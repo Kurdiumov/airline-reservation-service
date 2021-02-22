@@ -1,5 +1,5 @@
-import "./AirportList.scss";
 import React, { Component } from "react";
+import "./AirportList.scss";
 
 class AirportList extends Component {
   getCountriesAndAirportsList = (filter, sources) => {
