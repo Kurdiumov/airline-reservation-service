@@ -10,73 +10,21 @@ import {
 } from "./Passengers";
 import "./FlightSearchPanel.scss";
 
-const availableSourcesUrl = `${process.env.REACT_APP_API_URL}/api/flights/availableSources?`;
-const availableDestinationsUrl = `${process.env.REACT_APP_API_URL}/api/flights/availableDestinations/?`;
-
 class FlightSearchPanel extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: {
-        availableSources: [],
-        availableDestinations: []
-      },
+      focusedInput: null,
       originInputValue: "",
       destinationInputValue: "",
-      selected: {
-        origin: null,
-        destination: null,
-        returnDate: "One way",
-        departureDate: new Date(),
-        passengers: {
-          adults: 1,
-          children: 0,
-          infants: 0
-        }
-      },
       invalid: {
         originInput: false,
         destinationInput: false,
         departureDateInput: false,
         returnDateInput: false
-      },
-      focusedInput: null
-    };
-
-    this.getAvailableSources();
-    this.getAvailableDestinations();
-  }
-
-  getAvailableSources = async () => {
-    const json = await this.fetchFromBackend(availableSourcesUrl, {
-      destination: this.state.selected.destination?.code
-    });
-
-    let newState = { ...this.state };
-    newState.data.availableSources = json.sources;
-    this.setState(newState);
-  };
-
-  getAvailableDestinations = async () => {
-    const json = await this.fetchFromBackend(availableDestinationsUrl, {
-      origin: this.state.selected.origin?.code
-    });
-
-    let newState = { ...this.state };
-    newState.data.availableDestinations = json.destinations;
-    this.setState(newState);
-  };
-
-  fetchFromBackend = async (url, params) => {
-    try {
-      const response = await fetch(url + new URLSearchParams(params));
-      if (response.status === 200) {
-        return await response.json();
       }
-    } catch (err) {
-      console.error(err);
-    }
-  };
+    };
+  }
 
   handleSubmit = async (event) => {
     event.preventDefault();
@@ -84,22 +32,22 @@ class FlightSearchPanel extends Component {
     let state = { ...this.state };
 
     let allInputsAreValid = true;
-    if (!state.selected.origin) {
+    if (!this.props.origin) {
       state.invalid.originInput = true;
       allInputsAreValid = false;
     }
 
-    if (!state.selected.destination) {
+    if (!this.props.destination) {
       state.invalid.destinationInput = true;
       allInputsAreValid = false;
     }
 
-    if (!state.selected.departureDate) {
+    if (!this.props.departureDate) {
       state.invalid.departureDateInput = true;
       allInputsAreValid = false;
     }
 
-    if (!state.selected.returnDate) {
+    if (!this.props.returnDate) {
       state.invalid.returnDateInput = true;
       allInputsAreValid = false;
     }
@@ -109,75 +57,60 @@ class FlightSearchPanel extends Component {
       return;
     }
 
-    // ToDo: Redirect to search page
-    console.warn("Should redirect to search page here...");
+    this.props.handleSubmit();
   };
 
   setOrigin = (airport) => {
     let newState = { ...this.state };
-    newState.selected.origin = airport;
     newState.originInputValue = airport.name;
     newState.invalid.originInput = false;
     newState.focusedInput = null;
     this.setState(newState);
-
-    this.getAvailableDestinations();
+    this.props.changeOrigin(airport);
   };
 
   setDestination = (airport) => {
     let newState = { ...this.state };
-    newState.selected.destination = airport;
     newState.destinationInputValue = airport.name;
     newState.invalid.destinationInput = false;
     newState.focusedInput = null;
     this.setState(newState);
-
-    this.getAvailableSources();
+    this.props.changeDestination(airport);
   };
 
   setDepartureDate = (date) => {
     let newState = { ...this.state };
-    newState.selected.departureDate = date;
     newState.focusedInput = null;
     this.setState(newState);
+    this.props.changeDepartureDate(date);
   };
 
   setReturnDate = (date) => {
     let newState = { ...this.state };
-    newState.selected.departureDate = date;
     newState.focusedInput = null;
     this.setState(newState);
+    this.props.changeReturnDate(date);
   };
 
   onOriginInputChange = (event) => {
     let newState = { ...this.state };
     newState.originInputValue = event.target.value;
     newState.invalid.originInput = false;
-    newState.selected.origin = null;
     this.setState(newState);
-
-    this.getAvailableDestinations();
+    this.props.changeOrigin(null);
   };
 
   onDestinationInputChange = (event) => {
     let newState = { ...this.state };
     newState.destinationInputValue = event.target.value;
     newState.invalid.destinationInput = false;
-    newState.selected.destination = null;
     this.setState(newState);
-
-    this.getAvailableSources();
+    this.props.changeDestination(null);
   };
 
   onFocusChanged = (event) => {
     let newState = { ...this.state };
     newState.focusedInput = event.currentTarget.id;
-    this.setState(newState);
-  };
-
-  handlePassengersCountChange = (state) => {
-    let newState = { ...this.state };
-    newState.selected.passengers = state;
     this.setState(newState);
   };
 
@@ -210,7 +143,7 @@ class FlightSearchPanel extends Component {
                 onClick={this.onFocusChanged}
                 className="airportCode"
               >
-                {this.state.selected.origin?.code}
+                {this.props.origin?.code}
               </span>
             </div>
             <div>
@@ -230,7 +163,7 @@ class FlightSearchPanel extends Component {
                 onClick={this.onFocusChanged}
                 className="airportCode"
               >
-                {this.state.selected.destination?.code}
+                {this.props.destination?.code}
               </span>
             </div>
           </div>
@@ -245,9 +178,7 @@ class FlightSearchPanel extends Component {
               }
             >
               <span className="secondary">Departure</span>
-              <span>
-                {this.getPrettyDate(this.state.selected.departureDate)}
-              </span>
+              <span>{this.getPrettyDate(this.props.departureDate)}</span>
             </div>
 
             <div
@@ -260,7 +191,7 @@ class FlightSearchPanel extends Component {
               }
             >
               <span className="secondary">Return</span>
-              <span>{this.getPrettyDate(this.state.selected.returnDate)}</span>
+              <span>{this.getPrettyDate(this.props.returnDate)}</span>
             </div>
           </div>
 
@@ -269,13 +200,11 @@ class FlightSearchPanel extends Component {
             onClick={this.onFocusChanged}
             className={"button"}
           >
-            {getAdultsPassengersText(this.state.selected.passengers.adults)}
-            {this.state.selected.passengers.children > 0 &&
-              getChildrenPassengersText(
-                this.state.selected.passengers.children
-              )}
-            {this.state.selected.passengers.infants > 0 > 0 &&
-              getInfantsPassengersText(this.state.selected.passengers.infants)}
+            {getAdultsPassengersText(this.props.passengers.adults)}
+            {this.props.passengers.children > 0 &&
+              getChildrenPassengersText(this.props.passengers.children)}
+            {this.props.passengers.infants > 0 > 0 &&
+              getInfantsPassengersText(this.props.passengers.infants)}
           </div>
 
           <input type="submit" value="Search" onFocus={this.onFocusChanged} />
@@ -299,26 +228,26 @@ class FlightSearchPanel extends Component {
             {this.state.focusedInput === "Origin" && (
               <AirportList
                 filter={this.state.originInputValue}
-                sources={this.state.data.availableSources}
+                sources={this.props.data.availableSources}
                 airportClickHandler={this.setOrigin}
               />
             )}
             {this.state.focusedInput === "Destination" && (
               <AirportList
                 filter={this.state.destinationInputValue}
-                sources={this.state.data.availableDestinations}
+                sources={this.props.data.availableDestinations}
                 airportClickHandler={this.setDestination}
               />
             )}
             {this.state.focusedInput === "Passengers" && (
               <Passengers
-                passengers={this.state.selected.passengers}
-                onPassengersCountChange={this.handlePassengersCountChange}
+                passengers={this.props.passengers}
+                onPassengersCountChange={this.props.changePassengers}
               />
             )}
             {this.state.focusedInput === "DepartureDate" && (
               <Calendar
-                departureDate={this.state.selected.departureDate}
+                departureDate={this.props.departureDate}
                 setDepartureDate={this.setDepartureDate}
               />
             )}

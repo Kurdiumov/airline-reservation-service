@@ -1,10 +1,10 @@
 import React from "react";
-import FlightSearchPanel from "../Components/Search/FlightSearchPanel";
+import FlightSearch from "../Components/Search/FlightSearch";
 
 function HomePage() {
   return (
     <div className="content">
-      <FlightSearchPanel></FlightSearchPanel>
+      <FlightSearch></FlightSearch>
     </div>
   );
 }
