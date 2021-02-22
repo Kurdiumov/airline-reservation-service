@@ -1,5 +1,5 @@
 import React from "react";
-import FlightSearchPanel from "../Components/FlightSearchPanel";
+import FlightSearchPanel from "../Components/Search/FlightSearchPanel";
 
 function HomePage() {
   return (

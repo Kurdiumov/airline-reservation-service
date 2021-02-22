@@ -3,10 +3,15 @@ import { connect } from "react-redux";
 import Calendar from "react-calendar";
 import "./FlightSearchPanel.scss";
 import "./Calendar.scss";
+import {
+  Passengers,
+  getAdultsPassengersText,
+  getChildrenPassengersText,
+  getInfantsPassengersText
+} from "./Passengers";
 
 const availableSourcesUrl = `${process.env.REACT_APP_API_URL}/api/flights/availableSources?`;
 const availableDestinationsUrl = `${process.env.REACT_APP_API_URL}/api/flights/availableDestinations/?`;
-const passengersLimit = 8;
 
 class FlightSearchPanel extends Component {
   constructor(props) {
@@ -187,34 +192,6 @@ class FlightSearchPanel extends Component {
     this.getAvailableSources();
   };
 
-  onAdultPassengersCountChange = (newValue) => {
-    if (newValue > passengersLimit) return;
-    if (newValue < 1) return;
-
-    let newState = { ...this.state };
-    newState.selected.passengers.adults = newValue;
-    this.setState(newState);
-  };
-
-  onChildPassengersCountChange = (newValue) => {
-    if (newValue > passengersLimit) return;
-    if (newValue < 0) return;
-
-    let newState = { ...this.state };
-    newState.selected.passengers.children = newValue;
-    this.setState(newState);
-  };
-
-  onInfantPassengersCountChange = (newValue) => {
-    if (newValue > passengersLimit) return;
-    if (newValue < 0) return;
-    if (newValue > this.state.selected.passengers.adults) return;
-
-    let newState = { ...this.state };
-    newState.selected.passengers.infants = newValue;
-    this.setState(newState);
-  };
-
   filterAvailableSources = (sources, filter) => {
     let filtered = {};
 
@@ -283,57 +260,6 @@ class FlightSearchPanel extends Component {
     this.setState(newState);
   };
 
-  getAdultsPassengersText = () => {
-    const adultsCount = this.state.selected.passengers.adults;
-    if (adultsCount > 1)
-      return (
-        <span>
-          {adultsCount}
-          <span className="secondary"> adults </span>
-        </span>
-      );
-    return (
-      <span>
-        {adultsCount}
-        <span className="secondary"> adult </span>
-      </span>
-    );
-  };
-
-  getChildrenPassengersText = () => {
-    const childrenCount = this.state.selected.passengers.children;
-    if (childrenCount > 1)
-      return (
-        <span>
-          {childrenCount}
-          <span className="secondary"> children </span>
-        </span>
-      );
-    return (
-      <span>
-        {childrenCount}
-        <span className="secondary"> child </span>
-      </span>
-    );
-  };
-
-  getInfantsPassengersText = () => {
-    const infantsCount = this.state.selected.passengers.infants;
-    if (infantsCount > 1)
-      return (
-        <span>
-          {infantsCount}
-          <span className="secondary"> infants </span>
-        </span>
-      );
-    return (
-      <span>
-        {infantsCount}
-        <span className="secondary"> infant </span>
-      </span>
-    );
-  };
-
   getPrettyDate = (date) => {
     if (date?.getTime) {
       return date.toLocaleDateString();
@@ -342,10 +268,16 @@ class FlightSearchPanel extends Component {
   };
 
   shouldDateBeDisabled = (arg) => {
-    const {date, activeStartDate} = arg;
+    const { date, activeStartDate } = arg;
     // TODO Check if there are any flights on this date
     return false;
-  }
+  };
+
+  handlePassengersCountChange = (state) => {
+    let newState = { ...this.state };
+    newState.selected.passengers = state;
+    this.setState(newState);
+  };
 
   render = () => {
     const getForm = () => {
@@ -428,11 +360,13 @@ class FlightSearchPanel extends Component {
             onClick={this.onFocusChanged}
             className={"button"}
           >
-            {this.getAdultsPassengersText()}
+            {getAdultsPassengersText(this.state.selected.passengers.adults)}
             {this.state.selected.passengers.children > 0 &&
-              this.getChildrenPassengersText()}
+              getChildrenPassengersText(
+                this.state.selected.passengers.children
+              )}
             {this.state.selected.passengers.infants > 0 > 0 &&
-              this.getInfantsPassengersText()}
+              getInfantsPassengersText(this.state.selected.passengers.infants)}
           </div>
 
           <input type="submit" value="Search" onFocus={this.onFocusChanged} />
@@ -457,123 +391,17 @@ class FlightSearchPanel extends Component {
         </div>
       );
     };
-    const getPassengersPanel = () => {
-      return (
-        <div className="sidePanel passengers">
-          <div>
-            <button
-              className={
-                this.state.selected.passengers.adults === 1 ||
-                this.state.selected.passengers.adults ===
-                  this.state.selected.passengers.infants
-                  ? "disabled"
-                  : ""
-              }
-              onClick={() =>
-                this.onAdultPassengersCountChange(
-                  this.state.selected.passengers.adults - 1
-                )
-              }
-            >
-              -
-            </button>
-            <span>
-              {this.getAdultsPassengersText()}
-              <span className="secondary"> (14+)</span>
-            </span>
-            <button
-              className={
-                this.state.selected.passengers.adults === passengersLimit
-                  ? "disabled"
-                  : ""
-              }
-              onClick={() =>
-                this.onAdultPassengersCountChange(
-                  this.state.selected.passengers.adults + 1
-                )
-              }
-            >
-              +
-            </button>
-          </div>
-
-          <div>
-            <button
-              className={
-                this.state.selected.passengers.children === 0 ? "disabled" : ""
-              }
-              onClick={() =>
-                this.onChildPassengersCountChange(
-                  this.state.selected.passengers.children - 1
-                )
-              }
-            >
-              -
-            </button>
-            <span>
-              {this.getChildrenPassengersText()}
-              <span className="secondary"> (2-14)</span>
-            </span>
-            <button
-              className={
-                this.state.selected.passengers.children === passengersLimit
-                  ? "disabled"
-                  : ""
-              }
-              onClick={() =>
-                this.onChildPassengersCountChange(
-                  this.state.selected.passengers.children + 1
-                )
-              }
-            >
-              +
-            </button>
-          </div>
-
-          <div>
-            <button
-              className={
-                this.state.selected.passengers.infants === 0 ? "disabled" : ""
-              }
-              onClick={() =>
-                this.onInfantPassengersCountChange(
-                  this.state.selected.passengers.infants - 1
-                )
-              }
-            >
-              -
-            </button>
-            <span>
-              {this.getInfantsPassengersText()}
-              <span className="secondary"> (0-2)</span>
-            </span>
-            <button
-              className={
-                this.state.selected.passengers.infants ===
-                this.state.selected.passengers.adults
-                  ? "disabled"
-                  : ""
-              }
-              onClick={() =>
-                this.onInfantPassengersCountChange(
-                  this.state.selected.passengers.infants + 1
-                )
-              }
-            >
-              +
-            </button>
-          </div>
-          <p>Choose passengers based on their age at the time of travel.</p>
-        </div>
-      );
-    };
     const getDepartureDatePanel = () => {
       return (
         <div className="sidePanel departureDate">
           <Calendar
             onChange={this.setDepartureDate}
             tileDisabled={this.shouldDateBeDisabled}
-            defaultValue={this.state.selected.departureDate.getTime ? this.state.selected.departureDate : new Date()}
+            defaultValue={
+              this.state.selected.departureDate.getTime
+                ? this.state.selected.departureDate
+                : new Date()
+            }
             prev2Label={null}
             next2Label={null}
             minDate={new Date()}
@@ -597,12 +425,21 @@ class FlightSearchPanel extends Component {
     return (
       <div className="flightSearchPanel">
         {getForm()}
-
-        {this.state.focusedInput === "Origin" && getOriginPanel()}
-        {this.state.focusedInput === "Destination" && getDestinationPanel()}
-        {this.state.focusedInput === "Passengers" && getPassengersPanel()}
-        {this.state.focusedInput === "DepartureDate" && getDepartureDatePanel()}
-        {this.state.focusedInput === "ReturnDate" && getReturnDatePanel()}
+        {this.state.focusedInput && (
+          <div className="sidePanel">
+            {this.state.focusedInput === "Origin" && getOriginPanel()}
+            {this.state.focusedInput === "Destination" && getDestinationPanel()}
+            {this.state.focusedInput === "Passengers" && (
+              <Passengers
+                passengers={this.state.selected.passengers}
+                onPassengersCountChange={this.handlePassengersCountChange}
+              />
+            )}
+            {this.state.focusedInput === "DepartureDate" &&
+              getDepartureDatePanel()}
+            {this.state.focusedInput === "ReturnDate" && getReturnDatePanel()}
+          </div>
+        )}
       </div>
     );
   };
