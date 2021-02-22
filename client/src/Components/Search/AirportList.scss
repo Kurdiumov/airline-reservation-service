@@ -1,0 +1,34 @@
+@import "../../Assets/variables.scss";
+
+.airportsList {
+  .country {
+    font-size: $text-size-l;
+    font-weight: bold;
+    text-align: left;
+    cursor: default;
+  }
+
+  .airport {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    padding: 0.2rem 0.5rem;
+    cursor: pointer;
+
+    .airportName {
+      font-size: $text-size-m;
+    }
+
+    .airportCode {
+      font-size: $text-size-s;
+      color: $search-form-secondary-color;
+      position: absolute;
+      bottom: 5px;
+      right: 0.5rem;
+    }
+
+    &:hover {
+      background-color: lighten($search-side-panel-background-color, 30%);
+    }
+  }
+}

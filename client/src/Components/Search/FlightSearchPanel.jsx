@@ -1,14 +1,15 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import Calendar from "react-calendar";
-import "./FlightSearchPanel.scss";
-import "./Calendar.scss";
+import AirportList from "./AirportList";
 import {
   Passengers,
   getAdultsPassengersText,
   getChildrenPassengersText,
   getInfantsPassengersText
 } from "./Passengers";
+import "./FlightSearchPanel.scss";
+import "./Calendar.scss";
 
 const availableSourcesUrl = `${process.env.REACT_APP_API_URL}/api/flights/availableSources?`;
 const availableDestinationsUrl = `${process.env.REACT_APP_API_URL}/api/flights/availableDestinations/?`;
@@ -113,29 +114,6 @@ class FlightSearchPanel extends Component {
     console.warn("Should redirect to search page here...");
   };
 
-  airportClicked = (event) => {
-    const airportCode = event.currentTarget.getElementsByClassName(
-      "airportCode"
-    )[0].innerText;
-    const airportName = event.currentTarget.getElementsByClassName(
-      "airportName"
-    )[0].innerText;
-
-    if (this.state.focusedInput === "Origin") {
-      this.setOrigin({
-        name: airportName,
-        code: airportCode
-      });
-    } else if (this.state.focusedInput === "Destination") {
-      this.setDestination({
-        name: airportName,
-        code: airportCode
-      });
-    } else {
-      throw new Error("How you clicked on airport if list is not visible?!");
-    }
-  };
-
   setOrigin = (airport) => {
     let newState = { ...this.state };
     newState.selected.origin = airport;
@@ -190,68 +168,6 @@ class FlightSearchPanel extends Component {
     this.setState(newState);
 
     this.getAvailableSources();
-  };
-
-  filterAvailableSources = (sources, filter) => {
-    let filtered = {};
-
-    Object.keys(sources).forEach((country) => {
-      if (country.toLowerCase().startsWith(filter)) {
-        filtered[country] = sources[country];
-        return;
-      }
-
-      const filteredAirports = sources[country].filter(
-        (airport) =>
-          airport.name.toLowerCase().includes(filter) ||
-          airport.code.toLowerCase().includes(filter)
-      );
-
-      if (filteredAirports.length > 0) {
-        filtered[country] = filteredAirports;
-      }
-    });
-
-    return filtered;
-  };
-
-  getCountriesAndAirportsList = (filter, sources) => {
-    filter = filter.toLowerCase().trim();
-    const filteredSources = this.filterAvailableSources(sources, filter);
-
-    const result = Object.keys(filteredSources).map((country) => {
-      return (
-        <li key={country}>
-          <div>
-            <p className="country">{country}</p>
-            {this.getAirportList(filteredSources[country], filter)}
-          </div>
-        </li>
-      );
-    });
-    if (result.length === 0) {
-      return (
-        <div className="noResults">
-          There are no results based on your criteria :(
-        </div>
-      );
-    }
-    return <ul>{result}</ul>;
-  };
-
-  getAirportList = (country) => {
-    return country.map((airport) => {
-      return (
-        <span
-          key={airport.code}
-          className="airport"
-          onClick={this.airportClicked}
-        >
-          <p className="airportName">{airport.name}</p>
-          <p className="airportCode"> {airport.code}</p>
-        </span>
-      );
-    });
   };
 
   onFocusChanged = (event) => {
@@ -373,24 +289,7 @@ class FlightSearchPanel extends Component {
         </form>
       );
     };
-    const getOriginPanel = () => {
-      return (
-        <div className="sidePanel airportsList">
-          {this.getCountriesAndAirportsList(this.state.originInputValue, {
-            ...this.state.data.availableSources
-          })}
-        </div>
-      );
-    };
-    const getDestinationPanel = () => {
-      return (
-        <div className="sidePanel airportsList">
-          {this.getCountriesAndAirportsList(this.state.destinationInputValue, {
-            ...this.state.data.availableDestinations
-          })}
-        </div>
-      );
-    };
+
     const getDepartureDatePanel = () => {
       return (
         <div className="sidePanel departureDate">
@@ -427,8 +326,20 @@ class FlightSearchPanel extends Component {
         {getForm()}
         {this.state.focusedInput && (
           <div className="sidePanel">
-            {this.state.focusedInput === "Origin" && getOriginPanel()}
-            {this.state.focusedInput === "Destination" && getDestinationPanel()}
+            {this.state.focusedInput === "Origin" && (
+              <AirportList
+                filter={this.state.originInputValue}
+                sources={this.state.data.availableSources}
+                airportClickHandler={this.setOrigin}
+              />
+            )}
+            {this.state.focusedInput === "Destination" && (
+              <AirportList
+                filter={this.state.destinationInputValue}
+                sources={this.state.data.availableDestinations}
+                airportClickHandler={this.setDestination}
+              />
+            )}
             {this.state.focusedInput === "Passengers" && (
               <Passengers
                 passengers={this.state.selected.passengers}
