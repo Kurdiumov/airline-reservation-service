@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
 import AirportList from "./AirportList";
 import Calendar from "./Calendar";
 import {
@@ -259,4 +258,4 @@ class FlightSearchPanel extends Component {
   };
 }
 
-export default connect(null, {})(FlightSearchPanel);
+export default FlightSearchPanel;

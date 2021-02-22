@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import FlightSearchPanel from "./FlightSearchPanel";
 
 const availableSourcesUrl = `${process.env.REACT_APP_API_URL}/api/flights/availableSources?`;
@@ -115,4 +116,4 @@ class FlightSearch extends Component {
   };
 }
 
-export default FlightSearch;
+export default connect(null, {})(FlightSearch);
