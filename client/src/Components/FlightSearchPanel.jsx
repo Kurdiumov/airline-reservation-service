@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import Calendar from "react-calendar";
 import "./FlightSearchPanel.scss";
+import "./Calendar.scss";
 
 const availableSourcesUrl = `${process.env.REACT_APP_API_URL}/api/flights/availableSources?`;
 const availableDestinationsUrl = `${process.env.REACT_APP_API_URL}/api/flights/availableDestinations/?`;
@@ -20,7 +22,7 @@ class FlightSearchPanel extends Component {
         origin: null,
         destination: null,
         returnDate: "One way",
-        departureDate: this.getTodaysDate(),
+        departureDate: new Date(),
         passengers: {
           adults: 1,
           children: 0,
@@ -39,10 +41,6 @@ class FlightSearchPanel extends Component {
     this.getAvailableSources();
     this.getAvailableDestinations();
   }
-
-  getTodaysDate = () => {
-    return new Date().toISOString().slice(0, 10);
-  };
 
   getAvailableSources = async () => {
     const json = await this.fetchFromBackend(availableSourcesUrl, {
@@ -153,6 +151,20 @@ class FlightSearchPanel extends Component {
     this.setState(newState);
 
     this.getAvailableSources();
+  };
+
+  setDepartureDate = (date) => {
+    let newState = { ...this.state };
+    newState.selected.departureDate = date;
+    newState.focusedInput = null;
+    this.setState(newState);
+  };
+
+  setReturnDate = (date) => {
+    let newState = { ...this.state };
+    newState.selected.departureDate = date;
+    newState.focusedInput = null;
+    this.setState(newState);
   };
 
   onOriginInputChange = (event) => {
@@ -322,6 +334,19 @@ class FlightSearchPanel extends Component {
     );
   };
 
+  getPrettyDate = (date) => {
+    if (date?.getTime) {
+      return date.toLocaleDateString();
+    }
+    return date;
+  };
+
+  shouldDateBeDisabled = (arg) => {
+    const {date, activeStartDate} = arg;
+    // TODO Check if there are any flights on this date
+    return false;
+  }
+
   render = () => {
     const getForm = () => {
       return (
@@ -379,7 +404,9 @@ class FlightSearchPanel extends Component {
               }
             >
               <span className="secondary">Departure</span>
-              <span>{this.state.selected.departureDate}</span>
+              <span>
+                {this.getPrettyDate(this.state.selected.departureDate)}
+              </span>
             </div>
 
             <div
@@ -392,7 +419,7 @@ class FlightSearchPanel extends Component {
               }
             >
               <span className="secondary">Return</span>
-              <span>{this.state.selected.returnDate}</span>
+              <span>{this.getPrettyDate(this.state.selected.returnDate)}</span>
             </div>
           </div>
 
@@ -543,7 +570,19 @@ class FlightSearchPanel extends Component {
     const getDepartureDatePanel = () => {
       return (
         <div className="sidePanel departureDate">
-          Departure date picker should appear here
+          <Calendar
+            onChange={this.setDepartureDate}
+            tileDisabled={this.shouldDateBeDisabled}
+            defaultValue={this.state.selected.departureDate.getTime ? this.state.selected.departureDate : new Date()}
+            prev2Label={null}
+            next2Label={null}
+            minDate={new Date()}
+            maxDate={(function () {
+              let date = new Date();
+              date.setMonth(date.getMonth() + 3);
+              return date;
+            })()}
+          ></Calendar>
         </div>
       );
     };
