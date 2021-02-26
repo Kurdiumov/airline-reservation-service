@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import HomePage from "./HomePage";
 import LogInPage from "./LogInPage";
 import SignUpPage from "./SignUpPage";
+import FlightSearchResultsPage from "./FlightSearchResultsPage";
 import NavBar from "../Components/NavBar";
 
 const AppRouter = () => {
@@ -14,6 +15,7 @@ const AppRouter = () => {
           <Route path="/" component={HomePage} exact={true} />
           <Route path="/signup" component={SignUpPage} exact={true} />
           <Route path="/login" component={LogInPage} exact={true} />
+          <Route path="/search" component={FlightSearchResultsPage} exact={true} />
         </Switch>
       </div>
     </BrowserRouter>

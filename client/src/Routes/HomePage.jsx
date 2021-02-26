@@ -1,10 +1,10 @@
 import React from "react";
 import FlightSearch from "../Components/Search/FlightSearch";
 
-function HomePage() {
+function HomePage(props) {
   return (
     <div className="content">
-      <FlightSearch></FlightSearch>
+      <FlightSearch history={props.history}></FlightSearch>
     </div>
   );
 }

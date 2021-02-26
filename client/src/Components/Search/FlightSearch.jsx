@@ -92,8 +92,26 @@ class FlightSearch extends Component {
   };
 
   onSubmit = () => {
-    // ToDo: Redirect to search page
-    console.warn("Should redirect to search page here...");
+    const departureDate = this.state.departureDate.toISOString().slice(0, 10);
+    let returnDate = null;
+    if (this.state.returnDate.getTime) {
+      returnDate = this.state.returnDate.toISOString().slice(0, 10);
+    }
+
+    this.props.history.push({
+      pathname: "/search",
+      state: {
+        origin: this.state.origin.code,
+        destination: this.state.destination.code,
+        departureDate: departureDate,
+        returnDate: returnDate,
+        passengers: {
+          adults: this.state.passengers.adults,
+          children: this.state.passengers.children,
+          infants: this.state.passengers.infants
+        }
+      }
+    });
   };
 
   render = () => {
