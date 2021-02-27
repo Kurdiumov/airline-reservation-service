@@ -5,26 +5,20 @@ import Airport from "../model/Airport.js";
 const router = express.Router();
 
 router.get("/availableSources", async (req, res) => {
-  let flights;
+  let origins;
   const result = {};
-  const processedAirports = [];
 
   try {
     if (req.query.destination) {
-      flights = await Flight.find({
+      origins = await Flight.distinct("origin", {
         destination: req.query.destination.toUpperCase()
       });
     } else {
-      flights = await Flight.find();
+      origins = await Flight.distinct("origin");
     }
 
-    for (const flight of flights) {
-      if (processedAirports.includes(flight.origin)) {
-        continue;
-      }
-      processedAirports.push(flight.origin);
-
-      const airport = await Airport.findOne({ code: flight.origin });
+    for (const origin of origins) {
+      const airport = await Airport.findOne({ code: origin });
       if (!result[airport.country]) {
         result[airport.country] = [];
       }
@@ -45,26 +39,20 @@ router.get("/availableSources", async (req, res) => {
 });
 
 router.get("/availableDestinations", async (req, res) => {
-  let flights;
+  let destinations;
   const result = {};
-  const processedAirports = [];
 
   try {
     if (req.query.origin) {
-      flights = await Flight.find({
+      destinations = await Flight.distinct("destination", {
         origin: req.query.origin.toUpperCase()
       });
     } else {
-      flights = await Flight.find();
+      destinations = await Flight.distinct("destination");
     }
 
-    for (const flight of flights) {
-      if (processedAirports.includes(flight.destination)) {
-        continue;
-      }
-      processedAirports.push(flight.destination);
-
-      const airport = await Airport.findOne({ code: flight.destination });
+    for (const destination of destinations) {
+      const airport = await Airport.findOne({ code: destination });
       if (!result[airport.country]) {
         result[airport.country] = [];
       }
