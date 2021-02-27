@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import FlightSearchPanel from "./FlightSearchPanel";
 
 const availableSourcesUrl = `${process.env.REACT_APP_API_URL}/api/flights/availableSources?`;
-const availableDestinationsUrl = `${process.env.REACT_APP_API_URL}/api/flights/availableDestinations/?`;
+const availableDestinationsUrl = `${process.env.REACT_APP_API_URL}/api/flights/availableDestinations?`;
 
 class FlightSearch extends Component {
   constructor(props) {
@@ -28,20 +28,30 @@ class FlightSearch extends Component {
     this.getAvailableDestinations();
   }
 
-  getAvailableSources = async () => {
-    const json = await this.fetchFromBackend(availableSourcesUrl, {
-      destination: this.state.destination?.code
-    });
+  getAvailableSources = async (destinationCode) => {
+    const json = await this.fetchFromBackend(
+      availableSourcesUrl,
+      destinationCode
+        ? {
+            destination: destinationCode
+          }
+        : null
+    );
 
     let newState = { ...this.state };
     newState.data.availableSources = json.sources;
     this.setState(newState);
   };
 
-  getAvailableDestinations = async () => {
-    const json = await this.fetchFromBackend(availableDestinationsUrl, {
-      origin: this.state.origin?.code
-    });
+  getAvailableDestinations = async (originCode) => {
+    const json = await this.fetchFromBackend(
+      availableDestinationsUrl,
+      originCode
+        ? {
+            origin: originCode
+          }
+        : null
+    );
 
     let newState = { ...this.state };
     newState.data.availableDestinations = json.destinations;
@@ -50,7 +60,11 @@ class FlightSearch extends Component {
 
   fetchFromBackend = async (url, params) => {
     try {
-      const response = await fetch(url + new URLSearchParams(params));
+      let fullUrl = url;
+      if (params) {
+        fullUrl += new URLSearchParams(params);
+      }
+      const response = await fetch(fullUrl);
       if (response.status === 200) {
         return await response.json();
       }
@@ -63,14 +77,14 @@ class FlightSearch extends Component {
     let newState = { ...this.state };
     newState.origin = airport;
     this.setState(newState);
-    this.getAvailableDestinations();
+    this.getAvailableDestinations(airport?.code);
   };
 
   setDestination = (airport) => {
     let newState = { ...this.state };
     newState.destination = airport;
     this.setState(newState);
-    this.getAvailableSources();
+    this.getAvailableSources(airport?.code);
   };
 
   setDepartureDate = (date) => {

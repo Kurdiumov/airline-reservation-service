@@ -96,7 +96,9 @@ class FlightSearchPanel extends Component {
     newState.originInputValue = event.target.value;
     newState.invalid.originInput = false;
     this.setState(newState);
-    this.props.changeOrigin(null);
+    if (this.props.origin != null) {
+      this.props.changeOrigin(null);
+    }
   };
 
   onDestinationInputChange = (event) => {
@@ -104,7 +106,9 @@ class FlightSearchPanel extends Component {
     newState.destinationInputValue = event.target.value;
     newState.invalid.destinationInput = false;
     this.setState(newState);
-    this.props.changeDestination(null);
+    if (this.props.destination != null) {
+      this.props.changeDestination(null);
+    }
   };
 
   onFocusChanged = (event) => {
