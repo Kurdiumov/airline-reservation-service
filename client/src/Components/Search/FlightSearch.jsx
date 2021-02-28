@@ -5,6 +5,7 @@ import { getLocaleDateString } from "../../utils.js";
 
 const availableSourcesUrl = `${process.env.REACT_APP_API_URL}/api/flights/availableSources?`;
 const availableDestinationsUrl = `${process.env.REACT_APP_API_URL}/api/flights/availableDestinations?`;
+const availableDatesUrl = `${process.env.REACT_APP_API_URL}/api/flights/availableDates?`;
 
 class FlightSearch extends Component {
   constructor(props) {
@@ -12,7 +13,8 @@ class FlightSearch extends Component {
     this.state = {
       data: {
         availableSources: [],
-        availableDestinations: []
+        availableDestinations: [],
+        availableDepartureDates: []
       },
       destination: null,
       origin: null,
@@ -24,7 +26,8 @@ class FlightSearch extends Component {
         infants: 0
       },
       originsLoading: true,
-      destinationsLoading: true
+      destinationsLoading: true,
+      departureDatesLoading: true
     };
   }
 
@@ -73,6 +76,28 @@ class FlightSearch extends Component {
     this.setState(newState);
   };
 
+  getAvailableDepartureDates = async (originCode, destinationCode) => {
+    if (!originCode || !destinationCode) {
+      return;
+    }
+
+    let newState = { ...this.state };
+    newState.departureDatesLoading = true;
+    this.setState(newState);
+
+    const json = await this.fetchFromBackend(availableDatesUrl, {
+      origin: originCode,
+      destination: destinationCode
+    });
+
+    const dates = json.dates.map((date) => getLocaleDateString(new Date(date)));
+
+    newState = { ...this.state };
+    newState.data.availableDepartureDates = dates;
+    newState.departureDatesLoading = false;
+    this.setState(newState);
+  };
+
   fetchFromBackend = async (url, params) => {
     try {
       let fullUrl = url;
@@ -93,6 +118,10 @@ class FlightSearch extends Component {
     newState.origin = airport;
     await this.setState(newState);
     this.getAvailableDestinations(airport?.code);
+    this.getAvailableDepartureDates(
+      this.state.origin?.code,
+      this.state.destination?.code
+    );
   };
 
   setDestination = async (airport) => {
@@ -100,6 +129,10 @@ class FlightSearch extends Component {
     newState.destination = airport;
     await this.setState(newState);
     this.getAvailableSources(airport?.code);
+    this.getAvailableDepartureDates(
+      this.state.origin?.code,
+      this.state.destination?.code
+    );
   };
 
   setDepartureDate = (date) => {

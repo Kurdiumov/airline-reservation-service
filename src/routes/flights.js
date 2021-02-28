@@ -111,4 +111,33 @@ router.get("/availableDestinations", async (req, res) => {
   }
 });
 
+router.get("/availableDates", async (req, res) => {
+  try {
+    if (!req.query.origin) {
+      return res.status(400).send("Mandatory parameter 'origin' is missing");
+    }
+
+    if (!req.query.destination) {
+      return res
+        .status(400)
+        .send("Mandatory parameter 'destination' is missing");
+    }
+
+    const dates = await Flight.distinct("departureTime", {
+      origin: req.query.origin,
+      destination: req.query.destination,
+      departureTime: {
+        $gte: new Date()
+      }
+    });
+
+    res.json({
+      dates: dates
+    });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send(err);
+  }
+});
+
 export default router;

@@ -254,6 +254,7 @@ class FlightSearchPanel extends Component {
               <Calendar
                 departureDate={this.props.departureDate}
                 setDepartureDate={this.setDepartureDate}
+                availableDates={this.props.data.availableDepartureDates}
               />
             )}
             {this.state.focusedInput === "ReturnDate" && getReturnDatePanel()}

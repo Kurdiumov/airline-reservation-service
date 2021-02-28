@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 import Calendar from "react-calendar";
+import { getLocaleDateString } from "../../utils.js";
 import "./Calendar.scss";
 
 class CalendarWrapper extends Component {
-  shouldDateBeDisabled = (arg) => {
-    const { date, activeStartDate } = arg;
-    // TODO Check if there are any flights on this date
-    return false;
+  shouldDateBeDisabled = ({ date }) => {
+    return !this.props.availableDates.includes(getLocaleDateString(date));
   };
 
   render = () => {
@@ -26,7 +25,7 @@ class CalendarWrapper extends Component {
           minDate={new Date()}
           maxDate={(function () {
             let date = new Date();
-            date.setMonth(date.getMonth() + 3);
+            date.setMonth(date.getMonth() + 6);
             return date;
           })()}
         ></Calendar>
