@@ -21,14 +21,22 @@ class FlightSearch extends Component {
         adults: 1,
         children: 0,
         infants: 0
-      }
+      },
+      originsLoading: true,
+      destinationsLoading: true
     };
+  }
 
+  componentDidMount() {
     this.getAvailableSources();
     this.getAvailableDestinations();
   }
 
   getAvailableSources = async (destinationCode) => {
+    let newState = { ...this.state };
+    newState.originsLoading = true;
+    this.setState(newState);
+
     const json = await this.fetchFromBackend(
       availableSourcesUrl,
       destinationCode
@@ -38,12 +46,17 @@ class FlightSearch extends Component {
         : null
     );
 
-    let newState = { ...this.state };
+    newState = { ...this.state };
     newState.data.availableSources = json.sources;
+    newState.originsLoading = false;
     this.setState(newState);
   };
 
   getAvailableDestinations = async (originCode) => {
+    let newState = { ...this.state };
+    newState.destinationsLoading = true;
+    this.setState(newState);
+
     const json = await this.fetchFromBackend(
       availableDestinationsUrl,
       originCode
@@ -53,8 +66,9 @@ class FlightSearch extends Component {
         : null
     );
 
-    let newState = { ...this.state };
+    newState = { ...this.state };
     newState.data.availableDestinations = json.destinations;
+    newState.destinationsLoading = false;
     this.setState(newState);
   };
 
@@ -143,6 +157,8 @@ class FlightSearch extends Component {
         changeReturnDate={this.setReturnDate}
         changePassengers={this.setPassengers}
         handleSubmit={this.onSubmit}
+        originsLoading={this.state.originsLoading}
+        destinationsLoading={this.state.destinationsLoading}
       />
     );
   };

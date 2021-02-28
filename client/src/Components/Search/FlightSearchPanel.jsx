@@ -233,6 +233,7 @@ class FlightSearchPanel extends Component {
                 filter={this.state.originInputValue}
                 sources={this.props.data.availableSources}
                 airportClickHandler={this.setOrigin}
+                loading={this.props.originsLoading}
               />
             )}
             {this.state.focusedInput === "Destination" && (
@@ -240,6 +241,7 @@ class FlightSearchPanel extends Component {
                 filter={this.state.destinationInputValue}
                 sources={this.props.data.availableDestinations}
                 airportClickHandler={this.setDestination}
+                loading={this.props.destinationsLoading}
               />
             )}
             {this.state.focusedInput === "Passengers" && (

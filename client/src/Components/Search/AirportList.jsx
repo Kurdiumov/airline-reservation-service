@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Loader from "react-loader-spinner";
 import "./AirportList.scss";
 
 class AirportList extends Component {
@@ -79,6 +80,14 @@ class AirportList extends Component {
   };
 
   render = () => {
+    if (this.props.loading === true) {
+      return (
+        <div className="airportsList loader">
+          <Loader type="Oval" color="#5f9ea0" />
+        </div>
+      );
+    }
+
     return (
       <div className="airportsList">
         {this.getCountriesAndAirportsList(this.props.filter, {
