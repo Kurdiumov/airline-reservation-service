@@ -13,6 +13,7 @@ class CalendarWrapper extends Component {
     return (
       <div className="departureDate">
         <Calendar
+          calendarType="ISO 8601"
           onChange={this.props.setDepartureDate}
           tileDisabled={this.shouldDateBeDisabled}
           defaultValue={

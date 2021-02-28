@@ -4,6 +4,45 @@ import Airport from "../model/Airport.js";
 
 const router = express.Router();
 
+router.get("/", async (req, res) => {
+  try {
+    if (!req.query.origin) {
+      return res.status(400).send("Mandatory parameter 'origin' is missing");
+    }
+
+    if (!req.query.destination) {
+      return res
+        .status(400)
+        .send("Mandatory parameter 'destination' is missing");
+    }
+
+    if (!req.query.date) {
+      return res.status(400).send("Mandatory parameter 'date' is missing");
+    }
+
+    const dateFrom = new Date(req.query.date);
+    const dateTo = new Date(req.query.date);
+    dateTo.setDate(dateTo.getDate() + 1);
+    console.log("From ", dateFrom, " To ", dateTo);
+
+    const flights = await Flight.find({
+      origin: req.query.origin,
+      destination: req.query.destination,
+      departureTime: {
+        $gte: dateFrom,
+        $lt: dateTo
+      }
+    });
+
+    res.json({
+      flights: flights
+    });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send(err);
+  }
+});
+
 router.get("/availableSources", async (req, res) => {
   let origins;
   const result = {};

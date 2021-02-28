@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import FlightSearchPanel from "./FlightSearchPanel";
+import { getLocaleDateString } from "../../utils.js";
 
 const availableSourcesUrl = `${process.env.REACT_APP_API_URL}/api/flights/availableSources?`;
 const availableDestinationsUrl = `${process.env.REACT_APP_API_URL}/api/flights/availableDestinations?`;
@@ -120,10 +121,10 @@ class FlightSearch extends Component {
   };
 
   onSubmit = () => {
-    const departureDate = this.state.departureDate.toISOString().slice(0, 10);
+    const departureDate = getLocaleDateString(this.state.departureDate);
     let returnDate = null;
     if (this.state.returnDate.getTime) {
-      returnDate = this.state.returnDate.toISOString().slice(0, 10);
+      returnDate = getLocaleDateString(this.state.returnDate);
     }
 
     this.props.history.push({
