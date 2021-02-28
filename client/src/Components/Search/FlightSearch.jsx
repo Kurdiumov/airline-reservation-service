@@ -87,17 +87,17 @@ class FlightSearch extends Component {
     }
   };
 
-  setOrigin = (airport) => {
+  setOrigin = async (airport) => {
     let newState = { ...this.state };
     newState.origin = airport;
-    this.setState(newState);
+    await this.setState(newState);
     this.getAvailableDestinations(airport?.code);
   };
 
-  setDestination = (airport) => {
+  setDestination = async (airport) => {
     let newState = { ...this.state };
     newState.destination = airport;
-    this.setState(newState);
+    await this.setState(newState);
     this.getAvailableSources(airport?.code);
   };
 
