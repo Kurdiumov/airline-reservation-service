@@ -23,7 +23,6 @@ router.get("/", async (req, res) => {
     const dateFrom = new Date(req.query.date);
     const dateTo = new Date(req.query.date);
     dateTo.setDate(dateTo.getDate() + 1);
-    console.log("From ", dateFrom, " To ", dateTo);
 
     const flights = await Flight.find({
       origin: req.query.origin,

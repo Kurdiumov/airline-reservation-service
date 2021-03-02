@@ -1,0 +1,10 @@
+@import "../Assets/variables.scss";
+
+.flightDetails {
+  display: grid;
+  grid-template-columns: 30% auto 30% 15% 10%;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 1rem;
+  background-color: #f1f1f1;
+}

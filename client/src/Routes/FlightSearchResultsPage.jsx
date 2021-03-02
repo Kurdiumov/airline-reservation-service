@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Loader from "react-loader-spinner";
+import FlightDetails from "../Components/FlightDetails";
 
 const getFlights = async (origin, destination, date) => {
   try {
@@ -12,6 +13,21 @@ const getFlights = async (origin, destination, date) => {
   } catch (err) {
     console.error(err);
   }
+  return null;
+};
+
+const getAirportDetails = async (code) => {
+  try {
+    const response = await fetch(
+      `${process.env.REACT_APP_API_URL}/api/airports/details?code=${code}`
+    );
+    if (response.status === 200) {
+      return await response.json();
+    }
+  } catch (err) {
+    console.error(err);
+  }
+  return null;
 };
 
 class FlightSearchResultsPage extends Component {
@@ -39,20 +55,31 @@ class FlightSearchResultsPage extends Component {
       departureDate,
       returnDate,
       passengers,
+      flights: [],
+      originDetails: null,
+      destinationDetails: null,
       loading: true
     };
   }
 
   componentDidMount = async () => {
-    const response = await getFlights(
-      this.state.origin,
-      this.state.destination,
-      this.state.departureDate
-    );
-    let newState = { ...this.state };
-    newState.loading = false;
-    newState.flights = response.flights;
-    this.setState(newState);
+    const { origin, destination, departureDate } = this.state;
+    const flightsPromise = getFlights(origin, destination, departureDate);
+    const originDetailsPromise = getAirportDetails(origin);
+    const destinationDetailsPromise = getAirportDetails(destination);
+
+    Promise.all([
+      flightsPromise,
+      originDetailsPromise,
+      destinationDetailsPromise
+    ]).then(([flights, originDetails, destinationDetails]) => {
+      let newState = { ...this.state };
+      newState.loading = false;
+      newState.flights = flights.flights;
+      newState.originDetails = originDetails;
+      newState.destinationDetails = destinationDetails;
+      this.setState(newState);
+    });
   };
 
   render = () => {
@@ -74,16 +101,18 @@ class FlightSearchResultsPage extends Component {
 
     return (
       <div className="content">
-          <ul>
-            {this.state.flights.map((flight) => {
-              return (
-                <li key={flight._id}>
-                  #{flight.flightNumber} {flight.origin} - {flight.destination}{" "}
-                  ({flight.departureTime}:{flight.arrivalTime})
-                </li>
-              );
-            })}
-          </ul>
+        <ul>
+          {this.state.flights.map((flight) => {
+            return (
+              <FlightDetails
+                key={flight.flightNumber}
+                flight={flight}
+                origin={this.state.originDetails}
+                destination={this.state.destinationDetails}
+              ></FlightDetails>
+            );
+          })}
+        </ul>
       </div>
     );
   };
