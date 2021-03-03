@@ -1,34 +1,7 @@
 import React, { Component } from "react";
 import Loader from "react-loader-spinner";
 import FlightDetails from "../Components/FlightDetails";
-
-const getFlights = async (origin, destination, date) => {
-  try {
-    const response = await fetch(
-      `${process.env.REACT_APP_API_URL}/api/flights?origin=${origin}&destination=${destination}&date=${date}`
-    );
-    if (response.status === 200) {
-      return await response.json();
-    }
-  } catch (err) {
-    console.error(err);
-  }
-  return null;
-};
-
-const getAirportDetails = async (code) => {
-  try {
-    const response = await fetch(
-      `${process.env.REACT_APP_API_URL}/api/airports/details?code=${code}`
-    );
-    if (response.status === 200) {
-      return await response.json();
-    }
-  } catch (err) {
-    console.error(err);
-  }
-  return null;
-};
+import backendConnector from "../backendConnector.js";
 
 class FlightSearchResultsPage extends Component {
   constructor(props) {
@@ -64,9 +37,9 @@ class FlightSearchResultsPage extends Component {
 
   componentDidMount = async () => {
     const { origin, destination, departureDate } = this.state;
-    const flightsPromise = getFlights(origin, destination, departureDate);
-    const originDetailsPromise = getAirportDetails(origin);
-    const destinationDetailsPromise = getAirportDetails(destination);
+    const flightsPromise = backendConnector.getFlights(origin, destination, departureDate);
+    const originDetailsPromise = backendConnector.getAirportDetails(origin);
+    const destinationDetailsPromise = backendConnector.getAirportDetails(destination);
 
     Promise.all([
       flightsPromise,
@@ -75,7 +48,7 @@ class FlightSearchResultsPage extends Component {
     ]).then(([flights, originDetails, destinationDetails]) => {
       let newState = { ...this.state };
       newState.loading = false;
-      newState.flights = flights.flights;
+      newState.flights = flights;
       newState.originDetails = originDetails;
       newState.destinationDetails = destinationDetails;
       this.setState(newState);
