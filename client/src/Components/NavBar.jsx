@@ -12,6 +12,9 @@ export class NavBar extends React.Component {
           <li>
             <Link to="/">Home</Link>
           </li>
+          <li>
+            <Link to="/map">Map</Link>
+          </li>
           <li>|</li>
           {this.props.isAuthenticated
             ? this.getLogOutButton()

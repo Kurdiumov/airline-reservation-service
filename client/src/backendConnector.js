@@ -1,6 +1,7 @@
 import { getLocaleDateString } from "./utils.js";
 
 const flightsUrl = `${process.env.REACT_APP_API_URL}/api/flights/?`;
+const airportsUrl = `${process.env.REACT_APP_API_URL}/api/airports?`;
 const airportDetailsUrl = `${process.env.REACT_APP_API_URL}/api/airports/details/?`;
 const availableSourcesUrl = `${process.env.REACT_APP_API_URL}/api/flights/availableSources?`;
 const availableDestinationsUrl = `${process.env.REACT_APP_API_URL}/api/flights/availableDestinations?`;
@@ -14,6 +15,11 @@ const getFlights = async (origin, destination, date) => {
   });
 
   return json?.flights;
+};
+
+const getAirports = async () => {
+  const json = await fetchFromBackend(airportsUrl);
+  return json.airports;
 };
 
 const getAirportDetails = async (code) => {
@@ -63,6 +69,7 @@ const fetchFromBackend = async (url, params) => {
 
 const backendConnector = {
   getFlights: getFlights,
+  getAirports: getAirports,
   getAirportDetails: getAirportDetails,
   getAvailableSources: getAvailableSources,
   getAvailableDestinations: getAvailableDestinations,
