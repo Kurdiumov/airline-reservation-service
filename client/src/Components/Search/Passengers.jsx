@@ -1,4 +1,10 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import {
+  setAdultPassengers,
+  setChildrenPassengers,
+  setInfantPassengers
+} from "../../Actions/search.js";
 import "./Passengers.scss";
 
 const passengersLimit = 8;
@@ -19,86 +25,41 @@ const getPassengersText = (count, single, plural) => {
   );
 };
 
-const getAdultsPassengersText = (adultsCount) => {
+export const getAdultsPassengersText = (adultsCount) => {
   return getPassengersText(adultsCount, "adult", "adults");
 };
 
-const getChildrenPassengersText = (childrenCount) => {
+export const getChildrenPassengersText = (childrenCount) => {
   return getPassengersText(childrenCount, "child", "Children");
 };
 
-const getInfantsPassengersText = (infantsCount) => {
+export const getInfantsPassengersText = (infantsCount) => {
   return getPassengersText(infantsCount, "infant", "infants");
 };
 
 class Passengers extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      adults: props.passengers.adults,
-      children: props.passengers.children,
-      infants: props.passengers.infants
-    };
-  }
-
-  onAdultPassengersCountChange = (newValue) => {
-    if (newValue > passengersLimit) return;
-    if (newValue < 1) return;
-    if (newValue < this.state.infants) return;
-
-    let newState = { ...this.state };
-    newState.adults = newValue;
-    this.setState(newState);
-    this.props.onPassengersCountChange(newState);
-  };
-
-  onChildPassengersCountChange = (newValue) => {
-    if (newValue > passengersLimit) return;
-    if (newValue < 0) return;
-
-    let newState = { ...this.state };
-    newState.children = newValue;
-    this.setState(newState);
-    this.props.onPassengersCountChange(newState);
-  };
-
-  onInfantPassengersCountChange = (newValue) => {
-    if (newValue > passengersLimit) return;
-    if (newValue < 0) return;
-    if (newValue > this.state.adults) return;
-
-    let newState = { ...this.state };
-    newState.infants = newValue;
-    this.setState(newState);
-    this.props.onPassengersCountChange(newState);
-  };
-
   render = () => {
     return (
       <div className="passengers">
         <div>
           <button
             className={
-              this.state.adults === 1 ||
-              this.state.adults === this.state.infants
+              this.props.adults === 1 ||
+              this.props.adults === this.props.infants
                 ? "disabled"
                 : ""
             }
-            onClick={() =>
-              this.onAdultPassengersCountChange(this.state.adults - 1)
-            }
+            onClick={() => this.props.setAdultPassengers(this.props.adults - 1)}
           >
             -
           </button>
           <span>
-            {getAdultsPassengersText(this.state.adults)}
+            {getAdultsPassengersText(this.props.adults)}
             <span className="secondary"> (14+)</span>
           </span>
           <button
-            className={this.state.adults === passengersLimit ? "disabled" : ""}
-            onClick={() =>
-              this.onAdultPassengersCountChange(this.state.adults + 1)
-            }
+            className={this.props.adults === passengersLimit ? "disabled" : ""}
+            onClick={() => this.props.setAdultPassengers(this.props.adults + 1)}
           >
             +
           </button>
@@ -106,23 +67,23 @@ class Passengers extends Component {
 
         <div>
           <button
-            className={this.state.children === 0 ? "disabled" : ""}
+            className={this.props.children === 0 ? "disabled" : ""}
             onClick={() =>
-              this.onChildPassengersCountChange(this.state.children - 1)
+              this.props.setChildrenPassengers(this.props.children - 1)
             }
           >
             -
           </button>
           <span>
-            {getChildrenPassengersText(this.state.children)}
+            {getChildrenPassengersText(this.props.children)}
             <span className="secondary"> (2-14)</span>
           </span>
           <button
             className={
-              this.state.children === passengersLimit ? "disabled" : ""
+              this.props.children === passengersLimit ? "disabled" : ""
             }
             onClick={() =>
-              this.onChildPassengersCountChange(this.state.children + 1)
+              this.props.setChildrenPassengers(this.props.children + 1)
             }
           >
             +
@@ -131,23 +92,23 @@ class Passengers extends Component {
 
         <div>
           <button
-            className={this.state.infants === 0 ? "disabled" : ""}
+            className={this.props.infants === 0 ? "disabled" : ""}
             onClick={() =>
-              this.onInfantPassengersCountChange(this.state.infants - 1)
+              this.props.setInfantPassengers(this.props.infants - 1)
             }
           >
             -
           </button>
           <span>
-            {getInfantsPassengersText(this.state.infants)}
+            {getInfantsPassengersText(this.props.infants)}
             <span className="secondary"> (0-2)</span>
           </span>
           <button
             className={
-              this.state.infants === this.state.adults ? "disabled" : ""
+              this.props.infants === this.props.adults ? "disabled" : ""
             }
             onClick={() =>
-              this.onInfantPassengersCountChange(this.state.infants + 1)
+              this.props.setInfantPassengers(this.props.infants + 1)
             }
           >
             +
@@ -159,9 +120,19 @@ class Passengers extends Component {
   };
 }
 
-export {
-  Passengers,
-  getAdultsPassengersText,
-  getChildrenPassengersText,
-  getInfantsPassengersText
+const mapStateToProps = (state) => {
+  return {
+    adults: state.search.passengers.adults,
+    children: state.search.passengers.children,
+    infants: state.search.passengers.infants
+  };
 };
+
+const MapDispatchToProps = (dispatch) => ({
+  setAdultPassengers: (adults) => dispatch(setAdultPassengers(adults)),
+  setChildrenPassengers: (children) =>
+    dispatch(setChildrenPassengers(children)),
+  setInfantPassengers: (infants) => dispatch(setInfantPassengers(infants))
+});
+
+export default connect(mapStateToProps, MapDispatchToProps)(Passengers);

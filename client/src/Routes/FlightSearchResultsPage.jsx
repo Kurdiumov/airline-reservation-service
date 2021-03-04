@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import Loader from "react-loader-spinner";
 import FlightDetails from "../Components/FlightDetails";
 import backendConnector from "../backendConnector.js";
@@ -7,11 +8,11 @@ class FlightSearchResultsPage extends Component {
   constructor(props) {
     super(props);
 
-    const origin = props.location.state?.origin;
-    const destination = props.location.state?.destination;
-    const departureDate = props.location.state?.departureDate;
-    const returnDate = props.location.state?.returnDate;
-    const passengers = props.location.state?.passengers;
+    const origin = props.origin?.code;
+    const destination = props.destination?.code;
+    const departureDate = props.departureDate;
+    const returnDate = props.returnDate;
+    const passengers = props.passengers;
 
     for (const prop of [origin, destination, departureDate, passengers]) {
       if (!prop) {
@@ -23,11 +24,6 @@ class FlightSearchResultsPage extends Component {
       }
     }
     this.state = {
-      origin,
-      destination,
-      departureDate,
-      returnDate,
-      passengers,
       flights: [],
       originDetails: null,
       destinationDetails: null,
@@ -36,10 +32,12 @@ class FlightSearchResultsPage extends Component {
   }
 
   componentDidMount = async () => {
-    const { origin, destination, departureDate } = this.state;
-    const flightsPromise = backendConnector.getFlights(origin, destination, departureDate);
-    const originDetailsPromise = backendConnector.getAirportDetails(origin);
-    const destinationDetailsPromise = backendConnector.getAirportDetails(destination);
+    const { origin, destination, departureDate } = this.props;
+    const date = new Date(departureDate).toISOString().substring(0, 10);
+
+    const flightsPromise = backendConnector.getFlights(origin.code, destination.code, date);
+    const originDetailsPromise = backendConnector.getAirportDetails(origin.code);
+    const destinationDetailsPromise = backendConnector.getAirportDetails(destination.code);
 
     Promise.all([
       flightsPromise,
@@ -90,4 +88,19 @@ class FlightSearchResultsPage extends Component {
     );
   };
 }
-export default FlightSearchResultsPage;
+
+const mapStateToProps = (state) => {
+  return {
+    origin: state.search.origin,
+    destination: state.search.destination,
+    departureDate: state.search.departureDate,
+    returnDate: state.search.returnDate,
+    passengers: {
+      adults: state.search.passengers.adults,
+      children: state.search.passengers.children,
+      infants: state.search.passengers.infants,
+    }
+  };
+};
+
+export default connect(mapStateToProps, {})(FlightSearchResultsPage);

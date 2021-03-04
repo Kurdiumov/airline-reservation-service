@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import FlightSearchPanel from "./FlightSearchPanel";
 import backendConnector from "../../backendConnector.js";
+import { setOrigin, setDestination } from "../../Actions/search.js";
 
 class FlightSearch extends Component {
   constructor(props) {
@@ -12,15 +13,6 @@ class FlightSearch extends Component {
         availableDestinations: [],
         availableDepartureDates: []
       },
-      destination: null,
-      origin: null,
-      departureDate: new Date(),
-      returnDate: "One way",
-      passengers: {
-        adults: 1,
-        children: 0,
-        infants: 0
-      },
       originsLoading: true,
       destinationsLoading: true,
       departureDatesLoading: true
@@ -28,8 +20,13 @@ class FlightSearch extends Component {
   }
 
   componentDidMount() {
-    this.getAvailableSources();
-    this.getAvailableDestinations();
+    this.getAvailableSources(this.props.destination?.code);
+    this.getAvailableDestinations(this.props.origin?.code);
+
+    this.getAvailableDepartureDates(
+      this.props.origin?.code,
+      this.props.destination?.code
+    );
   }
 
   getAvailableSources = async (destinationCode) => {
@@ -50,7 +47,9 @@ class FlightSearch extends Component {
     newState.destinationsLoading = true;
     this.setState(newState);
 
-    const destinations = await backendConnector.getAvailableDestinations(originCode);
+    const destinations = await backendConnector.getAvailableDestinations(
+      originCode
+    );
 
     newState = { ...this.state };
     newState.data.availableDestinations = destinations;
@@ -67,7 +66,10 @@ class FlightSearch extends Component {
     newState.departureDatesLoading = true;
     this.setState(newState);
 
-    const dates = await backendConnector.getAvailableDepartureDates(originCode, destinationCode);
+    const dates = await backendConnector.getAvailableDepartureDates(
+      originCode,
+      destinationCode
+    );
 
     newState = { ...this.state };
     newState.data.availableDepartureDates = dates;
@@ -76,82 +78,33 @@ class FlightSearch extends Component {
   };
 
   setOrigin = async (airport) => {
-    let newState = { ...this.state };
-    newState.origin = airport;
-    await this.setState(newState);
+    await this.props.setOrigin(airport);
     this.getAvailableDestinations(airport?.code);
     this.getAvailableDepartureDates(
-      this.state.origin?.code,
-      this.state.destination?.code
+      this.props.origin?.code,
+      this.props.destination?.code
     );
   };
 
   setDestination = async (airport) => {
-    let newState = { ...this.state };
-    newState.destination = airport;
-    await this.setState(newState);
+    await this.props.setDestination(airport);
     this.getAvailableSources(airport?.code);
     this.getAvailableDepartureDates(
-      this.state.origin?.code,
-      this.state.destination?.code
+      this.props.origin?.code,
+      this.props.destination?.code
     );
   };
 
-  setDepartureDate = (date) => {
-    let newState = { ...this.state };
-    newState.departureDate = date;
-    this.setState(newState);
-  };
-
-  setReturnDate = (date) => {
-    let newState = { ...this.state };
-    newState.returnDate = date;
-    this.setState(newState);
-  };
-
-  setPassengers = (passengers) => {
-    let newState = { ...this.state };
-    newState.passengers = passengers;
-    this.setState(newState);
-  };
-
   onSubmit = () => {
-    const departureDate = (new Date(this.state.departureDate)).toISOString().substring(0, 10);
-    let returnDate = null;
-    if (this.state.returnDate.getTime) {
-      returnDate = (new Date(this.state.returnDate)).toISOString().substring(0, 10)
-    }
-
-    this.props.history.push({
-      pathname: "/search",
-      state: {
-        origin: this.state.origin.code,
-        destination: this.state.destination.code,
-        departureDate: departureDate,
-        returnDate: returnDate,
-        passengers: {
-          adults: this.state.passengers.adults,
-          children: this.state.passengers.children,
-          infants: this.state.passengers.infants
-        }
-      }
-    });
+    this.props.history.push({pathname: "/search" });
   };
 
   render = () => {
     return (
       <FlightSearchPanel
         data={this.state.data}
-        origin={this.state.origin}
-        destination={this.state.destination}
-        departureDate={this.state.departureDate}
-        returnDate={this.state.returnDate}
-        passengers={this.state.passengers}
         changeOrigin={this.setOrigin}
         changeDestination={this.setDestination}
-        changeDepartureDate={this.setDepartureDate}
-        changeReturnDate={this.setReturnDate}
-        changePassengers={this.setPassengers}
         handleSubmit={this.onSubmit}
         originsLoading={this.state.originsLoading}
         destinationsLoading={this.state.destinationsLoading}
@@ -160,4 +113,16 @@ class FlightSearch extends Component {
   };
 }
 
-export default connect(null, {})(FlightSearch);
+const mapStateToProps = (state) => {
+  return {
+    origin: state.search.origin,
+    destination: state.search.destination
+  };
+};
+
+const MapDispatchToProps = (dispatch) => ({
+  setOrigin: (origin) => dispatch(setOrigin(origin)),
+  setDestination: (destination) => dispatch(setDestination(destination))
+});
+
+export default connect(mapStateToProps, MapDispatchToProps)(FlightSearch);

@@ -1,8 +1,9 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import AirportList from "./AirportList";
 import Calendar from "./Calendar";
-import {
-  Passengers,
+import { setDepartureDate, setReturnDate } from "../../Actions/search";
+import Passengers, {
   getAdultsPassengersText,
   getChildrenPassengersText,
   getInfantsPassengersText
@@ -14,8 +15,8 @@ class FlightSearchPanel extends Component {
     super(props);
     this.state = {
       focusedInput: null,
-      originInputValue: "",
-      destinationInputValue: "",
+      originInputValue: this.props.origin?.name ? this.props.origin.name : "",
+      destinationInputValue: this.props.destination?.name ? this.props.destination.name : "",
       invalid: {
         originInput: false,
         destinationInput: false,
@@ -81,14 +82,14 @@ class FlightSearchPanel extends Component {
     let newState = { ...this.state };
     newState.focusedInput = null;
     this.setState(newState);
-    this.props.changeDepartureDate(date);
+    this.props.setDepartureDate(date);
   };
 
   setReturnDate = (date) => {
     let newState = { ...this.state };
     newState.focusedInput = null;
     this.setState(newState);
-    this.props.changeReturnDate(date);
+    this.props.setReturnDate(date);
   };
 
   onOriginInputChange = (event) => {
@@ -203,11 +204,11 @@ class FlightSearchPanel extends Component {
             onClick={this.onFocusChanged}
             className={"button"}
           >
-            {getAdultsPassengersText(this.props.passengers.adults)}
-            {this.props.passengers.children > 0 &&
-              getChildrenPassengersText(this.props.passengers.children)}
-            {this.props.passengers.infants > 0 > 0 &&
-              getInfantsPassengersText(this.props.passengers.infants)}
+            {getAdultsPassengersText(this.props.adults)}
+            {this.props.children > 0 &&
+              getChildrenPassengersText(this.props.children)}
+            {this.props.infants > 0 > 0 &&
+              getInfantsPassengersText(this.props.infants)}
           </div>
 
           <input type="submit" value="Search" onFocus={this.onFocusChanged} />
@@ -244,12 +245,7 @@ class FlightSearchPanel extends Component {
                 loading={this.props.destinationsLoading}
               />
             )}
-            {this.state.focusedInput === "Passengers" && (
-              <Passengers
-                passengers={this.props.passengers}
-                onPassengersCountChange={this.props.changePassengers}
-              />
-            )}
+            {this.state.focusedInput === "Passengers" && <Passengers />}
             {this.state.focusedInput === "DepartureDate" && (
               <Calendar
                 departureDate={this.props.departureDate}
@@ -265,4 +261,21 @@ class FlightSearchPanel extends Component {
   };
 }
 
-export default FlightSearchPanel;
+const mapStateToProps = (state) => {
+  return {
+    adults: state.search.passengers.adults,
+    children: state.search.passengers.children,
+    infants: state.search.passengers.infants,
+    departureDate: state.search.departureDate,
+    returnDate: state.search.returnDate,
+    origin: state.search.origin,
+    destination: state.search.destination
+  };
+};
+
+const MapDispatchToProps = (dispatch) => ({
+  setDepartureDate: (date) => dispatch(setDepartureDate(date)),
+  setReturnDate: (date) => dispatch(setReturnDate(date))
+});
+
+export default connect(mapStateToProps, MapDispatchToProps)(FlightSearchPanel);
