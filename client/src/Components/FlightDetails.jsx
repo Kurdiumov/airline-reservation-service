@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import moment from "moment-timezone";
 import "./FlightDetails.scss";
 
 class FlightDetails extends Component {
@@ -13,9 +14,8 @@ class FlightDetails extends Component {
           <div>
             {new Date(flight.departureTime).toLocaleString("pl-PL", {
               timeZone: origin.timezone
-            })}
+            })} ({moment.tz(origin.timezone).zoneName()})
           </div>
-          <div>{origin.timezone}</div>
           <div>{origin.name}</div>
           <div>
             {origin.city}, {origin.country}
@@ -31,9 +31,8 @@ class FlightDetails extends Component {
           <div>
             {new Date(flight.arrivalTime).toLocaleString("pl-PL", {
               timeZone: destination.timezone
-            })}
+            })} ({moment.tz(destination.timezone).zoneName()})
           </div>
-          <div>{destination.timezone}</div>
           <div>{destination.name}</div>
           <div>
             {destination.city}, {destination.country}
