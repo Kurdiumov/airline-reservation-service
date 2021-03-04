@@ -1,5 +1,3 @@
-import { getLocaleDateString } from "./utils.js";
-
 const flightsUrl = `${process.env.REACT_APP_API_URL}/api/flights/?`;
 const airportsUrl = `${process.env.REACT_APP_API_URL}/api/airports?`;
 const airportDetailsUrl = `${process.env.REACT_APP_API_URL}/api/airports/details/?`;
@@ -46,7 +44,7 @@ const getAvailableDepartureDates = async (originCode, destinationCode) => {
     destination: destinationCode
   });
 
-  const dates = json?.dates.map((date) => getLocaleDateString(new Date(date)));
+  const dates = json?.dates.map((date) => (new Date(date)).toISOString().substring(0, 10));
   return dates;
 };
 

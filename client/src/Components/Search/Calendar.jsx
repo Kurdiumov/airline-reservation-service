@@ -1,11 +1,10 @@
 import React, { Component } from "react";
 import Calendar from "react-calendar";
-import { getLocaleDateString } from "../../utils.js";
 import "./Calendar.scss";
 
 class CalendarWrapper extends Component {
   shouldDateBeDisabled = ({ date }) => {
-    return !this.props.availableDates.includes(getLocaleDateString(date));
+    return !this.props.availableDates.includes(date.toISOString().substring(0, 10));
   };
 
   render = () => {

@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import FlightSearchPanel from "./FlightSearchPanel";
-import { getLocaleDateString } from "../../utils.js";
 import backendConnector from "../../backendConnector.js";
 
 class FlightSearch extends Component {
@@ -117,10 +116,10 @@ class FlightSearch extends Component {
   };
 
   onSubmit = () => {
-    const departureDate = getLocaleDateString(this.state.departureDate);
+    const departureDate = (new Date(this.state.departureDate)).toISOString().substring(0, 10);
     let returnDate = null;
     if (this.state.returnDate.getTime) {
-      returnDate = getLocaleDateString(this.state.returnDate);
+      returnDate = (new Date(this.state.returnDate)).toISOString().substring(0, 10)
     }
 
     this.props.history.push({
