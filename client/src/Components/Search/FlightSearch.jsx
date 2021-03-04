@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import FlightSearchPanel from "./FlightSearchPanel";
 import backendConnector from "../../backendConnector.js";
-import { setOrigin, setDestination } from "../../Actions/search.js";
+import { setOrigin, setDestination, setOriginTimezone} from "../../Actions/search.js";
 
 class FlightSearch extends Component {
   constructor(props) {
@@ -79,6 +79,12 @@ class FlightSearch extends Component {
 
   setOrigin = async (airport) => {
     await this.props.setOrigin(airport);
+
+    if (airport) {
+      const airportDetails = await backendConnector.getAirportDetails(airport.code);
+      await this.props.setOriginTimezone(airportDetails.timezone);
+    }
+
     this.getAvailableDestinations(airport?.code);
     this.getAvailableDepartureDates(
       this.props.origin?.code,
@@ -122,7 +128,8 @@ const mapStateToProps = (state) => {
 
 const MapDispatchToProps = (dispatch) => ({
   setOrigin: (origin) => dispatch(setOrigin(origin)),
-  setDestination: (destination) => dispatch(setDestination(destination))
+  setDestination: (destination) => dispatch(setDestination(destination)),
+  setOriginTimezone: (timezone) => dispatch(setOriginTimezone(timezone))
 });
 
 export default connect(mapStateToProps, MapDispatchToProps)(FlightSearch);

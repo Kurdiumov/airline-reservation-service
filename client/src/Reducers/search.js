@@ -3,6 +3,7 @@ const passengersLimit = 8;
 const initialState = {
   destination: null,
   origin: null,
+  originTimeZone: null,
   departureDate: new Date(),
   returnDate: "One way",
   passengers: {
@@ -16,10 +17,16 @@ const searchReducer = (state = initialState, action) => {
   let newState = { ...state };
   switch (action.type) {
     case "ORIGIN":
+      if (!action.origin) {
+        newState.originTimeZone = null;
+      }
       newState.origin = action.origin;
       return newState;
     case "DESTINATION":
       newState.destination = action.destination;
+      return newState;
+    case "ORIGIN_TIMEZONE":
+      newState.originTimeZone = action.timezone;
       return newState;
     case "DEPARTURE_DATE":
       newState.departureDate = action.date;

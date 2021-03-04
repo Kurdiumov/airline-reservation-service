@@ -8,6 +8,11 @@ export const setDestination = (destination) => ({
   destination
 });
 
+export const setOriginTimezone = (timezone) => ({
+  type: "ORIGIN_TIMEZONE",
+  timezone
+});
+
 export const setDepartureDate = (date) => ({
   type: "DEPARTURE_DATE",
   date
