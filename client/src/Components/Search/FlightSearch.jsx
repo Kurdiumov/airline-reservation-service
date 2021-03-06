@@ -143,7 +143,12 @@ class FlightSearch extends Component {
       allInputsAreValid = false;
     }
 
-    if (!this.props.departureDate) {
+    if (
+      !this.props.departureDate ||
+      !this.state.data.availableDepartureDates.includes(
+        this.props.departureDate.toISOString().substring(0, 10)
+      )
+    ) {
       state.invalid.departureDateInput = true;
       allInputsAreValid = false;
     }
