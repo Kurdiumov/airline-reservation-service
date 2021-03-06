@@ -1,0 +1,32 @@
+@import "../Assets//variables.scss";
+
+.footer {
+  height: $footer-height;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  background-color: $footer-background-color;
+  color: $footer-text-color;
+  font-size: $text-size-m;
+
+  span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+
+    a {
+      color: $footer-text-color;
+      text-decoration: none;
+      font-weight: bolder;
+
+      &:hover {
+        color: lighten($footer-text-color, 10%) !important;
+      }
+
+      &:visited {
+        color: $footer-text-color;
+      }
+    }
+  }
+}

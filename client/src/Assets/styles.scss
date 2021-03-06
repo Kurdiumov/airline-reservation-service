@@ -1,4 +1,8 @@
 @import-normalize;
+@import "../Assets//variables.scss";
+
+$content-vertical-margin: 2rem;
+$content-padding: 2rem;
 
 *,
 html,
@@ -6,9 +10,18 @@ body {
   margin: 0px;
 }
 
+html {
+  background-color: red;
+}
+
+body {
+  background-color: #fff;
+}
+
 .content {
   width: 60%;
-  margin: 1rem auto 0 auto;
-  padding: 2rem;
+  margin: $content-vertical-margin auto 0 auto;
+  padding: $content-padding;
   text-align: center;
+  min-height: calc(100vh - (#{$content-vertical-margin} * 2) - (#{$content-padding}) - #{$footer-height} - #{$navbar-height});
 }

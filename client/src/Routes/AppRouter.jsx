@@ -6,6 +6,7 @@ import LogInPage from "./LogInPage";
 import SignUpPage from "./SignUpPage";
 import FlightSearchResultsPage from "./FlightSearchResultsPage";
 import NavBar from "../Components/NavBar";
+import Footer from "../Components/Footer";
 
 const AppRouter = () => {
   return (
@@ -23,6 +24,7 @@ const AppRouter = () => {
             exact={true}
           />
         </Switch>
+        <Footer />
       </div>
     </BrowserRouter>
   );
