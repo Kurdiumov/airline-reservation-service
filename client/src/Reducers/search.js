@@ -3,7 +3,7 @@ const passengersLimit = 8;
 const initialState = {
   destination: null,
   origin: null,
-  originTimeZone: null,
+  originTimeZone: "GMT",
   departureDate: new Date(),
   returnDate: "One way",
   passengers: {

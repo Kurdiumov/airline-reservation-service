@@ -1,20 +1,17 @@
 import React, { Component } from "react";
-import moment from "moment-timezone";
+import moment from "moment"
+import momentTimezone from "moment-timezone";
 import "./FlightDetails.scss";
 
 class FlightDetails extends Component {
   render = () => {
     const { flight, origin, destination } = this.props;
-    console.log(flight);
-    console.log(origin);
-    console.log(destination);
     return (
       <li className="flightDetails">
         <div>
           <div>
-            {new Date(flight.departureTime).toLocaleString("pl-PL", {
-              timeZone: origin.timezone
-            })} ({moment.tz(origin.timezone).zoneName()})
+            {moment(flight.departureTime).tz(origin.timezone).format("MMMM Do YYYY, hh:mm")}
+            ({moment.tz(origin.timezone).zoneName()})
           </div>
           <div>{origin.name}</div>
           <div>
@@ -52,10 +49,3 @@ class FlightDetails extends Component {
 }
 
 export default FlightDetails;
-
-{
-  /* <li key={flight._id}>
-                  #{flight.flightNumber} {flight.origin} - {flight.destination}{" "}
-                  ({flight.departureTime}:{flight.arrivalTime})
-                </li> */
-}

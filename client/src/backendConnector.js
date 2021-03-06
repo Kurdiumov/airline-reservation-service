@@ -44,7 +44,7 @@ const getAvailableDepartureDates = async (originCode, destinationCode) => {
     destination: destinationCode
   });
 
-  const dates = json?.dates.map((date) => (new Date(date)).toISOString().substring(0, 10));
+  const dates = json?.dates;
   return dates;
 };
 

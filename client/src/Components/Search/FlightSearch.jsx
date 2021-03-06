@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 import AirportList from "./AirportList";
 import Calendar from "./Calendar";
 import backendConnector from "../../backendConnector.js";
+import moment from "moment";
+import momentTimezone from "moment-timezone";
 import {
   setOrigin,
   setDestination,
@@ -143,12 +145,7 @@ class FlightSearch extends Component {
       allInputsAreValid = false;
     }
 
-    if (
-      !this.props.departureDate ||
-      !this.state.data.availableDepartureDates.includes(
-        this.props.departureDate.toISOString().substring(0, 10)
-      )
-    ) {
+    if (!this.props.departureDate) {
       state.invalid.departureDateInput = true;
       allInputsAreValid = false;
     }
@@ -188,7 +185,12 @@ class FlightSearch extends Component {
     let newState = { ...this.state };
     newState.focusedInput = null;
     this.setState(newState);
-    this.props.setDepartureDate(date);
+    this.props.setDepartureDate(
+      //Get date from calendar without timezone offset
+      moment(
+        new Date(date.getTime() - date.getTimezoneOffset() * 60000)
+      ).format("YYYY-MM-DDThh:mm:ss")
+    );
   };
 
   setReturnDate = (date) => {
@@ -224,11 +226,14 @@ class FlightSearch extends Component {
     this.setState(newState);
   };
 
-  getPrettyDate = (date) => {
-    if (date?.getTime) {
-      return date.toLocaleDateString();
+  getPrettyDate = (date, timezone = "GMT") => {
+    if (date === "One way") return date;
+    if (timezone) {
+      return moment(date) /*.tz(timezone)*/
+        .format("YYYY-MM-DD");
     }
-    return date;
+
+    return moment(date).format("YYYY-MM-DD");
   };
 
   render = () => {
@@ -288,7 +293,12 @@ class FlightSearch extends Component {
               }
             >
               <span className="secondary">Departure</span>
-              <span>{this.getPrettyDate(this.props.departureDate)}</span>
+              <span>
+                {this.getPrettyDate(
+                  this.props.departureDate,
+                  this.props.originTimezone
+                )}
+              </span>
             </div>
 
             <div
@@ -354,9 +364,15 @@ class FlightSearch extends Component {
             {this.state.focusedInput === "Passengers" && <Passengers />}
             {this.state.focusedInput === "DepartureDate" && (
               <Calendar
+                timezone={this.props.originTimezone}
                 departureDate={this.props.departureDate}
                 setDepartureDate={this.setDepartureDate}
-                availableDates={this.state.data.availableDepartureDates}
+                availableDates={this.state.data.availableDepartureDates.map(
+                  (date) =>
+                    moment(date)
+                      .tz(this.props.originTimezone)
+                      .format("YYYY-MM-DD")
+                )}
               />
             )}
             {this.state.focusedInput === "ReturnDate" && getReturnDatePanel()}
@@ -375,7 +391,8 @@ const mapStateToProps = (state) => {
     departureDate: state.search.departureDate,
     returnDate: state.search.returnDate,
     origin: state.search.origin,
-    destination: state.search.destination
+    destination: state.search.destination,
+    originTimezone: state.search.originTimeZone
   };
 };
 

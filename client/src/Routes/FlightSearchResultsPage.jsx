@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 import Loader from "react-loader-spinner";
 import FlightDetails from "../Components/FlightDetails";
 import backendConnector from "../backendConnector.js";
+import moment from "moment";
+import momentTimezone from "moment-timezone";
 
 class FlightSearchResultsPage extends Component {
   constructor(props) {
@@ -33,7 +35,7 @@ class FlightSearchResultsPage extends Component {
 
   componentDidMount = async () => {
     const { origin, destination, departureDate } = this.props;
-    const date = new Date(departureDate).toISOString().substring(0, 10);
+    const date = moment(departureDate.slice(0,10)).format('YYYY-MM-DD');
 
     const flightsPromise = backendConnector.getFlights(origin.code, destination.code, date);
     const originDetailsPromise = backendConnector.getAirportDetails(origin.code);
@@ -54,7 +56,7 @@ class FlightSearchResultsPage extends Component {
   };
 
   render = () => {
-    if (this.state.loading === true) {
+    if (!this.state || this.state.loading === true) {
       return (
         <div className="content flightResults">
           <Loader type="Oval" color="#5f9ea0" />
@@ -92,6 +94,7 @@ class FlightSearchResultsPage extends Component {
 const mapStateToProps = (state) => {
   return {
     origin: state.search.origin,
+    originTimezone: state.search.originTimeZone,
     destination: state.search.destination,
     departureDate: state.search.departureDate,
     returnDate: state.search.returnDate,

@@ -1,4 +1,6 @@
 import express from "express";
+import moment from "moment";
+import momentTimezone from "moment-timezone";
 import Flight from "../model/Flight.js";
 import Airport from "../model/Airport.js";
 
@@ -20,16 +22,16 @@ router.get("/", async (req, res) => {
       return res.status(400).send("Mandatory parameter 'date' is missing");
     }
 
-    const dateFrom = new Date(req.query.date);
-    const dateTo = new Date(req.query.date);
-    dateTo.setDate(dateTo.getDate() + 1);
+    const originAirport = await Airport.findOne({code: req.query.origin});
+    const dateFrom = moment.tz(req.query.date, "YYYY-MM-DD", originAirport.timezone);
+    const dateTo = dateFrom.clone().add(24, "hours");
 
     const flights = await Flight.find({
       origin: req.query.origin,
       destination: req.query.destination,
       departureTime: {
-        $gte: dateFrom,
-        $lt: dateTo
+        $gte: dateFrom.toDate(),
+        $lt: dateTo.toDate()
       }
     });
 

@@ -1,10 +1,14 @@
 import React, { Component } from "react";
 import Calendar from "react-calendar";
+import moment from "moment";
+import momentTimezone from "moment-timezone";
 import "./Calendar.scss";
 
 class CalendarWrapper extends Component {
   shouldDateBeDisabled = ({ date }) => {
-    return !this.props.availableDates.includes(date.toISOString().substring(0, 10));
+    return !this.props.availableDates.includes(
+      moment(date).format("YYYY-MM-DD")
+    );
   };
 
   render = () => {
