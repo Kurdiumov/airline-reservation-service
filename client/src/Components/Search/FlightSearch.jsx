@@ -145,7 +145,17 @@ class FlightSearch extends Component {
       allInputsAreValid = false;
     }
 
-    if (!this.props.departureDate) {
+    if (
+      !this.props.departureDate ||
+      !this.state.data.availableDepartureDates.some((date) => {
+        return (
+          moment(date).format("YYYY-MM-DD") ===
+          moment(this.props.departureDate).format("YYYY-MM-DD") ||
+          moment(date).format("YYYY-MM-DD") ===
+          moment(this.props.departureDate).add(24, "hours").format("YYYY-MM-DD")
+        );
+      })
+    ) {
       state.invalid.departureDateInput = true;
       allInputsAreValid = false;
     }
@@ -229,8 +239,7 @@ class FlightSearch extends Component {
   getPrettyDate = (date, timezone = "GMT") => {
     if (date === "One way") return date;
     if (timezone) {
-      return moment(date) /*.tz(timezone)*/
-        .format("YYYY-MM-DD");
+      return moment(date).format("YYYY-MM-DD");
     }
 
     return moment(date).format("YYYY-MM-DD");
