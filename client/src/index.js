@@ -25,15 +25,16 @@ backendConnector.getCurrencies().then((rates) => {
 
 if (navigator.geolocation) {
   navigator.geolocation.getCurrentPosition(async ({ coords }) => {
-    console.log(coords);
     const airport = await backendConnector.getNearestAirport(
       coords.latitude,
       coords.longitude
     );
+    const searchComponent = window.searchComponent;
     if (
-      window.searchComponent?.state.originInputValue == "" &&
-      window.searchComponent?.state.destinationInputValue == ""
-    )
-      window.searchComponent?.setOriginInput(airport);
+      !searchComponent?.state.originInputValue &&
+      !searchComponent?.state.destinationInputValue
+    ) {
+      searchComponent?.setOriginInput(airport);
+    }
   });
 }
