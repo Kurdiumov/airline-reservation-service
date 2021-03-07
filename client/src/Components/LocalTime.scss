@@ -1,0 +1,10 @@
+@import "../Assets/variables.scss";
+
+.localTime {
+  color: $navbar-primary-color;
+
+  span {
+    color: $navbar-primary-color;
+    font-weight: bolder;
+  }
+}

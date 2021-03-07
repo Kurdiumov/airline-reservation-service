@@ -3,12 +3,16 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { logout } from "../Actions/auth.js";
 import CurrencySelector from "./CurrencySelector";
+import LocalTime from "./LocalTime";
 import "./NavBar.scss";
 
 export class NavBar extends React.Component {
   render() {
     return (
       <div className="navbar">
+        <div>
+          <LocalTime />
+        </div>
         <ul>
           <CurrencySelector />
           <li>|</li>

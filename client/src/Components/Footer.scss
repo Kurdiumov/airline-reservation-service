@@ -12,6 +12,7 @@
     justify-content: center;
     align-items: center;
     height: 100%;
+    color: $footer-text-color;
 
     a {
       color: $footer-text-color;
@@ -19,7 +20,7 @@
       font-weight: bolder;
 
       &:hover {
-        color: darken($footer-text-color, 10%) !important;
+        color: darken($footer-text-color, 5%) !important;
       }
 
       &:visited {

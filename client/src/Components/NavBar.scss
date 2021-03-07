@@ -3,7 +3,19 @@
 .navbar {
   user-select: none;
   height: $navbar-height;
+  color: $navbar-primary-color;
+  display: grid;
+  grid-template-columns: 30% 40% 30%;
+  height: 100%;
+  width: 100%;
+  background-color: $navbar-background-color;
   
+  div {
+    font-size: $text-size-l;
+    margin: auto 0;
+    padding-left: 1rem;
+  }
+
   ul {
     display: flex;
     height: 100%;
@@ -16,15 +28,20 @@
     li {
       display: inline-block;
       padding: 1rem;
+      color: $navbar-primary-color;
+
+      div {
+        
+      }
     }
     a,
     &:visited {
-      color: $navbar-link-color;
+      color: $navbar-primary-color;
       text-decoration: none;
 
       &:active,
       &:hover {
-        color: darken($navbar-link-color, 10%);
+        color: darken($navbar-primary-color, 5%);
       }
     }
   }
