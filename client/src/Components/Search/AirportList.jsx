@@ -83,7 +83,7 @@ class AirportList extends Component {
     if (this.props.loading === true) {
       return (
         <div className="airportsList loader">
-          <Loader type="Oval" color="#5f9ea0" />
+          <Loader type="Oval" color="#e67e22" />
         </div>
       );
     }

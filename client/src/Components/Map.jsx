@@ -36,7 +36,7 @@ class Map extends Component {
     if (this.state.loading === true) {
       return (
         <div className="content flightResults">
-          <Loader type="Oval" color="#5f9ea0" />
+          <Loader type="Oval" color="#e67e22" />
         </div>
       );
     }
