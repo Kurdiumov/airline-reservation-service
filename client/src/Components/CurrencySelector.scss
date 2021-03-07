@@ -1,0 +1,18 @@
+@import "../Assets/variables.scss";
+
+.currencySelector {
+  select {
+    font-size: $text-size-m;
+    padding-right: 0.3rem;
+    background-color: $navbar-background-color;
+    color: $navbar-link-color;
+    cursor: pointer;
+    border: none;
+    outline: none;
+
+    &:active,
+    &:hover {
+      color: darken($navbar-link-color, 10%);
+    }
+  }
+}

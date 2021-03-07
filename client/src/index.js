@@ -3,6 +3,8 @@ import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import "./Assets/styles.scss";
 import AppRouter from "./Routes/AppRouter";
+import backendConnector from "./backendConnector.js";
+import { setExchangeRate } from "./Actions/currency.js";
 import store from "./store";
 
 ReactDOM.render(
@@ -12,4 +14,10 @@ ReactDOM.render(
   document.getElementById("root")
 );
 
-fetch("/backendStatus");
+backendConnector.getCurrencies().then((rates) => {
+  try {
+    store.dispatch(setExchangeRate(rates));
+  } catch (err) {
+    console.err("Unexpected error occurred while fetching currencies", err);
+  }
+});

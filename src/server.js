@@ -4,6 +4,7 @@ import express from "express";
 import auth from "./routes/auth.js";
 import flights from "./routes/flights.js";
 import airports from "./routes/airports.js";
+import currencies from "./routes/currencies.js";
 import authenticateJWT from "./middlewares/authenticateJWT.js";
 
 export default () => {
@@ -17,10 +18,7 @@ export default () => {
   app.use("/api/user", auth);
   app.use("/api/flights", flights);
   app.use("/api/airports", airports);
-
-  app.get("/backendStatus", (req, res) => {
-    res.json({ status: "connected" });
-  });
+  app.use("/api/currencies", currencies);
 
   app.get("/checkToken", authenticateJWT, (req, res) => {
     res.json({

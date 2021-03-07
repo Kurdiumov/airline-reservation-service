@@ -18,8 +18,8 @@ class FlightSearchResultsPage extends Component {
 
     for (const prop of [origin, destination, departureDate, passengers]) {
       if (!prop) {
-        console.error(
-          "Some mandatory property is missing in FlightSearchResultsPage"
+        console.warn(
+          "Some mandatory property is missing in FlightSearchResultsPage, redirecting..."
         );
         props.history.push("/");
         return;
@@ -34,12 +34,24 @@ class FlightSearchResultsPage extends Component {
   }
 
   componentDidMount = async () => {
-    const { origin, destination, departureDate } = this.props;
-    const date = moment(departureDate.slice(0,10)).format('YYYY-MM-DD');
+    if (window.location.pathname.toLowerCase() !== "/search") {
+      return;
+    }
 
-    const flightsPromise = backendConnector.getFlights(origin.code, destination.code, date);
-    const originDetailsPromise = backendConnector.getAirportDetails(origin.code);
-    const destinationDetailsPromise = backendConnector.getAirportDetails(destination.code);
+    const { origin, destination, departureDate } = this.props;
+    const date = moment(departureDate.slice(0, 10)).format("YYYY-MM-DD");
+
+    const flightsPromise = backendConnector.getFlights(
+      origin.code,
+      destination.code,
+      date
+    );
+    const originDetailsPromise = backendConnector.getAirportDetails(
+      origin.code
+    );
+    const destinationDetailsPromise = backendConnector.getAirportDetails(
+      destination.code
+    );
 
     Promise.all([
       flightsPromise,
@@ -101,7 +113,7 @@ const mapStateToProps = (state) => {
     passengers: {
       adults: state.search.passengers.adults,
       children: state.search.passengers.children,
-      infants: state.search.passengers.infants,
+      infants: state.search.passengers.infants
     }
   };
 };

@@ -1,6 +1,8 @@
 import React, { Component } from "react";
-import moment from "moment"
+import { connect } from "react-redux";
+import moment from "moment";
 import momentTimezone from "moment-timezone";
+import { getPriceInCurrentCurrency } from "../utils.js";
 import "./FlightDetails.scss";
 
 class FlightDetails extends Component {
@@ -10,7 +12,9 @@ class FlightDetails extends Component {
       <li className="flightDetails">
         <div>
           <div>
-            {moment(flight.departureTime).tz(origin.timezone).format("MMMM Do YYYY, hh:mm")}
+            {moment(flight.departureTime)
+              .tz(origin.timezone)
+              .format("MMMM Do YYYY, hh:mm")}
             ({moment.tz(origin.timezone).zoneName()})
           </div>
           <div>{origin.name}</div>
@@ -28,7 +32,8 @@ class FlightDetails extends Component {
           <div>
             {new Date(flight.arrivalTime).toLocaleString("pl-PL", {
               timeZone: destination.timezone
-            })} ({moment.tz(destination.timezone).zoneName()})
+            })}{" "}
+            ({moment.tz(destination.timezone).zoneName()})
           </div>
           <div>{destination.name}</div>
           <div>
@@ -41,11 +46,25 @@ class FlightDetails extends Component {
         </div>
         <div>
           <span>BOOK</span>
-          <div>Prices start at {flight.economyPrice}PLN</div>
+          <div>
+            Prices start at{" "}
+            {getPriceInCurrentCurrency(
+              flight.economyPrice,
+              this.props.currentCurrency,
+              this.props.exchangeRates
+            )}
+          </div>
         </div>
       </li>
     );
   };
 }
 
-export default FlightDetails;
+const mapStateToProps = (state) => {
+  return {
+    currentCurrency: state.currencies.currentCurrency,
+    exchangeRates: state.currencies.exchangeRates
+  };
+};
+
+export default connect(mapStateToProps, {})(FlightDetails);

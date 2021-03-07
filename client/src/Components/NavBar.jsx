@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { logout } from "../Actions/auth.js";
+import CurrencySelector from "./CurrencySelector";
 import "./NavBar.scss";
 
 export class NavBar extends React.Component {
@@ -9,12 +10,15 @@ export class NavBar extends React.Component {
     return (
       <div className="navbar">
         <ul>
+          <CurrencySelector />
+          <li>|</li>
           <li>
-            <Link to="/">Home</Link>
+            <Link to="/">Search</Link>
           </li>
           <li>
             <Link to="/map">Map</Link>
           </li>
+
           <li>|</li>
           {this.props.isAuthenticated
             ? this.getLogOutButton()

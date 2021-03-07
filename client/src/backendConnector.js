@@ -1,9 +1,10 @@
-const flightsUrl = `${process.env.REACT_APP_API_URL}/api/flights/?`;
+const flightsUrl = `${process.env.REACT_APP_API_URL}/api/flights?`;
 const airportsUrl = `${process.env.REACT_APP_API_URL}/api/airports?`;
-const airportDetailsUrl = `${process.env.REACT_APP_API_URL}/api/airports/details/?`;
+const airportDetailsUrl = `${process.env.REACT_APP_API_URL}/api/airports/details?`;
 const availableSourcesUrl = `${process.env.REACT_APP_API_URL}/api/flights/availableSources?`;
 const availableDestinationsUrl = `${process.env.REACT_APP_API_URL}/api/flights/availableDestinations?`;
 const availableDatesUrl = `${process.env.REACT_APP_API_URL}/api/flights/availableDates?`;
+const currenciesUrl = `${process.env.REACT_APP_API_URL}/api/currencies/`;
 
 const getFlights = async (origin, destination, date) => {
   const json = await fetchFromBackend(flightsUrl, {
@@ -48,6 +49,11 @@ const getAvailableDepartureDates = async (originCode, destinationCode) => {
   return dates;
 };
 
+const getCurrencies = async () => {
+  const json = await fetchFromBackend(currenciesUrl);
+  return json.exchangeRates;
+};
+
 const fetchFromBackend = async (url, params) => {
   try {
     let fullUrl = url;
@@ -71,7 +77,8 @@ const backendConnector = {
   getAirportDetails: getAirportDetails,
   getAvailableSources: getAvailableSources,
   getAvailableDestinations: getAvailableDestinations,
-  getAvailableDepartureDates: getAvailableDepartureDates
+  getAvailableDepartureDates: getAvailableDepartureDates,
+  getCurrencies: getCurrencies
 };
 
 export default backendConnector;
