@@ -21,6 +21,7 @@ import "./FlightSearch.scss";
 class FlightSearch extends Component {
   constructor(props) {
     super(props);
+    window.searchComponent = this;
     this.state = {
       focusedInput: null,
       originInputValue: this.props.origin?.name ? this.props.origin.name : "",
@@ -43,9 +44,9 @@ class FlightSearch extends Component {
     };
   }
 
-  componentDidMount() {
-    this.getAvailableSources(this.props.destination?.code);
-    this.getAvailableDestinations(this.props.origin?.code);
+  componentDidMount = async() => {
+    await this.getAvailableSources(this.props.destination?.code);
+    await this.getAvailableDestinations(this.props.origin?.code);
 
     this.getAvailableDepartureDates(
       this.props.origin?.code,

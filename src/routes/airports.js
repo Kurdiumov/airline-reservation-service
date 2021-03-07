@@ -1,5 +1,6 @@
 import express from "express";
 import Airport from "../model/Airport.js";
+import getNearest from "../utils/closestLocation.js";
 
 const router = express.Router();
 
@@ -39,6 +40,36 @@ router.get("/details", async (req, res) => {
       });
     }
     res.status(404).send(`Airport with code ${req.query.code} not found.`);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send(err);
+  }
+});
+
+router.get("/nearest", async (req, res) => {
+  try {
+    if (!req.query.latitude) {
+      return res.status(400).send("Mandatory parameter 'latitude' is missing");
+    }
+
+    if (!req.query.longitude) {
+      return res.status(400).send("Mandatory parameter 'longitude' is missing");
+    }
+
+    const airports = await Airport.find({});
+    const airport = getNearest(
+      req.query.latitude,
+      req.query.longitude,
+      airports
+    );
+
+    if (airport) {
+      return res.json({
+        name: airport.name,
+        code: airport.code
+      });
+    }
+    res.status(404).send("Could not locate nearest airport");
   } catch (err) {
     console.error(err);
     res.status(500).send(err);

@@ -1,6 +1,7 @@
 const flightsUrl = `${process.env.REACT_APP_API_URL}/api/flights?`;
 const airportsUrl = `${process.env.REACT_APP_API_URL}/api/airports?`;
 const airportDetailsUrl = `${process.env.REACT_APP_API_URL}/api/airports/details?`;
+const airportNearestUrl = `${process.env.REACT_APP_API_URL}/api/airports/nearest?`;
 const availableSourcesUrl = `${process.env.REACT_APP_API_URL}/api/flights/availableSources?`;
 const availableDestinationsUrl = `${process.env.REACT_APP_API_URL}/api/flights/availableDestinations?`;
 const availableDatesUrl = `${process.env.REACT_APP_API_URL}/api/flights/availableDates?`;
@@ -54,6 +55,13 @@ const getCurrencies = async () => {
   return json.exchangeRates;
 };
 
+const getNearestAirport = async (latitude, longitude) => {
+  const json = await fetchFromBackend(airportNearestUrl, {
+    latitude: latitude, longitude: longitude
+  });
+  return json;
+};
+
 const fetchFromBackend = async (url, params) => {
   try {
     let fullUrl = url;
@@ -74,6 +82,7 @@ const fetchFromBackend = async (url, params) => {
 const backendConnector = {
   getFlights: getFlights,
   getAirports: getAirports,
+  getNearestAirport: getNearestAirport,
   getAirportDetails: getAirportDetails,
   getAvailableSources: getAvailableSources,
   getAvailableDestinations: getAvailableDestinations,
