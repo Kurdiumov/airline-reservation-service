@@ -5,27 +5,29 @@ $text-size-s: 0.8rem;
 
 $error-color: #c0392b;
 $primary-text-color: #2c3e50;
+$secondary-text-color: #ecf0f1;
+$primary-background-color: #e67e22;
 
-$navbar-background-color: #e67e22;
-$navbar-primary-color: #ecf0f1;
+$navbar-background-color: $primary-background-color;
+$navbar-primary-color: $secondary-text-color;
 $navbar-height: 4rem;
-$auth-form-submit-button-text-color: #ecf0f1;
+$auth-form-submit-button-text-color: $secondary-text-color;
 $auth-form-submit-button-background-color: #27ae60;
 
 $search-form-height: 350px;
 $search-form-width: 680px;
-$search-form-background-color: #e67e22;
+$search-form-background-color: $primary-background-color;
 $search-form-input-height: 2.5rem;
 $search-form-date-input-height: 3.5rem;
-$search-form-input-background-color: #ecf0f1;
+$search-form-input-background-color: $secondary-text-color;
 $search-form-border-color: lightgray;
-$search-side-panel-background-color: #ecf0f1;
+$search-side-panel-background-color: $secondary-text-color;
 
 $search-form-primary-color: #2c3e50;
 $search-form-secondary-color: #34495e;
 $search-form-disabled-color: darkgray;
 $search-form-placeholder-color: darkgray;
 
-$footer-background-color: #e67e22;
+$footer-background-color: $primary-background-color;
 $footer-height: 4rem;
-$footer-text-color: #ecf0f1;
+$footer-text-color: $secondary-text-color;

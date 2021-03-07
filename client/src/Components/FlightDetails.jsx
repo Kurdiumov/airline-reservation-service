@@ -21,7 +21,6 @@ class FlightDetails extends Component {
           <div>
             {origin.city}, {origin.country}
           </div>
-          <span>{flight.origin}</span>
         </div>
         <div>
           <div>----------------></div>
@@ -30,24 +29,24 @@ class FlightDetails extends Component {
         </div>
         <div>
           <div>
-            {new Date(flight.arrivalTime).toLocaleString("pl-PL", {
-              timeZone: destination.timezone
-            })}{" "}
+            {moment(flight.arrivalTime)
+              .tz(destination.timezone)
+              .format("MMMM Do YYYY, hh:mm")}
             ({moment.tz(destination.timezone).zoneName()})
           </div>
           <div>{destination.name}</div>
           <div>
             {destination.city}, {destination.country}
           </div>
-          <span>{flight.destination}</span>
         </div>
         <div>
-          <span>Flight Number: {flight.flightNumber}</span>
+          <div>Flight Number</div>
+          <div> {flight.flightNumber}</div>
         </div>
-        <div>
-          <span>BOOK</span>
+        <div className="book-btn">
+          <div>BOOK</div>
+          <div>Prices start at</div>
           <div>
-            Prices start at{" "}
             {getPriceInCurrentCurrency(
               flight.economyPrice,
               this.props.currentCurrency,
