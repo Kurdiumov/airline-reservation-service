@@ -10,50 +10,52 @@ export class NavBar extends React.Component {
   render() {
     return (
       <div className="navbar">
-        <div>
+        <div className="time">
           <LocalTime />
         </div>
-        <ul>
-          <CurrencySelector />
-          <li>|</li>
-          <li>
-            <Link to="/">Search</Link>
-          </li>
-          <li>
-            <Link to="/map">Map</Link>
-          </li>
-
-          <li>|</li>
+        <div className="menu">
+          <ul>
+            <li>
+              <Link to="/">Search</Link>
+            </li>
+            <li>
+              <Link to="/map">Map</Link>
+            </li>
+            <li>|</li>
+            <CurrencySelector />
+          </ul>
+        </div>
+        <div className="authButtons">
           {this.props.isAuthenticated
             ? this.getLogOutButton()
             : this.getSignInLogInButtons()}
-        </ul>
+        </div>
       </div>
     );
   }
 
   getSignInLogInButtons = () => {
     return (
-      <div>
+      <ul>
         <li>
           <Link to="/signup">Sign up</Link>
         </li>
         <li>
           <Link to="/login">Log in</Link>
         </li>
-      </div>
+      </ul>
     );
   };
 
   getLogOutButton = () => {
     return (
-      <div>
+      <ul>
         <li>
           <Link to="" onClick={this.props.logout}>
             Log Out
           </Link>
         </li>
-      </div>
+      </ul>
     );
   };
 }
