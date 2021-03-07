@@ -8,10 +8,11 @@ $content-padding: 2rem;
 html,
 body {
   margin: 0px;
+  color: $primary-text-color;
 }
 
 html {
-  background-color: red;
+  background-color: $footer-background-color;
 }
 
 body {

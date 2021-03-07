@@ -24,7 +24,7 @@
 
       &:active,
       &:hover {
-        color: lighten($navbar-link-color, 30%);
+        color: darken($navbar-link-color, 10%);
       }
     }
   }

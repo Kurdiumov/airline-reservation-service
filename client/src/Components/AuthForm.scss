@@ -10,12 +10,12 @@
   font-size: $text-size-l;
 
   span.responseError {
-    color: red;
+    color: $error-color;
     font-size: $text-size-l;
   }
 
   span.error {
-    color: red;
+    color: $error-color;
     font-size: $text-size-m;
     width: 100%;
     margin-top: 5px;
@@ -28,7 +28,7 @@
     width: 90%;
     justify-content: space-between;
     a {
-      color: #000;
+      color: $primary-text-color;
       text-decoration: underline;
       font-weight: bold;
       font-size: $text-size-l;

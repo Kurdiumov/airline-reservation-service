@@ -21,7 +21,7 @@
       font-weight: bolder;
 
       &:hover {
-        color: lighten($footer-text-color, 10%) !important;
+        color: darken($footer-text-color, 10%) !important;
       }
 
       &:visited {

@@ -20,7 +20,7 @@
     padding: 1rem;
 
     .invalid {
-      border: 2px solid red;
+      border: 2px solid $error-color;
       border-radius: 5px;
     }
 
@@ -92,7 +92,7 @@
       position: relative;
 
       .invalid {
-        border: 2px solid red;
+        border: 2px solid $error-color;
         border-radius: 5px;
       }
 
