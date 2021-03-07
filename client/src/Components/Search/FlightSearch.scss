@@ -86,34 +86,24 @@
       }
     }
 
+    .invalid {
+      border: 2px solid $error-color;
+      border-radius: 5px;
+    }
+
     .searchDates {
-      display: flex;
-      justify-content: space-between;
-      position: relative;
-
-      .invalid {
-        border: 2px solid $error-color;
-        border-radius: 5px;
-      }
-
       span {
-        line-height: 1rem;
-        margin: 0.5rem 0 0 1rem;
+        display: inline-block;
+        line-height: 2.5rem;
+        height: 100%;
+        width: 50%;
+        margin: 0;
         text-align: left;
-        display: block;
+        vertical-align: middle;
 
         &.secondary {
           font-weight: bold;
-          margin: 0.5rem 0 0 0.5rem;
-        }
-      }
-
-      div {
-        width: 50%;
-        height: $search-form-date-input-height;
-
-        &:first-child {
-          margin-right: 5px;
+          width: 40%;
         }
       }
     }
@@ -145,8 +135,6 @@
     .noResults {
       padding-top: 50%;
     }
-
-    
   }
 }
 

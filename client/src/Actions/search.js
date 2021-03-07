@@ -18,11 +18,6 @@ export const setDepartureDate = (date) => ({
   date
 });
 
-export const setReturnDate = (date) => ({
-  type: "RETURN_DATE",
-  date
-});
-
 export const setAdultPassengers = (adults) => ({
   type: "ADULTS",
   adults

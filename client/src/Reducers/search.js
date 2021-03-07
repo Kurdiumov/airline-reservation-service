@@ -5,7 +5,6 @@ const initialState = {
   origin: null,
   originTimeZone: "GMT",
   departureDate: new Date(),
-  returnDate: "One way",
   passengers: {
     adults: 1,
     children: 0,
@@ -30,9 +29,6 @@ const searchReducer = (state = initialState, action) => {
       return newState;
     case "DEPARTURE_DATE":
       newState.departureDate = action.date;
-      return newState;
-    case "RETURN_DATE":
-      newState.returnDate = action.date;
       return newState;
     case "ADULTS":
       if (action.adults > passengersLimit) return newState;

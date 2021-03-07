@@ -13,7 +13,6 @@ class FlightSearchResultsPage extends Component {
     const origin = props.origin?.code;
     const destination = props.destination?.code;
     const departureDate = props.departureDate;
-    const returnDate = props.returnDate;
     const passengers = props.passengers;
 
     for (const prop of [origin, destination, departureDate, passengers]) {
@@ -109,7 +108,6 @@ const mapStateToProps = (state) => {
     originTimezone: state.search.originTimeZone,
     destination: state.search.destination,
     departureDate: state.search.departureDate,
-    returnDate: state.search.returnDate,
     passengers: {
       adults: state.search.passengers.adults,
       children: state.search.passengers.children,

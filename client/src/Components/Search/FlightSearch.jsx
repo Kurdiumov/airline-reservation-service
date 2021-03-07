@@ -9,8 +9,7 @@ import {
   setOrigin,
   setDestination,
   setOriginTimezone,
-  setDepartureDate,
-  setReturnDate
+  setDepartureDate
 } from "../../Actions/search";
 import Passengers, {
   getAdultsPassengersText,
@@ -31,8 +30,7 @@ class FlightSearch extends Component {
       invalid: {
         originInput: false,
         destinationInput: false,
-        departureDateInput: false,
-        returnDateInput: false
+        departureDateInput: false
       },
       data: {
         availableSources: [],
@@ -150,18 +148,15 @@ class FlightSearch extends Component {
       !this.state.data.availableDepartureDates.some((date) => {
         return (
           moment(date).format("YYYY-MM-DD") ===
-          moment(this.props.departureDate).format("YYYY-MM-DD") ||
+            moment(this.props.departureDate).format("YYYY-MM-DD") ||
           moment(date).format("YYYY-MM-DD") ===
-          moment(this.props.departureDate).add(24, "hours").format("YYYY-MM-DD")
+            moment(this.props.departureDate)
+              .add(24, "hours")
+              .format("YYYY-MM-DD")
         );
       })
     ) {
       state.invalid.departureDateInput = true;
-      allInputsAreValid = false;
-    }
-
-    if (!this.props.returnDate) {
-      state.invalid.returnDateInput = true;
       allInputsAreValid = false;
     }
 
@@ -201,13 +196,6 @@ class FlightSearch extends Component {
         new Date(date.getTime() - date.getTimezoneOffset() * 60000)
       ).format("YYYY-MM-DDThh:mm:ss")
     );
-  };
-
-  setReturnDate = (date) => {
-    let newState = { ...this.state };
-    newState.focusedInput = null;
-    this.setState(newState);
-    this.props.setReturnDate(date);
   };
 
   onOriginInputChange = (event) => {
@@ -291,37 +279,22 @@ class FlightSearch extends Component {
               </span>
             </div>
           </div>
-          <div className="searchDates">
-            <div
-              id="DepartureDate"
-              onClick={this.onFocusChanged}
-              className={
-                this.state.invalid.departureDateInput === true
-                  ? "button invalid"
-                  : "button"
-              }
-            >
-              <span className="secondary">Departure</span>
-              <span>
-                {this.getPrettyDate(
-                  this.props.departureDate,
-                  this.props.originTimezone
-                )}
-              </span>
-            </div>
-
-            <div
-              id="ReturnDate"
-              onClick={this.onFocusChanged}
-              className={
-                this.state.invalid.returnDateInput === true
-                  ? "button invalid"
-                  : "button"
-              }
-            >
-              <span className="secondary">Return</span>
-              <span>{this.getPrettyDate(this.props.returnDate)}</span>
-            </div>
+          <div
+            id="DepartureDate"
+            onClick={this.onFocusChanged}
+            className={
+              this.state.invalid.departureDateInput === true
+                ? "searchDates button invalid"
+                : "searchDates button"
+            }
+          >
+            <span className="secondary">Departure</span>
+            <span>
+              {this.getPrettyDate(
+                this.props.departureDate,
+                this.props.originTimezone
+              )}
+            </span>
           </div>
 
           <div
@@ -338,14 +311,6 @@ class FlightSearch extends Component {
 
           <input type="submit" value="Search" onFocus={this.onFocusChanged} />
         </form>
-      );
-    };
-
-    const getReturnDatePanel = () => {
-      return (
-        <div className="sidePanel returnDate">
-          Return date picker should appear here
-        </div>
       );
     };
 
@@ -384,7 +349,6 @@ class FlightSearch extends Component {
                 )}
               />
             )}
-            {this.state.focusedInput === "ReturnDate" && getReturnDatePanel()}
           </div>
         )}
       </div>
@@ -398,7 +362,6 @@ const mapStateToProps = (state) => {
     children: state.search.passengers.children,
     infants: state.search.passengers.infants,
     departureDate: state.search.departureDate,
-    returnDate: state.search.returnDate,
     origin: state.search.origin,
     destination: state.search.destination,
     originTimezone: state.search.originTimeZone
@@ -407,7 +370,6 @@ const mapStateToProps = (state) => {
 
 const MapDispatchToProps = (dispatch) => ({
   setDepartureDate: (date) => dispatch(setDepartureDate(date)),
-  setReturnDate: (date) => dispatch(setReturnDate(date)),
   setOrigin: (origin) => dispatch(setOrigin(origin)),
   setDestination: (destination) => dispatch(setDestination(destination)),
   setOriginTimezone: (timezone) => dispatch(setOriginTimezone(timezone))
