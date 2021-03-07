@@ -3,6 +3,7 @@ import cors from "cors";
 import express from "express";
 import auth from "./routes/auth.js";
 import flights from "./routes/flights.js";
+import weather from "./routes/weather.js";
 import airports from "./routes/airports.js";
 import currencies from "./routes/currencies.js";
 import authenticateJWT from "./middlewares/authenticateJWT.js";
@@ -17,6 +18,7 @@ export default () => {
   app.use(express.json());
   app.use("/api/user", auth);
   app.use("/api/flights", flights);
+  app.use("/api/weather", weather);
   app.use("/api/airports", airports);
   app.use("/api/currencies", currencies);
 

@@ -2,10 +2,14 @@ const flightsUrl = `${process.env.REACT_APP_API_URL}/api/flights?`;
 const airportsUrl = `${process.env.REACT_APP_API_URL}/api/airports?`;
 const airportDetailsUrl = `${process.env.REACT_APP_API_URL}/api/airports/details?`;
 const airportNearestUrl = `${process.env.REACT_APP_API_URL}/api/airports/nearest?`;
+
 const availableSourcesUrl = `${process.env.REACT_APP_API_URL}/api/flights/availableSources?`;
 const availableDestinationsUrl = `${process.env.REACT_APP_API_URL}/api/flights/availableDestinations?`;
 const availableDatesUrl = `${process.env.REACT_APP_API_URL}/api/flights/availableDates?`;
+
 const currenciesUrl = `${process.env.REACT_APP_API_URL}/api/currencies/`;
+
+const currentWeatherUrl = `${process.env.REACT_APP_API_URL}/api/weather/current?`;
 
 const getFlights = async (origin, destination, date) => {
   const json = await fetchFromBackend(flightsUrl, {
@@ -52,12 +56,20 @@ const getAvailableDepartureDates = async (originCode, destinationCode) => {
 
 const getCurrencies = async () => {
   const json = await fetchFromBackend(currenciesUrl);
-  return json.exchangeRates;
+  return json?.exchangeRates;
 };
 
 const getNearestAirport = async (latitude, longitude) => {
   const json = await fetchFromBackend(airportNearestUrl, {
-    latitude: latitude, longitude: longitude
+    latitude: latitude,
+    longitude: longitude
+  });
+  return json;
+};
+
+const getCurrentWeather = async (airportCode) => {
+  const json = await fetchFromBackend(currentWeatherUrl, {
+    airportCode: airportCode
   });
   return json;
 };
@@ -87,7 +99,8 @@ const backendConnector = {
   getAvailableSources: getAvailableSources,
   getAvailableDestinations: getAvailableDestinations,
   getAvailableDepartureDates: getAvailableDepartureDates,
-  getCurrencies: getCurrencies
+  getCurrencies: getCurrencies,
+  getCurrentWeather: getCurrentWeather
 };
 
 export default backendConnector;

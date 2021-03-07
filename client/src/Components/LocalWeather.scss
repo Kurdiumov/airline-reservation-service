@@ -1,8 +1,9 @@
 @import "../Assets/variables.scss";
 
-.localTime {
+.localWeather {
   display: inline-block;
   color: $navbar-primary-color;
+  font-size: $text-size-s;
 
   span {
     color: $navbar-primary-color;

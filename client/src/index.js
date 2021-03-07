@@ -15,6 +15,10 @@ ReactDOM.render(
   document.getElementById("root")
 );
 
+// backendConnector.getCurrentWeather("WAW").then((weather) => {
+//   console.log("wweather", weather);
+// });
+
 backendConnector.getCurrencies().then((rates) => {
   try {
     store.dispatch(setExchangeRate(rates));
@@ -30,7 +34,7 @@ if (navigator.geolocation) {
       coords.longitude
     );
     const searchComponent = window.searchComponent;
-    if (
+    if (airport &&
       !searchComponent?.state.originInputValue &&
       !searchComponent?.state.destinationInputValue
     ) {

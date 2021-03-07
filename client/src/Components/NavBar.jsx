@@ -4,15 +4,17 @@ import { connect } from "react-redux";
 import { logout } from "../Actions/auth.js";
 import CurrencySelector from "./CurrencySelector";
 import LocalTime from "./LocalTime";
+import LocalWeather from "./LocalWeather";
 import "./NavBar.scss";
 
 export class NavBar extends React.Component {
   render() {
     return (
       <div className="navbar">
-        <div className="time">
+        <div className="airportData">
           <LocalTime />
-        </div>
+          <LocalWeather />
+        </div>  
         <div className="menu">
           <ul>
             <li>

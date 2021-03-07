@@ -15,9 +15,14 @@
     margin: auto 0;
   }
 
-  .time {
+  .airportData {
     .localTime {
       margin-left: 3rem;
+      font-size: $text-size-m;
+    }
+
+    .localWeather {
+      margin-left: 1rem;
       font-size: $text-size-m;
     }
   }
