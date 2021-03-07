@@ -51,6 +51,10 @@ export class NavBar extends React.Component {
     return (
       <ul>
         <li>
+          <Link to="">{this.props.userName}</Link>
+        </li>
+        <li>|</li>
+        <li>
           <Link to="" onClick={this.props.logout}>
             Log Out
           </Link>
@@ -62,7 +66,8 @@ export class NavBar extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    isAuthenticated: state.auth.token != null
+    isAuthenticated: state.auth.token != null,
+    userName: state.auth.name + " " + state.auth.surname
   };
 };
 

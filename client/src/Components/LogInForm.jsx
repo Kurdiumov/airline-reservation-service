@@ -49,7 +49,8 @@ class LogInForm extends Component {
 
       if (response.status === 200) {
         const token = response.headers.get("auth-token");
-        this.props.login(token);
+        const user = await response.json();
+        this.props.login(token, user.name, user.surname);
         this.props.history.push("/");
         return;
       }
