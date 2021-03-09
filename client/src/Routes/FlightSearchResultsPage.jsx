@@ -93,6 +93,7 @@ class FlightSearchResultsPage extends Component {
                 flight={flight}
                 origin={this.state.originDetails}
                 destination={this.state.destinationDetails}
+                passengers={this.props.passengers}
               ></FlightDetails>
             );
           })}

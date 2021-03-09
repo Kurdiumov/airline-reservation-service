@@ -1,8 +1,9 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
+import Booking from "../Components/Booking/Booking";
 
-function Booking(props) {
+function BookingPage(props) {
   const selectedFlight = useSelector((state) => state.booking.selectedFlight);
   const isLoggedIn = useSelector((state) => !!state.auth.token);
 
@@ -16,9 +17,9 @@ function Booking(props) {
 
   return (
     <div className="content">
-      <h1>Booking information appears here</h1>
+      <Booking />
     </div>
   );
 }
 
-export default Booking;
+export default BookingPage;

@@ -3,18 +3,20 @@ import { connect } from "react-redux";
 import moment from "moment";
 import momentTimezone from "moment-timezone";
 import { getPriceInCurrentCurrency } from "../utils.js";
-import { setFlight } from "../Actions/booking.js";
+import { setFlight, setPassengersCount } from "../Actions/booking.js";
 import "./FlightDetails.scss";
 
 class FlightDetails extends Component {
   handleBookButton = (flightNumber) => {
-    console.log("Book btn clicked!", flightNumber);
-
-    //RK TODO: Add flight to state
-    // Redirect to booking page
+    const { passengers } = this.props;
     this.props.setFlight(flightNumber);
+    this.props.setPassengersCount(
+      passengers?.adults,
+      passengers?.children,
+      passengers?.infants
+    );
     this.props.history.push("/booking");
-  }
+  };
 
   render = () => {
     const { flight, origin, destination } = this.props;
@@ -53,7 +55,10 @@ class FlightDetails extends Component {
           <div>Flight Number</div>
           <div> {flight.flightNumber}</div>
         </div>
-        <div className="book-btn" onClick={() => this.handleBookButton(flight.flightNumber)}>
+        <div
+          className="book-btn"
+          onClick={() => this.handleBookButton(flight.flightNumber)}
+        >
           <div>BOOK</div>
           <div>Prices start at</div>
           <div>
@@ -77,7 +82,9 @@ const mapStateToProps = (state) => {
 };
 
 const MapDispatchToProps = (dispatch) => ({
-  setFlight: (flight) => dispatch(setFlight(flight))
+  setFlight: (flight) => dispatch(setFlight(flight)),
+  setPassengersCount: (adults, children, infants) =>
+    dispatch(setPassengersCount(adults, children, infants))
 });
 
 export default connect(mapStateToProps, MapDispatchToProps)(FlightDetails);
