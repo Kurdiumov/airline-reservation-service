@@ -17,7 +17,8 @@ class LogInForm extends Component {
         email: "",
         password: ""
       },
-      responseError: ""
+      responseError: "",
+      redirect: props.redirect ? props.redirect : "/"
     };
   }
 
@@ -51,7 +52,7 @@ class LogInForm extends Component {
         const token = response.headers.get("auth-token");
         const user = await response.json();
         this.props.login(token, user.name, user.surname);
-        this.props.history.push("/");
+        this.props.history.push(this.state.redirect);
         return;
       }
 
@@ -109,7 +110,16 @@ class LogInForm extends Component {
         />
         {errors.password && <span className="error">{errors.password}</span>}
         <div>
-          <Link to="/signup">Sign up</Link>
+          <Link
+            to={{
+              pathname: "/signup",
+              state: {
+                redirect: this.state.redirect
+              }
+            }}
+          >
+            Sign up
+          </Link>
           <input type="submit" value="LOG IN" className="button" />
         </div>
       </form>

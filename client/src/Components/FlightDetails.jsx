@@ -3,9 +3,19 @@ import { connect } from "react-redux";
 import moment from "moment";
 import momentTimezone from "moment-timezone";
 import { getPriceInCurrentCurrency } from "../utils.js";
+import { setFlight } from "../Actions/booking.js";
 import "./FlightDetails.scss";
 
 class FlightDetails extends Component {
+  handleBookButton = (flightNumber) => {
+    console.log("Book btn clicked!", flightNumber);
+
+    //RK TODO: Add flight to state
+    // Redirect to booking page
+    this.props.setFlight(flightNumber);
+    this.props.history.push("/booking");
+  }
+
   render = () => {
     const { flight, origin, destination } = this.props;
     return (
@@ -43,7 +53,7 @@ class FlightDetails extends Component {
           <div>Flight Number</div>
           <div> {flight.flightNumber}</div>
         </div>
-        <div className="book-btn">
+        <div className="book-btn" onClick={() => this.handleBookButton(flight.flightNumber)}>
           <div>BOOK</div>
           <div>Prices start at</div>
           <div>
@@ -66,4 +76,8 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, {})(FlightDetails);
+const MapDispatchToProps = (dispatch) => ({
+  setFlight: (flight) => dispatch(setFlight(flight))
+});
+
+export default connect(mapStateToProps, MapDispatchToProps)(FlightDetails);

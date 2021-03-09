@@ -88,7 +88,7 @@ class FlightSearchResultsPage extends Component {
         <ul>
           {this.state.flights.map((flight) => {
             return (
-              <FlightDetails
+              <FlightDetails history={this.props.history}
                 key={flight.flightNumber}
                 flight={flight}
                 origin={this.state.originDetails}
