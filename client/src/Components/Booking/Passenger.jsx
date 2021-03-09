@@ -44,11 +44,13 @@ class Passenger extends Component {
               type="text"
               onInput={this.onNameInputChanged}
               value={this.state.name}
+              placeholder="First Name"
             ></input>
             <input
               type="text"
               onInput={this.onSurnameInputChanged}
               value={this.state.surname}
+              placeholder="Last Name"
             ></input>
             <input
               type="button"
