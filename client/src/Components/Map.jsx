@@ -31,14 +31,12 @@ class Map extends Component {
     newState.loading = false;
     newState.airports = airports;
     if (this.mounted) {
-      console.log("Setting state");
       this.setState(newState);
     }
   };
 
   componentWillUnmount = () => {
     this.mounted = false;
-    console.log("Unmount");
   };
 
   render = () => {

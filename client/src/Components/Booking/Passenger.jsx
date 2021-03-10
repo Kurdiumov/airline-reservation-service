@@ -14,31 +14,42 @@ class Passenger extends Component {
     };
   }
 
-  onNameInputChanged = (event) => {
+  validate = () => {
+    const isValid =
+      this.state.name.length > 0 &&
+      this.state.surname.length > 0 &&
+      this.state.sex != "";
+
+    this.props.notifyParent(this.props.id, isValid);
+  };
+
+  onNameInputChanged = async (event) => {
     let newState = { ...this.state };
     newState.name = event.target.value;
-    this.setState(newState);
+    await this.setState(newState);
+    this.validate();
   };
 
-  onSurnameInputChanged = (event) => {
+  onSurnameInputChanged = async (event) => {
     let newState = { ...this.state };
     newState.surname = event.target.value;
-    this.setState(newState);
+    await this.setState(newState);
+    this.validate();
   };
 
-  handleSexClick = (event) => {
+  handleSexClick = async (event) => {
     let newState = { ...this.state };
     newState.sex = event.target.value;
-    this.setState(newState);
+    await this.setState(newState);
+    this.validate();
   };
-
 
   // TODO Add baggage selection to passenger
   render = () => {
     return (
       <div className="passenger">
         <h3>
-          {this.props.index}. PASSENGER ({this.state.type}){" "}
+          {this.props.index + 1}. PASSENGER ({this.state.type}){" "}
           <form>
             <input
               type="text"

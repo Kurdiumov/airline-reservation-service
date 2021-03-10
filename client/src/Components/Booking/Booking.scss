@@ -30,6 +30,12 @@
       &:active {
         background-color: darken($primary-background-color, 5%);
       }
+
+      &.disabled {
+        cursor: default;
+        color: $primary-text-color;
+        background-color: $secondary-lightgray-color;
+      }
     }
   }
 }
