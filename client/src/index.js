@@ -36,7 +36,8 @@ if (navigator.geolocation) {
     const searchComponent = window.searchComponent;
     if (airport &&
       !searchComponent?.state.originInputValue &&
-      !searchComponent?.state.destinationInputValue
+      !searchComponent?.state.destinationInputValue &&
+      !searchComponent?.state.focusedInput
     ) {
       searchComponent?.setOriginInput(airport);
     }
