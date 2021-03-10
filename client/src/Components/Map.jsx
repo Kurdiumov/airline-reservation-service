@@ -25,11 +25,20 @@ class Map extends Component {
   }
 
   componentDidMount = async () => {
+    this.mounted = true;
     const airports = await backendConnector.getAirports();
     let newState = { ...this.state };
     newState.loading = false;
     newState.airports = airports;
-    this.setState(newState);
+    if (this.mounted) {
+      console.log("Setting state");
+      this.setState(newState);
+    }
+  };
+
+  componentWillUnmount = () => {
+    this.mounted = false;
+    console.log("Unmount");
   };
 
   render = () => {
