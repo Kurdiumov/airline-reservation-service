@@ -38,7 +38,7 @@ class LocalWeather extends Component {
     if (
       !this.props.airportCode ||
       !this.state.condition ||
-      !this.state.temperature
+      this.state.temperature != ""
     ) {
       return null;
     }
