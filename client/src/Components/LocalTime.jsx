@@ -1,83 +1,60 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import moment from "moment";
 import momentTimezone from "moment-timezone";
 import backendConnector from "../backendConnector.js";
 import "./LocalTime.scss";
 
-class LocalTime extends Component {
-  constructor(props) {
-    super(props);
+export default function LocalTime() {
+  const airportCode = useSelector((state) => state.search?.origin?.code);
+  const [city, setCity] = useState(null);
+  const [timezone, setTimezone] = useState(null);
+  const [time, setTime] = useState(null);
 
-    this.state = {
-      city: null,
-      country: null,
-      timezone: null,
-      time: null
-    };
-  }
+  useEffect(
+    function () {
+      let interval = setInterval(() => {
+        timezone
+          ? setTime(
+              moment.tz(new Date(), timezone).format("ddd D, MMM HH:mm:ss")
+            )
+          : setTime(null);
+      }, 100);
 
-  getAirportDetails = async (airportCode) => {
+      return () => {
+        clearInterval(interval);
+      };
+    },
+    [timezone]
+  );
+
+  const getAirportDetails = async () => {
     const details = await backendConnector.getAirportDetails(airportCode);
 
-    let newState = { ...this.state };
-    newState.city = details.city;
-    newState.country = details.country;
-    newState.timezone = details.timezone;
-    this.setState(newState);
+    setCity(details.city);
+    setTimezone(details.timezone);
   };
 
-  componentDidMount() {
-    this.interval = setInterval(() => {
-      let time = null;
-      if (this.state.timezone) {
-        time = moment
-          .tz(new Date(), this.state.timezone)
-          .format("ddd D, MMM HH:mm:ss");
-      }
-
-      let newState = { ...this.state };
-      newState.time = time;
-      this.setState(newState);
-    }, 1000);
-  }
-  componentWillUnmount() {
-    clearInterval(this.interval);
+  if (!airportCode) {
+    if (city) {
+      setCity(null);
+      setTimezone(null);
+    }
+    return <div className="localTime" />;
   }
 
-  render = () => {
-    if (!this.props.airportCode) {
-      if (this.state.city) {
-        this.setState({
-          city: null,
-          country: null,
-          timezone: null
-        });
-      }
-      return <div className="localTime" />;
-    }
+  if (!city) {
+    getAirportDetails();
+    return <div className="localTime" />;
+  }
 
-    if (!this.state.city) {
-      this.getAirportDetails(this.props.airportCode);
-      return <div className="localTime" />;
-    }
+  if (!time) {
+    return <div className="localTime" />;
+  }
 
-    if (!this.state.time) {
-      return <div className="localTime" />;
-    }
-
-    return (
-      <div className="localTime">
-        Local time in <span>{this.state.city}</span>: {this.state.time}
-      </div>
-    );
-  };
+  return (
+    <div className="localTime">
+      Local time in <span>{city}</span>: {time}
+    </div>
+  );
 }
-
-const mapStateToProps = (state) => {
-  return {
-    airportCode: state.search?.origin?.code
-  };
-};
-
-export default connect(mapStateToProps, {})(LocalTime);

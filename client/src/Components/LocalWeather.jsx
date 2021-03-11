@@ -1,60 +1,37 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
+import React, { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 import backendConnector from "../backendConnector.js";
 import "./LocalWeather.scss";
+import usePrevious from "../Hooks/usePrevious";
 
-class LocalWeather extends Component {
-  constructor(props) {
-    super(props);
+export default function LocalWeather() {
+  const airportCode = useSelector((state) => state.search?.origin?.code);
+  const [condition, setCondition] = useState(null);
+  const [temperature, setTemperature] = useState(null);
+  const prevAirportCode = usePrevious(airportCode);
 
-    this.state = {
-      condition: null,
-      temperature: null
-    };
-  }
-
-  componentDidUpdate(prevProps) {
-    if (prevProps.airportCode !== this.props.airportCode) {
-      if (!this.props.airportCode) {
-        this.setState({
-          condition: null,
-          temperature: null
-        });
+  useEffect(() => {
+    if (airportCode !== prevAirportCode) {
+      if (!airportCode) {
+        setCondition(null);
+        setTemperature(null);
         return;
       }
 
-      backendConnector
-        .getCurrentWeather(this.props.airportCode)
-        .then((weather) => {
-          let newState = { ...this.state };
-          newState.condition = weather.condition;
-          newState.temperature = weather.temperature;
-          this.setState(newState);
-        });
+      backendConnector.getCurrentWeather(airportCode).then((weather) => {
+        setCondition(weather.condition);
+        setTemperature(Math.round(weather.temperature));
+      });
     }
+  }, [airportCode]);
+
+  if (!airportCode || condition === null || temperature === null) {
+    return null;
   }
 
-  render = () => {
-    if (
-      !this.props.airportCode ||
-      !this.state.condition ||
-      this.state.temperature != ""
-    ) {
-      return null;
-    }
-
-    return (
-      <div className="localWeather">
-        {this.state.temperature}°C {this.state.condition}
-      </div>
-    );
-  };
+  return (
+    <div className="localWeather">
+      {temperature}°C {condition}
+    </div>
+  );
 }
-
-const mapStateToProps = (state) => {
-  return {
-    airportCode: state.search?.origin?.code
-  };
-};
-
-export default connect(mapStateToProps, {})(LocalWeather);
