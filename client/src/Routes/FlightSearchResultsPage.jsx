@@ -19,8 +19,10 @@ export default function FlightSearchResultsPage(props) {
   const passengers = useSelector((state) => state.search.passengers);
 
   useEffect(() => {
-    setLoading(true);
+    if (!departureDate?.slice)
+      return;
 
+    setLoading(true);
     const date = moment(departureDate.slice(0, 10)).format("YYYY-MM-DD");
     const flightsPromise = backendConnector.getFlights(origin, destination, date);
     const originDetailsPromise = backendConnector.getAirportDetails(origin);
