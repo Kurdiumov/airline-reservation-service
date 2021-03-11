@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import {
   setAdultPassengers,
   setChildrenPassengers,
@@ -37,102 +37,71 @@ export const getInfantsPassengersText = (infantsCount) => {
   return getPassengersText(infantsCount, "infant", "infants");
 };
 
-class Passengers extends Component {
-  render = () => {
-    return (
-      <div className="passengers">
-        <div>
-          <button
-            className={
-              this.props.adults === 1 ||
-              this.props.adults === this.props.infants
-                ? "disabled"
-                : ""
-            }
-            onClick={() => this.props.setAdultPassengers(this.props.adults - 1)}
-          >
-            -
-          </button>
-          <span>
-            {getAdultsPassengersText(this.props.adults)}
-            <span className="secondary"> (14+)</span>
-          </span>
-          <button
-            className={this.props.adults === passengersLimit ? "disabled" : ""}
-            onClick={() => this.props.setAdultPassengers(this.props.adults + 1)}
-          >
-            +
-          </button>
-        </div>
+export default function Passengers() {
+  const dispatch = useDispatch();
+  const adults = useSelector(({ search }) => search.passengers.adults);
+  const children = useSelector(({ search }) => search.passengers.children);
+  const infants = useSelector(({ search }) => search.passengers.infants);
 
-        <div>
-          <button
-            className={this.props.children === 0 ? "disabled" : ""}
-            onClick={() =>
-              this.props.setChildrenPassengers(this.props.children - 1)
-            }
-          >
-            -
-          </button>
-          <span>
-            {getChildrenPassengersText(this.props.children)}
-            <span className="secondary"> (2-14)</span>
-          </span>
-          <button
-            className={
-              this.props.children === passengersLimit ? "disabled" : ""
-            }
-            onClick={() =>
-              this.props.setChildrenPassengers(this.props.children + 1)
-            }
-          >
-            +
-          </button>
-        </div>
-
-        <div>
-          <button
-            className={this.props.infants === 0 ? "disabled" : ""}
-            onClick={() =>
-              this.props.setInfantPassengers(this.props.infants - 1)
-            }
-          >
-            -
-          </button>
-          <span>
-            {getInfantsPassengersText(this.props.infants)}
-            <span className="secondary"> (0-2)</span>
-          </span>
-          <button
-            className={
-              this.props.infants === this.props.adults ? "disabled" : ""
-            }
-            onClick={() =>
-              this.props.setInfantPassengers(this.props.infants + 1)
-            }
-          >
-            +
-          </button>
-        </div>
-        <p>Choose passengers based on their age at the time of travel.</p>
+  return (
+    <div className="passengers">
+      <div>
+        <button
+          className={adults === 1 || adults === infants ? "disabled" : ""}
+          onClick={() => dispatch(setAdultPassengers(adults - 1))}
+        >
+          -
+        </button>
+        <span>
+          {getAdultsPassengersText(adults)}
+          <span className="secondary"> (14+)</span>
+        </span>
+        <button
+          className={adults === passengersLimit ? "disabled" : ""}
+          onClick={() => dispatch(setAdultPassengers(adults + 1))}
+        >
+          +
+        </button>
       </div>
-    );
-  };
+
+      <div>
+        <button
+          className={children === 0 ? "disabled" : ""}
+          onClick={() => dispatch(setChildrenPassengers(children - 1))}
+        >
+          -
+        </button>
+        <span>
+          {getChildrenPassengersText(children)}
+          <span className="secondary"> (2-14)</span>
+        </span>
+        <button
+          className={children === passengersLimit ? "disabled" : ""}
+          onClick={() => dispatch(setChildrenPassengers(children + 1))}
+        >
+          +
+        </button>
+      </div>
+
+      <div>
+        <button
+          className={infants === 0 ? "disabled" : ""}
+          onClick={() => dispatch(setInfantPassengers(infants - 1))}
+        >
+          -
+        </button>
+        <span>
+          {getInfantsPassengersText(infants)}
+          <span className="secondary"> (0-2)</span>
+        </span>
+        <button
+          className={infants === adults ? "disabled" : ""}
+          onClick={() => dispatch(setInfantPassengers(infants + 1))}
+        >
+          +
+        </button>
+      </div>
+      <p>Choose passengers based on their age at the time of travel.</p>
+    </div>
+  );
 }
-
-const mapStateToProps = (state) => {
-  return {
-    adults: state.search.passengers.adults,
-    children: state.search.passengers.children,
-    infants: state.search.passengers.infants
-  };
-};
-
-const MapDispatchToProps = (dispatch) => ({
-  setAdultPassengers: (adults) => dispatch(setAdultPassengers(adults)),
-  setChildrenPassengers: (children) =>
-    dispatch(setChildrenPassengers(children)),
-  setInfantPassengers: (infants) => dispatch(setInfantPassengers(infants))
-});
-
-export default connect(mapStateToProps, MapDispatchToProps)(Passengers);
