@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import SignUpForm from "../Components/SignUpForm";
 
-function SignUpPage(props) {
+export default function SignUpPage(props) {
   const isLoggedIn = useSelector((state) => !!state.auth.token);
   if (isLoggedIn) {
     return <Redirect to="/" />;
@@ -16,5 +16,3 @@ function SignUpPage(props) {
     </div>
   );
 }
-
-export default SignUpPage;

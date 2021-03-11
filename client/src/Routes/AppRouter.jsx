@@ -9,7 +9,7 @@ import FlightSearchResultsPage from "./FlightSearchResultsPage";
 import NavBar from "../Components/NavBar";
 import Footer from "../Components/Footer";
 
-const AppRouter = () => {
+export default function AppRouter() {
   return (
     <BrowserRouter>
       <div className="app">
@@ -30,6 +30,4 @@ const AppRouter = () => {
       </div>
     </BrowserRouter>
   );
-};
-
-export default AppRouter;
+}

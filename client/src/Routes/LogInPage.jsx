@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import LogInForm from "../Components/LogInForm";
 
-function LogInPage(props) {
+export default function LogInPage(props) {
   const isLoggedIn = useSelector((state) => !!state.auth.token);
   if (isLoggedIn) {
     return <Redirect to="/" />;
@@ -12,9 +12,10 @@ function LogInPage(props) {
   return (
     <div className="content">
       <h1>Log In</h1>
-      <LogInForm history={props.history} redirect={props.location.state?.redirect}></LogInForm>
+      <LogInForm
+        history={props.history}
+        redirect={props.location.state?.redirect}
+      ></LogInForm>
     </div>
   );
 }
-
-export default LogInPage;
