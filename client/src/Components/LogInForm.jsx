@@ -1,132 +1,101 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { connect } from "react-redux";
+import { useDispatch } from "react-redux";
+import useInput from "../Hooks/useInput";
 import validator from "validator";
 import { login } from "../Actions/auth";
 import "./AuthForm.scss";
 
-class LogInForm extends Component {
-  constructor(props) {
-    super(props);
-    this.url = `${process.env.REACT_APP_API_URL}/api/user/login`;
+export default function LogInForm(props) {
+  const url = `${process.env.REACT_APP_API_URL}/api/user/login`;
+  const dispatch = useDispatch();
 
-    this.state = {
-      email: "",
-      password: "",
-      errors: {
-        email: "",
-        password: ""
-      },
-      responseError: "",
-      redirect: props.redirect ? props.redirect : "/"
-    };
-  }
+  const email = useInput("");
+  const password = useInput("");
+  const [responseError, setResponseError] = useState("");
+  const [redirect] = useState(props.redirect ? props.redirect : "/");
+  const [emailError, setEmailError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
 
-  handleChange = (event) => {
-    let newState = { ...this.state };
-    newState[event.target.name] = event.target.value;
-    this.setState(newState);
-  };
-
-  handleSubmit = async (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
-    this.validateEmail();
-    this.validatePassword();
-
-    if (this.state.errors.email || this.state.errors.password) {
+    if (!validateEmail() || !validatePassword()) {
       return;
     }
 
     try {
-      const response = await fetch(this.url, {
+      const response = await fetch(url, {
         method: "POST",
         headers: new Headers({ "content-type": "application/json" }),
         body: JSON.stringify({
-          email: this.state.email,
-          password: this.state.password
+          email: email.value,
+          password: password.value
         })
       });
 
       if (response.status === 200) {
         const token = response.headers.get("auth-token");
         const user = await response.json();
-        this.props.login(token, user.name, user.surname);
-        this.props.history.push(this.state.redirect);
+        dispatch(login(token, user.name, user.surname));
+        props.history.push(redirect);
         return;
       }
 
       const responseText = await response.text();
 
-      let newState = { ...this.state };
-      newState.responseError = responseText;
-      this.setState(newState);
+      setResponseError(responseText);
     } catch (err) {
       console.error("An error occurred:", err);
     }
   };
 
-  validateEmail = () => {
-    let newState = { ...this.state };
-    newState.errors.email = validator.isEmail(this.state.email)
-      ? ""
-      : "Email is not valid.";
-    this.setState(newState);
+  const validateEmail = () => {
+    const isValid = validator.isEmail(email.value);
+    setEmailError(isValid ? "" : "Email is not valid.");
+    return isValid;
   };
 
-  validatePassword = () => {
-    let newState = { ...this.state };
-    newState.errors.password = !validator.isEmpty(this.state.password)
-      ? ""
-      : "Password must be provided.";
-    this.setState(newState);
+  const validatePassword = () => {
+    const isValid = !validator.isEmpty(password.value);
+    setPasswordError(isValid ? "" : "Password must be provided.");
+    return isValid;
   };
 
-  render = () => {
-    const { errors } = this.state;
-    return (
-      <form onSubmit={this.handleSubmit} className="loginForm">
-        {this.state.responseError && (
-          <span className="responseError">{this.state.responseError}</span>
-        )}
-        <label htmlFor="email">Email:</label>
-        <input
-          type="email"
-          name="email"
-          autoComplete="username"
-          onChange={this.handleChange}
-          onBlur={this.validateEmail}
-          value={this.state.email}
-        />
-        {errors.email && <span className="error">{errors.email}</span>}
-        <label htmlFor="password">Password:</label>
-        <input
-          type="password"
-          name="password"
-          autoComplete="current-password"
-          onChange={this.handleChange}
-          onBlur={this.validatePassword}
-          value={this.state.name}
-        />
-        {errors.password && <span className="error">{errors.password}</span>}
-        <div>
-          <Link
-            to={{
-              pathname: "/signup",
-              state: {
-                redirect: this.state.redirect
-              }
-            }}
-          >
-            Sign up
-          </Link>
-          <input type="submit" value="LOG IN" className="button" />
-        </div>
-      </form>
-    );
-  };
+  return (
+    <form onSubmit={handleSubmit} className="loginForm">
+      {responseError && <span className="responseError">{responseError}</span>}
+      <label htmlFor="email">Email:</label>
+      <input
+        type="email"
+        name="email"
+        autoComplete="username"
+        onBlur={validateEmail}
+        {...email.bind}
+      />
+      {emailError && <span className="error">{emailError}</span>}
+      <label htmlFor="password">Password:</label>
+      <input
+        type="password"
+        name="password"
+        autoComplete="current-password"
+        onBlur={validatePassword}
+        {...password.bind}
+      />
+      {passwordError && <span className="error">{passwordError}</span>}
+      <div>
+        <Link
+          to={{
+            pathname: "/signup",
+            state: {
+              redirect: redirect
+            }
+          }}
+        >
+          Sign up
+        </Link>
+        <input type="submit" value="LOG IN" className="button" />
+      </div>
+    </form>
+  );
 }
-
-export default connect(null, {
-  login
-})(LogInForm);
