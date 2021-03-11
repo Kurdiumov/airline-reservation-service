@@ -1,42 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { connect } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../Actions/auth.js";
 import CurrencySelector from "./CurrencySelector";
 import LocalTime from "./LocalTime";
 import LocalWeather from "./LocalWeather";
 import "./NavBar.scss";
 
-export class NavBar extends React.Component {
-  render() {
-    return (
-      <div className="navbar">
-        <div className="airportData">
-          <LocalTime />
-          <LocalWeather />
-        </div>  
-        <div className="menu">
-          <ul>
-            <li>
-              <Link to="/">Search</Link>
-            </li>
-            <li>
-              <Link to="/map">Map</Link>
-            </li>
-            <li>|</li>
-            <CurrencySelector />
-          </ul>
-        </div>
-        <div className="authButtons">
-          {this.props.isAuthenticated
-            ? this.getLogOutButton()
-            : this.getSignInLogInButtons()}
-        </div>
-      </div>
-    );
-  }
+export default function NavBar() {
+  const dispatch = useDispatch();
+  const isAuthenticated = useSelector(({ auth }) => auth.token != null);
+  const userName = useSelector(({ auth }) => auth.name + " " + auth.surname);
 
-  getSignInLogInButtons = () => {
+  const getSignInLogInButtons = () => {
     return (
       <ul>
         <li>
@@ -49,32 +25,43 @@ export class NavBar extends React.Component {
     );
   };
 
-  getLogOutButton = () => {
+  const getLogOutButton = () => {
     return (
       <ul>
         <li>
-          <Link to="">{this.props.userName}</Link>
+          <Link to="">{userName}</Link>
         </li>
         <li>|</li>
         <li>
-          <Link to="" onClick={this.props.logout}>
+          <Link to="" onClick={() => dispatch(logout())}>
             Log Out
           </Link>
         </li>
       </ul>
     );
   };
+
+  return (
+    <div className="navbar">
+      <div className="airportData">
+        <LocalTime />
+        <LocalWeather />
+      </div>
+      <div className="menu">
+        <ul>
+          <li>
+            <Link to="/">Search</Link>
+          </li>
+          <li>
+            <Link to="/map">Map</Link>
+          </li>
+          <li>|</li>
+          <CurrencySelector />
+        </ul>
+      </div>
+      <div className="authButtons">
+        {isAuthenticated ? getLogOutButton() : getSignInLogInButtons()}
+      </div>
+    </div>
+  );
 }
-
-const mapStateToProps = (state) => {
-  return {
-    isAuthenticated: state.auth.token != null,
-    userName: state.auth.name + " " + state.auth.surname
-  };
-};
-
-const MapDispatchToProps = (dispatch) => ({
-  logout: () => dispatch(logout())
-});
-
-export default connect(mapStateToProps, MapDispatchToProps)(NavBar);
