@@ -1,103 +1,87 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import validator from "validator";
+import useInput from "../Hooks/useInput";
 import "./AuthForm.scss";
 
-class SignUpForm extends Component {
-  constructor(props) {
-    super(props);
-    this.url = `${process.env.REACT_APP_API_URL}/api/user/register`;
+export default function SignUpForm(props) {
+  const url = `${process.env.REACT_APP_API_URL}/api/user/register`;
+  const email = useInput("");
+  const name = useInput("");
+  const surname = useInput("");
+  const password = useInput("");
+  const repeatedPassword = useInput("");
 
-    this.state = {
+  const [responseError, setResponseError] = useState("");
+  const [errors, setErrors] = useState({
+    errors: {
       email: "",
       name: "",
       surname: "",
       password: "",
-      repeatedPassword: "",
-      errors: {
-        email: "",
-        name: "",
-        surname: "",
-        password: "",
-        repeatedPassword: ""
-      },
-      responseError: ""
-    };
-  }
+      repeatedPassword: ""
+    }
+  });
 
-  handleChange = (event) => {
-    let newState = { ...this.state };
-    newState[event.target.name] = event.target.value;
-    this.setState(newState);
-  };
-
-  handleSubmit = async (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
-    if (this.validateInputs()) {
+    if (validateInputs()) {
       return;
     }
 
     try {
-      const response = await fetch(this.url, {
+      const response = await fetch(url, {
         method: "POST",
         headers: new Headers({ "content-type": "application/json" }),
         body: JSON.stringify({
-          email: this.state.email,
-          name: this.state.name,
-          surname: this.state.surname,
-          password: this.state.password
+          email: email.value,
+          name: name.value,
+          surname: surname.value,
+          password: password.value
         })
       });
 
       if (response.status === 201) {
         const json = await response.json();
         console.log("Register successful, response:", json);
-        
-        this.props.history.push("/login");
+
+        props.history.push("/login");
         return;
       }
 
-      let newState = { ...this.state };
       const responseText = await response.text();
-      newState.responseError = responseText;
-      this.setState(newState);
+      setResponseError(responseText);
     } catch (err) {
       console.error("An error occurred:", err);
     }
   };
 
-  validateInputs = () => {
-    let newState = { ...this.state };
-    newState.errors = {
-      email: this.getEmailError(this.state.email),
-      name: this.getNameError(this.state.name),
-      surname: this.getSurnameError(this.state.surname),
-      password: this.getPasswordError(this.state.password),
-      repeatedPassword: this.getRepeatedPasswordError(
-        this.state.repeatedPassword
-      )
-    };
-    this.setState(newState);
+  const validateInputs = () => {
+    setErrors({
+      email: getEmailError(),
+      name: getNameError(),
+      surname: getSurnameError(),
+      password: getPasswordError(),
+      repeatedPassword: getRepeatedPasswordError()
+    });
 
-    return Object.values(newState.errors).some((x) => {
+    return Object.values(errors).some((x) => {
       return x !== null && x !== undefined && x !== "";
     });
   };
 
-  validateEmail = () => {
-    let newState = { ...this.state };
-    newState.errors.email = this.getEmailError(this.state.email);
-    this.setState(newState);
+  const validateEmail = () => {
+    setErrors({ ...errors, email: getEmailError() });
   };
 
-  getEmailError = (email) => {
-    if (validator.isEmpty(email)) return "Email must be provided.";
+  const getEmailError = () => {
+    if (validator.isEmpty(email.value)) return "Email must be provided.";
 
-    if (!validator.isEmail(email)) return "Email is not valid.";
+    if (!validator.isEmail(email.value)) return "Email is not valid.";
 
-    if (!validator.isLength(email, { min: 6, max: 255 })) {
-      if (validator.isLength(email, { min: 0, max: 6 }))
+    if (!validator.isLength(email.value, { min: 6, max: 255 })) {
+      if (validator.isLength(email.value, { min: 0, max: 6 }))
         return "Email is too short.";
       return "Email is too long.";
     }
@@ -105,18 +89,15 @@ class SignUpForm extends Component {
     return "";
   };
 
-  validateName = () => {
-    let newState = { ...this.state };
-    newState.errors.name = this.getNameError();
-    this.setState(newState);
+  const validateName = () => {
+    setErrors({ ...errors, name: getNameError() });
   };
 
-  getNameError = () => {
-    if (validator.isEmpty(this.state.name))
-      return "First name must be provided.";
+  const getNameError = () => {
+    if (validator.isEmpty(name.value)) return "First name must be provided.";
 
-    if (!validator.isLength(this.state.name, { min: 6, max: 255 })) {
-      if (validator.isLength(this.state.name, { min: 0, max: 6 }))
+    if (!validator.isLength(name.value, { min: 6, max: 255 })) {
+      if (validator.isLength(name.value, { min: 0, max: 6 }))
         return "First name is too short.";
       return "First name is too long.";
     }
@@ -124,18 +105,15 @@ class SignUpForm extends Component {
     return "";
   };
 
-  validateSurname = () => {
-    let newState = { ...this.state };
-    newState.errors.surname = this.getSurnameError();
-    this.setState(newState);
+  const validateSurname = () => {
+    setErrors({ ...errors, surname: getSurnameError() });
   };
 
-  getSurnameError = () => {
-    if (validator.isEmpty(this.state.surname))
-      return "Last name must be provided.";
+  const getSurnameError = () => {
+    if (validator.isEmpty(surname.value)) return "Last name must be provided.";
 
-    if (!validator.isLength(this.state.surname, { min: 6, max: 255 })) {
-      if (validator.isLength(this.state.surname, { min: 0, max: 6 }))
+    if (!validator.isLength(surname.value, { min: 6, max: 255 })) {
+      if (validator.isLength(surname.value, { min: 0, max: 6 }))
         return "Last name is too short.";
       return "Last name is too long.";
     }
@@ -143,118 +121,98 @@ class SignUpForm extends Component {
     return "";
   };
 
-  validatePassword = () => {
-    let newState = { ...this.state };
-    newState.errors.password = this.getPasswordError();
-    if (this.state.repeatedPassword) {
-      newState.errors.repeatedPassword = this.getRepeatedPasswordError();
+  const validatePassword = () => {
+    let newState = { ...errors, password: getPasswordError() };
+
+    if (repeatedPassword.value) {
+      newState.repeatedPassword = getRepeatedPasswordError();
     }
-    this.setState(newState);
+    setErrors(newState);
   };
 
-  getPasswordError = () => {
-    if (validator.isEmpty(this.state.password))
-      return "Password must be provided.";
+  const getPasswordError = () => {
+    if (validator.isEmpty(password.value)) return "Password must be provided.";
 
-    if (validator.isLength(this.state.password, { min: 0, max: 5 }))
+    if (validator.isLength(password.value, { min: 0, max: 5 }))
       return "Password is too short. Minimum password length is 6 characters.";
 
-    if (validator.isLength(this.state.password, { min: 255, max: undefined }))
+    if (validator.isLength(password.value, { min: 255, max: undefined }))
       return "Password is too long.";
 
     return "";
   };
 
-  validateRepeatedPassword = () => {
-    let newState = { ...this.state };
-    newState.errors.repeatedPassword = this.getRepeatedPasswordError();
-    if (this.state.password) {
-      newState.errors.password = this.getPasswordError();
+  const validateRepeatedPassword = () => {
+    let newState = { ...errors, repeatedPassword: getRepeatedPasswordError() };
+
+    if (password.value) {
+      newState.password = getPasswordError();
     }
-    this.setState(newState);
+    setErrors(newState);
   };
 
-  getRepeatedPasswordError = () => {
-    if (validator.isEmpty(this.state.repeatedPassword))
-      return "Please repeat password.";
+  const getRepeatedPasswordError = () => {
+    if (validator.isEmpty(repeatedPassword.value)) return "Please repeat password.";
 
-    if (
-      this.state.password &&
-      this.state.password !== this.state.repeatedPassword
-    ) {
+    if (password.value && password.value !== repeatedPassword.value) {
       return "Passwords don't match.";
     }
 
     return "";
   };
 
-  render = () => {
-    const { errors } = this.state;
-    return (
-      <form onSubmit={this.handleSubmit} className="signUpForm" >
-        {this.state.responseError && <span className="responseError">{this.state.responseError}</span>}
-        <label htmlFor="email">Email:</label>
-        <input
-          type="email"
-          name="email"
-          autoComplete="username"
-          onChange={this.handleChange}
-          onBlur={this.validateEmail}
-          value={this.state.email}
-        />
-        {errors.email && <span className="error">{errors.email}</span>}
+  return (
+    <form onSubmit={handleSubmit} className="signUpForm">
+      {responseError && <span className="responseError">{responseError}</span>}
+      <label htmlFor="email">Email:</label>
+      <input
+        type="email"
+        autoComplete="username"
+        onBlur={validateEmail}
+        {...email.bind}
+      />
+      {errors.email && <span className="error">{errors.email}</span>}
 
-        <label htmlFor="name">First name:</label>
-        <input
-          type="text"
-          name="name"
-          autoComplete="given-name"
-          onChange={this.handleChange}
-          onBlur={this.validateName}
-          value={this.state.name}
-        />
-        {errors.name && <span className="error">{errors.name}</span>}
+      <label htmlFor="name">First name:</label>
+      <input
+        type="text"
+        autoComplete="given-name"
+        onBlur={validateName}
+        {...name.bind}
+      />
+      {errors.name && <span className="error">{errors.name}</span>}
 
-        <label htmlFor="surname">Last name:</label>
-        <input
-          type="text"
-          name="surname"
-          autoComplete="family-name"
-          onChange={this.handleChange}
-          onBlur={this.validateSurname}
-          value={this.state.surname}
-        />
-        {errors.surname && <span className="error">{errors.surname}</span>}
+      <label htmlFor="surname">Last name:</label>
+      <input
+        type="text"
+        autoComplete="family-name"
+        onBlur={validateSurname}
+        {...surname.bind}
+      />
+      {errors.surname && <span className="error">{errors.surname}</span>}
 
-        <label htmlFor="password">Password:</label>
-        <input
-          type="password"
-          name="password"
-          autoComplete="new-password"
-          onChange={this.handleChange}
-          onBlur={this.validatePassword}
-          value={this.state.password}
-        />
-        {errors.password && <span className="error">{errors.password}</span>}
+      <label htmlFor="password">Password:</label>
+      <input
+        type="password"
+        autoComplete="new-password"
+        onBlur={validatePassword}
+        {...password.bind}
+      />
+      {errors.password && <span className="error">{errors.password}</span>}
 
-        <label htmlFor="repeatedPassword">Repeat password:</label>
-        <input
-          type="password"
-          name="repeatedPassword"
-          autoComplete="new-password"
-          onChange={this.handleChange}
-          onBlur={this.validateRepeatedPassword}
-          value={this.state.repeatedPassword}
-        />
-        {errors.repeatedPassword && <span className="error">{errors.repeatedPassword}</span>}
+      <label htmlFor="repeatedPassword">Repeat password:</label>
+      <input
+        type="password"
+        autoComplete="new-password"
+        onBlur={validateRepeatedPassword}
+        {...repeatedPassword.bind}
+      />
+      {errors.repeatedPassword && (<span className="error">{errors.repeatedPassword}</span>)}
 
-        <div>
-          <Link to="/login">Sign in</Link>
-          <input type="submit" value="SIGN UP" className="button" />
-        </div>
-      </form>
-    );
-  };
+      <div>
+        <Link to="/login">Sign in</Link>
+        <input type="submit" value="SIGN UP" className="button" />
+      </div>
+    </form>
+  );
 }
-
-export default SignUpForm;
