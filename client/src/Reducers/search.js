@@ -3,8 +3,9 @@ const passengersLimit = 8;
 const initialState = {
   destination: null,
   origin: null,
-  originTimeZone: "GMT",
+  originTimezone: "GMT",
   departureDate: new Date(),
+  focusedInput: "",
   passengers: {
     adults: 1,
     children: 0,
@@ -17,7 +18,7 @@ const searchReducer = (state = initialState, action) => {
   switch (action.type) {
     case "ORIGIN":
       if (!action.origin) {
-        newState.originTimeZone = null;
+        newState.originTimezone = null;
       }
       newState.origin = action.origin;
       return newState;
@@ -25,7 +26,7 @@ const searchReducer = (state = initialState, action) => {
       newState.destination = action.destination;
       return newState;
     case "ORIGIN_TIMEZONE":
-      newState.originTimeZone = action.timezone;
+      newState.originTimezone = action.timezone;
       return newState;
     case "DEPARTURE_DATE":
       newState.departureDate = action.date;
@@ -49,6 +50,9 @@ const searchReducer = (state = initialState, action) => {
       if (action.infants > newState.passengers.adults) return newState;
 
       newState.passengers.infants = action.infants;
+      return newState;
+    case "FOCUSED_INPUT":
+      newState.focusedInput = action.input;
       return newState;
     default:
       return newState;

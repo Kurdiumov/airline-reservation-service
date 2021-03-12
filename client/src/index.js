@@ -6,6 +6,7 @@ import AppRouter from "./Routes/AppRouter";
 import backendConnector from "./backendConnector.js";
 import { setExchangeRate } from "./Actions/currency.js";
 import { setOrigin } from "./Actions/search.js";
+import { getOriginsAsync, getDestinationsAsync } from "./Actions/data";
 import store from "./store";
 
 ReactDOM.render(
@@ -15,10 +16,6 @@ ReactDOM.render(
   document.getElementById("root")
 );
 
-// backendConnector.getCurrentWeather("WAW").then((weather) => {
-//   console.log("wweather", weather);
-// });
-
 backendConnector.getCurrencies().then((rates) => {
   try {
     store.dispatch(setExchangeRate(rates));
@@ -27,19 +24,22 @@ backendConnector.getCurrencies().then((rates) => {
   }
 });
 
+store.dispatch(getOriginsAsync());
+store.dispatch(getDestinationsAsync());
+
 if (navigator.geolocation) {
-  navigator.geolocation.getCurrentPosition(async ({ coords }) => {
-    const airport = await backendConnector.getNearestAirport(
-      coords.latitude,
-      coords.longitude
-    );
-    const searchComponent = window.searchComponent;
-    if (airport &&
-      !searchComponent?.state.originInputValue &&
-      !searchComponent?.state.destinationInputValue &&
-      !searchComponent?.state.focusedInput
-    ) {
-      searchComponent?.setOriginInput(airport);
-    }
-  });
+  navigator.geolocation.getCurrentPosition(
+    ({ coords }) => {
+      backendConnector
+        .getNearestAirport(coords.latitude, coords.longitude)
+        .then((airport) => {
+          if (airport && store.getState().search.focusedInput === "") {
+            store.dispatch(setOrigin(airport));
+            store.dispatch(getDestinationsAsync(airport.code));
+          }
+        });
+    },
+    console.error,
+    { timeout: 10000 }
+  );
 }
