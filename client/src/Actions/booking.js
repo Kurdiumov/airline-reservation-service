@@ -3,9 +3,16 @@ export const setFlight = (flight) => ({
   flight
 });
 
-export const setPassengersCount = (adults = 1, children = 0, infants = 0) => ({
-  type: "SET_PASSENGERS_COUNT",
+export const setPassengers = (adults = {}, children = {}, infants = {}) => ({
+  type: "SET_PASSENGERS",
   adults,
   children,
   infants
+});
+
+export const setPassenger = (id, passengerType, value) => ({
+  type: "SET_PASSENGER",
+  id,
+  passengerType,
+  value
 });

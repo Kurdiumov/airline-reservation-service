@@ -1,27 +1,18 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import "./Booking.scss";
 import Passenger from "./Passenger";
+import { setPassenger } from "../../Actions/booking";
 
 export default function Booking() {
-  const [allInputAreValid, setAllInputAreValid] = useState(false);
-  const adults = useSelector(({ booking }) => booking.passengersCount.adults);
-  const children = useSelector(({ booking }) => booking.passengersCount.children);
-  const infants = useSelector(({ booking }) => booking.passengersCount.infants);
-
-  const childComponents = [];
-  for (let i = 0; i < adults; i++) {
-    childComponents["adult_" + i] = false;
-  }
-  for (let i = 0; i < children; i++) {
-    childComponents["child_" + i] = false;
-  }
-  for (let i = 0; i < infants; i++) {
-    childComponents["infant_" + i] = false;
-  }
+  const dispatch = useDispatch();
+  const adults = useSelector(({ booking }) => booking.passengers.adults);
+  const children = useSelector(({ booking }) => booking.passengers.children);
+  const infants = useSelector(({ booking }) => booking.passengers.infants);
+  const [allInputsAreValid, setAllInputsAreValid] = useState(false);
 
   const handleClick = (event) => {
-    if (!allInputAreValid) {
+    if (!allInputsAreValid) {
       return;
     }
 
@@ -29,43 +20,53 @@ export default function Booking() {
     // TODO Redirect to seat selection
   };
 
-  const onChildValidationChanged = (id, isValid) => {
-    childComponents[id] = isValid;
+  const onPassengerValueChanged = (id, type, newValue) => {
+    dispatch(setPassenger(id, type, newValue));
+    updateInputsValid();
+  };
 
-    const allValid = !Object.values(childComponents).some((x) => x === false);
-    setAllInputAreValid(allValid);
+  const updateInputsValid = () => {
+    const allAdultsAreValid = Object.values(adults).every((x) => x.name && x.surname && x.sex);
+    const allChildrenAreValid = Object.values(children).every((x) => x.name && x.surname && x.sex);
+    const allInfantsAreValid = Object.values(infants).every((x) => x.name && x.surname && x.sex);
+
+    setAllInputsAreValid(allAdultsAreValid && allChildrenAreValid && allInfantsAreValid);
   };
 
   return (
     <div className="booking">
       <ul>
-        {[...Array(adults)].map((value, index) => (
-          <li key={"adult_" + index}>
+        {Object.keys(adults).map((value, index) => (
+          <li key={value}>
             <Passenger
               index={index}
-              id={"adult_" + index}
+              id={value}
               type="Adult"
-              notifyParent={onChildValidationChanged}
+              notifyParent={onPassengerValueChanged}
             />
           </li>
         ))}
-        {[...Array(children)].map((value, index) => (
-          <li key={"child_" + index}>
+        {Object.keys(children).map((value, index) => (
+          <li key={value}>
             <Passenger
-              index={index + adults}
-              id={"child_" + index}
+              index={index + Object.keys(adults).length}
+              id={value}
               type="Child"
-              notifyParent={onChildValidationChanged}
+              notifyParent={onPassengerValueChanged}
             />
           </li>
         ))}
-        {[...Array(infants)].map((value, index) => (
-          <li key={"infant_" + index}>
+        {Object.keys(infants).map((value, index) => (
+          <li key={value}>
             <Passenger
-              index={index + adults + children}
-              id={"infant_" + index}
+              index={
+                index +
+                Object.keys(adults).length +
+                Object.keys(children).length
+              }
+              id={value}
               type="Infant"
-              notifyParent={onChildValidationChanged}
+              notifyParent={onPassengerValueChanged}
             />
           </li>
         ))}
@@ -73,7 +74,7 @@ export default function Booking() {
       <div>
         <button
           onClick={handleClick}
-          className={allInputAreValid ? "" : "disabled"}
+          className={allInputsAreValid ? "" : "disabled"}
         >
           CONTINUE
         </button>

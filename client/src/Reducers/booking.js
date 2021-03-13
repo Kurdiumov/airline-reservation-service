@@ -1,9 +1,9 @@
 const initialState = {
   selectedFlight: null,
-  passengersCount: {
-    adults: 1,
-    children: 0,
-    infants: 0
+  passengers: {
+    adults: {},
+    children: {},
+    infants: {}
   }
 };
 
@@ -13,11 +13,23 @@ const bookingReducer = (state = initialState, action) => {
     case "SET_FLIGHT":
       newState.selectedFlight = action.flight;
       return newState;
-    case "SET_PASSENGERS_COUNT":
-      newState.passengersCount.adults = action.adults;
-      newState.passengersCount.children = action.children;
-      newState.passengersCount.infants = action.infants;
+    case "SET_PASSENGERS":
+      newState.passengers.adults = action.adults;
+      newState.passengers.children = action.children;
+      newState.passengers.infants = action.infants;
       return newState;
+
+    case "SET_PASSENGER":
+      if (action.passengerType === "ADULT") {
+        newState.passengers.adults[action.id] = action.value;
+      } else if (action.passengerType === "CHILD") {
+        newState.passengers.children[action.id] = action.value;
+      } else if (action.passengerType === "INFANT") {
+        newState.passengers.infants[action.id] = action.value;
+      }
+
+      return newState;
+
     default:
       return newState;
   }

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import moment from "moment";
 import momentTimezone from "moment-timezone";
 import { getPriceInCurrentCurrency } from "../utils.js";
-import { setFlight, setPassengersCount } from "../Actions/booking.js";
+import { setFlight, setPassengers } from "../Actions/booking.js";
 import "./FlightDetails.scss";
 
 export default function FlightDetails(props) {
@@ -18,13 +18,23 @@ export default function FlightDetails(props) {
   const handleBookBtn = (flightNumber) => {
     const { passengers } = props;
     dispatch(setFlight(flightNumber));
-    dispatch(
-      setPassengersCount(
-        passengers?.adults,
-        passengers?.children,
-        passengers?.infants
-      )
-    );
+
+    let adults = {};
+    for (let i = 0; i < passengers?.adults; i++) {
+      adults["adult_" + i] = {};
+    }
+
+    let children = {};
+    for (let i = 0; i < passengers?.children; i++) {
+      children["child__" + i] = {};
+    }
+
+    let infants = {};
+    for (let i = 0; i < passengers?.infants; i++) {
+      infants["infant_" + i] = {};
+    }
+
+    dispatch(setPassengers(adults, children, infants));
     props.history.push("/booking");
   };
 

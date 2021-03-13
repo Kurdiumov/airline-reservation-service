@@ -9,8 +9,7 @@ export default function Passenger(props) {
   const [sex, setSex] = useState(null);
 
   useEffect(() => {
-    const isValid = name.value.length > 0 && surname.value.length > 0 && sex !== null;
-    props.notifyParent(props.id, isValid);
+    props.notifyParent(props.id, type, {name: name.value, surname: surname.value, sex});
   }, [name, surname, sex]);
 
   const handleSexBtnClick = (event) => {
