@@ -44,7 +44,7 @@ export default function FlightSearch(props) {
   }
 
   if (destinationInputValue === "" && destination != null) {
-    setOriginInputValue(destination.name);
+    setDestinationInputValue(destination.name);
   }
 
   const handleSubmit = async (event) => {
