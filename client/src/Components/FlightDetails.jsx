@@ -8,16 +8,12 @@ import "./FlightDetails.scss";
 
 export default function FlightDetails(props) {
   const dispatch = useDispatch();
-  const currentCurrency = useSelector(
-    ({ currencies }) => currencies.currentCurrency
-  );
-  const exchangeRates = useSelector(
-    ({ currencies }) => currencies.exchangeRates
-  );
+  const currentCurrency = useSelector(({ currencies }) => currencies.currentCurrency);
 
-  const handleBookBtn = (flightNumber) => {
+  const handleBookBtn = (flight) => {
     const { passengers } = props;
-    dispatch(setFlight(flightNumber));
+    console.log(flight);
+    dispatch(setFlight(flight));
 
     let adults = {};
     for (let i = 0; i < passengers?.adults; i++) {
@@ -76,16 +72,12 @@ export default function FlightDetails(props) {
       </div>
       <div
         className="book-btn"
-        onClick={() => handleBookBtn(flight.flightNumber)}
+        onClick={() => handleBookBtn(flight)}
       >
         <div>BOOK</div>
         <div>Prices start at</div>
         <div>
-          {getPriceInCurrentCurrency(
-            flight.economyPrice,
-            currentCurrency,
-            exchangeRates
-          )}
+          {getPriceInCurrentCurrency(flight.economyPrice)}
         </div>
       </div>
     </li>

@@ -20,17 +20,25 @@ export default function Booking() {
     // TODO Redirect to seat selection
   };
 
-  const onPassengerValueChanged = (id, type, newValue) => {
-    dispatch(setPassenger(id, type, newValue));
+  const onPassengerValueChanged = (id, newValue) => {
+    dispatch(setPassenger(id, newValue));
     updateInputsValid();
   };
 
   const updateInputsValid = () => {
-    const allAdultsAreValid = Object.values(adults).every((x) => x.name && x.surname && x.sex);
-    const allChildrenAreValid = Object.values(children).every((x) => x.name && x.surname && x.sex);
-    const allInfantsAreValid = Object.values(infants).every((x) => x.name && x.surname && x.sex);
+    const allAdultsAreValid = Object.values(adults).every(
+      (x) => x.name && x.surname && x.sex && x.baggageCount >= 0
+    );
+    const allChildrenAreValid = Object.values(children).every(
+      (x) => x.name && x.surname && x.sex && x.baggageCount >= 0
+    );
+    const allInfantsAreValid = Object.values(infants).every(
+      (x) => x.name && x.surname && x.sex && x.baggageCount === 0
+    );
 
-    setAllInputsAreValid(allAdultsAreValid && allChildrenAreValid && allInfantsAreValid);
+    setAllInputsAreValid(
+      allAdultsAreValid && allChildrenAreValid && allInfantsAreValid
+    );
   };
 
   return (
@@ -43,6 +51,7 @@ export default function Booking() {
               id={value}
               type="Adult"
               notifyParent={onPassengerValueChanged}
+              canSelectBaggage={true}
             />
           </li>
         ))}
@@ -53,6 +62,7 @@ export default function Booking() {
               id={value}
               type="Child"
               notifyParent={onPassengerValueChanged}
+              canSelectBaggage={true}
             />
           </li>
         ))}
@@ -67,6 +77,7 @@ export default function Booking() {
               id={value}
               type="Infant"
               notifyParent={onPassengerValueChanged}
+              canSelectBaggage={false}
             />
           </li>
         ))}

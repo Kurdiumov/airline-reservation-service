@@ -1,0 +1,52 @@
+@import "../../Assets/variables.scss";
+
+div.baggage {
+  width: 90%;
+  margin: auto;
+
+  img {
+    width: 4rem;
+    margin: auto;
+  }
+
+  h3 {
+    padding-left: 0;
+    padding-bottom: 0;
+  }
+
+  div {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+
+    button,
+    div {
+      margin: 1rem 0.5rem;
+      width: 2rem;
+      height: 2rem;
+      min-width: auto;
+      float: none;
+      font-size: $text-size-l;
+    }
+
+    div {
+      display: flex;
+      flex-flow: column;
+      width: auto;
+      line-height: 2rem;
+      justify-content: end;
+      height: 100%;
+
+      p {
+        text-align: center;
+        margin-top: 0;
+        margin-bottom: 0;
+        width: 100%;
+
+        &:last-child {
+          font-size: $text-size-m;
+        }
+      }
+    }
+  }
+}
