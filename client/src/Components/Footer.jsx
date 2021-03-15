@@ -1,13 +1,26 @@
 import React from "react";
-import "./Footer.scss";
+import {
+  AppBar,
+  Container,
+  Toolbar,
+  Typography,
+  Link
+} from "@material-ui/core";
 
 export default function Footer() {
   return (
-    <div className="footer">
-      <span>
-        Made by&nbsp;
-        <a href="https://github.com/Kurdiumov"> Rostyslav Kurdiumov</a>.
-      </span>
-    </div>
+    <AppBar position="static" color="primary">
+      <Container>
+        <Toolbar>
+          <Typography align="center" style={{ width: "100%" }}>
+            Made by{" "}
+            <Link href="https://github.com/Kurdiumov" color="textPrimary">
+              Rostyslav Kurdiumov
+            </Link>
+            .
+          </Typography>
+        </Toolbar>
+      </Container>
+    </AppBar>
   );
 }
