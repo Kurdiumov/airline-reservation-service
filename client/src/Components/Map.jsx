@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import Loader from "react-loader-spinner";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import backendConnector from "../backendConnector.js";
 import L from "leaflet";
 import icon from "leaflet/dist/images/marker-icon.png";
 import iconShadow from "leaflet/dist/images/marker-shadow.png";
+import { Box, CircularProgress } from "@material-ui/core";
 import "./Map.scss";
 
 export default function Map() {
@@ -35,16 +35,16 @@ export default function Map() {
 
   if (loading === true) {
     return (
-      <div className="content flightResults">
-        <Loader type="Oval" color="#e67e22" />
-      </div>
+      <Box display="flex" justifyContent="center" alignItems="center">
+        <CircularProgress size={100} />
+      </Box>
     );
   }
 
   return (
     <MapContainer
-      center={[0, 0]}
-      zoom={2}
+      center={[30, 0]}
+      zoom={3}
       scrollWheelZoom={false}
       className="map"
     >
