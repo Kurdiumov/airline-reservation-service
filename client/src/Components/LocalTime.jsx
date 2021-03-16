@@ -3,8 +3,7 @@ import { useSelector } from "react-redux";
 import moment from "moment";
 import momentTimezone from "moment-timezone";
 import backendConnector from "../backendConnector.js";
-import "./LocalTime.scss";
-
+import { Typography, Box } from "@material-ui/core";
 export default function LocalTime() {
   const airportCode = useSelector((state) => state.search?.origin?.code);
   const [city, setCity] = useState(null);
@@ -40,21 +39,25 @@ export default function LocalTime() {
       setCity(null);
       setTimezone(null);
     }
-    return <div className="localTime" />;
+    return null;
   }
 
   if (!city) {
     getAirportDetails();
-    return <div className="localTime" />;
+    return null;
   }
 
   if (!time) {
-    return <div className="localTime" />;
+    return null;
   }
 
   return (
-    <div className="localTime">
-      Local time in <span>{city}</span>: {time}
-    </div>
+    <Typography>
+      Local time in{" "}
+      <Box component="span" fontWeight="fontWeightBold">
+        {city}
+      </Box>
+      : {time}
+    </Typography>
   );
 }

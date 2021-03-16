@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import backendConnector from "../backendConnector.js";
-import "./LocalWeather.scss";
 import usePrevious from "../Hooks/usePrevious";
+import { Typography } from "@material-ui/core";
 
 export default function LocalWeather() {
   const airportCode = useSelector((state) => state.search?.origin?.code);
@@ -30,8 +30,8 @@ export default function LocalWeather() {
   }
 
   return (
-    <div className="localWeather">
+    <Typography>
       {temperature}°C {condition}
-    </div>
+    </Typography>
   );
 }

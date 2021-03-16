@@ -1,11 +1,25 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { setCurrency } from "../Actions/currency.js";
-import "./CurrencySelector.scss";
+import { makeStyles, FormControl, Select, MenuItem } from "@material-ui/core";
+
+const useStyles = makeStyles((theme) => ({
+  formControl: {
+    width: "100px",
+    padding: "6px 16px;",
+    "margin-top": "2px",
+    "& .MuiSelect-select:focus": {
+      backgroundColor: "transparent"
+    }
+  }
+}));
 
 export default function CurrencySelector() {
   const dispatch = useDispatch();
-  const currentCurrency = useSelector((state) => state.currencies.currentCurrency);
+  const classes = useStyles();
+  const currentCurrency = useSelector(
+    (state) => state.currencies.currentCurrency
+  );
   const exchangeRates = useSelector((state) => state.currencies.exchangeRates);
 
   const handleCurrencyChange = (event) => {
@@ -14,8 +28,9 @@ export default function CurrencySelector() {
   };
 
   return (
-    <div className="currencySelector">
-      <select
+    <FormControl value="outlined" className={classes.formControl}>
+      <Select
+        disableUnderline
         name="currencies"
         id="currencies"
         value={currentCurrency}
@@ -23,12 +38,12 @@ export default function CurrencySelector() {
       >
         {Object.keys(exchangeRates).map((key) => {
           return (
-            <option key={key} value={key}>
+            <MenuItem key={key} value={key}>
               {key}
-            </option>
+            </MenuItem>
           );
         })}
-      </select>
-    </div>
+      </Select>
+    </FormControl>
   );
 }
