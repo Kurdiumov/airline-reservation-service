@@ -88,7 +88,7 @@ export default function LogInForm(props) {
         {responseError}
       </FormHelperText>
       <TextField
-        label="email"
+        label="Email"
         variant="outlined"
         fullWidth={true}
         type="email"
@@ -101,7 +101,7 @@ export default function LogInForm(props) {
         {...email.bind}
       />
       <TextField
-        label="password"
+        label="Password"
         variant="outlined"
         fullWidth={true}
         type="password"
@@ -116,6 +116,8 @@ export default function LogInForm(props) {
         <Button
           color="inherit"
           component={Link}
+          disableFocusRipple
+          disableRipple
           style={{
             backgroundColor: "transparent",
             textDecoration: "underline"
@@ -129,7 +131,13 @@ export default function LogInForm(props) {
         >
           Sign up
         </Button>
-        <Button type="submit" variant="contained" color="primary">
+        <Button
+          disableFocusRipple
+          disableRipple
+          type="submit"
+          variant="contained"
+          color="primary"
+        >
           LOG IN
         </Button>
       </Box>

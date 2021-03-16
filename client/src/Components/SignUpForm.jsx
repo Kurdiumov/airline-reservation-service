@@ -1,11 +1,26 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { TextField, Box, Button, FormHelperText } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
 import validator from "validator";
 import useInput from "../Hooks/useInput";
-import "./AuthForm.scss";
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    "& > *": {
+      "margin-top": theme.spacing(2),
+      "margin-bottom": theme.spacing(2)
+    },
+    "& .MuiFormHelperText-contained.MuiFormHelperText-root": {
+      position: "absolute",
+      top: "3.5rem"
+    }
+  }
+}));
 
 export default function SignUpForm(props) {
   const url = `${process.env.REACT_APP_API_URL}/api/user/register`;
+  const classes = useStyles();
   const email = useInput("");
   const name = useInput("");
   const surname = useInput("");
@@ -152,7 +167,8 @@ export default function SignUpForm(props) {
   };
 
   const getRepeatedPasswordError = () => {
-    if (validator.isEmpty(repeatedPassword.value)) return "Please repeat password.";
+    if (validator.isEmpty(repeatedPassword.value))
+      return "Please repeat password.";
 
     if (password.value && password.value !== repeatedPassword.value) {
       return "Passwords don't match.";
@@ -162,57 +178,107 @@ export default function SignUpForm(props) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="signUpForm">
-      {responseError && <span className="responseError">{responseError}</span>}
-      <label htmlFor="email">Email:</label>
-      <input
+    <form className={classes.root} onSubmit={handleSubmit}>
+      <FormHelperText
+        error={true}
+        style={{ textAlign: "center", height: "0.75rem" }}
+      >
+        {responseError}
+      </FormHelperText>
+
+      <TextField
+        label="Email"
+        variant="outlined"
+        fullWidth={true}
         type="email"
+        name="email"
         autoComplete="username"
         onBlur={validateEmail}
+        error={!!errors.email}
+        helperText={errors.email}
+        margin="none"
         {...email.bind}
       />
-      {errors.email && <span className="error">{errors.email}</span>}
 
-      <label htmlFor="name">First name:</label>
-      <input
+      <TextField
+        label="First name"
+        variant="outlined"
+        fullWidth={true}
         type="text"
+        name="text"
         autoComplete="given-name"
         onBlur={validateName}
+        error={!!errors.name}
+        helperText={errors.name}
+        margin="none"
         {...name.bind}
       />
-      {errors.name && <span className="error">{errors.name}</span>}
-
-      <label htmlFor="surname">Last name:</label>
-      <input
+      <TextField
+        label="Last name"
+        variant="outlined"
+        fullWidth={true}
         type="text"
+        name="text"
         autoComplete="family-name"
         onBlur={validateSurname}
+        error={!!errors.surname}
+        helperText={errors.surname}
+        margin="none"
         {...surname.bind}
       />
-      {errors.surname && <span className="error">{errors.surname}</span>}
 
-      <label htmlFor="password">Password:</label>
-      <input
+      <TextField
+        label="Password"
+        variant="outlined"
+        fullWidth={true}
         type="password"
+        name="password"
         autoComplete="new-password"
         onBlur={validatePassword}
+        error={!!errors.password}
+        helperText={errors.password}
         {...password.bind}
       />
-      {errors.password && <span className="error">{errors.password}</span>}
 
-      <label htmlFor="repeatedPassword">Repeat password:</label>
-      <input
+      <TextField
+        label="Repeat password"
+        variant="outlined"
+        fullWidth={true}
         type="password"
+        name="password"
         autoComplete="new-password"
         onBlur={validateRepeatedPassword}
+        error={!!errors.repeatedPassword}
+        helperText={errors.repeatedPassword}
         {...repeatedPassword.bind}
       />
-      {errors.repeatedPassword && (<span className="error">{errors.repeatedPassword}</span>)}
 
-      <div>
-        <Link to="/login">Sign in</Link>
-        <input type="submit" value="SIGN UP" className="button" />
-      </div>
+      <Box display="flex" justifyContent="space-between" p={1}>
+        <Button
+          color="inherit"
+          component={Link}
+          disableFocusRipple
+          disableRipple
+          style={{
+            backgroundColor: "transparent",
+            textDecoration: "underline"
+          }}
+          to={{
+            pathname: "/login"
+          }}
+        >
+          Sign in
+        </Button>
+        <Button
+          disableFocusRipple
+          disableRipple
+          type="submit"
+          variant="contained"
+          color="primary"
+        >
+          SIGN UP
+        </Button>
+      </Box>
     </form>
   );
 }
