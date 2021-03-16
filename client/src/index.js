@@ -2,7 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { ThemeProvider } from "@material-ui/core";
-import "./Assets/styles.scss";
 import AppRouter from "./Routes/AppRouter";
 import backendConnector from "./backendConnector.js";
 import { setExchangeRate } from "./Actions/currency.js";
