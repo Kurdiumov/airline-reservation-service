@@ -1,14 +1,29 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import useInput from "../Hooks/useInput";
 import validator from "validator";
+import useInput from "../Hooks/useInput";
 import { login } from "../Actions/auth";
-import "./AuthForm.scss";
+import { TextField, Box, Button, FormHelperText } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    "& > *": {
+      "margin-top": theme.spacing(2),
+      "margin-bottom": theme.spacing(2)
+    },
+    "& .MuiFormHelperText-contained.MuiFormHelperText-root": {
+      position: "absolute",
+      top: "3.5rem"
+    }
+  }
+}));
 
 export default function LogInForm(props) {
   const url = `${process.env.REACT_APP_API_URL}/api/user/login`;
   const dispatch = useDispatch();
+  const classes = useStyles();
 
   const email = useInput("");
   const password = useInput("");
@@ -20,7 +35,9 @@ export default function LogInForm(props) {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    if (!validateEmail() || !validatePassword()) {
+    const emailValid = validateEmail();
+    const passwordValid = validatePassword();
+    if (!emailValid || !passwordValid) {
       return;
     }
 
@@ -63,28 +80,46 @@ export default function LogInForm(props) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="loginForm">
-      {responseError && <span className="responseError">{responseError}</span>}
-      <label htmlFor="email">Email:</label>
-      <input
+    <form className={classes.root} onSubmit={handleSubmit}>
+      <FormHelperText
+        error={true}
+        style={{ textAlign: "center", height: "0.75rem" }}
+      >
+        {responseError}
+      </FormHelperText>
+      <TextField
+        label="email"
+        variant="outlined"
+        fullWidth={true}
         type="email"
         name="email"
         autoComplete="username"
         onBlur={validateEmail}
+        error={!!emailError}
+        helperText={emailError}
+        margin="none"
         {...email.bind}
       />
-      {emailError && <span className="error">{emailError}</span>}
-      <label htmlFor="password">Password:</label>
-      <input
+      <TextField
+        label="password"
+        variant="outlined"
+        fullWidth={true}
         type="password"
         name="password"
         autoComplete="current-password"
         onBlur={validatePassword}
+        error={!!passwordError}
+        helperText={passwordError}
         {...password.bind}
       />
-      {passwordError && <span className="error">{passwordError}</span>}
-      <div>
-        <Link
+      <Box display="flex" justifyContent="space-between" p={1}>
+        <Button
+          color="inherit"
+          component={Link}
+          style={{
+            backgroundColor: "transparent",
+            textDecoration: "underline"
+          }}
           to={{
             pathname: "/signup",
             state: {
@@ -93,9 +128,11 @@ export default function LogInForm(props) {
           }}
         >
           Sign up
-        </Link>
-        <input type="submit" value="LOG IN" className="button" />
-      </div>
+        </Button>
+        <Button type="submit" variant="contained" color="primary">
+          LOG IN
+        </Button>
+      </Box>
     </form>
   );
 }
