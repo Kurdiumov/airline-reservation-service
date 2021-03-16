@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import Booking from "../Components/Booking/Booking";
+import ContentContainer from "../Components/ContentContainer";
 
 export default function BookingPage() {
   const selectedFlight = useSelector((state) => state.booking.selectedFlight);
@@ -18,8 +19,8 @@ export default function BookingPage() {
   }
 
   return (
-    <div className="content">
+    <ContentContainer>
       <Booking />
-    </div>
+    </ContentContainer>
   );
 }

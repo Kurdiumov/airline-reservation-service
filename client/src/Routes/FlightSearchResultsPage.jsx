@@ -6,6 +6,7 @@ import FlightDetails from "../Components/FlightDetails";
 import backendConnector from "../backendConnector.js";
 import moment from "moment";
 import momentTimezone from "moment-timezone";
+import ContentContainer from "../Components/ContentContainer";
 
 export default function FlightSearchResultsPage(props) {
   const [flights, setFlights] = useState([]);
@@ -66,7 +67,7 @@ export default function FlightSearchResultsPage(props) {
   }
 
   return (
-    <div className="content">
+    <ContentContainer>
       <ul>
         {flights.map((flight) => {
           return (
@@ -81,6 +82,6 @@ export default function FlightSearchResultsPage(props) {
           );
         })}
       </ul>
-    </div>
+      </ContentContainer>
   );
 }
