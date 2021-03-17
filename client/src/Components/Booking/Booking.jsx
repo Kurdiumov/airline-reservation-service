@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import "./Booking.scss";
+import { Container, Box, Button } from "@material-ui/core";
 import Passenger from "./Passenger";
 import { setPassenger } from "../../Actions/booking";
 
@@ -42,7 +42,7 @@ export default function Booking() {
   };
 
   return (
-    <div className="booking">
+    <Container className="booking" disableGutters={true}>
       <ul>
         {Object.keys(adults).map((value, index) => (
           <li key={value}>
@@ -82,14 +82,16 @@ export default function Booking() {
           </li>
         ))}
       </ul>
-      <div>
-        <button
+      <Box display="flex" justifyContent="flex-end">
+        <Button
+          variant="contained"
+          color="primary"
           onClick={handleClick}
-          className={allInputsAreValid ? "" : "disabled"}
+          disabled={!allInputsAreValid}
         >
           CONTINUE
-        </button>
-      </div>
-    </div>
+        </Button>
+      </Box>
+    </Container>
   );
 }

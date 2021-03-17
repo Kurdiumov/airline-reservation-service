@@ -12,7 +12,7 @@ export default function ContentContainer(props) {
 
   return (
     <Grid container className={classes.container} justify="center">
-      <Grid item xs={12} sm={10} md={6}>
+      <Grid item xs={12} sm={10} lg={8}>
         {props.children}
       </Grid>
     </Grid>
