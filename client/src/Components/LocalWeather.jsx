@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import backendConnector from "../backendConnector.js";
 import usePrevious from "../Hooks/usePrevious";
 import { Typography } from "@material-ui/core";
+import "./NavBar.scss";
 
 export default function LocalWeather() {
   const airportCode = useSelector((state) => state.search?.origin?.code);
@@ -31,7 +32,8 @@ export default function LocalWeather() {
 
   return (
     <Typography>
-      {temperature}°C {condition}
+      <span>{temperature}°C</span>
+      <span className="navbar-weather-condition"> {condition}</span>
     </Typography>
   );
 }

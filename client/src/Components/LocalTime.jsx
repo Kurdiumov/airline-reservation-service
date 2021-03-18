@@ -3,8 +3,12 @@ import { useSelector } from "react-redux";
 import moment from "moment";
 import momentTimezone from "moment-timezone";
 import backendConnector from "../backendConnector.js";
-import { Typography, Box } from "@material-ui/core";
+import Box from "@material-ui/core/Box";
+import Typography from "@material-ui/core/Typography";
+import useMobileView from "../Hooks/useMobileView";
+
 export default function LocalTime() {
+  const isMobile = useMobileView();
   const airportCode = useSelector((state) => state.search?.origin?.code);
   const [city, setCity] = useState(null);
   const [timezone, setTimezone] = useState(null);
@@ -52,12 +56,15 @@ export default function LocalTime() {
   }
 
   return (
-    <Typography>
-      Local time in{" "}
-      <Box component="span" fontWeight="fontWeightBold">
-        {city}
-      </Box>
-      : {time}
+    <Typography align={isMobile ? "right" : "left"}>
+      <span>
+        Time in{" "}
+        <Box component="span" fontWeight="fontWeightBold">
+          {city}
+        </Box>
+        :{" "}
+      </span>
+      <span className="navbar-local-time">{time}</span>
     </Typography>
   );
 }
