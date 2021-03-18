@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { Redirect } from "react-router-dom";
 import { useSelector } from "react-redux";
-import Loader from "react-loader-spinner";
-import FlightDetails from "../Components/FlightDetails";
-import backendConnector from "../backendConnector.js";
 import moment from "moment";
 import momentTimezone from "moment-timezone";
+import Box from "@material-ui/core/Box";
+import CircularProgress from "@material-ui/core/CircularProgress";
+import Typography from "@material-ui/core/Typography";
+import AirplanemodeInactiveIcon from "@material-ui/icons/AirplanemodeInactive";
 import ContentContainer from "../Components/ContentContainer";
+import FlightDetails from "../Components/Booking/FlightDetails";
+import backendConnector from "../backendConnector.js";
 
 export default function FlightSearchResultsPage(props) {
   const [flights, setFlights] = useState([]);
@@ -20,14 +23,19 @@ export default function FlightSearchResultsPage(props) {
   const passengers = useSelector((state) => state.search.passengers);
 
   useEffect(() => {
-    if (!departureDate?.slice)
-      return;
+    if (!departureDate?.slice) return;
 
     setLoading(true);
     const date = moment(departureDate.slice(0, 10)).format("YYYY-MM-DD");
-    const flightsPromise = backendConnector.getFlights(origin, destination, date);
+    const flightsPromise = backendConnector.getFlights(
+      origin,
+      destination,
+      date
+    );
     const originDetailsPromise = backendConnector.getAirportDetails(origin);
-    const destinationDetailsPromise = backendConnector.getAirportDetails(destination);
+    const destinationDetailsPromise = backendConnector.getAirportDetails(
+      destination
+    );
 
     Promise.all([
       flightsPromise,
@@ -52,36 +60,42 @@ export default function FlightSearchResultsPage(props) {
 
   if (loading === true) {
     return (
-      <div className="content flightResults">
-        <Loader type="Oval" color="#e67e22" />
-      </div>
+      <Box
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        height="80%"
+      >
+        <CircularProgress size={100} />
+      </Box>
     );
   }
 
   if (!flights || flights.length === 0) {
     return (
-      <div className="content flightResults">
-        <span> No results :(</span>
-      </div>
+      <Box display="flex" flexDirection="column" alignItems="center" mt={10}>
+        <Box pb={2}>
+          <AirplanemodeInactiveIcon fontSize="large" />
+        </Box>
+        <Typography variant="h4">No flights found </Typography>
+      </Box>
     );
   }
 
   return (
     <ContentContainer>
-      <ul>
-        {flights.map((flight) => {
-          return (
-            <FlightDetails
-              history={props.history}
-              key={flight.flightNumber}
-              flight={flight}
-              origin={originDetails}
-              destination={destinationDetails}
-              passengers={passengers}
-            ></FlightDetails>
-          );
-        })}
-      </ul>
-      </ContentContainer>
+      {flights.map((flight) => {
+        return (
+          <FlightDetails
+            key={flight.flightNumber}
+            history={props.history}
+            flight={flight}
+            origin={originDetails}
+            destination={destinationDetails}
+            passengers={passengers}
+          ></FlightDetails>
+        );
+      })}
+    </ContentContainer>
   );
 }
