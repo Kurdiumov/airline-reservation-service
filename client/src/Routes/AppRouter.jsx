@@ -12,7 +12,8 @@ import { makeStyles, Grid, CssBaseline } from "@material-ui/core";
 
 const useStyles = makeStyles({
   root: {
-    minHeight: "100vh"
+    minHeight: "100vh",
+    "user-select": "none"
   },
   content: {
     minHeight: "100%",

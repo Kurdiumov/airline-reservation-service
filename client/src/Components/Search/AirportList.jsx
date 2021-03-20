@@ -1,30 +1,59 @@
 import React from "react";
-import Loader from "react-loader-spinner";
-import "./AirportList.scss";
+import { makeStyles } from "@material-ui/core/styles";
+import Box from "@material-ui/core/Box";
+import CircularProgress from "@material-ui/core/CircularProgress";
+import Typography from "@material-ui/core/Typography";
+import AirplanemodeInactiveIcon from "@material-ui/icons/AirplanemodeInactive";
 
+const useStyles = makeStyles((theme) => ({
+  country: {
+    "font-weight": "bold",
+    "padding-top": theme.spacing(2)
+  },
+  airportContainer: {
+    cursor: "pointer",
+    margin: `${theme.spacing(0.25)} ${theme.spacing(1)} ${theme.spacing(0.25)} ${theme.spacing(1)}`,
+    "padding-left": theme.spacing(1),
+    "padding-right": theme.spacing(1),
+    "&:hover": {
+      "background-color": "#fafafa"
+    }
+  }
+}));
 export default function AirportList(props) {
+  const classes = useStyles();
+
   const getCountriesAndAirportsList = (filter, sources) => {
     filter = filter.toLowerCase().trim();
     const filteredSources = filterAvailableSources(sources, filter);
 
-    const result = Object.keys(filteredSources).map((country) => {
+    const result = Object.keys(filteredSources).sort().map((country) => {
       return (
-        <li key={country}>
-          <div>
-            <p className="country">{country}</p>
-            {getAirportList(filteredSources[country], filter)}
-          </div>
-        </li>
+        <Box key={country}>
+          <Typography className={classes.country}>{country}</Typography>
+          {getAirportList(filteredSources[country], filter)}
+        </Box>
       );
     });
     if (result.length === 0) {
       return (
-        <div className="noResults">
-          There are no results based on your criteria :(
-        </div>
+        <Box
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+          height="100%"
+          flexDirection="column"
+        >
+          <Box>
+            <AirplanemodeInactiveIcon fontSize="large"></AirplanemodeInactiveIcon>
+          </Box>
+          <Typography variant="h6" align="center">
+            No airports found
+          </Typography>
+        </Box>
       );
     }
-    return <ul>{result}</ul>;
+    return <>{result}</>;
   };
 
   const filterAvailableSources = (sources, filter) => {
@@ -51,23 +80,31 @@ export default function AirportList(props) {
   };
 
   const getAirportList = (country) => {
-    return country.map((airport) => {
+    return country.sort((a,b) => a.name.localeCompare(b.name)).map((airport) => {
       return (
-        <span
-          key={airport.code}
-          className="airport"
+        <Box
+          display="flex"
+          justifyContent="space-between"
           onClick={handleAirportClick}
+          className={classes.airportContainer}
+          key={airport.code}
         >
-          <p className="airportName">{airport.name}</p>
-          <p className="airportCode"> {airport.code}</p>
-        </span>
+          <Box>
+            <Typography varian="h6">{airport.name}</Typography>
+          </Box>
+          <Box display="flex" alignItems="center">
+            <Typography varian="h6" color="textSecondary">
+              {airport.code}
+            </Typography>
+          </Box>
+        </Box>
       );
     });
   };
 
   const handleAirportClick = (event) => {
-    const airportCode = event.currentTarget.getElementsByClassName("airportCode")[0].innerText;
-    const airportName = event.currentTarget.getElementsByClassName("airportName")[0].innerText;
+    const airportName = event.currentTarget.children[0].innerText;
+    const airportCode = event.currentTarget.children[1].innerText;
 
     props.airportClickHandler({
       name: airportName,
@@ -77,17 +114,22 @@ export default function AirportList(props) {
 
   if (props.loading === true) {
     return (
-      <div className="airportsList loader">
-        <Loader type="Oval" color="#e67e22" />
-      </div>
+      <Box
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        height="100%"
+      >
+        <CircularProgress size={100} />
+      </Box>
     );
   }
 
   return (
-    <div className="airportsList">
+    <Box height="100%" width="100%">
       {getCountriesAndAirportsList(props.filter, {
         ...props.sources
       })}
-    </div>
+    </Box>
   );
 }
