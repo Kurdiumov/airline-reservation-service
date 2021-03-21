@@ -7,8 +7,8 @@ import embraer_e175svg from "../../../Assets/Embraer_E175.svg";
 const useStyles = makeStyles((theme) => ({
   seats: {
     position: "absolute",
-    top: "410px",
-    left: "217px"
+    top: "347px",
+    left: "34px"
   }
 }));
 
@@ -35,7 +35,7 @@ export default function Embraer_E175(props) {
     return (
       <>
         <Box>{getSeat(rowNumber + "A", true)}</Box>
-        <Box display="flex" width="50%" justifyContent="space-between">
+        <Box display="flex" width="45%" justifyContent="space-between">
           {getSeat(rowNumber + "B", true)}
           {getSeat(rowNumber + "C", true)}
         </Box>
@@ -46,11 +46,11 @@ export default function Embraer_E175(props) {
   const get4SeatsRow = (rowNumber) => {
     return (
       <>
-        <Box>
+        <Box width="40%" display="flex" justifyContent="space-around">
           {getSeat(rowNumber + "A", false)}
           {getSeat(rowNumber + "B", false)}
         </Box>
-        <Box>
+        <Box  width="40%" display="flex" justifyContent="space-around">
           {getSeat(rowNumber + "C", false)}
           {getSeat(rowNumber + "D", false)}
         </Box>
@@ -69,7 +69,7 @@ export default function Embraer_E175(props) {
               justifyContent="space-between"
               ml={1}
               mr={1}
-              mb={4}
+              mb={7}
             >
               {get3SeatsRow(i + 1)}
             </Box>
@@ -81,7 +81,7 @@ export default function Embraer_E175(props) {
 
   const populatePremiumSeats = () => {
     return (
-      <Box mt={1}>
+      <Box mt={1.8}>
         {[...Array(premiumClassRows)].map((e, i) => {
           const rowNumber = i + businessClassRows + 2;
           return (
@@ -89,7 +89,7 @@ export default function Embraer_E175(props) {
               display="flex"
               key={rowNumber}
               justifyContent="space-between"
-              mb={0.5}
+              mb={3.5}
             >
               {get4SeatsRow(rowNumber)}
             </Box>
@@ -101,7 +101,7 @@ export default function Embraer_E175(props) {
 
   const populateSeats = () => {
     return (
-      <Box mt={1.5}>
+      <Box mt={1.8}>
         {[...Array(regularSeatsRows)].map((e, i) => {
           const rowNumber = i + businessClassRows + premiumClassRows + 2;
           return (
@@ -109,7 +109,7 @@ export default function Embraer_E175(props) {
               display="flex"
               key={rowNumber}
               justifyContent="space-between"
-              mb={0.4}
+              mb={3.4}
             >
               {get4SeatsRow(rowNumber)}
             </Box>
@@ -127,12 +127,12 @@ export default function Embraer_E175(props) {
   return (
     <>
       <Box position="relative">
-        <img width="700px" src={embraer_e175svg} alt="Embraer_E175" />;
+        <img width="350px" src={embraer_e175svg} alt="Embraer_E175" />;
         <Box
           display="flex"
           flexDirection="column"
           className={classes.seats}
-          width="268px"
+          width="282px"
         >
           {populateBusinessSeats()}
           {populatePremiumSeats()}

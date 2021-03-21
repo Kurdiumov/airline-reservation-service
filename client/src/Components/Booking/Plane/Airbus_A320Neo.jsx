@@ -7,8 +7,8 @@ import airbus_a320neoSvg from "../../../Assets/Airbus_A320Neo.svg";
 const useStyles = makeStyles((theme) => ({
   seats: {
     position: "absolute",
-    top: "380px",
-    left: "45px"
+    top: "303px",
+    left: "40px"
   }
 }));
 
@@ -71,7 +71,7 @@ export default function Airbus_A320Neo(props) {
               justifyContent="space-between"
               ml={1}
               mr={1}
-              mb={1.8}
+              mb={2.25}
             >
               {get4SeatsRow(i + 1)}
             </Box>
@@ -83,24 +83,24 @@ export default function Airbus_A320Neo(props) {
 
   const populateSeats = () => {
     return (
-      <Box mt={6}>
+      <Box mt={4.5}>
         {[...Array(5)].map((e, i) => {
           return (
             <Box
               display="flex"
               key={i + 6}
               justifyContent="space-between"
-              mb={1.8}
+              mb={2.2}
             >
               {get6SeatsRow(i + 6)}
             </Box>
           );
         })}
-        <Box display="flex" justifyContent="space-between" mt={12} mb={1.8}>
+        <Box display="flex" justifyContent="space-between" mt={10} mb={1.8}>
           {get6SeatsRow(11)}
         </Box>
 
-        <Box display="flex" justifyContent="space-between" mt={11} mb={1.8}>
+        <Box display="flex" justifyContent="space-between" mt={9.5} mb={2.2}>
           {get6SeatsRow(12)}
         </Box>
 
@@ -111,7 +111,7 @@ export default function Airbus_A320Neo(props) {
                 display="flex"
                 key={i + 14}
                 justifyContent="space-between"
-                mb={1.85}
+                mb={2.3}
               >
                 {get6SeatsRow(i + 14)}
               </Box>
@@ -119,14 +119,14 @@ export default function Airbus_A320Neo(props) {
           })}
         </Box>
 
-        <Box mt={2}>
+        <Box mt={1.5}>
           {[...Array(14)].map((e, i) => {
             return (
               <Box
                 display="flex"
                 key={i + 25}
                 justifyContent="space-between"
-                mb={1.85}
+                mb={2.25}
               >
                 {get6SeatsRow(i + 25)}
               </Box>
@@ -140,12 +140,12 @@ export default function Airbus_A320Neo(props) {
   return (
     <>
       <Box position="relative">
-        <img width="490px" src={airbus_a320neoSvg} alt="Airbus_A320Neo" />;
+        <img width="380px" src={airbus_a320neoSvg} alt="Airbus_A320Neo" />;
         <Box
           display="flex"
           flexDirection="column"
           className={classes.seats}
-          width="400px"
+          width="300px"
         >
           {populateBusinessSeats()}
           {populateSeats()}

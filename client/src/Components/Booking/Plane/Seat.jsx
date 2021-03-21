@@ -1,36 +1,45 @@
 import React, { useEffect, useState } from "react";
 import { makeStyles, Typography } from "@material-ui/core";
 import IconButton from "@material-ui/core/IconButton";
-import EventSeatIcon from "@material-ui/icons/EventSeat";
+import { ReactComponent as Icon } from "../../../Assets/Seat.svg";
 
 const useStyles = makeStyles((theme) => ({
   container: {
-    width: "60px",
-    height: "60px",
+    width: "40px",
+    height: "40px",
     padding: "0px"
-  },
-  seat: {
-    "font-size": "60px",
-    transform: "rotate(180deg)"
-  },
-  seatAvailable: {
-    color: "#43a047"
-  },
-  seatSelected: {
-    color: "#76d275"
-  },
-  businessClassSeatAvailable: {
-    color: "#ffa000"
-  },
-  businessClassSeatSelected: {
-    color: "#ffd149"
   },
   seatNumber: {
     position: "absolute",
+    bottom: "16px",
     color: theme.palette.text.primary,
-    bottom: "13px",
     "font-weight": "bold",
     "font-size": "10px"
+  },
+  seat: {
+    "& path": {
+      fill: "#dfe0e0"
+    }
+  },
+  regular: {
+    "& path": {
+      fill: "#43a047"
+    }
+  },
+  businessClass: {
+    "& path": {
+      fill: "#ffa000"
+    }
+  },
+  "regular-selected": {
+    "& path": {
+      fill: "#76d275"
+    }
+  },
+  "businessClass-selected": {
+    "& path": {
+      fill: "#ffd149"
+    }
   }
 }));
 
@@ -51,20 +60,16 @@ export default function FlightDetails(props) {
       props.onSeatSelectionChanged(number, isSelected);
   }, [isSelected]);
 
-  const getSeatStyles = () => {
-    let seatStyle = `${classes.seat} `;
-
-    if (!isDisabled) {
-      if (isBusinessClass) {
-        seatStyle += isSelected
-          ? classes.businessClassSeatSelected
-          : classes.businessClassSeatAvailable;
-      } else {
-        seatStyle += isSelected ? classes.seatSelected : classes.seatAvailable;
-      }
+  const getStyleClasses = () => {
+    if (isDisabled) {
+      return classes.seat;
     }
 
-    return seatStyle;
+    if (isBusinessClass) {
+      return isSelected ? classes["businessClass-selected"] : classes.businessClass;
+    } else {
+      return isSelected ? classes["regular-selected"] : classes.regular;
+    }
   };
 
   return (
@@ -75,7 +80,7 @@ export default function FlightDetails(props) {
       component="span"
       onClick={() => setIsSelected(!isSelected)}
     >
-      <EventSeatIcon className={getSeatStyles()} />
+      <Icon className={getStyleClasses()}></Icon>
       <Typography className={classes.seatNumber}>{number}</Typography>
     </IconButton>
   );
