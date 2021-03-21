@@ -10,6 +10,7 @@ import {
   setChildrenPassengers,
   setInfantPassengers
 } from "../../Actions/search.js";
+import useMobile from "../../Hooks/useMobileView";
 
 const useStyles = makeStyles((theme) => ({
   textBtn: {
@@ -67,6 +68,7 @@ export const getInfantsPassengersText = (infantsCount) => {
 export default function Passengers() {
   const dispatch = useDispatch();
   const classes = useStyles();
+  const isMobile = useMobile();
   const adults = useSelector(({ search }) => search.passengers.adults);
   const children = useSelector(({ search }) => search.passengers.children);
   const infants = useSelector(({ search }) => search.passengers.infants);
@@ -84,7 +86,7 @@ export default function Passengers() {
         display="flex"
         flexDirection="column"
         justifyContent="space-evenly"
-        pt={4}
+        pt={isMobile ? 0 : 4}
       >
         <ButtonGroup
           color="secondary"
