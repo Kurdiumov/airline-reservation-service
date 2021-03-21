@@ -5,10 +5,14 @@ import momentTimezone from "moment-timezone";
 import { makeStyles } from "@material-ui/core/styles";
 import Box from "@material-ui/core/Box";
 import Grid from "@material-ui/core/Grid";
+import Modal from "@material-ui/core/Modal";
 import Button from "@material-ui/core/Button";
+import TextField from "@material-ui/core/TextField";
+import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import OutlinedInput from "@material-ui/core/OutlinedInput";
 import InputAdornment from "@material-ui/core/InputAdornment";
+import CloseIcon from "@material-ui/icons/Close";
 import ContentContainer from "../ContentContainer";
 import AirportList from "./AirportList";
 import Calendar from "./Calendar";
@@ -23,6 +27,7 @@ import Passengers, {
   getChildrenPassengersText,
   getInfantsPassengersText
 } from "./Passengers";
+import useMobile from "../../Hooks/useMobileView";
 
 const useStyles = makeStyles((theme) => ({
   searchContainer: {
@@ -61,12 +66,22 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#fff",
     "padding-left": theme.spacing(2),
     "padding-right": theme.spacing(2)
+  },
+  mobilePopup: {
+    position: "absolute",
+    top: 64,
+    left: theme.spacing(2),
+    right: theme.spacing(2),
+    "border-radius": 5,
+    outline: "none",
+    backgroundColor: "#fff"
   }
 }));
 
 export default function FlightSearch(props) {
   const dispatch = useDispatch();
   const classes = useStyles();
+  const isMobile = useMobile();
 
   const origin = useSelector(({ search }) => search.origin);
   const destination = useSelector(({ search }) => search.destination);
@@ -186,7 +201,8 @@ export default function FlightSearch(props) {
   };
 
   const onFocusChanged = (event) => {
-    dispatch(setFocusedInput(event.currentTarget.id));
+    const id = event.currentTarget.id || event.currentTarget.children[0]?.id;
+    dispatch(setFocusedInput(id));
   };
 
   const getPrettyDate = (date, timezone = "GMT") => {
@@ -218,7 +234,7 @@ export default function FlightSearch(props) {
             placeholder="Origin"
             value={originInputValue}
             onChange={onOriginInputChange}
-            onFocus={onFocusChanged}
+            onClick={onFocusChanged}
             error={!originInputValid}
             notched={false}
             endAdornment={
@@ -236,7 +252,7 @@ export default function FlightSearch(props) {
             placeholder="Destination"
             value={destinationInputValue}
             onChange={onDestinationInputChange}
-            onFocus={onFocusChanged}
+            onClick={onFocusChanged}
             error={!destinationInputValid}
             notched={false}
             endAdornment={
@@ -275,7 +291,7 @@ export default function FlightSearch(props) {
           <Button
             id="Passengers"
             variant="contained"
-            onFocus={onFocusChanged}
+            onClick={onFocusChanged}
             className={classes.formInput}
             disableFocusRipple
             disableRipple
@@ -293,7 +309,7 @@ export default function FlightSearch(props) {
             color="secondary"
             className={classes.searchBtn}
             disabled={!allInputsAreValid}
-            onFocus={onFocusChanged}
+            onClick={onFocusChanged}
             disableFocusRipple
             disableElevation
             disableRipple
@@ -302,6 +318,127 @@ export default function FlightSearch(props) {
           </Button>
         </Box>
       </form>
+    );
+  };
+
+  const getSidePanelContent = () => {
+    return (
+      <>
+        {focusedInput === "Origin" && (
+          <AirportList
+            filter={originInputValue}
+            sources={availableSources}
+            airportClickHandler={setOriginInput}
+            loading={originsLoading}
+          />
+        )}
+        {focusedInput === "Destination" && (
+          <AirportList
+            filter={destinationInputValue}
+            sources={availableDestinations}
+            airportClickHandler={setDestinationInput}
+            loading={destinationsLoading}
+          />
+        )}
+        {focusedInput === "Passengers" && <Passengers />}
+        {focusedInput === "DepartureDate" && (
+          <Box display="flex" height="100%" alignItems="center">
+            <Calendar
+              timezone={originTimezone}
+              departureDate={departureDate}
+              setDepartureDate={changeDepartureDate}
+              loading={datesLoading}
+              availableDates={availableDates.map((date) =>
+                moment(date).tz(originTimezone)?.format("YYYY-MM-DD")
+              )}
+            />
+          </Box>
+        )}
+      </>
+    );
+  };
+
+  const getDesktopSidePanel = () => {
+    return (
+      <Grid
+        item
+        xs={12}
+        md={6}
+        lg={6}
+        display={focusedInput ? "block" : "none"}
+      >
+        {focusedInput && (
+          <Box className={classes.sidePanel} boxShadow={2}>
+            {getSidePanelContent()}
+          </Box>
+        )}
+      </Grid>
+    );
+  };
+
+  const getMobilePopup = () => {
+    return (
+      <Modal
+        open
+        disableEnforceFocus
+        disableAutoFocus
+        onClose={() => dispatch(setFocusedInput(""))}
+      >
+        <Box
+          display="flex"
+          flexDirection="column"
+          className={classes.mobilePopup}
+        >
+          <Box
+            display="flex"
+            width="100%"
+            alignItems="baseline"
+            justifyContent="flex-end"
+          >
+            <Box width="60%" display="flex" justifyContent="center">
+              {focusedInput === "Origin" && (
+                <TextField
+                  fullWidth={true}
+                  size="small"
+                  color="secondary"
+                  id="Origin"
+                  placeholder="Origin"
+                  autoFocus={true}
+                  autoComplete="off"
+                  value={originInputValue}
+                  onChange={onOriginInputChange}
+                />
+              )}
+              {focusedInput === "Destination" && (
+                <TextField
+                  fullWidth={true}
+                  size="small"
+                  color="secondary"
+                  id="Destination"
+                  placeholder="Destination"
+                  autoFocus={true}
+                  autoComplete="off"
+                  value={destinationInputValue}
+                  onChange={onDestinationInputChange}
+                />
+              )}
+            </Box>
+            <Box width="20%" display="flex" justifyContent="flex-end">
+              <IconButton
+                color="secondary"
+                onClick={() => dispatch(setFocusedInput(""))}
+              >
+                <CloseIcon />
+              </IconButton>
+            </Box>
+          </Box>
+          <Grid container>
+            <Grid item xs={12} sm={10} style={{ margin: "auto" }}>
+              <Box className={classes.sidePanel}>{getSidePanelContent()}</Box>
+            </Grid>
+          </Grid>
+        </Box>
+      </Modal>
     );
   };
 
@@ -319,48 +456,8 @@ export default function FlightSearch(props) {
             >
               {getForm()}
             </Grid>
-            <Grid
-              item
-              xs={12}
-              md={6}
-              lg={6}
-              display={focusedInput ? "block" : "none"}
-            >
-              {focusedInput && (
-                <Box className={classes.sidePanel} boxShadow={2}>
-                  {focusedInput === "Origin" && (
-                    <AirportList
-                      filter={originInputValue}
-                      sources={availableSources}
-                      airportClickHandler={setOriginInput}
-                      loading={originsLoading}
-                    />
-                  )}
-                  {focusedInput === "Destination" && (
-                    <AirportList
-                      filter={destinationInputValue}
-                      sources={availableDestinations}
-                      airportClickHandler={setDestinationInput}
-                      loading={destinationsLoading}
-                    />
-                  )}
-                  {focusedInput === "Passengers" && <Passengers />}
-                  {focusedInput === "DepartureDate" && (
-                    <Box display="flex" height="100%" alignItems="center">
-                    <Calendar
-                      timezone={originTimezone}
-                      departureDate={departureDate}
-                      setDepartureDate={changeDepartureDate}
-                      loading={datesLoading}
-                      availableDates={availableDates.map((date) =>
-                        moment(date).tz(originTimezone)?.format("YYYY-MM-DD")
-                      )}
-                    />
-                    </Box>
-                  )}
-                </Box>
-              )}
-            </Grid>
+            {focusedInput &&
+              (isMobile ? getMobilePopup() : getDesktopSidePanel())}
           </Grid>
         </Grid>
       </Grid>
