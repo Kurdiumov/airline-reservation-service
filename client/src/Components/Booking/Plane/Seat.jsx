@@ -5,12 +5,12 @@ import EventSeatIcon from "@material-ui/icons/EventSeat";
 
 const useStyles = makeStyles((theme) => ({
   container: {
-    width: "72px",
-    height: "72px",
+    width: "60px",
+    height: "60px",
     padding: "0px"
   },
   seat: {
-    "font-size": "3em",
+    "font-size": "60px",
     transform: "rotate(180deg)"
   },
   seatAvailable: {
@@ -28,8 +28,9 @@ const useStyles = makeStyles((theme) => ({
   seatNumber: {
     position: "absolute",
     color: theme.palette.text.primary,
-    bottom: theme.spacing(1.5),
-    "font-weight": "bold"
+    bottom: "13px",
+    "font-weight": "bold",
+    "font-size": "10px"
   }
 }));
 
