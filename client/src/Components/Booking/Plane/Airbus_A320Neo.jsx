@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core";
 import Seat from "./Seat";
 import Box from "@material-ui/core/Box";
-import airbus_a320neoSvg from "../../../Assets/Airbus_A320Neo.svg";
+import airbus_a320neoSvg from "../../../Assets/Planes/Airbus_A320Neo.svg";
 
 const useStyles = makeStyles((theme) => ({
   seats: {

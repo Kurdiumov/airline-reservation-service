@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core";
 import Seat from "./Seat";
 import Box from "@material-ui/core/Box";
-import embraer_e175svg from "../../../Assets/Embraer_E175.svg";
+import embraer_e175svg from "../../../Assets/Planes/Embraer_E175.svg";
 
 const useStyles = makeStyles((theme) => ({
   seats: {
