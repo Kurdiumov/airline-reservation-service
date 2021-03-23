@@ -1,0 +1,1341 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="0 3980.529 425 1848.571" style="enable-background:new 0 0 425 5829.1;" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style type="text/css">
+	.st0{clip-path:url(#SVGID_31_);}
+	.st1{clip-path:url(#SVGID_35_);}
+	.st2{clip-path:url(#SVGID_40_);}
+	.st3{clip-path:url(#SVGID_41_);}
+	.st4{clip-path:url(#SVGID_42_);fill:#F3F3F3;}
+	.st5{clip-path:url(#SVGID_45_);}
+	.st6{clip-path:url(#SVGID_46_);fill:#FFFFFF;}
+	.st7{fill:#E5E5E5;}
+	.st8{fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
+	.st9{fill:#F3F3F3;}
+	.st10{fill:#333333;}
+	.st11{fill:#424242;}
+	.st12{clip-path:url(#SVGID_51_);}
+	.st13{clip-path:url(#SVGID_55_);}
+	.st14{clip-path:url(#SVGID_60_);}
+	.st15{clip-path:url(#SVGID_61_);}
+	.st16{clip-path:url(#SVGID_62_);fill:#F3F3F3;}
+	.st17{clip-path:url(#SVGID_65_);}
+	.st18{clip-path:url(#SVGID_66_);fill:#FFFFFF;}
+	.st19{fill:#BDBDBD;}
+	.st20{fill:none;stroke:#F3F3F3;stroke-width:1.2891;stroke-linecap:round;stroke-miterlimit:10;}
+	.st21{fill:#FFFFFF;stroke:#BDBDBD;stroke-width:0.9668;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st22{fill:#FFFFFF;stroke:#BDBDBD;stroke-width:0.9668;stroke-miterlimit:10;}
+	.st23{fill:#CFCFCF;}
+	.st24{fill:none;stroke:#BDBDBD;stroke-width:0.7104;stroke-miterlimit:10;}
+	.st25{fill:none;stroke:#BDBDBD;stroke-width:1.2084;stroke-miterlimit:10;}
+	.st26{fill:#FFCC00;}
+	.st27{fill:none;stroke:#E2A62A;stroke-width:0.8898;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st28{fill:none;stroke:#E2A62A;stroke-width:0.8898;stroke-miterlimit:10;}
+	.st29{fill:#E2A62A;}
+	.st30{fill:none;stroke:#E2A62A;stroke-width:0.7111;stroke-miterlimit:10;}
+	.st31{fill:#E26154;}
+	.st32{fill:#C14437;}
+	.st33{fill:none;stroke:#BDBDBD;stroke-width:1.2064;stroke-miterlimit:10;}
+	.st34{fill:#2DD086;}
+	.st35{fill:#29AB70;}
+	.st36{fill:none;stroke:#29AB70;stroke-width:1.2064;stroke-miterlimit:10;}
+	.st37{fill:none;stroke:#E2A62A;stroke-width:1.2062;stroke-miterlimit:10;}
+	.st38{display:none;}
+	.st39{fill:#FFFFFF;}
+	.st40{fill-rule:evenodd;clip-rule:evenodd;fill:#2DB4D0;}
+	.st41{fill:#CCCCCC;}
+	.st42{clip-path:url(#SVGID_81_);}
+	.st43{clip-path:url(#SVGID_82_);fill:#FFFFFF;}
+	.st44{clip-path:url(#SVGID_85_);}
+	.st45{clip-path:url(#SVGID_86_);fill:#FFFFFF;}
+	.st46{clip-path:url(#SVGID_89_);}
+	.st47{clip-path:url(#SVGID_90_);fill:#FFFFFF;}
+	.st48{clip-path:url(#SVGID_93_);}
+	.st49{clip-path:url(#SVGID_94_);fill:#FFFFFF;}
+	.st50{clip-path:url(#SVGID_97_);}
+	.st51{clip-path:url(#SVGID_98_);fill:#FFFFFF;}
+	.st52{clip-path:url(#SVGID_101_);}
+	.st53{clip-path:url(#SVGID_102_);fill:#FFFFFF;}
+	.st54{clip-path:url(#SVGID_105_);}
+	.st55{clip-path:url(#SVGID_106_);fill:#FFFFFF;}
+	.st56{clip-path:url(#SVGID_109_);}
+	.st57{clip-path:url(#SVGID_110_);fill:#FFFFFF;}
+	.st58{clip-path:url(#SVGID_113_);}
+	.st59{clip-path:url(#SVGID_114_);fill:#FFFFFF;}
+	.st60{clip-path:url(#SVGID_117_);}
+	.st61{clip-path:url(#SVGID_118_);fill:#FFFFFF;}
+	.st62{clip-path:url(#SVGID_121_);}
+	.st63{clip-path:url(#SVGID_122_);fill:#FFFFFF;}
+	.st64{clip-path:url(#SVGID_125_);}
+	.st65{clip-path:url(#SVGID_126_);fill:#FFFFFF;}
+	.st66{clip-path:url(#SVGID_129_);}
+	.st67{clip-path:url(#SVGID_130_);fill:#FFFFFF;}
+	.st68{clip-path:url(#SVGID_132_);fill:#FFFFFF;}
+	.st69{clip-path:url(#SVGID_137_);}
+	.st70{clip-path:url(#SVGID_138_);fill:#FFFFFF;}
+	.st71{clip-path:url(#SVGID_141_);}
+	.st72{clip-path:url(#SVGID_142_);fill:#FFFFFF;}
+	.st73{clip-path:url(#SVGID_145_);}
+	.st74{clip-path:url(#SVGID_146_);fill:#FFFFFF;}
+	.st75{clip-path:url(#SVGID_149_);}
+	.st76{clip-path:url(#SVGID_150_);fill:#FFFFFF;}
+	.st77{clip-path:url(#SVGID_153_);}
+	.st78{clip-path:url(#SVGID_154_);fill:#FFFFFF;}
+	.st79{clip-path:url(#SVGID_157_);}
+	.st80{clip-path:url(#SVGID_158_);fill:#FFFFFF;}
+	.st81{clip-path:url(#SVGID_161_);}
+	.st82{clip-path:url(#SVGID_162_);fill:#FFFFFF;}
+	.st83{clip-path:url(#SVGID_165_);}
+	.st84{clip-path:url(#SVGID_166_);fill:#FFFFFF;}
+	.st85{clip-path:url(#SVGID_169_);}
+	.st86{clip-path:url(#SVGID_170_);fill:#FFFFFF;}
+	.st87{clip-path:url(#SVGID_173_);}
+	.st88{clip-path:url(#SVGID_174_);fill:#FFFFFF;}
+	.st89{clip-path:url(#SVGID_177_);}
+	.st90{clip-path:url(#SVGID_178_);fill:#FFFFFF;}
+	.st91{clip-path:url(#SVGID_181_);}
+	.st92{clip-path:url(#SVGID_182_);fill:#FFFFFF;}
+	.st93{clip-path:url(#SVGID_185_);}
+	.st94{clip-path:url(#SVGID_186_);fill:#FFFFFF;}
+	.st95{clip-path:url(#SVGID_188_);fill:#FFFFFF;}
+	.st96{clip-path:url(#SVGID_199_);}
+	.st97{clip-path:url(#SVGID_200_);fill:#FFFFFF;}
+	.st98{clip-path:url(#SVGID_203_);}
+	.st99{clip-path:url(#SVGID_204_);fill:#FFFFFF;}
+	.st100{clip-path:url(#SVGID_207_);}
+	.st101{clip-path:url(#SVGID_208_);fill:#FFFFFF;}
+	.st102{clip-path:url(#SVGID_211_);}
+	.st103{clip-path:url(#SVGID_212_);fill:#FFFFFF;}
+	.st104{clip-path:url(#SVGID_215_);}
+	.st105{clip-path:url(#SVGID_216_);fill:#FFFFFF;}
+	.st106{clip-path:url(#SVGID_219_);}
+	.st107{clip-path:url(#SVGID_220_);fill:#FFFFFF;}
+	.st108{clip-path:url(#SVGID_223_);}
+	.st109{clip-path:url(#SVGID_224_);fill:#FFFFFF;}
+	.st110{clip-path:url(#SVGID_227_);}
+	.st111{clip-path:url(#SVGID_228_);fill:#FFFFFF;}
+	.st112{clip-path:url(#SVGID_231_);}
+	.st113{clip-path:url(#SVGID_232_);fill:#FFFFFF;}
+	.st114{clip-path:url(#SVGID_235_);}
+	.st115{clip-path:url(#SVGID_236_);fill:#FFFFFF;}
+	.st116{clip-path:url(#SVGID_239_);}
+	.st117{clip-path:url(#SVGID_240_);fill:#FFFFFF;}
+	.st118{clip-path:url(#SVGID_243_);}
+	.st119{clip-path:url(#SVGID_244_);fill:#FFFFFF;}
+	.st120{clip-path:url(#SVGID_247_);}
+	.st121{clip-path:url(#SVGID_248_);fill:#FFFFFF;}
+	.st122{clip-path:url(#SVGID_250_);fill:#FFFFFF;}
+	.st123{clip-path:url(#SVGID_255_);}
+	.st124{clip-path:url(#SVGID_256_);fill:#FFFFFF;}
+	.st125{clip-path:url(#SVGID_259_);}
+	.st126{clip-path:url(#SVGID_260_);fill:#FFFFFF;}
+	.st127{clip-path:url(#SVGID_263_);}
+	.st128{clip-path:url(#SVGID_264_);fill:#FFFFFF;}
+	.st129{clip-path:url(#SVGID_267_);}
+	.st130{clip-path:url(#SVGID_268_);fill:#FFFFFF;}
+	.st131{clip-path:url(#SVGID_271_);}
+	.st132{clip-path:url(#SVGID_272_);fill:#FFFFFF;}
+	.st133{clip-path:url(#SVGID_275_);}
+	.st134{clip-path:url(#SVGID_276_);fill:#FFFFFF;}
+	.st135{clip-path:url(#SVGID_279_);}
+	.st136{clip-path:url(#SVGID_280_);fill:#FFFFFF;}
+	.st137{clip-path:url(#SVGID_283_);}
+	.st138{clip-path:url(#SVGID_284_);fill:#FFFFFF;}
+	.st139{clip-path:url(#SVGID_287_);}
+	.st140{clip-path:url(#SVGID_288_);fill:#FFFFFF;}
+	.st141{clip-path:url(#SVGID_291_);}
+	.st142{clip-path:url(#SVGID_292_);fill:#FFFFFF;}
+	.st143{clip-path:url(#SVGID_295_);}
+	.st144{clip-path:url(#SVGID_296_);fill:#FFFFFF;}
+	.st145{clip-path:url(#SVGID_299_);}
+	.st146{clip-path:url(#SVGID_300_);fill:#FFFFFF;}
+	.st147{clip-path:url(#SVGID_303_);}
+	.st148{clip-path:url(#SVGID_304_);fill:#FFFFFF;}
+	.st149{clip-path:url(#SVGID_306_);fill:#FFFFFF;}
+	.st150{clip-path:url(#SVGID_311_);}
+	.st151{clip-path:url(#SVGID_312_);fill:#FFFFFF;}
+	.st152{clip-path:url(#SVGID_315_);}
+	.st153{clip-path:url(#SVGID_316_);fill:#FFFFFF;}
+	.st154{clip-path:url(#SVGID_319_);}
+	.st155{clip-path:url(#SVGID_320_);fill:#FFFFFF;}
+	.st156{clip-path:url(#SVGID_323_);}
+	.st157{clip-path:url(#SVGID_324_);fill:#FFFFFF;}
+	.st158{clip-path:url(#SVGID_327_);}
+	.st159{clip-path:url(#SVGID_328_);fill:#FFFFFF;}
+	.st160{clip-path:url(#SVGID_331_);}
+	.st161{clip-path:url(#SVGID_332_);fill:#FFFFFF;}
+	.st162{clip-path:url(#SVGID_335_);}
+	.st163{clip-path:url(#SVGID_336_);fill:#FFFFFF;}
+	.st164{clip-path:url(#SVGID_339_);}
+	.st165{clip-path:url(#SVGID_340_);fill:#FFFFFF;}
+	.st166{clip-path:url(#SVGID_343_);}
+	.st167{clip-path:url(#SVGID_344_);fill:#FFFFFF;}
+	.st168{clip-path:url(#SVGID_347_);}
+	.st169{clip-path:url(#SVGID_348_);fill:#FFFFFF;}
+	.st170{clip-path:url(#SVGID_351_);}
+	.st171{clip-path:url(#SVGID_352_);fill:#FFFFFF;}
+	.st172{clip-path:url(#SVGID_355_);}
+	.st173{clip-path:url(#SVGID_356_);fill:#FFFFFF;}
+	.st174{clip-path:url(#SVGID_359_);}
+	.st175{clip-path:url(#SVGID_360_);fill:#FFFFFF;}
+	.st176{clip-path:url(#SVGID_362_);fill:#FFFFFF;}
+	.st177{clip-path:url(#SVGID_369_);}
+	.st178{clip-path:url(#SVGID_370_);fill:#FFFFFF;}
+	.st179{clip-path:url(#SVGID_373_);}
+	.st180{clip-path:url(#SVGID_374_);fill:#FFFFFF;}
+	.st181{clip-path:url(#SVGID_377_);}
+	.st182{clip-path:url(#SVGID_378_);fill:#FFFFFF;}
+	.st183{clip-path:url(#SVGID_381_);}
+	.st184{clip-path:url(#SVGID_382_);fill:#FFFFFF;}
+	.st185{clip-path:url(#SVGID_385_);}
+	.st186{clip-path:url(#SVGID_386_);fill:#FFFFFF;}
+	.st187{clip-path:url(#SVGID_389_);}
+	.st188{clip-path:url(#SVGID_390_);fill:#FFFFFF;}
+	.st189{clip-path:url(#SVGID_393_);}
+	.st190{clip-path:url(#SVGID_394_);fill:#FFFFFF;}
+	.st191{clip-path:url(#SVGID_397_);}
+	.st192{clip-path:url(#SVGID_398_);fill:#FFFFFF;}
+	.st193{clip-path:url(#SVGID_401_);}
+	.st194{clip-path:url(#SVGID_402_);fill:#FFFFFF;}
+	.st195{clip-path:url(#SVGID_405_);}
+	.st196{clip-path:url(#SVGID_406_);fill:#FFFFFF;}
+	.st197{clip-path:url(#SVGID_409_);}
+	.st198{clip-path:url(#SVGID_410_);fill:#FFFFFF;}
+	.st199{clip-path:url(#SVGID_413_);}
+	.st200{clip-path:url(#SVGID_414_);fill:#FFFFFF;}
+	.st201{clip-path:url(#SVGID_417_);}
+	.st202{clip-path:url(#SVGID_418_);fill:#FFFFFF;}
+	.st203{clip-path:url(#SVGID_420_);fill:#FFFFFF;}
+	.st204{clip-path:url(#SVGID_431_);}
+	.st205{clip-path:url(#SVGID_432_);fill:#FFFFFF;}
+	.st206{clip-path:url(#SVGID_435_);}
+	.st207{clip-path:url(#SVGID_436_);fill:#FFFFFF;}
+	.st208{clip-path:url(#SVGID_439_);}
+	.st209{clip-path:url(#SVGID_440_);fill:#FFFFFF;}
+	.st210{clip-path:url(#SVGID_443_);}
+	.st211{clip-path:url(#SVGID_444_);fill:#FFFFFF;}
+	.st212{clip-path:url(#SVGID_447_);}
+	.st213{clip-path:url(#SVGID_448_);fill:#FFFFFF;}
+	.st214{clip-path:url(#SVGID_451_);}
+	.st215{clip-path:url(#SVGID_452_);fill:#FFFFFF;}
+	.st216{clip-path:url(#SVGID_455_);}
+	.st217{clip-path:url(#SVGID_456_);fill:#FFFFFF;}
+	.st218{clip-path:url(#SVGID_459_);}
+	.st219{clip-path:url(#SVGID_460_);fill:#FFFFFF;}
+	.st220{clip-path:url(#SVGID_463_);}
+	.st221{clip-path:url(#SVGID_464_);fill:#FFFFFF;}
+	.st222{clip-path:url(#SVGID_467_);}
+	.st223{clip-path:url(#SVGID_468_);fill:#FFFFFF;}
+	.st224{clip-path:url(#SVGID_471_);}
+	.st225{clip-path:url(#SVGID_472_);fill:#FFFFFF;}
+	.st226{clip-path:url(#SVGID_475_);}
+	.st227{clip-path:url(#SVGID_476_);fill:#FFFFFF;}
+	.st228{clip-path:url(#SVGID_479_);}
+	.st229{clip-path:url(#SVGID_480_);fill:#FFFFFF;}
+	.st230{clip-path:url(#SVGID_482_);fill:#FFFFFF;}
+	.st231{clip-path:url(#SVGID_487_);}
+	.st232{clip-path:url(#SVGID_488_);fill:#FFFFFF;}
+	.st233{clip-path:url(#SVGID_491_);}
+	.st234{clip-path:url(#SVGID_492_);fill:#FFFFFF;}
+	.st235{clip-path:url(#SVGID_495_);}
+	.st236{clip-path:url(#SVGID_496_);fill:#FFFFFF;}
+	.st237{clip-path:url(#SVGID_499_);}
+	.st238{clip-path:url(#SVGID_500_);fill:#FFFFFF;}
+	.st239{clip-path:url(#SVGID_503_);}
+	.st240{clip-path:url(#SVGID_504_);fill:#FFFFFF;}
+	.st241{clip-path:url(#SVGID_507_);}
+	.st242{clip-path:url(#SVGID_508_);fill:#FFFFFF;}
+	.st243{clip-path:url(#SVGID_511_);}
+	.st244{clip-path:url(#SVGID_512_);fill:#FFFFFF;}
+	.st245{clip-path:url(#SVGID_515_);}
+	.st246{clip-path:url(#SVGID_516_);fill:#FFFFFF;}
+	.st247{clip-path:url(#SVGID_519_);}
+	.st248{clip-path:url(#SVGID_520_);fill:#FFFFFF;}
+	.st249{clip-path:url(#SVGID_523_);}
+	.st250{clip-path:url(#SVGID_524_);fill:#FFFFFF;}
+	.st251{clip-path:url(#SVGID_527_);}
+	.st252{clip-path:url(#SVGID_528_);fill:#FFFFFF;}
+	.st253{clip-path:url(#SVGID_531_);}
+	.st254{clip-path:url(#SVGID_532_);fill:#FFFFFF;}
+	.st255{clip-path:url(#SVGID_535_);}
+	.st256{clip-path:url(#SVGID_536_);fill:#FFFFFF;}
+	.st257{clip-path:url(#SVGID_538_);fill:#FFFFFF;}
+	.st258{clip-path:url(#SVGID_543_);}
+	.st259{clip-path:url(#SVGID_544_);fill:#FFFFFF;}
+	.st260{clip-path:url(#SVGID_547_);}
+	.st261{clip-path:url(#SVGID_548_);fill:#FFFFFF;}
+	.st262{clip-path:url(#SVGID_551_);}
+	.st263{clip-path:url(#SVGID_552_);fill:#FFFFFF;}
+	.st264{clip-path:url(#SVGID_555_);}
+	.st265{clip-path:url(#SVGID_556_);fill:#FFFFFF;}
+	.st266{clip-path:url(#SVGID_559_);}
+	.st267{clip-path:url(#SVGID_560_);fill:#FFFFFF;}
+	.st268{clip-path:url(#SVGID_563_);}
+	.st269{clip-path:url(#SVGID_564_);fill:#FFFFFF;}
+	.st270{clip-path:url(#SVGID_567_);}
+	.st271{clip-path:url(#SVGID_568_);fill:#FFFFFF;}
+	.st272{clip-path:url(#SVGID_571_);}
+	.st273{clip-path:url(#SVGID_572_);fill:#FFFFFF;}
+	.st274{clip-path:url(#SVGID_575_);}
+	.st275{clip-path:url(#SVGID_576_);fill:#FFFFFF;}
+	.st276{clip-path:url(#SVGID_579_);}
+	.st277{clip-path:url(#SVGID_580_);fill:#FFFFFF;}
+	.st278{clip-path:url(#SVGID_583_);}
+	.st279{clip-path:url(#SVGID_584_);fill:#FFFFFF;}
+	.st280{clip-path:url(#SVGID_587_);}
+	.st281{clip-path:url(#SVGID_588_);fill:#FFFFFF;}
+	.st282{clip-path:url(#SVGID_591_);}
+	.st283{clip-path:url(#SVGID_592_);fill:#FFFFFF;}
+	.st284{clip-path:url(#SVGID_594_);fill:#FFFFFF;}
+	.st285{clip-path:url(#SVGID_597_);}
+	.st286{clip-path:url(#SVGID_598_);fill:#FFFFFF;}
+	.st287{clip-path:url(#SVGID_601_);}
+	.st288{clip-path:url(#SVGID_602_);fill:#FFFFFF;}
+	.st289{clip-path:url(#SVGID_605_);}
+	.st290{clip-path:url(#SVGID_606_);fill:#FFFFFF;}
+	.st291{clip-path:url(#SVGID_609_);}
+	.st292{clip-path:url(#SVGID_610_);fill:#FFFFFF;}
+	.st293{clip-path:url(#SVGID_613_);}
+	.st294{clip-path:url(#SVGID_614_);fill:#FFFFFF;}
+	.st295{clip-path:url(#SVGID_617_);}
+	.st296{clip-path:url(#SVGID_618_);fill:#FFFFFF;}
+	.st297{clip-path:url(#SVGID_621_);}
+	.st298{clip-path:url(#SVGID_622_);fill:#FFFFFF;}
+	.st299{clip-path:url(#SVGID_625_);}
+	.st300{clip-path:url(#SVGID_626_);fill:#FFFFFF;}
+	.st301{clip-path:url(#SVGID_629_);}
+	.st302{clip-path:url(#SVGID_630_);fill:#FFFFFF;}
+	.st303{clip-path:url(#SVGID_633_);}
+	.st304{clip-path:url(#SVGID_634_);fill:#FFFFFF;}
+	.st305{clip-path:url(#SVGID_637_);}
+	.st306{clip-path:url(#SVGID_638_);fill:#FFFFFF;}
+	.st307{clip-path:url(#SVGID_641_);}
+	.st308{clip-path:url(#SVGID_642_);fill:#FFFFFF;}
+	.st309{clip-path:url(#SVGID_645_);}
+	.st310{clip-path:url(#SVGID_646_);fill:#FFFFFF;}
+	.st311{clip-path:url(#SVGID_648_);fill:#FFFFFF;}
+	.st312{clip-path:url(#SVGID_651_);}
+	.st313{clip-path:url(#SVGID_652_);fill:#FFFFFF;}
+	.st314{clip-path:url(#SVGID_655_);}
+	.st315{clip-path:url(#SVGID_656_);fill:#FFFFFF;}
+	.st316{clip-path:url(#SVGID_658_);fill:#FFFFFF;}
+	.st317{clip-path:url(#SVGID_661_);}
+	.st318{clip-path:url(#SVGID_662_);fill:#FFFFFF;}
+	.st319{clip-path:url(#SVGID_665_);}
+	.st320{clip-path:url(#SVGID_666_);fill:#FFFFFF;}
+	.st321{clip-path:url(#SVGID_668_);fill:#FFFFFF;}
+	.st322{clip-path:url(#SVGID_671_);}
+	.st323{clip-path:url(#SVGID_672_);fill:#FFFFFF;}
+	.st324{clip-path:url(#SVGID_675_);}
+	.st325{clip-path:url(#SVGID_676_);fill:#FFFFFF;}
+	.st326{clip-path:url(#SVGID_678_);fill:#FFFFFF;}
+	.st327{clip-path:url(#SVGID_683_);}
+	.st328{clip-path:url(#SVGID_684_);fill:#FFFFFF;}
+	.st329{clip-path:url(#SVGID_687_);}
+	.st330{clip-path:url(#SVGID_688_);fill:#FFFFFF;}
+	.st331{clip-path:url(#SVGID_690_);fill:#FFFFFF;}
+	.st332{clip-path:url(#SVGID_693_);}
+	.st333{clip-path:url(#SVGID_694_);fill:#FFFFFF;}
+	.st334{clip-path:url(#SVGID_697_);}
+	.st335{clip-path:url(#SVGID_698_);fill:#FFFFFF;}
+	.st336{clip-path:url(#SVGID_700_);fill:#FFFFFF;}
+	.st337{clip-path:url(#SVGID_705_);}
+	.st338{clip-path:url(#SVGID_706_);fill:#FFFFFF;}
+	.st339{clip-path:url(#SVGID_709_);}
+	.st340{clip-path:url(#SVGID_710_);fill:#FFFFFF;}
+	.st341{clip-path:url(#SVGID_712_);fill:#FFFFFF;}
+	.st342{clip-path:url(#SVGID_717_);}
+	.st343{clip-path:url(#SVGID_718_);fill:#FFFFFF;}
+	.st344{clip-path:url(#SVGID_721_);}
+	.st345{clip-path:url(#SVGID_722_);fill:#FFFFFF;}
+	.st346{clip-path:url(#SVGID_724_);fill:#FFFFFF;}
+	.st347{clip-path:url(#SVGID_729_);}
+	.st348{clip-path:url(#SVGID_730_);fill:#FFFFFF;}
+	.st349{clip-path:url(#SVGID_733_);}
+	.st350{clip-path:url(#SVGID_734_);fill:#FFFFFF;}
+	.st351{clip-path:url(#SVGID_736_);fill:#FFFFFF;}
+	.st352{clip-path:url(#SVGID_741_);}
+	.st353{clip-path:url(#SVGID_742_);fill:#FFFFFF;}
+	.st354{clip-path:url(#SVGID_745_);}
+	.st355{clip-path:url(#SVGID_746_);fill:#FFFFFF;}
+	.st356{clip-path:url(#SVGID_748_);fill:#FFFFFF;}
+	.st357{clip-path:url(#SVGID_753_);}
+	.st358{clip-path:url(#SVGID_754_);fill:#FFFFFF;}
+	.st359{clip-path:url(#SVGID_757_);}
+	.st360{clip-path:url(#SVGID_758_);fill:#FFFFFF;}
+	.st361{clip-path:url(#SVGID_760_);fill:#FFFFFF;}
+	.st362{clip-path:url(#SVGID_765_);}
+	.st363{clip-path:url(#SVGID_766_);fill:#FFFFFF;}
+	.st364{clip-path:url(#SVGID_769_);}
+	.st365{clip-path:url(#SVGID_770_);fill:#FFFFFF;}
+	.st366{clip-path:url(#SVGID_772_);fill:#FFFFFF;}
+	.st367{clip-path:url(#SVGID_775_);}
+	.st368{clip-path:url(#SVGID_776_);fill:#FFFFFF;}
+	.st369{clip-path:url(#SVGID_779_);}
+	.st370{clip-path:url(#SVGID_780_);fill:#FFFFFF;}
+	.st371{clip-path:url(#SVGID_782_);fill:#FFFFFF;}
+	.st372{clip-path:url(#SVGID_785_);}
+	.st373{clip-path:url(#SVGID_786_);fill:#FFFFFF;}
+	.st374{clip-path:url(#SVGID_789_);}
+	.st375{clip-path:url(#SVGID_790_);fill:#FFFFFF;}
+	.st376{clip-path:url(#SVGID_792_);fill:#FFFFFF;}
+	.st377{fill:#2DB4D0;}
+	.st378{clip-path:url(#SVGID_799_);}
+	.st379{clip-path:url(#SVGID_800_);fill:#FFFFFF;}
+	.st380{clip-path:url(#SVGID_803_);}
+	.st381{clip-path:url(#SVGID_804_);fill:#FFFFFF;}
+	.st382{clip-path:url(#SVGID_807_);}
+	.st383{clip-path:url(#SVGID_808_);fill:#FFFFFF;}
+	.st384{clip-path:url(#SVGID_811_);}
+	.st385{clip-path:url(#SVGID_812_);fill:#FFFFFF;}
+	.st386{clip-path:url(#SVGID_815_);}
+	.st387{clip-path:url(#SVGID_816_);fill:#FFFFFF;}
+	.st388{clip-path:url(#SVGID_819_);}
+	.st389{clip-path:url(#SVGID_820_);fill:#FFFFFF;}
+	.st390{clip-path:url(#SVGID_823_);}
+	.st391{clip-path:url(#SVGID_824_);fill:#FFFFFF;}
+	.st392{clip-path:url(#SVGID_827_);}
+	.st393{clip-path:url(#SVGID_828_);fill:#FFFFFF;}
+	.st394{clip-path:url(#SVGID_831_);}
+	.st395{clip-path:url(#SVGID_832_);fill:#FFFFFF;}
+	.st396{clip-path:url(#SVGID_835_);}
+	.st397{clip-path:url(#SVGID_836_);fill:#FFFFFF;}
+	.st398{clip-path:url(#SVGID_839_);}
+	.st399{clip-path:url(#SVGID_840_);fill:#FFFFFF;}
+	.st400{clip-path:url(#SVGID_843_);}
+	.st401{clip-path:url(#SVGID_844_);fill:#FFFFFF;}
+	.st402{clip-path:url(#SVGID_847_);}
+	.st403{clip-path:url(#SVGID_848_);fill:#FFFFFF;}
+	.st404{clip-path:url(#SVGID_850_);fill:#FFFFFF;}
+	.st405{clip-path:url(#SVGID_853_);}
+	.st406{clip-path:url(#SVGID_854_);fill:#FFFFFF;}
+	.st407{clip-path:url(#SVGID_857_);}
+	.st408{clip-path:url(#SVGID_858_);fill:#FFFFFF;}
+	.st409{clip-path:url(#SVGID_861_);}
+	.st410{clip-path:url(#SVGID_862_);fill:#FFFFFF;}
+	.st411{clip-path:url(#SVGID_865_);}
+	.st412{clip-path:url(#SVGID_866_);fill:#FFFFFF;}
+	.st413{clip-path:url(#SVGID_869_);}
+	.st414{clip-path:url(#SVGID_870_);fill:#FFFFFF;}
+	.st415{clip-path:url(#SVGID_873_);}
+	.st416{clip-path:url(#SVGID_874_);fill:#FFFFFF;}
+	.st417{clip-path:url(#SVGID_877_);}
+	.st418{clip-path:url(#SVGID_878_);fill:#FFFFFF;}
+	.st419{clip-path:url(#SVGID_881_);}
+	.st420{clip-path:url(#SVGID_882_);fill:#FFFFFF;}
+	.st421{clip-path:url(#SVGID_885_);}
+	.st422{clip-path:url(#SVGID_886_);fill:#FFFFFF;}
+	.st423{clip-path:url(#SVGID_889_);}
+	.st424{clip-path:url(#SVGID_890_);fill:#FFFFFF;}
+	.st425{clip-path:url(#SVGID_893_);}
+	.st426{clip-path:url(#SVGID_894_);fill:#FFFFFF;}
+	.st427{clip-path:url(#SVGID_897_);}
+	.st428{clip-path:url(#SVGID_898_);fill:#FFFFFF;}
+	.st429{clip-path:url(#SVGID_901_);}
+	.st430{clip-path:url(#SVGID_902_);fill:#FFFFFF;}
+	.st431{clip-path:url(#SVGID_904_);fill:#FFFFFF;}
+	.st432{clip-path:url(#SVGID_907_);}
+	.st433{clip-path:url(#SVGID_908_);fill:#FFFFFF;}
+	.st434{clip-path:url(#SVGID_911_);}
+	.st435{clip-path:url(#SVGID_912_);fill:#FFFFFF;}
+	.st436{clip-path:url(#SVGID_915_);}
+	.st437{clip-path:url(#SVGID_916_);fill:#FFFFFF;}
+	.st438{clip-path:url(#SVGID_919_);}
+	.st439{clip-path:url(#SVGID_920_);fill:#FFFFFF;}
+	.st440{clip-path:url(#SVGID_923_);}
+	.st441{clip-path:url(#SVGID_924_);fill:#FFFFFF;}
+	.st442{clip-path:url(#SVGID_927_);}
+	.st443{clip-path:url(#SVGID_928_);fill:#FFFFFF;}
+	.st444{clip-path:url(#SVGID_931_);}
+	.st445{clip-path:url(#SVGID_932_);fill:#FFFFFF;}
+	.st446{clip-path:url(#SVGID_935_);}
+	.st447{clip-path:url(#SVGID_936_);fill:#FFFFFF;}
+	.st448{clip-path:url(#SVGID_939_);}
+	.st449{clip-path:url(#SVGID_940_);fill:#FFFFFF;}
+	.st450{clip-path:url(#SVGID_943_);}
+	.st451{clip-path:url(#SVGID_944_);fill:#FFFFFF;}
+	.st452{clip-path:url(#SVGID_947_);}
+	.st453{clip-path:url(#SVGID_948_);fill:#FFFFFF;}
+	.st454{clip-path:url(#SVGID_951_);}
+	.st455{clip-path:url(#SVGID_952_);fill:#FFFFFF;}
+	.st456{clip-path:url(#SVGID_955_);}
+	.st457{clip-path:url(#SVGID_956_);fill:#FFFFFF;}
+	.st458{clip-path:url(#SVGID_958_);fill:#FFFFFF;}
+	.st459{clip-path:url(#SVGID_965_);}
+	.st460{clip-path:url(#SVGID_966_);fill:#FFFFFF;}
+	.st461{clip-path:url(#SVGID_969_);}
+	.st462{clip-path:url(#SVGID_970_);fill:#FFFFFF;}
+	.st463{clip-path:url(#SVGID_973_);}
+	.st464{clip-path:url(#SVGID_974_);fill:#FFFFFF;}
+	.st465{clip-path:url(#SVGID_977_);}
+	.st466{clip-path:url(#SVGID_978_);fill:#FFFFFF;}
+	.st467{clip-path:url(#SVGID_981_);}
+	.st468{clip-path:url(#SVGID_982_);fill:#FFFFFF;}
+	.st469{clip-path:url(#SVGID_985_);}
+	.st470{clip-path:url(#SVGID_986_);fill:#FFFFFF;}
+	.st471{clip-path:url(#SVGID_989_);}
+	.st472{clip-path:url(#SVGID_990_);fill:#FFFFFF;}
+	.st473{clip-path:url(#SVGID_993_);}
+	.st474{clip-path:url(#SVGID_994_);fill:#FFFFFF;}
+	.st475{clip-path:url(#SVGID_997_);}
+	.st476{clip-path:url(#SVGID_998_);fill:#FFFFFF;}
+	.st477{clip-path:url(#SVGID_1001_);}
+	.st478{clip-path:url(#SVGID_1002_);fill:#FFFFFF;}
+	.st479{clip-path:url(#SVGID_1005_);}
+	.st480{clip-path:url(#SVGID_1006_);fill:#FFFFFF;}
+	.st481{clip-path:url(#SVGID_1009_);}
+	.st482{clip-path:url(#SVGID_1010_);fill:#FFFFFF;}
+	.st483{clip-path:url(#SVGID_1013_);}
+	.st484{clip-path:url(#SVGID_1014_);fill:#FFFFFF;}
+	.st485{clip-path:url(#SVGID_1016_);fill:#FFFFFF;}
+	.st486{clip-path:url(#SVGID_1019_);}
+	.st487{clip-path:url(#SVGID_1020_);fill:#FFFFFF;}
+	.st488{clip-path:url(#SVGID_1023_);}
+	.st489{clip-path:url(#SVGID_1024_);fill:#FFFFFF;}
+	.st490{clip-path:url(#SVGID_1027_);}
+	.st491{clip-path:url(#SVGID_1028_);fill:#FFFFFF;}
+	.st492{clip-path:url(#SVGID_1031_);}
+	.st493{clip-path:url(#SVGID_1032_);fill:#FFFFFF;}
+	.st494{clip-path:url(#SVGID_1035_);}
+	.st495{clip-path:url(#SVGID_1036_);fill:#FFFFFF;}
+	.st496{clip-path:url(#SVGID_1039_);}
+	.st497{clip-path:url(#SVGID_1040_);fill:#FFFFFF;}
+	.st498{clip-path:url(#SVGID_1043_);}
+	.st499{clip-path:url(#SVGID_1044_);fill:#FFFFFF;}
+	.st500{clip-path:url(#SVGID_1047_);}
+	.st501{clip-path:url(#SVGID_1048_);fill:#FFFFFF;}
+	.st502{clip-path:url(#SVGID_1051_);}
+	.st503{clip-path:url(#SVGID_1052_);fill:#FFFFFF;}
+	.st504{clip-path:url(#SVGID_1055_);}
+	.st505{clip-path:url(#SVGID_1056_);fill:#FFFFFF;}
+	.st506{clip-path:url(#SVGID_1059_);}
+	.st507{clip-path:url(#SVGID_1060_);fill:#FFFFFF;}
+	.st508{clip-path:url(#SVGID_1063_);}
+	.st509{clip-path:url(#SVGID_1064_);fill:#FFFFFF;}
+	.st510{clip-path:url(#SVGID_1067_);}
+	.st511{clip-path:url(#SVGID_1068_);fill:#FFFFFF;}
+	.st512{clip-path:url(#SVGID_1070_);fill:#FFFFFF;}
+	.st513{clip-path:url(#SVGID_1072_);fill:#BDBDBD;}
+	.st514{clip-path:url(#SVGID_1074_);fill:#BDBDBD;}
+	.st515{clip-path:url(#SVGID_1076_);fill:#BDBDBD;}
+	.st516{clip-path:url(#SVGID_1078_);fill:#BDBDBD;}
+	.st517{clip-path:url(#SVGID_1080_);fill:#BDBDBD;}
+	.st518{clip-path:url(#SVGID_1082_);fill:#BDBDBD;}
+	.st519{clip-path:url(#SVGID_1084_);fill:#BDBDBD;}
+	.st520{clip-path:url(#SVGID_1086_);fill:#BDBDBD;}
+	.st521{clip-path:url(#SVGID_1088_);fill:#BDBDBD;}
+	.st522{clip-path:url(#SVGID_1090_);fill:#BDBDBD;}
+	.st523{clip-path:url(#SVGID_1092_);fill:#BDBDBD;}
+	.st524{clip-path:url(#SVGID_1094_);fill:#BDBDBD;}
+	.st525{clip-path:url(#SVGID_1096_);fill:#BDBDBD;}
+	.st526{clip-path:url(#SVGID_1098_);fill:#BDBDBD;}
+	.st527{clip-path:url(#SVGID_1100_);fill:#BDBDBD;}
+	.st528{clip-path:url(#SVGID_1102_);fill:#BDBDBD;}
+	.st529{clip-path:url(#SVGID_1104_);fill:#BDBDBD;}
+	.st530{clip-path:url(#SVGID_1106_);fill:#BDBDBD;}
+	.st531{clip-path:url(#SVGID_1108_);fill:#BDBDBD;}
+	.st532{clip-path:url(#SVGID_1110_);fill:#BDBDBD;}
+	.st533{clip-path:url(#SVGID_1112_);fill:#BDBDBD;}
+	.st534{clip-path:url(#SVGID_1114_);fill:#BDBDBD;}
+	.st535{clip-path:url(#SVGID_1116_);fill:#BDBDBD;}
+	.st536{clip-path:url(#SVGID_1118_);fill:#BDBDBD;}
+</style>
+  </defs>
+  <g id="Layer_1">
+    <g id="wings_1_"/>
+    <g>
+      <path class="st10" d="M169.3,32.4V24h2.5l2.1,5.2h0.1l2-5.2h2.5v8.5h-2v-5.3h-0.1l-1.9,4.7h-1.3l-1.9-4.7h-0.1v5.3H169.3z"/>
+      <path class="st10" d="M187.3,30.6h-2.8l-0.5,1.9h-2.1l2.8-8.5h2.6l2.8,8.5h-2.3L187.3,30.6z M184.9,29h1.9l-0.9-3.1h-0.1L184.9,29 z"/>
+      <path class="st10" d="M193.4,32.4V24h2.2v8.5H193.4z"/>
+      <path class="st10" d="M199.3,32.4V24h1.7l3.5,4.8h0.1V24h2v8.5H205l-3.5-4.8h-0.1v4.8H199.3z"/>
+      <path class="st10" d="M218.8,24c1.3,0,2.2,0.4,2.9,1.1c0.7,0.7,1,1.7,1,3.1c0,1.4-0.3,2.5-1,3.2c-0.7,0.7-1.7,1.1-2.9,1.1h-3.6V24 H218.8z M217.4,30.7h1c0.7,0,1.2-0.2,1.6-0.6s0.6-1.1,0.6-1.9c0-0.8-0.2-1.4-0.6-1.8c-0.4-0.4-0.9-0.6-1.6-0.6h-1V30.7z"/>
+      <path class="st10" d="M231.9,32.4h-5.8V24h5.8v1.7h-3.6v1.7h3.4V29h-3.4v1.7h3.6V32.4z"/>
+      <path class="st10" d="M236.3,31.5c-0.7-0.8-1.1-1.9-1.1-3.3s0.4-2.5,1.1-3.3c0.7-0.8,1.7-1.2,3-1.2c1.1,0,2,0.3,2.7,0.9 c0.7,0.6,1.1,1.4,1.1,2.4H241c-0.1-0.5-0.2-0.8-0.6-1.1c-0.3-0.3-0.7-0.4-1.2-0.4c-0.6,0-1.1,0.2-1.4,0.7 c-0.3,0.5-0.5,1.1-0.5,1.9c0,0.8,0.2,1.5,0.5,2s0.8,0.7,1.4,0.7c0.5,0,0.9-0.1,1.2-0.4c0.3-0.3,0.5-0.6,0.6-1.1h2.1 c0,1-0.4,1.8-1.1,2.4c-0.7,0.6-1.6,0.9-2.7,0.9C238,32.7,237,32.3,236.3,31.5z"/>
+      <path class="st10" d="M246.4,32.4V24h2.2v3.6h0.1l2.8-3.6h2.3l-2.9,3.7l3.1,4.7h-2.5l-2.1-3.3l-0.7,0.9v2.4H246.4z"/>
+    </g>
+    <g/>
+    <path id="nose_mobile_1_" class="st8" d="M47.9,4264c0,0,42-200.8,163.7-197.5c0,0,115.7-11.3,163,195.4"/>
+    <g>
+      <path class="st10" d="M166.5,3995.7c0,0.5,0.1,0.9,0.4,1.1c0.3,0.3,0.6,0.4,1.1,0.4s0.8-0.1,1.1-0.4c0.3-0.3,0.4-0.7,0.4-1.1v-5.3 h2.2v5.5c0,0.9-0.3,1.7-1,2.3s-1.5,0.9-2.6,0.9s-2-0.3-2.6-0.9c-0.7-0.6-1-1.3-1-2.3v-5.5h2.2V3995.7z"/>
+      <path class="st10" d="M179.1,3990.4c0.9,0,1.6,0.3,2.2,0.8c0.6,0.5,0.8,1.3,0.8,2.2c0,0.9-0.3,1.6-0.9,2.2 c-0.6,0.5-1.3,0.8-2.3,0.8h-1.4v2.5h-2.2v-8.5H179.1z M177.6,3994.8h1c0.5,0,0.8-0.1,1.1-0.3s0.4-0.6,0.4-1c0-0.4-0.1-0.8-0.4-1 c-0.2-0.2-0.6-0.3-1.1-0.3h-1V3994.8z"/>
+      <path class="st10" d="M189.3,3990.4c0.9,0,1.6,0.3,2.2,0.8c0.6,0.5,0.8,1.3,0.8,2.2c0,0.9-0.3,1.6-0.9,2.2 c-0.6,0.5-1.3,0.8-2.3,0.8h-1.4v2.5h-2.2v-8.5H189.3z M187.7,3994.8h1c0.5,0,0.8-0.1,1.1-0.3s0.4-0.6,0.4-1c0-0.4-0.1-0.8-0.4-1 c-0.2-0.2-0.6-0.3-1.1-0.3h-1V3994.8z"/>
+      <path class="st10" d="M201.5,3998.9h-5.8v-8.5h5.8v1.7h-3.6v1.7h3.4v1.6h-3.4v1.7h3.6V3998.9z"/>
+      <path class="st10" d="M207.3,3998.9h-2.2v-8.5h3.7c1,0,1.8,0.2,2.3,0.7c0.6,0.5,0.8,1.2,0.8,2.1c0,0.5-0.1,1-0.4,1.4 c-0.3,0.4-0.6,0.8-1.1,1l1.7,3.3h-2.4l-1.4-3h-1.1V3998.9z M207.3,3994.4h1.3c0.4,0,0.7-0.1,0.9-0.3s0.3-0.5,0.3-0.9 c0-0.4-0.1-0.6-0.3-0.9s-0.5-0.3-0.9-0.3h-1.3V3994.4z"/>
+      <path class="st10" d="M223.8,3990.4c1.3,0,2.2,0.4,2.9,1.1c0.7,0.7,1,1.7,1,3.1c0,1.4-0.3,2.5-1,3.2c-0.7,0.7-1.7,1.1-2.9,1.1 h-3.6v-8.5H223.8z M222.4,3997.2h1c0.7,0,1.2-0.2,1.6-0.6s0.6-1.1,0.6-1.9c0-0.8-0.2-1.4-0.6-1.8c-0.4-0.4-0.9-0.6-1.6-0.6h-1 V3997.2z"/>
+      <path class="st10" d="M236.9,3998.9h-5.8v-8.5h5.8v1.7h-3.6v1.7h3.4v1.6h-3.4v1.7h3.6V3998.9z"/>
+      <path class="st10" d="M241.3,3997.9c-0.7-0.8-1.1-1.9-1.1-3.3s0.4-2.5,1.1-3.3c0.7-0.8,1.7-1.2,3-1.2c1.1,0,2,0.3,2.7,0.9 c0.7,0.6,1.1,1.4,1.1,2.4H246c-0.1-0.5-0.2-0.8-0.6-1.1c-0.3-0.3-0.7-0.4-1.2-0.4c-0.6,0-1.1,0.2-1.4,0.7 c-0.3,0.5-0.5,1.1-0.5,1.9c0,0.8,0.2,1.5,0.5,2s0.8,0.7,1.4,0.7c0.5,0,0.9-0.1,1.2-0.4c0.3-0.3,0.5-0.6,0.6-1.1h2.1 c0,1-0.4,1.8-1.1,2.4c-0.7,0.6-1.6,0.9-2.7,0.9C243,3999.1,242,3998.7,241.3,3997.9z"/>
+      <path class="st10" d="M251.4,3998.9v-8.5h2.2v3.6h0.1l2.8-3.6h2.3l-2.9,3.7l3.1,4.7h-2.5l-2.1-3.3l-0.7,0.9v2.4H251.4z"/>
+    </g>
+    <g id="plane_bgr_3_">
+      <g>
+        <defs>
+          <polygon id="SVGID_49_" points="9.7,5754.6 412,5763.7 412,3949.1 9.7,3940 &#9;&#9;&#9;&#9;"/>
+        </defs>
+        <defs>
+          <polygon id="SVGID_50_" points="9.8,3940.1 412.1,3949.1 412.1,5763.7 9.8,5754.7 &#9;&#9;&#9;&#9;"/>
+        </defs>
+      </g>
+      <g>
+        <defs>
+          <polygon id="SVGID_53_" points="9.7,5754.6 412,5763.7 412,3949.1 9.7,3940 &#9;&#9;&#9;&#9;"/>
+        </defs>
+        <defs>
+          <polygon id="SVGID_54_" points="9.8,3940.1 412.1,3949.1 412.1,5763.7 9.8,5754.7 &#9;&#9;&#9;&#9;"/>
+        </defs>
+      </g>
+      <g>
+        <defs>
+          <polygon id="SVGID_57_" points="9.7,5754.6 412,5763.7 412,3949.1 9.7,3940 &#9;&#9;&#9;&#9;"/>
+        </defs>
+        <defs>
+          <path id="SVGID_58_" d="M31,5719.5V4309.9l0,0c0-9,1.1-18,3.4-26.8l0,0c65.2-229.1,141.1-255.1,177-255.1 c35.5,0,110.2,29.6,177,255.1l0,0c2.3,8.8,3.4,17.8,3.4,26.8v1409.5l0,0"/>
+        </defs>
+        <defs>
+          <polygon id="SVGID_59_" points="9.8,3940.1 412.1,3949.1 412.1,5763.7 9.8,5754.7 &#9;&#9;&#9;&#9;"/>
+        </defs>
+        <clipPath id="SVGID_60_">
+          <polygon points="9.7,5754.6 412,5763.7 412,3949.1 9.7,3940 &#9;&#9;&#9;&#9;" transform="matrix(1, 0, 0, 1, 0, 0)" style="overflow: visible;"/>
+        </clipPath>
+        <clipPath id="SVGID_61_" class="st14">
+          <path d="M31,5719.5V4309.9l0,0c0-9,1.1-18,3.4-26.8l0,0c65.2-229.1,141.1-255.1,177-255.1 c35.5,0,110.2,29.6,177,255.1l0,0c2.3,8.8,3.4,17.8,3.4,26.8v1409.5l0,0" transform="matrix(1, 0, 0, 1, 0, 0)" style="overflow: visible;"/>
+        </clipPath>
+        <clipPath id="SVGID_62_" class="st15">
+          <polygon points="9.8,3940.1 412.1,3949.1 412.1,5763.7 9.8,5754.7 &#9;&#9;&#9;&#9;" transform="matrix(1, 0, 0, 1, 0, 0)" style="overflow: visible;"/>
+        </clipPath>
+        <rect x="25.6" y="3873.7" class="st16" width="371.5" height="1902.8"/>
+      </g>
+      <g>
+        <defs>
+          <polygon id="SVGID_63_" points="9.7,5749.8 412,5758.9 413.5,3944.2 11.2,3935.2 &#9;&#9;&#9;&#9;"/>
+        </defs>
+        <defs>
+          <path id="SVGID_64_" d="M383.1,5689.8V4327.7c0,0,0-43.2-9.3-66.8c0,0-42.1-17.5-164.5-17.5c0,0-134.8,2.4-162.2,19.6 c0,0-10.2,47-7.5,65l0,0v1361.8"/>
+        </defs>
+        <clipPath id="SVGID_65_">
+          <polygon points="9.7,5749.8 412,5758.9 413.5,3944.2 11.2,3935.2 &#9;&#9;&#9;&#9;" transform="matrix(1, 0, 0, 1, 0, 0)" style="overflow: visible;"/>
+        </clipPath>
+        <clipPath id="SVGID_66_" class="st17">
+          <path d="M383.1,5689.8V4327.7c0,0,0-43.2-9.3-66.8c0,0-42.1-17.5-164.5-17.5c0,0-134.8,2.4-162.2,19.6 c0,0-10.2,47-7.5,65l0,0v1361.8" transform="matrix(1, 0, 0, 1, 0, 0)" style="overflow: visible;"/>
+        </clipPath>
+        <rect x="37" y="4004.1" class="st18" width="354.2" height="1740"/>
+      </g>
+      <g>
+        <defs>
+          <rect id="SVGID_67_" x="9.7" y="3940.5" width="402.3" height="1814.6"/>
+        </defs>
+      </g>
+      <g/>
+    </g>
+    <path id="nose_mobile_2_" class="st8" d="M48.3,4263.1c0,0,42-200.8,163.7-197.5c0,0,115.7-11.3,163,195.4"/>
+  </g>
+  <g id="rooms">
+    <path class="st9" d="M384.5,5389.1h-9.9H269.4h-9.9c-1.8,0-3.3-1.5-3.3-3.3s1.5-3.3,3.3-3.3h9.9h105.2h9.9"/>
+    <g>
+      <path class="st41" d="M126.1,5460.6h44.3v12.8h-44.3V5460.6z M169.8,5461.2h-43.1v11.5h43.1V5461.2z"/>
+      <path class="st41" d="M124.4,5448.4h47.8v12.8h-47.8V5448.4z M171.5,5449.1H125v11.5h46.5V5449.1z"/>
+      <path class="st41" d="M122.7,5436.3h51.2v12.8h-51.2V5436.3z M173.2,5436.9h-49.9v11.5h49.9V5436.9z"/>
+      <path class="st41" d="M121,5424.1h54.6v12.8H121V5424.1z M175,5424.8h-53.4v11.5H175V5424.8z"/>
+      <path class="st41" d="M119.2,5412h58.1v12.8h-58.1V5412z M176.7,5412.6h-56.8v11.5h56.8V5412.6z"/>
+      <path class="st41" d="M116.9,5399.9h62.7v12.8h-62.7V5399.9z M179,5400.5h-61.4v11.5H179V5400.5z"/>
+    </g>
+    <g>
+      <defs>
+        <path id="SVGID_421_" d="M380.8,5470.3c0.7,0,1.3,0.9,1.3,2v141.1c0,1.1-0.6,2-1.3,2l-88.6,0.1c-0.7,0-1.3-0.9-1.3-2l9.7-141.1 c0-1.1,0.6-2,1.3-2L380.8,5470.3L380.8,5470.3z"/>
+      </defs>
+      <path d="M380.8,5470.3c0.7,0,1.3,0.9,1.3,2v141.1c0,1.1-0.6,2-1.3,2l-88.6,0.1c-0.7,0-1.3-0.9-1.3-2l9.7-141.1 c0-1.1,0.6-2,1.3-2L380.8,5470.3L380.8,5470.3z" transform="matrix(1, 0, 0, 1, 0, 0)" style="overflow: visible; fill-rule: evenodd; clip-rule: evenodd; fill: rgb(45, 180, 208);"/>
+    </g>
+    <g>
+      <defs>
+        <path id="SVGID_423_" d="M70.2,5618.7c0-0.7,0.9-1.3,2-1.3h273.1c1.1,0,2,0.6,2,1.3l0.1,68.6c0,0.7-0.9,1.3-2,1.3l-273.1,0.3 c-1.1,0-2-0.6-2-1.3L70.2,5618.7L70.2,5618.7z"/>
+      </defs>
+      <path d="M70.2,5618.7c0-0.7,0.9-1.3,2-1.3h273.1c1.1,0,2,0.6,2,1.3l0.1,68.6c0,0.7-0.9,1.3-2,1.3l-273.1,0.3 c-1.1,0-2-0.6-2-1.3L70.2,5618.7L70.2,5618.7z" transform="matrix(1, 0, 0, 1, 0, 0)" style="overflow: visible; fill-rule: evenodd; clip-rule: evenodd; fill: rgb(45, 180, 208);"/>
+    </g>
+    <g>
+      <defs>
+        <path id="SVGID_425_" d="M99.4,5502.8c0.7,0,1.3,0.9,1.3,2v108.5c0,1.1-0.6,2-1.3,2l-58.6,0.1c-0.7,0-1.3-0.9-1.3-2l-0.3-108.5 c0-1.1,0.6-2,1.3-2L99.4,5502.8L99.4,5502.8z"/>
+      </defs>
+      <path d="M99.4,5502.8c0.7,0,1.3,0.9,1.3,2v108.5c0,1.1-0.6,2-1.3,2l-58.6,0.1c-0.7,0-1.3-0.9-1.3-2l-0.3-108.5 c0-1.1,0.6-2,1.3-2L99.4,5502.8L99.4,5502.8z" transform="matrix(1, 0, 0, 1, 0, 0)" style="overflow: visible; fill-rule: evenodd; clip-rule: evenodd; fill: rgb(45, 180, 208);"/>
+    </g>
+    <g>
+      <defs>
+        <path id="SVGID_427_" d="M324.4,4135.6l-79.1,0.1c-1.5,0-2.8-1.2-2.8-2.8V4070C242.5,4070,290,4081.4,324.4,4135.6z"/>
+      </defs>
+      <path d="M324.4,4135.6l-79.1,0.1c-1.5,0-2.8-1.2-2.8-2.8V4070C242.5,4070,290,4081.4,324.4,4135.6z" transform="matrix(1, 0, 0, 1, 0, 0)" style="overflow: visible; fill-rule: evenodd; clip-rule: evenodd; fill: rgb(45, 180, 208);"/>
+    </g>
+    <g>
+      <g>
+        <defs>
+          <rect id="SVGID_429_" x="250.2" y="4096.2" width="35.4" height="31.8"/>
+        </defs>
+        <defs>
+          <path id="SVGID_430_" d="M254.4,4103L254.4,4103L254.4,4103c0.5,0.2,0.8,0.8,0.6,1.3l-2.6,7.1l0,0c-0.2,0.5-0.8,0.8-1.3,0.6l0,0 l0,0c-0.5-0.2-0.8-0.8-0.6-1.3l2.6-7.1l0,0C253.4,4103.1,253.9,4102.8,254.4,4103L254.4,4103z"/>
+        </defs>
+        <clipPath id="SVGID_431_">
+          <rect x="250.2" y="4096.2" width="35.4" height="31.8" transform="matrix(1, 0, 0, 1, 0, 0)" style="overflow: visible;"/>
+        </clipPath>
+        <clipPath id="SVGID_432_" class="st204">
+          <path d="M254.4,4103L254.4,4103L254.4,4103c0.5,0.2,0.8,0.8,0.6,1.3l-2.6,7.1l0,0c-0.2,0.5-0.8,0.8-1.3,0.6l0,0 l0,0c-0.5-0.2-0.8-0.8-0.6-1.3l2.6-7.1l0,0C253.4,4103.1,253.9,4102.8,254.4,4103L254.4,4103z" transform="matrix(1, 0, 0, 1, 0, 0)" style="overflow: visible;"/>
+        </clipPath>
+        <rect x="243.5" y="4101.9" transform="matrix(0.3418 -0.9398 0.9398 0.3418 -3693.6443 2940.9729)" class="st205" width="18.6" height="11.1"/>
+      </g>
+      <g>
+        <defs>
+          <rect id="SVGID_433_" x="250.2" y="4096.2" width="35.4" height="31.8"/>
+        </defs>
+        <defs>
+          <path id="SVGID_434_" d="M255.5,4116.3L255.5,4116.3L255.5,4116.3c0.7,0,1.3,0.6,1.3,1.3v8.5l0,0c0,0.7-0.6,1.3-1.3,1.3l0,0l0,0 c-0.7,0-1.3-0.6-1.3-1.3v-8.5l0,0C254.2,4116.8,254.8,4116.3,255.5,4116.3L255.5,4116.3z"/>
+        </defs>
+        <clipPath id="SVGID_435_">
+          <rect x="250.2" y="4096.2" width="35.4" height="31.8" transform="matrix(1, 0, 0, 1, 0, 0)" style="overflow: visible;"/>
+        </clipPath>
+        <clipPath id="SVGID_436_" class="st206">
+          <path d="M255.5,4116.3L255.5,4116.3L255.5,4116.3c0.7,0,1.3,0.6,1.3,1.3v8.5l0,0c0,0.7-0.6,1.3-1.3,1.3l0,0l0,0 c-0.7,0-1.3-0.6-1.3-1.3v-8.5l0,0C254.2,4116.8,254.8,4116.3,255.5,4116.3L255.5,4116.3z" transform="matrix(1, 0, 0, 1, 0, 0)" style="overflow: visible;"/>
+        </clipPath>
+        <rect x="249.7" y="4111.7" class="st207" width="11.6" height="20.1"/>
+      </g>
+      <g>
+        <defs>
+          <rect id="SVGID_437_" x="250.2" y="4096.2" width="35.4" height="31.8"/>
+        </defs>
+        <defs>
+          <path id="SVGID_438_" d="M259,4116.3L259,4116.3L259,4116.3c0.7,0,1.3,0.6,1.3,1.3v8.5l0,0c0,0.7-0.6,1.3-1.3,1.3l0,0l0,0 c-0.7,0-1.3-0.6-1.3-1.3v-8.5l0,0C257.8,4116.8,258.3,4116.3,259,4116.3L259,4116.3z"/>
+        </defs>
+        <clipPath id="SVGID_439_">
+          <rect x="250.2" y="4096.2" width="35.4" height="31.8" transform="matrix(1, 0, 0, 1, 0, 0)" style="overflow: visible;"/>
+        </clipPath>
+        <clipPath id="SVGID_440_" class="st208">
+          <path d="M259,4116.3L259,4116.3L259,4116.3c0.7,0,1.3,0.6,1.3,1.3v8.5l0,0c0,0.7-0.6,1.3-1.3,1.3l0,0l0,0 c-0.7,0-1.3-0.6-1.3-1.3v-8.5l0,0C257.8,4116.8,258.3,4116.3,259,4116.3L259,4116.3z" transform="matrix(1, 0, 0, 1, 0, 0)" style="overflow: visible;"/>
+        </clipPath>
+        <rect x="253.2" y="4111.7" class="st209" width="11.6" height="20.1"/>
+      </g>
+      <g>
+        <defs>
+          <rect id="SVGID_441_" x="250.2" y="4096.2" width="35.4" height="31.8"/>
+        </defs>
+        <defs>
+          <path id="SVGID_442_" d="M260.2,4103L260.2,4103L260.2,4103c0.5-0.2,1.1,0.1,1.3,0.6l2.6,7.1l0,0c0.2,0.5-0.1,1.1-0.6,1.3l0,0 l0,0c-0.5,0.2-1.1-0.1-1.3-0.6l-2.6-7.1l0,0C259.4,4103.8,259.7,4103.2,260.2,4103L260.2,4103z"/>
+        </defs>
+        <clipPath id="SVGID_443_">
+          <rect x="250.2" y="4096.2" width="35.4" height="31.8" transform="matrix(1, 0, 0, 1, 0, 0)" style="overflow: visible;"/>
+        </clipPath>
+        <clipPath id="SVGID_444_" class="st210">
+          <path d="M260.2,4103L260.2,4103L260.2,4103c0.5-0.2,1.1,0.1,1.3,0.6l2.6,7.1l0,0c0.2,0.5-0.1,1.1-0.6,1.3l0,0 l0,0c-0.5,0.2-1.1-0.1-1.3-0.6l-2.6-7.1l0,0C259.4,4103.8,259.7,4103.2,260.2,4103L260.2,4103z" transform="matrix(1, 0, 0, 1, 0, 0)" style="overflow: visible;"/>
+        </clipPath>
+        <rect x="256.3" y="4098.2" transform="matrix(0.9398 -0.3418 0.3418 0.9398 -1387.9807 336.8001)" class="st211" width="11.1" height="18.6"/>
+      </g>
+      <g>
+        <defs>
+          <rect id="SVGID_445_" x="250.2" y="4096.2" width="35.4" height="31.8"/>
+        </defs>
+        <defs>
+          <path id="SVGID_446_" d="M254.3,4102.7h6l0,0c0.5,0,0.9,0.4,0.9,0.9c0,0,0,0.1,0,0.1l-0.9,7h-6l-0.9-7l0,0c-0.1-0.5,0.3-1,0.8-1 C254.2,4102.7,254.2,4102.7,254.3,4102.7L254.3,4102.7z"/>
+        </defs>
+        <clipPath id="SVGID_447_">
+          <rect x="250.2" y="4096.2" width="35.4" height="31.8" transform="matrix(1, 0, 0, 1, 0, 0)" style="overflow: visible;"/>
+        </clipPath>
+        <clipPath id="SVGID_448_" class="st212">
+          <path d="M254.3,4102.7h6l0,0c0.5,0,0.9,0.4,0.9,0.9c0,0,0,0.1,0,0.1l-0.9,7h-6l-0.9-7l0,0c-0.1-0.5,0.3-1,0.8-1 C254.2,4102.7,254.2,4102.7,254.3,4102.7L254.3,4102.7z" transform="matrix(1, 0, 0, 1, 0, 0)" style="overflow: visible;"/>
+        </clipPath>
+        <rect x="248.8" y="4098.2" class="st213" width="16.9" height="17.1"/>
+      </g>
+      <g>
+        <defs>
+          <rect id="SVGID_449_" x="250.2" y="4096.2" width="35.4" height="31.8"/>
+        </defs>
+        <defs>
+          <path id="SVGID_450_" d="M253.4,4117.3h7.7l0,0c0.5,0,0.9-0.4,0.9-0.9c0-0.1,0-0.1,0-0.2l-1.7-6.9h-6l-1.7,6.9l0,0 c-0.1,0.5,0.2,1,0.7,1.1C253.3,4117.3,253.3,4117.3,253.4,4117.3L253.4,4117.3z"/>
+        </defs>
+        <clipPath id="SVGID_451_">
+          <rect x="250.2" y="4096.2" width="35.4" height="31.8" transform="matrix(1, 0, 0, 1, 0, 0)" style="overflow: visible;"/>
+        </clipPath>
+        <clipPath id="SVGID_452_" class="st214">
+          <path d="M253.4,4117.3h7.7l0,0c0.5,0,0.9-0.4,0.9-0.9c0-0.1,0-0.1,0-0.2l-1.7-6.9h-6l-1.7,6.9l0,0 c-0.1,0.5,0.2,1,0.7,1.1C253.3,4117.3,253.3,4117.3,253.4,4117.3L253.4,4117.3z" transform="matrix(1, 0, 0, 1, 0, 0)" style="overflow: visible;"/>
+        </clipPath>
+        <rect x="248" y="4104.7" class="st215" width="18.6" height="17.1"/>
+      </g>
+      <g>
+        <defs>
+          <rect id="SVGID_453_" x="250.2" y="4096.2" width="35.4" height="31.8"/>
+        </defs>
+        <defs>
+          <path id="SVGID_454_" d="M257.5,4101.7c1.5,0,2.8-1.2,2.8-2.8c0-1.5-1.2-2.8-2.8-2.8c-1.5,0-2.8,1.2-2.8,2.8 C254.7,4100.5,256,4101.7,257.5,4101.7L257.5,4101.7z"/>
+        </defs>
+        <clipPath id="SVGID_455_">
+          <rect x="250.2" y="4096.2" width="35.4" height="31.8" transform="matrix(1, 0, 0, 1, 0, 0)" style="overflow: visible;"/>
+        </clipPath>
+        <clipPath id="SVGID_456_" class="st216">
+          <path d="M257.5,4101.7c1.5,0,2.8-1.2,2.8-2.8c0-1.5-1.2-2.8-2.8-2.8c-1.5,0-2.8,1.2-2.8,2.8 C254.7,4100.5,256,4101.7,257.5,4101.7L257.5,4101.7z" transform="matrix(1, 0, 0, 1, 0, 0)" style="overflow: visible;"/>
+        </clipPath>
+        <rect x="250.2" y="4091.7" class="st217" width="14.6" height="14.6"/>
+      </g>
+      <g>
+        <defs>
+          <rect id="SVGID_457_" x="250.2" y="4096.2" width="35.4" height="31.8"/>
+        </defs>
+        <defs>
+          <path id="SVGID_458_" d="M275.5,4103L275.5,4103L275.5,4103c0.5,0.2,0.8,0.8,0.6,1.3l-2.6,7.1l0,0c-0.2,0.5-0.8,0.8-1.3,0.6l0,0 l0,0c-0.5-0.2-0.8-0.8-0.6-1.3l2.6-7.1l0,0C274.4,4103.1,275,4102.8,275.5,4103L275.5,4103z"/>
+        </defs>
+        <clipPath id="SVGID_459_">
+          <rect x="250.2" y="4096.2" width="35.4" height="31.8" transform="matrix(1, 0, 0, 1, 0, 0)" style="overflow: visible;"/>
+        </clipPath>
+        <clipPath id="SVGID_460_" class="st218">
+          <path d="M275.5,4103L275.5,4103L275.5,4103c0.5,0.2,0.8,0.8,0.6,1.3l-2.6,7.1l0,0c-0.2,0.5-0.8,0.8-1.3,0.6l0,0 l0,0c-0.5-0.2-0.8-0.8-0.6-1.3l2.6-7.1l0,0C274.4,4103.1,275,4102.8,275.5,4103L275.5,4103z" transform="matrix(1, 0, 0, 1, 0, 0)" style="overflow: visible;"/>
+        </clipPath>
+        <rect x="264.6" y="4101.9" transform="matrix(0.3417 -0.9398 0.9398 0.3417 -3679.9839 2961.4771)" class="st219" width="18.6" height="11.1"/>
+      </g>
+      <g>
+        <defs>
+          <rect id="SVGID_461_" x="250.2" y="4096.2" width="35.4" height="31.8"/>
+        </defs>
+        <defs>
+          <path id="SVGID_462_" d="M276.6,4111.3L276.6,4111.3L276.6,4111.3c0.7,0,1.3,0.6,1.3,1.3v13.5l0,0c0,0.7-0.6,1.3-1.3,1.3l0,0 l0,0c-0.7,0-1.2-0.6-1.2-1.3v-13.5l0,0C275.3,4111.8,275.9,4111.3,276.6,4111.3L276.6,4111.3z"/>
+        </defs>
+        <clipPath id="SVGID_463_">
+          <rect x="250.2" y="4096.2" width="35.4" height="31.8" transform="matrix(1, 0, 0, 1, 0, 0)" style="overflow: visible;"/>
+        </clipPath>
+        <clipPath id="SVGID_464_" class="st220">
+          <path d="M276.6,4111.3L276.6,4111.3L276.6,4111.3c0.7,0,1.3,0.6,1.3,1.3v13.5l0,0c0,0.7-0.6,1.3-1.3,1.3l0,0 l0,0c-0.7,0-1.2-0.6-1.2-1.3v-13.5l0,0C275.3,4111.8,275.9,4111.3,276.6,4111.3L276.6,4111.3z" transform="matrix(1, 0, 0, 1, 0, 0)" style="overflow: visible;"/>
+        </clipPath>
+        <rect x="270.8" y="4106.7" class="st221" width="11.6" height="25.1"/>
+      </g>
+      <g>
+        <defs>
+          <rect id="SVGID_465_" x="250.2" y="4096.2" width="35.4" height="31.8"/>
+        </defs>
+        <defs>
+          <path id="SVGID_466_" d="M280.1,4111.3L280.1,4111.3L280.1,4111.3c0.7,0,1.3,0.6,1.3,1.3v13.5l0,0c0,0.7-0.6,1.3-1.3,1.3l0,0 l0,0c-0.7,0-1.2-0.6-1.2-1.3v-13.5l0,0C278.8,4111.8,279.4,4111.3,280.1,4111.3L280.1,4111.3z"/>
+        </defs>
+        <clipPath id="SVGID_467_">
+          <rect x="250.2" y="4096.2" width="35.4" height="31.8" transform="matrix(1, 0, 0, 1, 0, 0)" style="overflow: visible;"/>
+        </clipPath>
+        <clipPath id="SVGID_468_" class="st222">
+          <path d="M280.1,4111.3L280.1,4111.3L280.1,4111.3c0.7,0,1.3,0.6,1.3,1.3v13.5l0,0c0,0.7-0.6,1.3-1.3,1.3l0,0 l0,0c-0.7,0-1.2-0.6-1.2-1.3v-13.5l0,0C278.8,4111.8,279.4,4111.3,280.1,4111.3L280.1,4111.3z" transform="matrix(1, 0, 0, 1, 0, 0)" style="overflow: visible;"/>
+        </clipPath>
+        <rect x="274.3" y="4106.7" class="st223" width="11.6" height="25.1"/>
+      </g>
+      <g>
+        <defs>
+          <rect id="SVGID_469_" x="250.2" y="4096.2" width="35.4" height="31.8"/>
+        </defs>
+        <defs>
+          <path id="SVGID_470_" d="M281.3,4103L281.3,4103L281.3,4103c0.5-0.2,1.1,0.1,1.3,0.6l2.6,7.1l0,0c0.2,0.5-0.1,1.1-0.6,1.3l0,0 l0,0c-0.5,0.2-1.1-0.1-1.3-0.6l-2.6-7.1l0,0C280.5,4103.8,280.8,4103.2,281.3,4103L281.3,4103z"/>
+        </defs>
+        <clipPath id="SVGID_471_">
+          <rect x="250.2" y="4096.2" width="35.4" height="31.8" transform="matrix(1, 0, 0, 1, 0, 0)" style="overflow: visible;"/>
+        </clipPath>
+        <clipPath id="SVGID_472_" class="st224">
+          <path d="M281.3,4103L281.3,4103L281.3,4103c0.5-0.2,1.1,0.1,1.3,0.6l2.6,7.1l0,0c0.2,0.5-0.1,1.1-0.6,1.3l0,0 l0,0c-0.5,0.2-1.1-0.1-1.3-0.6l-2.6-7.1l0,0C280.5,4103.8,280.8,4103.2,281.3,4103L281.3,4103z" transform="matrix(1, 0, 0, 1, 0, 0)" style="overflow: visible;"/>
+        </clipPath>
+        <rect x="277.4" y="4098.2" transform="matrix(0.9398 -0.3417 0.3417 0.9398 -1386.666 343.9789)" class="st225" width="11.1" height="18.6"/>
+      </g>
+      <g>
+        <defs>
+          <rect id="SVGID_473_" x="250.2" y="4096.2" width="35.4" height="31.8"/>
+        </defs>
+        <defs>
+          <path id="SVGID_474_" d="M275.3,4102.7h6.1l0,0c0.5,0,0.9,0.4,0.9,0.9c0,0,0,0,0,0l-0.4,10.2l0,0c0,0.5-0.4,0.9-0.9,0.9h-5.3 l0,0c-0.5,0-0.9-0.4-0.9-0.9l-0.4-10.2l0,0C274.3,4103.2,274.7,4102.8,275.3,4102.7C275.2,4102.7,275.2,4102.7,275.3,4102.7 L275.3,4102.7z"/>
+        </defs>
+        <clipPath id="SVGID_475_">
+          <rect x="250.2" y="4096.2" width="35.4" height="31.8" transform="matrix(1, 0, 0, 1, 0, 0)" style="overflow: visible;"/>
+        </clipPath>
+        <clipPath id="SVGID_476_" class="st226">
+          <path d="M275.3,4102.7h6.1l0,0c0.5,0,0.9,0.4,0.9,0.9c0,0,0,0,0,0l-0.4,10.2l0,0c0,0.5-0.4,0.9-0.9,0.9h-5.3 l0,0c-0.5,0-0.9-0.4-0.9-0.9l-0.4-10.2l0,0C274.3,4103.2,274.7,4102.8,275.3,4102.7C275.2,4102.7,275.2,4102.7,275.3,4102.7 L275.3,4102.7z" transform="matrix(1, 0, 0, 1, 0, 0)" style="overflow: visible;"/>
+        </clipPath>
+        <rect x="269.8" y="4098.2" class="st227" width="17" height="21.1"/>
+      </g>
+      <g>
+        <defs>
+          <rect id="SVGID_477_" x="250.2" y="4096.2" width="35.4" height="31.8"/>
+        </defs>
+        <defs>
+          <path id="SVGID_478_" d="M278.6,4101.7c1.5,0,2.8-1.2,2.8-2.8c0-1.5-1.2-2.8-2.8-2.8c-1.5,0-2.8,1.2-2.8,2.8 C275.8,4100.5,277,4101.7,278.6,4101.7L278.6,4101.7z"/>
+        </defs>
+        <clipPath id="SVGID_479_">
+          <rect x="250.2" y="4096.2" width="35.4" height="31.8" transform="matrix(1, 0, 0, 1, 0, 0)" style="overflow: visible;"/>
+        </clipPath>
+        <clipPath id="SVGID_480_" class="st228">
+          <path d="M278.6,4101.7c1.5,0,2.8-1.2,2.8-2.8c0-1.5-1.2-2.8-2.8-2.8c-1.5,0-2.8,1.2-2.8,2.8 C275.8,4100.5,277,4101.7,278.6,4101.7L278.6,4101.7z" transform="matrix(1, 0, 0, 1, 0, 0)" style="overflow: visible;"/>
+        </clipPath>
+        <rect x="271.3" y="4091.7" class="st229" width="14.6" height="14.6"/>
+      </g>
+      <g>
+        <defs>
+          <rect id="SVGID_481_" x="267.3" y="4096.2" width="1.5" height="31.6"/>
+        </defs>
+        <clipPath id="SVGID_482_">
+          <rect x="267.3" y="4096.2" width="1.5" height="31.6" transform="matrix(1, 0, 0, 1, 0, 0)" style="overflow: visible;"/>
+        </clipPath>
+        <rect x="262.7" y="4091.7" class="st230" width="10.6" height="40.7"/>
+      </g>
+    </g>
+    <g>
+      <defs>
+        <path id="SVGID_483_" d="M346.6,4183.9l-101.3,0.1c-1.5,0-2.8-1.2-2.8-2.8v-41.7c0-1.5,1.2-2.8,2.8-2.8h79.3 c10.4,11,24.8,44.5,24.8,44.5C349.4,4182.6,348.1,4183.9,346.6,4183.9z"/>
+      </defs>
+      <path d="M346.6,4183.9l-101.3,0.1c-1.5,0-2.8-1.2-2.8-2.8v-41.7c0-1.5,1.2-2.8,2.8-2.8h79.3 c10.4,11,24.8,44.5,24.8,44.5C349.4,4182.6,348.1,4183.9,346.6,4183.9z" transform="matrix(1, 0, 0, 1, 0, 0)" style="overflow: visible; fill-rule: evenodd; clip-rule: evenodd; fill: rgb(45, 180, 208);"/>
+    </g>
+    <g>
+      <g>
+        <defs>
+          <rect id="SVGID_485_" x="268.2" y="4144.4" width="35.4" height="31.8"/>
+        </defs>
+        <defs>
+          <path id="SVGID_486_" d="M272.4,4151.2L272.4,4151.2L272.4,4151.2c0.5,0.2,0.8,0.8,0.6,1.3l-2.6,7.1l0,0 c-0.2,0.5-0.8,0.8-1.3,0.6l0,0l0,0c-0.5-0.2-0.8-0.8-0.6-1.3l2.6-7.1l0,0C271.4,4151.3,271.9,4151,272.4,4151.2L272.4,4151.2z"/>
+        </defs>
+        <clipPath id="SVGID_487_">
+          <rect x="268.2" y="4144.4" width="35.4" height="31.8" transform="matrix(1, 0, 0, 1, 0, 0)" style="overflow: visible;"/>
+        </clipPath>
+        <clipPath id="SVGID_488_" class="st231">
+          <path d="M272.4,4151.2L272.4,4151.2L272.4,4151.2c0.5,0.2,0.8,0.8,0.6,1.3l-2.6,7.1l0,0 c-0.2,0.5-0.8,0.8-1.3,0.6l0,0l0,0c-0.5-0.2-0.8-0.8-0.6-1.3l2.6-7.1l0,0C271.4,4151.3,271.9,4151,272.4,4151.2L272.4,4151.2z" transform="matrix(1, 0, 0, 1, 0, 0)" style="overflow: visible;"/>
+        </clipPath>
+        <rect x="261.5" y="4150.1" transform="matrix(0.3418 -0.9398 0.9398 0.3418 -3727.0747 2989.5989)" class="st232" width="18.6" height="11.1"/>
+      </g>
+      <g>
+        <defs>
+          <rect id="SVGID_489_" x="268.2" y="4144.4" width="35.4" height="31.8"/>
+        </defs>
+        <defs>
+          <path id="SVGID_490_" d="M273.5,4164.5L273.5,4164.5L273.5,4164.5c0.7,0,1.3,0.6,1.3,1.3v8.5l0,0c0,0.7-0.6,1.3-1.3,1.3l0,0l0,0 c-0.7,0-1.3-0.6-1.3-1.3v-8.5l0,0C272.2,4165,272.8,4164.5,273.5,4164.5L273.5,4164.5z"/>
+        </defs>
+        <clipPath id="SVGID_491_">
+          <rect x="268.2" y="4144.4" width="35.4" height="31.8" transform="matrix(1, 0, 0, 1, 0, 0)" style="overflow: visible;"/>
+        </clipPath>
+        <clipPath id="SVGID_492_" class="st233">
+          <path d="M273.5,4164.5L273.5,4164.5L273.5,4164.5c0.7,0,1.3,0.6,1.3,1.3v8.5l0,0c0,0.7-0.6,1.3-1.3,1.3l0,0l0,0 c-0.7,0-1.3-0.6-1.3-1.3v-8.5l0,0C272.2,4165,272.8,4164.5,273.5,4164.5L273.5,4164.5z" transform="matrix(1, 0, 0, 1, 0, 0)" style="overflow: visible;"/>
+        </clipPath>
+        <rect x="267.7" y="4159.9" class="st234" width="11.6" height="20.1"/>
+      </g>
+      <g>
+        <defs>
+          <rect id="SVGID_493_" x="268.2" y="4144.4" width="35.4" height="31.8"/>
+        </defs>
+        <defs>
+          <path id="SVGID_494_" d="M277,4164.5L277,4164.5L277,4164.5c0.7,0,1.3,0.6,1.3,1.3v8.5l0,0c0,0.7-0.6,1.3-1.3,1.3l0,0l0,0 c-0.7,0-1.3-0.6-1.3-1.3v-8.5l0,0C275.8,4165,276.3,4164.5,277,4164.5L277,4164.5z"/>
+        </defs>
+        <clipPath id="SVGID_495_">
+          <rect x="268.2" y="4144.4" width="35.4" height="31.8" transform="matrix(1, 0, 0, 1, 0, 0)" style="overflow: visible;"/>
+        </clipPath>
+        <clipPath id="SVGID_496_" class="st235">
+          <path d="M277,4164.5L277,4164.5L277,4164.5c0.7,0,1.3,0.6,1.3,1.3v8.5l0,0c0,0.7-0.6,1.3-1.3,1.3l0,0l0,0 c-0.7,0-1.3-0.6-1.3-1.3v-8.5l0,0C275.8,4165,276.3,4164.5,277,4164.5L277,4164.5z" transform="matrix(1, 0, 0, 1, 0, 0)" style="overflow: visible;"/>
+        </clipPath>
+        <rect x="271.2" y="4159.9" class="st236" width="11.6" height="20.1"/>
+      </g>
+      <g>
+        <defs>
+          <rect id="SVGID_497_" x="268.2" y="4144.4" width="35.4" height="31.8"/>
+        </defs>
+        <defs>
+          <path id="SVGID_498_" d="M278.2,4151.2L278.2,4151.2L278.2,4151.2c0.5-0.2,1.1,0.1,1.3,0.6l2.6,7.1l0,0c0.2,0.5-0.1,1.1-0.6,1.3 l0,0l0,0c-0.5,0.2-1.1-0.1-1.3-0.6l-2.6-7.1l0,0C277.4,4151.9,277.7,4151.4,278.2,4151.2L278.2,4151.2z"/>
+        </defs>
+        <clipPath id="SVGID_499_">
+          <rect x="268.2" y="4144.4" width="35.4" height="31.8" transform="matrix(1, 0, 0, 1, 0, 0)" style="overflow: visible;"/>
+        </clipPath>
+        <clipPath id="SVGID_500_" class="st237">
+          <path d="M278.2,4151.2L278.2,4151.2L278.2,4151.2c0.5-0.2,1.1,0.1,1.3,0.6l2.6,7.1l0,0c0.2,0.5-0.1,1.1-0.6,1.3 l0,0l0,0c-0.5,0.2-1.1-0.1-1.3-0.6l-2.6-7.1l0,0C277.4,4151.9,277.7,4151.4,278.2,4151.2L278.2,4151.2z" transform="matrix(1, 0, 0, 1, 0, 0)" style="overflow: visible;"/>
+        </clipPath>
+        <rect x="274.3" y="4146.3" transform="matrix(0.9398 -0.3418 0.3418 0.9398 -1403.3627 345.8527)" class="st238" width="11.1" height="18.6"/>
+      </g>
+      <g>
+        <defs>
+          <rect id="SVGID_501_" x="268.2" y="4144.4" width="35.4" height="31.8"/>
+        </defs>
+        <defs>
+          <path id="SVGID_502_" d="M272.3,4150.9h6l0,0c0.5,0,0.9,0.4,0.9,0.9c0,0,0,0.1,0,0.1l-0.9,7h-6l-0.9-7l0,0c-0.1-0.5,0.3-1,0.8-1 C272.2,4150.9,272.2,4150.9,272.3,4150.9L272.3,4150.9z"/>
+        </defs>
+        <clipPath id="SVGID_503_">
+          <rect x="268.2" y="4144.4" width="35.4" height="31.8" transform="matrix(1, 0, 0, 1, 0, 0)" style="overflow: visible;"/>
+        </clipPath>
+        <clipPath id="SVGID_504_" class="st239">
+          <path d="M272.3,4150.9h6l0,0c0.5,0,0.9,0.4,0.9,0.9c0,0,0,0.1,0,0.1l-0.9,7h-6l-0.9-7l0,0c-0.1-0.5,0.3-1,0.8-1 C272.2,4150.9,272.2,4150.9,272.3,4150.9L272.3,4150.9z" transform="matrix(1, 0, 0, 1, 0, 0)" style="overflow: visible;"/>
+        </clipPath>
+        <rect x="266.8" y="4146.4" class="st240" width="16.9" height="17.1"/>
+      </g>
+      <g>
+        <defs>
+          <rect id="SVGID_505_" x="268.2" y="4144.4" width="35.4" height="31.8"/>
+        </defs>
+        <defs>
+          <path id="SVGID_506_" d="M271.4,4165.5h7.7l0,0c0.5,0,0.9-0.4,0.9-0.9c0-0.1,0-0.1,0-0.2l-1.7-6.9h-6l-1.7,6.9l0,0 c-0.1,0.5,0.2,1,0.7,1.1C271.3,4165.5,271.3,4165.5,271.4,4165.5L271.4,4165.5z"/>
+        </defs>
+        <clipPath id="SVGID_507_">
+          <rect x="268.2" y="4144.4" width="35.4" height="31.8" transform="matrix(1, 0, 0, 1, 0, 0)" style="overflow: visible;"/>
+        </clipPath>
+        <clipPath id="SVGID_508_" class="st241">
+          <path d="M271.4,4165.5h7.7l0,0c0.5,0,0.9-0.4,0.9-0.9c0-0.1,0-0.1,0-0.2l-1.7-6.9h-6l-1.7,6.9l0,0 c-0.1,0.5,0.2,1,0.7,1.1C271.3,4165.5,271.3,4165.5,271.4,4165.5L271.4,4165.5z" transform="matrix(1, 0, 0, 1, 0, 0)" style="overflow: visible;"/>
+        </clipPath>
+        <rect x="266" y="4152.9" class="st242" width="18.6" height="17.1"/>
+      </g>
+      <g>
+        <defs>
+          <rect id="SVGID_509_" x="268.2" y="4144.4" width="35.4" height="31.8"/>
+        </defs>
+        <defs>
+          <path id="SVGID_510_" d="M275.5,4149.9c1.5,0,2.8-1.2,2.8-2.8c0-1.5-1.2-2.8-2.8-2.8c-1.5,0-2.8,1.2-2.8,2.8 C272.7,4148.7,274,4149.9,275.5,4149.9L275.5,4149.9z"/>
+        </defs>
+        <clipPath id="SVGID_511_">
+          <rect x="268.2" y="4144.4" width="35.4" height="31.8" transform="matrix(1, 0, 0, 1, 0, 0)" style="overflow: visible;"/>
+        </clipPath>
+        <clipPath id="SVGID_512_" class="st243">
+          <path d="M275.5,4149.9c1.5,0,2.8-1.2,2.8-2.8c0-1.5-1.2-2.8-2.8-2.8c-1.5,0-2.8,1.2-2.8,2.8 C272.7,4148.7,274,4149.9,275.5,4149.9L275.5,4149.9z" transform="matrix(1, 0, 0, 1, 0, 0)" style="overflow: visible;"/>
+        </clipPath>
+        <rect x="268.2" y="4139.9" class="st244" width="14.6" height="14.6"/>
+      </g>
+      <g>
+        <defs>
+          <rect id="SVGID_513_" x="268.2" y="4144.4" width="35.4" height="31.8"/>
+        </defs>
+        <defs>
+          <path id="SVGID_514_" d="M293.5,4151.2L293.5,4151.2L293.5,4151.2c0.5,0.2,0.8,0.8,0.6,1.3l-2.6,7.1l0,0 c-0.2,0.5-0.8,0.8-1.3,0.6l0,0l0,0c-0.5-0.2-0.8-0.8-0.6-1.3l2.6-7.1l0,0C292.4,4151.3,293,4151,293.5,4151.2L293.5,4151.2z"/>
+        </defs>
+        <clipPath id="SVGID_515_">
+          <rect x="268.2" y="4144.4" width="35.4" height="31.8" transform="matrix(1, 0, 0, 1, 0, 0)" style="overflow: visible;"/>
+        </clipPath>
+        <clipPath id="SVGID_516_" class="st245">
+          <path d="M293.5,4151.2L293.5,4151.2L293.5,4151.2c0.5,0.2,0.8,0.8,0.6,1.3l-2.6,7.1l0,0 c-0.2,0.5-0.8,0.8-1.3,0.6l0,0l0,0c-0.5-0.2-0.8-0.8-0.6-1.3l2.6-7.1l0,0C292.4,4151.3,293,4151,293.5,4151.2L293.5,4151.2z" transform="matrix(1, 0, 0, 1, 0, 0)" style="overflow: visible;"/>
+        </clipPath>
+        <rect x="282.6" y="4150.1" transform="matrix(0.3417 -0.9398 0.9398 0.3417 -3713.4143 3010.1121)" class="st246" width="18.6" height="11.1"/>
+      </g>
+      <g>
+        <defs>
+          <rect id="SVGID_517_" x="268.2" y="4144.4" width="35.4" height="31.8"/>
+        </defs>
+        <defs>
+          <path id="SVGID_518_" d="M294.6,4159.4L294.6,4159.4L294.6,4159.4c0.7,0,1.3,0.6,1.3,1.3v13.5l0,0c0,0.7-0.6,1.3-1.3,1.3l0,0 l0,0c-0.7,0-1.2-0.6-1.2-1.3v-13.5l0,0C293.3,4160,293.9,4159.4,294.6,4159.4L294.6,4159.4z"/>
+        </defs>
+        <clipPath id="SVGID_519_">
+          <rect x="268.2" y="4144.4" width="35.4" height="31.8" transform="matrix(1, 0, 0, 1, 0, 0)" style="overflow: visible;"/>
+        </clipPath>
+        <clipPath id="SVGID_520_" class="st247">
+          <path d="M294.6,4159.4L294.6,4159.4L294.6,4159.4c0.7,0,1.3,0.6,1.3,1.3v13.5l0,0c0,0.7-0.6,1.3-1.3,1.3l0,0 l0,0c-0.7,0-1.2-0.6-1.2-1.3v-13.5l0,0C293.3,4160,293.9,4159.4,294.6,4159.4L294.6,4159.4z" transform="matrix(1, 0, 0, 1, 0, 0)" style="overflow: visible;"/>
+        </clipPath>
+        <rect x="288.8" y="4154.9" class="st248" width="11.6" height="25.1"/>
+      </g>
+      <g>
+        <defs>
+          <rect id="SVGID_521_" x="268.2" y="4144.4" width="35.4" height="31.8"/>
+        </defs>
+        <defs>
+          <path id="SVGID_522_" d="M298.1,4159.4L298.1,4159.4L298.1,4159.4c0.7,0,1.3,0.6,1.3,1.3v13.5l0,0c0,0.7-0.6,1.3-1.3,1.3l0,0 l0,0c-0.7,0-1.2-0.6-1.2-1.3v-13.5l0,0C296.8,4160,297.4,4159.4,298.1,4159.4L298.1,4159.4z"/>
+        </defs>
+        <clipPath id="SVGID_523_">
+          <rect x="268.2" y="4144.4" width="35.4" height="31.8" transform="matrix(1, 0, 0, 1, 0, 0)" style="overflow: visible;"/>
+        </clipPath>
+        <clipPath id="SVGID_524_" class="st249">
+          <path d="M298.1,4159.4L298.1,4159.4L298.1,4159.4c0.7,0,1.3,0.6,1.3,1.3v13.5l0,0c0,0.7-0.6,1.3-1.3,1.3l0,0 l0,0c-0.7,0-1.2-0.6-1.2-1.3v-13.5l0,0C296.8,4160,297.4,4159.4,298.1,4159.4L298.1,4159.4z" transform="matrix(1, 0, 0, 1, 0, 0)" style="overflow: visible;"/>
+        </clipPath>
+        <rect x="292.3" y="4154.9" class="st250" width="11.6" height="25.1"/>
+      </g>
+      <g>
+        <defs>
+          <rect id="SVGID_525_" x="268.2" y="4144.4" width="35.4" height="31.8"/>
+        </defs>
+        <defs>
+          <path id="SVGID_526_" d="M299.3,4151.2L299.3,4151.2L299.3,4151.2c0.5-0.2,1.1,0.1,1.3,0.6l2.6,7.1l0,0c0.2,0.5-0.1,1.1-0.6,1.3 l0,0l0,0c-0.5,0.2-1.1-0.1-1.3-0.6l-2.6-7.1l0,0C298.5,4151.9,298.8,4151.4,299.3,4151.2L299.3,4151.2z"/>
+        </defs>
+        <clipPath id="SVGID_527_">
+          <rect x="268.2" y="4144.4" width="35.4" height="31.8" transform="matrix(1, 0, 0, 1, 0, 0)" style="overflow: visible;"/>
+        </clipPath>
+        <clipPath id="SVGID_528_" class="st251">
+          <path d="M299.3,4151.2L299.3,4151.2L299.3,4151.2c0.5-0.2,1.1,0.1,1.3,0.6l2.6,7.1l0,0c0.2,0.5-0.1,1.1-0.6,1.3 l0,0l0,0c-0.5,0.2-1.1-0.1-1.3-0.6l-2.6-7.1l0,0C298.5,4151.9,298.8,4151.4,299.3,4151.2L299.3,4151.2z" transform="matrix(1, 0, 0, 1, 0, 0)" style="overflow: visible;"/>
+        </clipPath>
+        <rect x="295.4" y="4146.3" transform="matrix(0.9398 -0.3417 0.3417 0.9398 -1402.0474 353.0309)" class="st252" width="11.1" height="18.6"/>
+      </g>
+      <g>
+        <defs>
+          <rect id="SVGID_529_" x="268.2" y="4144.4" width="35.4" height="31.8"/>
+        </defs>
+        <defs>
+          <path id="SVGID_530_" d="M293.3,4150.9h6.1l0,0c0.5,0,0.9,0.4,0.9,0.9c0,0,0,0,0,0l-0.4,10.2l0,0c0,0.5-0.4,0.9-0.9,0.9h-5.3 l0,0c-0.5,0-0.9-0.4-0.9-0.9l-0.4-10.2l0,0C292.3,4151.4,292.7,4150.9,293.3,4150.9C293.2,4150.9,293.2,4150.9,293.3,4150.9 L293.3,4150.9z"/>
+        </defs>
+        <clipPath id="SVGID_531_">
+          <rect x="268.2" y="4144.4" width="35.4" height="31.8" transform="matrix(1, 0, 0, 1, 0, 0)" style="overflow: visible;"/>
+        </clipPath>
+        <clipPath id="SVGID_532_" class="st253">
+          <path d="M293.3,4150.9h6.1l0,0c0.5,0,0.9,0.4,0.9,0.9c0,0,0,0,0,0l-0.4,10.2l0,0c0,0.5-0.4,0.9-0.9,0.9h-5.3 l0,0c-0.5,0-0.9-0.4-0.9-0.9l-0.4-10.2l0,0C292.3,4151.4,292.7,4150.9,293.3,4150.9C293.2,4150.9,293.2,4150.9,293.3,4150.9 L293.3,4150.9z" transform="matrix(1, 0, 0, 1, 0, 0)" style="overflow: visible;"/>
+        </clipPath>
+        <rect x="287.8" y="4146.4" class="st254" width="17" height="21.1"/>
+      </g>
+      <g>
+        <defs>
+          <rect id="SVGID_533_" x="268.2" y="4144.4" width="35.4" height="31.8"/>
+        </defs>
+        <defs>
+          <path id="SVGID_534_" d="M296.6,4149.9c1.5,0,2.8-1.2,2.8-2.8c0-1.5-1.2-2.8-2.8-2.8c-1.5,0-2.8,1.2-2.8,2.8 C293.8,4148.7,295,4149.9,296.6,4149.9L296.6,4149.9z"/>
+        </defs>
+        <clipPath id="SVGID_535_">
+          <rect x="268.2" y="4144.4" width="35.4" height="31.8" transform="matrix(1, 0, 0, 1, 0, 0)" style="overflow: visible;"/>
+        </clipPath>
+        <clipPath id="SVGID_536_" class="st255">
+          <path d="M296.6,4149.9c1.5,0,2.8-1.2,2.8-2.8c0-1.5-1.2-2.8-2.8-2.8c-1.5,0-2.8,1.2-2.8,2.8 C293.8,4148.7,295,4149.9,296.6,4149.9L296.6,4149.9z" transform="matrix(1, 0, 0, 1, 0, 0)" style="overflow: visible;"/>
+        </clipPath>
+        <rect x="289.3" y="4139.9" class="st256" width="14.6" height="14.6"/>
+      </g>
+      <g>
+        <defs>
+          <rect id="SVGID_537_" x="285.3" y="4144.4" width="1.5" height="31.6"/>
+        </defs>
+        <clipPath id="SVGID_538_">
+          <rect x="285.3" y="4144.4" width="1.5" height="31.6" transform="matrix(1, 0, 0, 1, 0, 0)" style="overflow: visible;"/>
+        </clipPath>
+        <rect x="280.7" y="4139.9" class="st257" width="10.6" height="40.7"/>
+      </g>
+    </g>
+    <g>
+      <defs>
+        <path id="SVGID_539_" d="M378.5,5468.3l-115.3,0.1c-1.5,0-2.8-1.2-2.8-2.8v-51.7c0-1.5,1.2-2.8,2.8-2.8h115.3 c1.5,0,2.8,1.2,2.8,2.8v51.7C381.3,5467,380,5468.2,378.5,5468.3z"/>
+      </defs>
+      <path d="M378.5,5468.3l-115.3,0.1c-1.5,0-2.8-1.2-2.8-2.8v-51.7c0-1.5,1.2-2.8,2.8-2.8h115.3 c1.5,0,2.8,1.2,2.8,2.8v51.7C381.3,5467,380,5468.2,378.5,5468.3z" transform="matrix(1, 0, 0, 1, 0, 0)" style="overflow: visible; fill-rule: evenodd; clip-rule: evenodd; fill: rgb(45, 180, 208);"/>
+    </g>
+    <g>
+      <g>
+        <defs>
+          <rect id="SVGID_649_" x="55.6" y="5550.7" width="28.7" height="16.8"/>
+        </defs>
+        <defs>
+          <path id="SVGID_650_" d="M68.9,5567.5c7.3,0,13.3-0.6,13.3-1.4c0-0.8-5.9-1.4-13.3-1.4c-7.3,0-13.3,0.6-13.3,1.4 C55.6,5566.9,61.6,5567.5,68.9,5567.5L68.9,5567.5z"/>
+        </defs>
+        <clipPath id="SVGID_651_">
+          <rect x="55.6" y="5550.7" width="28.7" height="16.8" transform="matrix(1, 0, 0, 1, 0, 0)" style="overflow: visible;"/>
+        </clipPath>
+        <clipPath id="SVGID_652_" class="st312">
+          <path d="M68.9,5567.5c7.3,0,13.3-0.6,13.3-1.4c0-0.8-5.9-1.4-13.3-1.4c-7.3,0-13.3,0.6-13.3,1.4 C55.6,5566.9,61.6,5567.5,68.9,5567.5L68.9,5567.5z" transform="matrix(1, 0, 0, 1, 0, 0)" style="overflow: visible;"/>
+        </clipPath>
+        <rect x="52.1" y="5561.2" class="st313" width="33.6" height="9.8"/>
+      </g>
+      <g>
+        <defs>
+          <rect id="SVGID_653_" x="55.6" y="5550.7" width="28.7" height="16.8"/>
+        </defs>
+        <defs>
+          <path id="SVGID_654_" d="M60.4,5550.7h17.1l0,0c0.3,0,0.6,0.2,0.7,0.6c0.6,3,0.8,5.6,0.6,7.8c-0.2,2.3-1.3,4.5-3.3,6.8l0,0 c-0.1,0.1-0.3,0.2-0.5,0.2h-12l0,0c-0.2,0-0.4-0.1-0.5-0.2c-2-1.9-3-4.1-3.3-6.8c-0.2-2.6,0-5.2,0.6-7.9l0,0 C59.8,5551,60,5550.7,60.4,5550.7L60.4,5550.7z"/>
+        </defs>
+        <clipPath id="SVGID_655_">
+          <rect x="55.6" y="5550.7" width="28.7" height="16.8" transform="matrix(1, 0, 0, 1, 0, 0)" style="overflow: visible;"/>
+        </clipPath>
+        <clipPath id="SVGID_656_" class="st314">
+          <path d="M60.4,5550.7h17.1l0,0c0.3,0,0.6,0.2,0.7,0.6c0.6,3,0.8,5.6,0.6,7.8c-0.2,2.3-1.3,4.5-3.3,6.8l0,0 c-0.1,0.1-0.3,0.2-0.5,0.2h-12l0,0c-0.2,0-0.4-0.1-0.5-0.2c-2-1.9-3-4.1-3.3-6.8c-0.2-2.6,0-5.2,0.6-7.9l0,0 C59.8,5551,60,5550.7,60.4,5550.7L60.4,5550.7z" transform="matrix(1, 0, 0, 1, 0, 0)" style="overflow: visible;"/>
+        </clipPath>
+        <rect x="55.5" y="5547.2" class="st315" width="26.8" height="22.4"/>
+      </g>
+      <g>
+        <defs>
+          <rect id="SVGID_657_" x="55.6" y="5550.7" width="28.7" height="16.8"/>
+        </defs>
+        <clipPath id="SVGID_658_">
+          <rect x="55.6" y="5550.7" width="28.7" height="16.8" transform="matrix(1, 0, 0, 1, 0, 0)" style="overflow: visible;"/>
+        </clipPath>
+        <path class="st316" d="M80.1,5562.6c-2.3,0-4.2-1.9-4.2-4.2c0-2.3,1.9-4.2,4.2-4.2c2.3,0,4.2,1.9,4.2,4.2 C84.3,5560.7,82.4,5562.6,80.1,5562.6z M80.1,5555.6c-1.5,0-2.8,1.3-2.8,2.8c0,1.5,1.3,2.8,2.8,2.8c1.5,0,2.8-1.3,2.8-2.8 C82.9,5556.9,81.6,5555.6,80.1,5555.6z"/>
+      </g>
+    </g>
+    <g>
+      <g>
+        <defs>
+          <rect id="SVGID_659_" x="332.1" y="5534.4" width="28.7" height="16.8"/>
+        </defs>
+        <defs>
+          <path id="SVGID_660_" d="M345.4,5551.2c7.3,0,13.3-0.6,13.3-1.4c0-0.8-5.9-1.4-13.3-1.4c-7.3,0-13.3,0.6-13.3,1.4 C332.1,5550.6,338,5551.2,345.4,5551.2L345.4,5551.2z"/>
+        </defs>
+        <clipPath id="SVGID_661_">
+          <rect x="332.1" y="5534.4" width="28.7" height="16.8" transform="matrix(1, 0, 0, 1, 0, 0)" style="overflow: visible;"/>
+        </clipPath>
+        <clipPath id="SVGID_662_" class="st317">
+          <path d="M345.4,5551.2c7.3,0,13.3-0.6,13.3-1.4c0-0.8-5.9-1.4-13.3-1.4c-7.3,0-13.3,0.6-13.3,1.4 C332.1,5550.6,338,5551.2,345.4,5551.2L345.4,5551.2z" transform="matrix(1, 0, 0, 1, 0, 0)" style="overflow: visible;"/>
+        </clipPath>
+        <rect x="328.6" y="5544.9" class="st318" width="33.6" height="9.8"/>
+      </g>
+      <g>
+        <defs>
+          <rect id="SVGID_663_" x="332.1" y="5534.4" width="28.7" height="16.8"/>
+        </defs>
+        <defs>
+          <path id="SVGID_664_" d="M336.8,5534.4h17.1l0,0c0.3,0,0.6,0.2,0.7,0.6c0.6,3,0.8,5.6,0.6,7.8c-0.2,2.3-1.3,4.5-3.3,6.8l0,0 c-0.1,0.1-0.3,0.2-0.5,0.2h-12l0,0c-0.2,0-0.4-0.1-0.5-0.2c-2-1.9-3-4.1-3.3-6.8c-0.2-2.6,0-5.2,0.6-7.9l0,0 C336.2,5534.7,336.5,5534.4,336.8,5534.4L336.8,5534.4z"/>
+        </defs>
+        <clipPath id="SVGID_665_">
+          <rect x="332.1" y="5534.4" width="28.7" height="16.8" transform="matrix(1, 0, 0, 1, 0, 0)" style="overflow: visible;"/>
+        </clipPath>
+        <clipPath id="SVGID_666_" class="st319">
+          <path d="M336.8,5534.4h17.1l0,0c0.3,0,0.6,0.2,0.7,0.6c0.6,3,0.8,5.6,0.6,7.8c-0.2,2.3-1.3,4.5-3.3,6.8l0,0 c-0.1,0.1-0.3,0.2-0.5,0.2h-12l0,0c-0.2,0-0.4-0.1-0.5-0.2c-2-1.9-3-4.1-3.3-6.8c-0.2-2.6,0-5.2,0.6-7.9l0,0 C336.2,5534.7,336.5,5534.4,336.8,5534.4L336.8,5534.4z" transform="matrix(1, 0, 0, 1, 0, 0)" style="overflow: visible;"/>
+        </clipPath>
+        <rect x="332" y="5531" class="st320" width="26.8" height="22.4"/>
+      </g>
+      <g>
+        <defs>
+          <rect id="SVGID_667_" x="332.1" y="5534.4" width="28.7" height="16.8"/>
+        </defs>
+        <clipPath id="SVGID_668_">
+          <rect x="332.1" y="5534.4" width="28.7" height="16.8" transform="matrix(1, 0, 0, 1, 0, 0)" style="overflow: visible;"/>
+        </clipPath>
+        <path class="st321" d="M356.5,5546.3c-2.3,0-4.2-1.9-4.2-4.2c0-2.3,1.9-4.2,4.2-4.2c2.3,0,4.2,1.9,4.2,4.2 C360.7,5544.5,358.9,5546.3,356.5,5546.3z M356.5,5539.3c-1.5,0-2.8,1.3-2.8,2.8c0,1.5,1.3,2.8,2.8,2.8c1.5,0,2.8-1.3,2.8-2.8 C359.3,5540.6,358.1,5539.3,356.5,5539.3z"/>
+      </g>
+    </g>
+    <g>
+      <g>
+        <defs>
+          <rect id="SVGID_669_" x="194.5" y="5644.8" width="28.7" height="16.8"/>
+        </defs>
+        <defs>
+          <path id="SVGID_670_" d="M207.8,5661.6c7.3,0,13.3-0.6,13.3-1.4c0-0.8-5.9-1.4-13.3-1.4c-7.3,0-13.3,0.6-13.3,1.4 C194.5,5660.9,200.5,5661.6,207.8,5661.6L207.8,5661.6z"/>
+        </defs>
+        <clipPath id="SVGID_671_">
+          <rect x="194.5" y="5644.8" width="28.7" height="16.8" transform="matrix(1, 0, 0, 1, 0, 0)" style="overflow: visible;"/>
+        </clipPath>
+        <clipPath id="SVGID_672_" class="st322">
+          <path d="M207.8,5661.6c7.3,0,13.3-0.6,13.3-1.4c0-0.8-5.9-1.4-13.3-1.4c-7.3,0-13.3,0.6-13.3,1.4 C194.5,5660.9,200.5,5661.6,207.8,5661.6L207.8,5661.6z" transform="matrix(1, 0, 0, 1, 0, 0)" style="overflow: visible;"/>
+        </clipPath>
+        <rect x="191" y="5655.3" class="st323" width="33.6" height="9.8"/>
+      </g>
+      <g>
+        <defs>
+          <rect id="SVGID_673_" x="194.5" y="5644.8" width="28.7" height="16.8"/>
+        </defs>
+        <defs>
+          <path id="SVGID_674_" d="M199.3,5644.8h17.1l0,0c0.3,0,0.6,0.2,0.7,0.6c0.6,3,0.8,5.6,0.6,7.8c-0.2,2.3-1.3,4.5-3.3,6.8l0,0 c-0.1,0.1-0.3,0.2-0.5,0.2h-12l0,0c-0.2,0-0.4-0.1-0.5-0.2c-2-1.9-3-4.1-3.3-6.8c-0.2-2.6,0-5.2,0.6-7.9l0,0 C198.6,5645,198.9,5644.8,199.3,5644.8L199.3,5644.8z"/>
+        </defs>
+        <clipPath id="SVGID_675_">
+          <rect x="194.5" y="5644.8" width="28.7" height="16.8" transform="matrix(1, 0, 0, 1, 0, 0)" style="overflow: visible;"/>
+        </clipPath>
+        <clipPath id="SVGID_676_" class="st324">
+          <path d="M199.3,5644.8h17.1l0,0c0.3,0,0.6,0.2,0.7,0.6c0.6,3,0.8,5.6,0.6,7.8c-0.2,2.3-1.3,4.5-3.3,6.8l0,0 c-0.1,0.1-0.3,0.2-0.5,0.2h-12l0,0c-0.2,0-0.4-0.1-0.5-0.2c-2-1.9-3-4.1-3.3-6.8c-0.2-2.6,0-5.2,0.6-7.9l0,0 C198.6,5645,198.9,5644.8,199.3,5644.8L199.3,5644.8z" transform="matrix(1, 0, 0, 1, 0, 0)" style="overflow: visible;"/>
+        </clipPath>
+        <rect x="194.4" y="5641.3" class="st325" width="26.8" height="22.4"/>
+      </g>
+      <g>
+        <defs>
+          <rect id="SVGID_677_" x="194.5" y="5644.8" width="28.7" height="16.8"/>
+        </defs>
+        <clipPath id="SVGID_678_">
+          <rect x="194.5" y="5644.8" width="28.7" height="16.8" transform="matrix(1, 0, 0, 1, 0, 0)" style="overflow: visible;"/>
+        </clipPath>
+        <path class="st326" d="M219,5656.7c-2.3,0-4.2-1.9-4.2-4.2c0-2.3,1.9-4.2,4.2-4.2c2.3,0,4.2,1.9,4.2,4.2 C223.2,5654.8,221.3,5656.7,219,5656.7z M219,5649.7c-1.5,0-2.8,1.3-2.8,2.8c0,1.5,1.3,2.8,2.8,2.8c1.5,0,2.8-1.3,2.8-2.8 C221.8,5650.9,220.5,5649.7,219,5649.7z"/>
+      </g>
+    </g>
+    <g>
+      <g/>
+    </g>
+    <g>
+      <g/>
+    </g>
+    <g>
+      <path class="st19" d="M125.8,4276.3c-0.7,0.9-0.9,1.4-2,1.4h-17.4c-1.1,0-1.1-0.4-2-1.4l-5-5.8c-1.4-1.6,0.9-1.4,2-1.4h26.3 c1.1,0,3.1-0.2,2,1.4L125.8,4276.3z"/>
+      <path class="st19" d="M130.1,4268.3l-12.1-0.1c0,0-1.2,0.1-1.2-0.9c0-0.6,0-12.2,0-12.2S130.2,4253.7,130.1,4268.3"/>
+    </g>
+    <g>
+      <path class="st19" d="M320.8,4276.3c-0.7,0.9-0.9,1.4-2,1.4h-17.4c-1.1,0-1.1-0.4-2-1.4l-5-5.8c-1.4-1.6,0.9-1.4,2-1.4h26.3 c1.1,0,3.1-0.2,2,1.4L320.8,4276.3z"/>
+      <path class="st19" d="M325.1,4268.3l-12.1-0.1c0,0-1.2,0.1-1.2-0.9c0-0.6,0-12.2,0-12.2S325.1,4253.7,325.1,4268.3"/>
+    </g>
+    <g>
+      <g>
+        <path class="st19" d="M366.8,4789h-19c-0.1,0-4.8-0.1-4.8-5.5l0-22.4c0.1-0.9,1-2.6,3.2-2.6c2,0,3,0.9,3,2.6v18.5 c0.2,0.5,1.6,3.1,7.7,3.1c6.6,0,8.3-2.9,8.5-3.2v-18.4c0-0.9,0.7-2.6,2.8-2.6c1.5,0,2.5,0.8,2.9,2.3c0,0,0,0.1,0,0.1l0,0 c0.1,0.6,0.1,3.5,0.1,23c0,0.1,0.2,2.3-1.2,3.8C369.2,4788.6,368.1,4789,366.8,4789z M343.9,4761.2v22.3c0,4.4,3.6,4.5,3.8,4.5 h19c1.1,0,1.9-0.3,2.4-0.9c1.1-1.2,0.9-3,0.9-3.1c0-8.6,0.1-21.6,0-22.7c0,0,0-0.1,0-0.1c-0.2-0.8-0.6-1.6-2-1.6 c-1.7,0-1.8,1.6-1.8,1.7l0,18.5c0,0.7-2.3,4.1-9.5,4.1c-7.3,0-8.6-3.7-8.7-3.9l0-0.1v-18.7c0-0.6,0-1.6-2-1.6 C344.3,4759.6,344,4761,343.9,4761.2z"/>
+        <path class="st19" d="M345.1,4759.7c0-0.1-0.1-1.5,1-2.7c0.8-0.9,2-1.3,3.6-1.3l15.6,0c1.3,0.2,3.6,1.3,3.6,3.9l-1-0.2 c0-2-2.4-2.7-2.8-2.8h-15.4c-1.3,0-2.3,0.3-2.9,1c-0.6,0.7-0.8,1.7-0.8,1.9L345.1,4759.7z"/>
+      </g>
+      <path class="st377" d="M365.1,4779.5v-12.8h-15.6v12.8c0,0,1.4,3.2,7.6,3C357.1,4782.6,363.4,4782.6,365.1,4779.5z"/>
+    </g>
+    <g>
+      <g>
+        <path class="st19" d="M339.5,4789h-19c-0.1,0-4.8-0.1-4.8-5.5l0-22.4c0.1-0.9,1-2.6,3.2-2.6c2,0,3,0.9,3,2.6v18.5 c0.2,0.5,1.6,3.1,7.7,3.1c6.6,0,8.3-2.9,8.5-3.2v-18.4c0-0.9,0.7-2.6,2.8-2.6c1.5,0,2.5,0.8,2.9,2.3c0,0,0,0.1,0,0.1l0,0 c0.1,0.6,0.1,3.5,0.1,23c0,0.1,0.2,2.3-1.2,3.8C341.9,4788.6,340.8,4789,339.5,4789z M316.7,4761.2v22.3c0,4.4,3.6,4.5,3.8,4.5 h19c1.1,0,1.9-0.3,2.4-0.9c1.1-1.2,0.9-3,0.9-3.1c0-8.6,0.1-21.6,0-22.7c0,0,0-0.1,0-0.1c-0.2-0.8-0.6-1.6-2-1.6 c-1.7,0-1.8,1.6-1.8,1.7l0,18.5c0,0.7-2.3,4.1-9.5,4.1c-7.3,0-8.6-3.7-8.7-3.9l0-0.1v-18.7c0-0.6,0-1.6-2-1.6 C317.1,4759.6,316.7,4761,316.7,4761.2z"/>
+        <path class="st19" d="M317.9,4759.7c0-0.1-0.1-1.5,1-2.7c0.8-0.9,2-1.3,3.6-1.3l15.6,0c1.3,0.2,3.6,1.3,3.6,3.9l-1-0.2 c0-2-2.4-2.7-2.8-2.8h-15.4c-1.3,0-2.3,0.3-2.9,1c-0.6,0.7-0.8,1.7-0.8,1.9L317.9,4759.7z"/>
+      </g>
+      <path class="st377" d="M337.8,4779.5v-12.8h-15.6v12.8c0,0,1.4,3.2,7.6,3C329.8,4782.6,336.1,4782.6,337.8,4779.5z"/>
+    </g>
+    <g id="SG-Seat-Map-Redesign-02_4_" transform="translate(-219.000000, -653.000000)">
+      <g id="closet_4_" transform="translate(220.000000, 654.000000)">
+        <path class="st39" d="M328.7,5449.2h-27.5l-0.2-0.1c-1-0.6-1.4-1.5-1.1-2.6c0.9-3.2,9.4-7.3,15.1-7.3c5.6,0,14.1,4.3,15,7.5 c0.3,1-0.1,1.9-1,2.4L328.7,5449.2z M301.7,5447.2H328c0-0.1-0.2-0.4-0.6-0.8c-2.1-2.3-8.2-5.2-12.5-5.2 c-5.3,0-12.7,3.8-13.2,5.8C301.7,5447,301.7,5447.1,301.7,5447.2z"/>
+        <path class="st39" d="M314.9,5437.2c-0.5,0-1-0.1-1.5-0.3c-1.4-0.5-2.5-1.7-2.8-3.2c-0.1-0.3-0.1-0.7-0.1-1c0-2.5,2-4.5,4.5-4.5 c2.5,0,4.5,2,4.5,4.5h-2c0-1.4-1.1-2.5-2.5-2.5c-1.4,0-2.5,1.1-2.5,2.5c0,0.2,0,0.4,0.1,0.6c0.2,0.8,0.8,1.5,1.6,1.8 c0.3,0.1,0.6,0.2,0.9,0.2V5437.2z"/>
+        <rect id="Rectangle-13_4_" x="314.4" y="5435.2" class="st39" width="2" height="5"/>
+      </g>
+    </g>
+  </g>
+  <g id="exits">
+    <g>
+      <g>
+        <defs>
+          <polygon id="SVGID_1103_" points="382.5,4819 367.1,4819 382.5,4837.1 367.1,4855.2 382.5,4855.2 397.9,4837.1 382.5,4819 &#9;&#9;&#9;&#9;&#10;&#9;&#9;&#9;&#9;&#9;"/>
+        </defs>
+        <polygon points="382.5,4819 367.1,4819 382.5,4837.1 367.1,4855.2 382.5,4855.2 397.9,4837.1 382.5,4819 &#9;&#9;&#9;&#9;&#10;&#9;&#9;&#9;&#9;&#9;" transform="matrix(1, 0, 0, 1, 0, 0)" style="overflow: visible; fill-rule: evenodd; clip-rule: evenodd; fill: rgb(189, 189, 189);"/>
+        <clipPath id="SVGID_1104_">
+          <polygon points="382.5,4819 367.1,4819 382.5,4837.1 367.1,4855.2 382.5,4855.2 397.9,4837.1 382.5,4819 &#9;&#9;&#9;&#9;&#10;&#9;&#9;&#9;&#9;&#9;" transform="matrix(1, 0, 0, 1, 0, 0)" style="overflow: visible;"/>
+        </clipPath>
+        <rect x="362.1" y="4814" class="st529" width="40.9" height="46.2"/>
+      </g>
+      <g>
+        <defs>
+          <polygon id="SVGID_1105_" points="360.1,4819 344.6,4819 360.1,4837.1 344.6,4855.2 360.1,4855.2 375.5,4837.1 360.1,4819 &#9;&#9;&#9;&#9;&#10;&#9;&#9;&#9;&#9;&#9;"/>
+        </defs>
+        <polygon points="360.1,4819 344.6,4819 360.1,4837.1 344.6,4855.2 360.1,4855.2 375.5,4837.1 360.1,4819 &#9;&#9;&#9;&#9;&#10;&#9;&#9;&#9;&#9;&#9;" transform="matrix(1, 0, 0, 1, 0, 0)" style="overflow: visible; fill-rule: evenodd; clip-rule: evenodd; fill: rgb(189, 189, 189);"/>
+        <clipPath id="SVGID_1106_">
+          <polygon points="360.1,4819 344.6,4819 360.1,4837.1 344.6,4855.2 360.1,4855.2 375.5,4837.1 360.1,4819 &#9;&#9;&#9;&#9;&#10;&#9;&#9;&#9;&#9;&#9;" transform="matrix(1, 0, 0, 1, 0, 0)" style="overflow: visible;"/>
+        </clipPath>
+        <rect x="339.6" y="4814" class="st530" width="40.9" height="46.2"/>
+      </g>
+    </g>
+    <g>
+      <g>
+        <defs>
+          <polygon id="SVGID_1107_" points="40.7,4819 56.1,4819 40.7,4837.1 56.1,4855.2 40.7,4855.2 25.3,4837.1 40.7,4819 &#9;&#9;&#9;&#9;"/>
+        </defs>
+        <polygon points="40.7,4819 56.1,4819 40.7,4837.1 56.1,4855.2 40.7,4855.2 25.3,4837.1 40.7,4819 &#9;&#9;&#9;&#9;" transform="matrix(1, 0, 0, 1, 0, 0)" style="overflow: visible; fill-rule: evenodd; clip-rule: evenodd; fill: rgb(189, 189, 189);"/>
+        <clipPath id="SVGID_1108_">
+          <polygon points="40.7,4819 56.1,4819 40.7,4837.1 56.1,4855.2 40.7,4855.2 25.3,4837.1 40.7,4819 &#9;&#9;&#9;&#9;" transform="matrix(1, 0, 0, 1, 0, 0)" style="overflow: visible;"/>
+        </clipPath>
+        <rect x="20.3" y="4814" class="st531" width="40.8" height="46.2"/>
+      </g>
+      <g>
+        <defs>
+          <polygon id="SVGID_1109_" points="63.2,4819 78.6,4819 63.2,4837.1 78.6,4855.2 63.2,4855.2 47.7,4837.1 63.2,4819 &#9;&#9;&#9;&#9;"/>
+        </defs>
+        <polygon points="63.2,4819 78.6,4819 63.2,4837.1 78.6,4855.2 63.2,4855.2 47.7,4837.1 63.2,4819 &#9;&#9;&#9;&#9;" transform="matrix(1, 0, 0, 1, 0, 0)" style="overflow: visible; fill-rule: evenodd; clip-rule: evenodd; fill: rgb(189, 189, 189);"/>
+        <clipPath id="SVGID_1110_">
+          <polygon points="63.2,4819 78.6,4819 63.2,4837.1 78.6,4855.2 63.2,4855.2 47.7,4837.1 63.2,4819 &#9;&#9;&#9;&#9;" transform="matrix(1, 0, 0, 1, 0, 0)" style="overflow: visible;"/>
+        </clipPath>
+        <rect x="42.7" y="4814" class="st532" width="40.9" height="46.2"/>
+      </g>
+    </g>
+    <g>
+      <path class="st10" d="M84.6,4840.5h-5.3v-7.8h5.3v1.6h-3.3v1.5h3.1v1.5h-3.1v1.6h3.3V4840.5z"/>
+      <path class="st10" d="M89.8,4836.6l-2.4-3.8h2.3l1.4,2.6h0.1l1.4-2.6h2.2l-2.5,3.9l2.5,3.9h-2.2l-1.5-2.5H91l-1.5,2.5h-2.1 L89.8,4836.6z"/>
+      <path class="st10" d="M97.9,4840.5v-7.8h2v7.8H97.9z"/>
+      <path class="st10" d="M105.1,4840.5v-6.2h-2.2v-1.6h6.4v1.6h-2.2v6.2H105.1z"/>
+    </g>
+    <g>
+      <path class="st10" d="M317.7,4840.5h-5.3v-7.8h5.3v1.6h-3.3v1.5h3.1v1.5h-3.1v1.6h3.3V4840.5z"/>
+      <path class="st10" d="M323,4836.6l-2.4-3.8h2.3l1.4,2.6h0.1l1.4-2.6h2.2l-2.5,3.9l2.5,3.9h-2.2l-1.5-2.5h-0.1l-1.5,2.5h-2.1 L323,4836.6z"/>
+      <path class="st10" d="M331,4840.5v-7.8h2v7.8H331z"/>
+      <path class="st10" d="M338.3,4840.5v-6.2H336v-1.6h6.4v1.6h-2.2v6.2H338.3z"/>
+    </g>
+  </g>
+  <g id="numbers">
+    <g>
+      <g/>
+    </g>
+    <g>
+      <g/>
+    </g>
+    <g>
+      <g/>
+    </g>
+    <g>
+      <g>
+        <path class="st10" d="M24.8,4343.3h-0.1l-2.5,1.8v-1.6l2.6-1.8h1.5v9.9h-1.5V4343.3z"/>
+        <path class="st10" d="M31.4,4343.3h-0.1l-2.5,1.8v-1.6l2.6-1.8h1.5v9.9h-1.5V4343.3z"/>
+        <path class="st10" d="M23.8,4463.3h-0.1l-2.5,1.8v-1.6l2.6-1.8h1.5v9.9h-1.5V4463.3z"/>
+        <path class="st10" d="M28,4464.5c0-0.9,0.3-1.6,0.9-2.2c0.6-0.6,1.4-0.9,2.4-0.9c0.9,0,1.7,0.3,2.3,0.8s0.9,1.2,0.9,2 c0,0.5-0.2,1-0.5,1.6c-0.3,0.5-0.9,1.2-1.7,2l-2.2,2.2v0.1h4.5v1.4H28v-1.1l3.3-3.5c0.7-0.7,1.1-1.2,1.3-1.6 c0.2-0.3,0.3-0.7,0.3-1.1c0-0.5-0.2-0.8-0.5-1.1s-0.8-0.5-1.3-0.5c-0.5,0-1,0.2-1.3,0.5c-0.3,0.3-0.5,0.8-0.5,1.3v0L28,4464.5 L28,4464.5z"/>
+        <path class="st10" d="M23.5,4583.3h-0.1L21,4585v-1.6l2.6-1.8h1.5v9.9h-1.5V4583.3z"/>
+        <path class="st10" d="M32.3,4589.6h-4.8v-1.4c0.8-1.4,2.1-3.6,4.1-6.5h2.2v6.6h1.4v1.4h-1.4v1.9h-1.5V4589.6z M29,4588.3h3.4 v-5.3h-0.1C31.1,4584.7,30,4586.4,29,4588.3L29,4588.3z"/>
+        <path class="st10" d="M23.7,4703.3h-0.1l-2.5,1.8v-1.6l2.6-1.8h1.5v9.9h-1.5V4703.3z"/>
+        <path class="st10" d="M28.9,4710.9c-0.6-0.5-1-1.3-1-2.1h1.5c0.1,0.5,0.3,0.9,0.6,1.2c0.4,0.3,0.8,0.4,1.4,0.4 c0.6,0,1.1-0.2,1.5-0.6c0.4-0.4,0.6-0.9,0.6-1.5s-0.2-1.1-0.6-1.5c-0.4-0.4-0.9-0.6-1.5-0.6c-0.9,0-1.5,0.3-1.9,1h-1.4l0.5-5.6 h5.8v1.4h-4.6l-0.3,2.9h0.1c0.5-0.6,1.2-0.9,2.1-0.9c0.9,0,1.7,0.3,2.3,0.9c0.6,0.6,0.9,1.4,0.9,2.4c0,1-0.3,1.8-1,2.5 c-0.7,0.6-1.5,1-2.6,1C30.4,4711.7,29.6,4711.5,28.9,4710.9z"/>
+      </g>
+    </g>
+    <g>
+      <g>
+        <path class="st10" d="M23.6,4951.4h-0.1l-2.5,1.8v-1.6l2.6-1.8h1.5v9.9h-1.5V4951.4z"/>
+        <path class="st10" d="M28.2,4957.9c-0.4-0.8-0.6-1.8-0.6-3c0-1.7,0.3-3,1-3.9c0.7-0.9,1.6-1.4,2.9-1.4c0.9,0,1.6,0.2,2.2,0.7 c0.6,0.5,1,1.1,1.1,1.9h-1.5c-0.1-0.4-0.3-0.7-0.7-1s-0.7-0.3-1.2-0.3c-0.8,0-1.3,0.3-1.8,1c-0.4,0.7-0.6,1.6-0.7,2.8h0.1 c0.5-1,1.4-1.5,2.6-1.5c0.9,0,1.7,0.3,2.3,0.9c0.6,0.6,0.9,1.4,0.9,2.4c0,1-0.3,1.8-1,2.5c-0.7,0.6-1.5,1-2.6,1 C29.9,4959.9,28.9,4959.2,28.2,4957.9z M32.9,4958c0.4-0.4,0.6-0.9,0.6-1.5c0-0.6-0.2-1.1-0.6-1.5c-0.4-0.4-0.9-0.6-1.5-0.6 c-0.6,0-1.1,0.2-1.5,0.6c-0.4,0.4-0.6,0.9-0.6,1.4c0,0.6,0.2,1.1,0.6,1.5c0.4,0.4,0.9,0.6,1.5,0.6S32.5,4958.4,32.9,4958z"/>
+        <path class="st10" d="M24.1,5071.4H24l-2.5,1.8v-1.6l2.6-1.8h1.5v9.9h-1.5V5071.4z"/>
+        <path class="st10" d="M33,5071.3v-0.1h-5v-1.4h6.5v1.4l-4.3,8.5h-1.6L33,5071.3z"/>
+        <path class="st10" d="M23.5,5191.4h-0.1l-2.5,1.8v-1.6l2.6-1.8h1.5v9.9h-1.5V5191.4z"/>
+        <path class="st10" d="M28.6,5199.1c-0.7-0.5-1-1.2-1-2.1c0-0.6,0.2-1.2,0.6-1.6c0.4-0.5,0.9-0.8,1.5-0.9v-0.1 c-0.5-0.1-0.9-0.4-1.2-0.8c-0.3-0.4-0.5-0.9-0.5-1.4c0-0.8,0.3-1.4,0.9-1.9c0.6-0.5,1.4-0.7,2.4-0.7s1.8,0.2,2.4,0.7 c0.6,0.5,0.9,1.1,0.9,1.9c0,0.5-0.2,1-0.5,1.4c-0.3,0.4-0.7,0.7-1.2,0.8v0.1c0.6,0.1,1.1,0.4,1.5,0.9c0.4,0.5,0.6,1,0.6,1.6 c0,0.9-0.3,1.5-1,2.1c-0.7,0.5-1.6,0.8-2.7,0.8S29.3,5199.6,28.6,5199.1z M32.8,5198.1c0.4-0.3,0.6-0.7,0.6-1.3 c0-0.5-0.2-0.9-0.6-1.3c-0.4-0.3-0.9-0.5-1.5-0.5s-1.1,0.2-1.5,0.5c-0.4,0.3-0.6,0.7-0.6,1.3c0,0.5,0.2,0.9,0.6,1.3 c0.4,0.3,0.9,0.5,1.5,0.5S32.5,5198.5,32.8,5198.1z M32.6,5193.5c0.3-0.3,0.5-0.7,0.5-1.1c0-0.5-0.2-0.8-0.5-1.1 s-0.8-0.4-1.3-0.4s-1,0.1-1.3,0.4c-0.3,0.3-0.5,0.7-0.5,1.1c0,0.5,0.2,0.8,0.5,1.1c0.3,0.3,0.8,0.4,1.3,0.4 S32.3,5193.8,32.6,5193.5z"/>
+        <path class="st10" d="M23.6,5311.4h-0.1l-2.5,1.8v-1.6l2.6-1.8h1.5v9.9h-1.5V5311.4z"/>
+        <path class="st10" d="M28.9,5319.2c-0.6-0.5-1-1.1-1.1-1.9h1.5c0.1,0.4,0.3,0.7,0.7,1s0.7,0.3,1.2,0.3c0.8,0,1.3-0.3,1.8-1 c0.4-0.7,0.6-1.6,0.7-2.8h-0.1c-0.5,1-1.4,1.5-2.6,1.5c-0.9,0-1.7-0.3-2.3-0.9c-0.6-0.6-0.9-1.4-0.9-2.4c0-1,0.3-1.8,1-2.5 c0.7-0.6,1.5-1,2.6-1c1.5,0,2.6,0.7,3.2,2c0.4,0.8,0.6,1.8,0.6,3c0,1.7-0.3,3-1,3.9c-0.7,0.9-1.6,1.4-2.9,1.4 C30.2,5319.9,29.5,5319.7,28.9,5319.2z M32.7,5314.4c0.4-0.4,0.6-0.9,0.6-1.4c0-0.6-0.2-1.1-0.6-1.5s-0.9-0.6-1.5-0.6 c-0.6,0-1.1,0.2-1.5,0.6c-0.4,0.4-0.6,0.9-0.6,1.5c0,0.6,0.2,1.1,0.6,1.5s0.9,0.6,1.5,0.6C31.8,5315,32.3,5314.8,32.7,5314.4z"/>
+      </g>
+    </g>
+  </g>
+</svg>

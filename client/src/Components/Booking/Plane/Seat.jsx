@@ -5,16 +5,16 @@ import { ReactComponent as Icon } from "../../../Assets/Seat.svg";
 
 const useStyles = makeStyles((theme) => ({
   container: {
-    width: "40px",
-    height: "40px",
+    width: (props) => (props.size === "large" ? "60px" : "40px"),
+    height: (props) => (props.size === "large" ? "60px" : "40px"),
     padding: "0px"
   },
   seatNumber: {
     position: "absolute",
-    bottom: "16px",
+    bottom: (props) => (props.size === "large" ? "25px" : "16px"),
     color: theme.palette.text.primary,
     "font-weight": "bold",
-    "font-size": "10px"
+    "font-size": (props) => (props.size === "large" ? "15px" : "10px")
   },
   seat: {
     "& path": {
@@ -43,12 +43,11 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function FlightDetails(props) {
+export default function Seat(props) {
   if (!props.number) {
     throw new Error("Seat number must be provided for seat");
   }
-
-  const classes = useStyles();
+  const classes = useStyles(props);
 
   const [number] = useState(props.number);
   const [isBusinessClass] = useState(props.businessClass ?? false);
@@ -66,7 +65,9 @@ export default function FlightDetails(props) {
     }
 
     if (isBusinessClass) {
-      return isSelected ? classes["businessClass-selected"] : classes.businessClass;
+      return isSelected
+        ? classes["businessClass-selected"]
+        : classes.businessClass;
     } else {
       return isSelected ? classes["regular-selected"] : classes.regular;
     }
