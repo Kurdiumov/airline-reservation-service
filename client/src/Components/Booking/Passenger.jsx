@@ -50,7 +50,6 @@ export default function Passenger(props) {
   }, [name, surname, sex, baggageCount]);
 
   const handleSexBtnClick = (value) => {
-    console.log(value);
     setSex(value);
   };
 

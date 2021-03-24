@@ -12,9 +12,9 @@ const useStyles = makeStyles(() => ({
     height: "4rem",
     width: "4rem",
     "border-radius": "50%",
-    position: "fixed",
-    top: "50%",
-    left: "520px"
+    position: "absolute",
+    top: "100px",
+    left: "450px"
   }
 }));
 

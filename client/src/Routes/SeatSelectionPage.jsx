@@ -1,10 +1,10 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
-import Booking from "../Components/Booking/Booking";
+import SeatSelection from "../Components/Booking/SeatSelection";
 import ContentContainer from "../Components/ContentContainer";
 
-export default function BookingPage(props) {
+export default function SeatSelectionPage(props) {
   const selectedFlight = useSelector((state) => state.booking.selectedFlight);
   const isLoggedIn = useSelector((state) => !!state.auth.token);
 
@@ -20,7 +20,7 @@ export default function BookingPage(props) {
 
   return (
     <ContentContainer>
-      <Booking history={props.history} />
+      <SeatSelection history={props.history} />
     </ContentContainer>
   );
 }

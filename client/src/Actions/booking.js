@@ -2,6 +2,7 @@ export const setFlight = (flight) => {
   return (dispatch) => {
     dispatch(setFlightNumber(flight.flightNumber));
     dispatch(setBaggagePricePerItem(flight.luggagePrice));
+    dispatch(setAircraftModel(flight.aircraftModel));
   };
 };
 
@@ -13,6 +14,11 @@ const setFlightNumber = (flightNumber) => ({
 const setBaggagePricePerItem = (price) => ({
   type: "SET_BAGGAGE_PRICE_PER_ITEM",
   price
+});
+
+const setAircraftModel = (model) => ({
+  type: "SET_AIRCRAFT_MODEL",
+  model
 });
 
 const passengerInitialState = {

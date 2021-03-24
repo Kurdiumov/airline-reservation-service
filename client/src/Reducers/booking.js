@@ -1,5 +1,6 @@
 const initialState = {
   selectedFlight: null,
+  aircraftModel: null,
   baggagePrice: 0,
   passengers: {
     adults: {},
@@ -16,6 +17,9 @@ const bookingReducer = (state = initialState, action) => {
       return newState;
     case "SET_BAGGAGE_PRICE_PER_ITEM":
       newState.baggagePrice = action.price;
+      return newState;
+    case "SET_AIRCRAFT_MODEL":
+      newState.aircraftModel = action.model;
       return newState;
     case "SET_PASSENGERS":
       newState.passengers.adults = action.adults;

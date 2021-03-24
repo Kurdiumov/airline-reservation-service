@@ -4,7 +4,7 @@ import { Container, Box, Button } from "@material-ui/core";
 import Passenger from "./Passenger";
 import { setPassenger } from "../../Actions/booking";
 
-export default function Booking() {
+export default function Booking(props) {
   const dispatch = useDispatch();
   const adults = useSelector(({ booking }) => booking.passengers.adults);
   const children = useSelector(({ booking }) => booking.passengers.children);
@@ -16,8 +16,7 @@ export default function Booking() {
       return;
     }
 
-    console.log("Continue button clicked", event);
-    // TODO Redirect to seat selection
+    props.history.push("/seats");
   };
 
   const onPassengerValueChanged = (id, newValue) => {
