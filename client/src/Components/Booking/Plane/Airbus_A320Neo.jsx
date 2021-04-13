@@ -22,6 +22,7 @@ export default function Airbus_A320Neo(props) {
       <Seat
         businessClass={isBusiness}
         disabled={unavailableSeats.includes(seatNumber)}
+        selected={props.selectedSeats.includes(seatNumber)}
         number={seatNumber}
         onSeatSelectionChanged={props.onSeatSelectionChanged}
       ></Seat>

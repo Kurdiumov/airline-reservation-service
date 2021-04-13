@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { makeStyles, Typography } from "@material-ui/core";
 import IconButton from "@material-ui/core/IconButton";
 import { ReactComponent as Icon } from "../../../Assets/Seat.svg";
@@ -48,16 +48,11 @@ export default function Seat(props) {
     throw new Error("Seat number must be provided for seat");
   }
   const classes = useStyles(props);
+  
 
   const [number] = useState(props.number);
   const [isBusinessClass] = useState(props.businessClass ?? false);
   const [isDisabled] = useState(props.disabled ?? false);
-  const [isSelected, setIsSelected] = useState(false);
-
-  useEffect(() => {
-    props.onSeatSelectionChanged &&
-      props.onSeatSelectionChanged(number, isSelected);
-  }, [isSelected]);
 
   const getStyleClasses = () => {
     if (isDisabled) {
@@ -65,12 +60,17 @@ export default function Seat(props) {
     }
 
     if (isBusinessClass) {
-      return isSelected
+      return props.selected
         ? classes["businessClass-selected"]
         : classes.businessClass;
     } else {
-      return isSelected ? classes["regular-selected"] : classes.regular;
+      return props.selected ? classes["regular-selected"] : classes.regular;
     }
+  };
+
+  const handleSeatClick = () => {
+    props.onSeatSelectionChanged &&
+      props.onSeatSelectionChanged(number, !props.selected);
   };
 
   return (
@@ -79,7 +79,7 @@ export default function Seat(props) {
       color="primary"
       disabled={isDisabled}
       component="span"
-      onClick={() => setIsSelected(!isSelected)}
+      onClick={() => handleSeatClick()}
     >
       <Icon className={getStyleClasses()}></Icon>
       <Typography className={classes.seatNumber}>{number}</Typography>

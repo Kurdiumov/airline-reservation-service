@@ -23,6 +23,7 @@ export default function MainDeck(props) {
           size={size}
           businessClass={isBusiness}
           disabled={unavailableSeats.includes(seatNumber)}
+          selected={props.selectedSeats.includes(seatNumber)}
           number={seatNumber}
           onSeatSelectionChanged={props.onSeatSelectionChanged}
         ></Seat>
@@ -111,7 +112,7 @@ export default function MainDeck(props) {
                   display="flex"
                   justifyContent="space-between"
                 >
-                  {get2RoyalSeats(rowNumber + "A", rowNumber + "B", 0)}
+                  {get2RoyalSeats(rowNumber + "C", rowNumber + "D", 0)}
                 </Box>
               );
             })}

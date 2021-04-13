@@ -24,6 +24,7 @@ export default function UpperDeck(props) {
           size="large"
           businessClass={true}
           disabled={unavailableSeats.includes(seatNumber)}
+          selected={props.selectedSeats.includes(seatNumber)}
           number={seatNumber}
           onSeatSelectionChanged={props.onSeatSelectionChanged}
         ></Seat>

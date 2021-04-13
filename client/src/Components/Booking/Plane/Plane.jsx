@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import Box from "@material-ui/core/Box";
 import Container from "@material-ui/core/Container";
 import Embraer_E175 from "./Embraer_E175";
@@ -25,12 +26,16 @@ export default function SeatSelection(props) {
 
   const [model] = useState(props.model);
   const [unavailableSeats] = useState(props.unavailableSeats ?? []);
+  const selectedSeats = useSelector(({ booking }) =>
+    [...Object.values(booking.passengers.adults), ...Object.values(booking.passengers.children)].map(x => x.selectedSeat)
+  );
 
   const createAircraft = () => {
     const aircraftProps = {
       unavailableSeats: unavailableSeats,
+      selectedSeats: selectedSeats,
       onSeatSelectionChanged: (id, selected) => {
-        console.log(`Seat ${id} i now ${selected ? "selected" : "unselected"}`);
+        props.onSeatSelectionChanged(id, selected);
       }
     };
 

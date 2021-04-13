@@ -38,6 +38,15 @@ const bookingReducer = (state = initialState, action) => {
 
       return newState;
 
+    case "SET_SEAT":
+      if (action.passengerId.startsWith("adult_")) {
+        newState.passengers.adults[action.passengerId].selectedSeat = action.seat;
+      } else if (action.passengerId.startsWith("child_")) {
+        newState.passengers.children[action.passengerId].selectedSeat = action.seat;
+      }
+
+      return newState;
+
     default:
       return newState;
   }

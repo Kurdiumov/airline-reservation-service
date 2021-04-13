@@ -25,6 +25,7 @@ export default function Embraer_E175(props) {
       <Seat
         businessClass={isBusiness}
         disabled={unavailableSeats.includes(seatNumber)}
+        selected={props.selectedSeats.includes(seatNumber)}
         number={seatNumber}
         onSeatSelectionChanged={props.onSeatSelectionChanged}
       ></Seat>

@@ -22,7 +22,8 @@ const setAircraftModel = (model) => ({
 });
 
 const passengerInitialState = {
-  baggageCount: 0
+  baggageCount: 0,
+  selectedSeat: null
 };
 
 export const setPassengers = (
@@ -39,5 +40,11 @@ export const setPassengers = (
 export const setPassenger = (id, value) => ({
   type: "SET_PASSENGER",
   id,
-  value
+  value: {...passengerInitialState, ...value}
+});
+
+export const setSeat = (passengerId, seat) => ({
+  type: "SET_SEAT",
+  passengerId,
+  seat
 });

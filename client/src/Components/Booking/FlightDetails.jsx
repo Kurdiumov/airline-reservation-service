@@ -48,7 +48,6 @@ export default function FlightDetails(props) {
 
   const handleBookBtn = (flight) => {
     const { passengers } = props;
-    console.log(flight);
     dispatch(setFlight(flight));
 
     let adults = {};
@@ -58,7 +57,7 @@ export default function FlightDetails(props) {
 
     let children = {};
     for (let i = 0; i < passengers?.children; i++) {
-      children["child__" + i] = {};
+      children["child_" + i] = {};
     }
 
     let infants = {};
