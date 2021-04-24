@@ -13,7 +13,6 @@ import Typography from "@material-ui/core/Typography";
 import OutlinedInput from "@material-ui/core/OutlinedInput";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import CloseIcon from "@material-ui/icons/Close";
-import ContentContainer from "../ContentContainer";
 import AirportList from "./AirportList";
 import Calendar from "./Calendar";
 import {
@@ -443,7 +442,6 @@ export default function FlightSearch(props) {
   };
 
   return (
-    <ContentContainer>
       <Grid container>
         <Grid item xs={12} md={12} lg={8} xl={6}>
           <Grid container>
@@ -461,6 +459,5 @@ export default function FlightSearch(props) {
           </Grid>
         </Grid>
       </Grid>
-    </ContentContainer>
   );
 }

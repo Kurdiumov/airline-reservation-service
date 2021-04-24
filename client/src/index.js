@@ -36,7 +36,7 @@ if (navigator.geolocation) {
       backendConnector
         .getNearestAirport(coords.latitude, coords.longitude)
         .then((airport) => {
-          if (airport && store.getState().search.focusedInput === "") {
+          if (airport && store.getState().search.focusedInput === "" && store.getState().search.origin == null) {
             store.dispatch(setOrigin(airport));
             store.dispatch(getDestinationsAsync(airport.code));
           }

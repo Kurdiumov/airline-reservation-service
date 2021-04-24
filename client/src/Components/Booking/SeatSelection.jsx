@@ -49,7 +49,7 @@ export default function SeatSelection(props) {
 
   if (unavailableSeats == null) {
     return (
-      <Box display="flex" justifyContent="center" alignItems="center">
+      <Box display="flex" justifyContent="center" alignItems="center" minHeight={600}>
         <CircularProgress size={100} />
       </Box>
     );

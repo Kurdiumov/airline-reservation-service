@@ -10,6 +10,7 @@ const availableDatesUrl = `${process.env.REACT_APP_API_URL}/api/flights/availabl
 const currenciesUrl = `${process.env.REACT_APP_API_URL}/api/currencies/`;
 
 const currentWeatherUrl = `${process.env.REACT_APP_API_URL}/api/weather/current?`;
+const specialOffersUrl = `${process.env.REACT_APP_API_URL}/api/offers`;
 
 const getFlights = async (origin, destination, date) => {
   const json = await fetchFromBackend(flightsUrl, {
@@ -74,6 +75,11 @@ const getCurrentWeather = async (airportCode) => {
   return json;
 };
 
+const getSpecialOffers = async () => {
+  const json = await fetchFromBackend(specialOffersUrl);
+  return json;
+};
+
 const fetchFromBackend = async (url, params) => {
   try {
     let fullUrl = url;
@@ -100,7 +106,8 @@ const backendConnector = {
   getAvailableDestinations: getAvailableDestinations,
   getAvailableDepartureDates: getAvailableDepartureDates,
   getCurrencies: getCurrencies,
-  getCurrentWeather: getCurrentWeather
+  getCurrentWeather: getCurrentWeather,
+  getSpecialOffers: getSpecialOffers
 };
 
 export default backendConnector;
