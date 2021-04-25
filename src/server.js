@@ -32,7 +32,7 @@ export default () => {
   });
 
   app.get("/assets/:name", (req, res) => {
-    res.sendFile(path.resolve("src/assets", `${req.params.name}.jpg`));
+    res.sendFile(path.resolve("client/build/img", `${req.params.name}.jpg`));
   });
 
   if (process.env.NODE_ENV === "production") {
