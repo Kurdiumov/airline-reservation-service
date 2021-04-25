@@ -70,7 +70,7 @@ export default function Seat(props) {
 
   const handleSeatClick = () => {
     props.onSeatSelectionChanged &&
-      props.onSeatSelectionChanged(number, !props.selected);
+      props.onSeatSelectionChanged(number, !props.selected, isBusinessClass);
   };
 
   return (

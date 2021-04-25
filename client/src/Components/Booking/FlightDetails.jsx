@@ -3,18 +3,23 @@ import { useDispatch, useSelector } from "react-redux";
 import moment from "moment";
 import momentTimezone from "moment-timezone";
 import { makeStyles } from "@material-ui/core";
-import Paper from "@material-ui/core/Paper";
 import Box from "@material-ui/core/Box";
+import Grid from "@material-ui/core/Grid";
+import Paper from "@material-ui/core/Paper";
 import Button from "@material-ui/core/Button";
 import Divider from "@material-ui/core/Divider";
-import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
-import FlightTakeoffIcon from "@material-ui/icons/FlightTakeoff";
 import FlightLandIcon from "@material-ui/icons/FlightLand";
+import FlightTakeoffIcon from "@material-ui/icons/FlightTakeoff";
 import PlaneSvg from "../../Assets/plane.svg";
 
 import { getPriceInCurrentCurrency } from "../../utils.js";
-import { setFlight, setPassengers } from "../../Actions/booking.js";
+import {
+  setFlight,
+  setPassengers,
+  setOriginDetails,
+  setDestinationDetails
+} from "../../Actions/booking.js";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -49,6 +54,8 @@ export default function FlightDetails(props) {
   const handleBookBtn = (flight) => {
     const { passengers } = props;
     dispatch(setFlight(flight));
+    dispatch(setOriginDetails(origin));
+    dispatch(setDestinationDetails(destination));
 
     let adults = {};
     for (let i = 0; i < passengers?.adults; i++) {

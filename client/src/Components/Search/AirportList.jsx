@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
 export default function AirportList(props) {
   const classes = useStyles();
 
-  const getCountriesAndAirportsList = (filter, sources) => {
+  const getCountriesAndAirportsList = (filter = "", sources) => {
     filter = filter.toLowerCase().trim();
     const filteredSources = filterAvailableSources(sources, filter);
 

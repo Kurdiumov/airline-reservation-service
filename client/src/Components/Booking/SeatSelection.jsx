@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useReducer } from "react";
+import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { makeStyles } from "@material-ui/core";
 import Box from "@material-ui/core/Box";
@@ -33,6 +34,7 @@ const useStyles = makeStyles((theme) => ({
 export default function SeatSelection(props) {
   const dispatch = useDispatch();
   const classes = useStyles();
+  const history = useHistory();
   const aircraftModel = useSelector(({ booking }) => booking.aircraftModel);
 
   const [, forceUpdate] = useReducer(x => x + 1, 0);
@@ -59,7 +61,7 @@ export default function SeatSelection(props) {
     setSelectedPassenger(passenger);
   };
 
-  const handleSeatSelection = (id, selected) => {
+  const handleSeatSelection = (id, selected, isBusiness = false) => {
     if (selectedPassenger == null) {
       return;
     }
@@ -68,7 +70,7 @@ export default function SeatSelection(props) {
       return;
     }
 
-    dispatch(setSeat(selectedPassenger, selected === true ? id : null));
+    dispatch(setSeat(selectedPassenger, selected === true ? id : null, isBusiness));
     forceUpdate();
   };
 
@@ -90,7 +92,7 @@ export default function SeatSelection(props) {
                 key={item}
                 hover
                 role="checkbox"
-                onClick={(event) => handleClick(item)}
+                onClick={() => handleClick(item)}
                 selected={selectedPassenger === item}
                 className={classes.tableRow}
               >
@@ -124,6 +126,10 @@ export default function SeatSelection(props) {
     return Object.values(passengers).every(x => x.selectedSeat);
   };
 
+  const onBookBtnClicked = () => {
+    history.push("/summary")
+  }
+
   return (
     <Container className="booking" disableGutters={true}>
       <Grid container>
@@ -142,6 +148,7 @@ export default function SeatSelection(props) {
                   color="primary"
                   disabled={!allPassengersHaveSelectedSeat()}
                   className={classes.button}
+                  onClick={onBookBtnClicked}
                 >
                   Book
                 </Button>

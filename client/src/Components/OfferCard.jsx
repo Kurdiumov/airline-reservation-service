@@ -33,9 +33,8 @@ export default function OfferCard(props) {
   );
 
   const handleCardClick = () => {
-    console.log(origin, destination, date);
-    dispatch(setOrigin({code: origin}));
-    dispatch(setDestination({code: destination}));
+    dispatch(setOrigin({code: origin, name: origin}));
+    dispatch(setDestination({code: destination, name: destination}));
     dispatch(setDepartureDate(date));
     history.push("/search");
   };

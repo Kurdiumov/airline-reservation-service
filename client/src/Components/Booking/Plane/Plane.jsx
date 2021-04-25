@@ -34,8 +34,8 @@ export default function SeatSelection(props) {
     const aircraftProps = {
       unavailableSeats: unavailableSeats,
       selectedSeats: selectedSeats,
-      onSeatSelectionChanged: (id, selected) => {
-        props.onSeatSelectionChanged(id, selected);
+      onSeatSelectionChanged: (id, selected, isBusiness) => {
+        props.onSeatSelectionChanged(id, selected, isBusiness);
       }
     };
 
