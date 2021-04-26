@@ -22,8 +22,12 @@ router.get("/", async (req, res) => {
       return res.status(400).send("Mandatory parameter 'date' is missing");
     }
 
-    const originAirport = await Airport.findOne({code: req.query.origin});
-    const dateFrom = moment.tz(req.query.date, "YYYY-MM-DD", originAirport.timezone);
+    const originAirport = await Airport.findOne({ code: req.query.origin });
+    const dateFrom = moment.tz(
+      req.query.date,
+      "YYYY-MM-DD",
+      originAirport.timezone
+    );
     const dateTo = dateFrom.clone().add(24, "hours");
 
     const flights = await Flight.find({
@@ -38,6 +42,25 @@ router.get("/", async (req, res) => {
     res.json({
       flights: flights
     });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send(err);
+  }
+});
+
+router.get("/:flightId", async (req, res) => {
+  try {
+    const flight = await Flight.find({
+      flightNumber: req.params.flightId
+    });
+
+    if (flight && flight.length > 0) {
+      return res.json({
+        flight: flight[0]
+      });
+    }
+
+    res.status(404).send(`Flight with id ${req.params.flightId} does not exist.`);
   } catch (err) {
     console.error(err);
     res.status(500).send(err);
