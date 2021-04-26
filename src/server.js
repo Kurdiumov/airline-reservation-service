@@ -7,6 +7,7 @@ import weather from "./routes/weather.js";
 import airports from "./routes/airports.js";
 import currencies from "./routes/currencies.js";
 import offers from "./routes/offers.js";
+import bookings from "./routes/bookings.js";
 import authenticateJWT from "./middlewares/authenticateJWT.js";
 
 export default () => {
@@ -23,6 +24,7 @@ export default () => {
   app.use("/api/airports", airports);
   app.use("/api/currencies", currencies);
   app.use("/api/offers", offers);
+  app.use("/api/bookings", bookings);
 
   app.get("/checkToken", authenticateJWT, (req, res) => {
     res.json({

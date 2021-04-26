@@ -7,10 +7,33 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import ContentContainer from "../ContentContainer";
 import BookingInformation from "./BookingInformation";
+import backendConnector from "../../backendConnector";
 
 export default function Summary() {
   const history = useHistory();
   const booking = useSelector((state) => state.booking);
+  const token = useSelector(({auth}) => auth.token);
+
+  const transformPassenger = (passenger, type) => {
+    return {
+      "name": passenger.name,
+      "surname": passenger.surname,
+      "sex": passenger.sex,
+      "type": type,
+      "seat": passenger.selectedSeat,
+      "baggage": passenger.baggageCount,
+      "isBusinessSeat": passenger.isBusinessSeat
+    }
+  }
+
+  const handleBookingButton = async () => {
+    let adults = Object.values(booking.passengers.adults).map((passenger) => transformPassenger(passenger, "adult"));
+    let children = Object.values(booking.passengers.children).map((passenger) => transformPassenger(passenger, "child"));
+    let infants = Object.values(booking.passengers.infants).map((passenger) => transformPassenger(passenger, "infant"));
+
+    await backendConnector.createBooking(booking.selectedFlight, token, adults.concat(children).concat(infants))
+    history.push("/");
+  }
   
   return (
     <ContentContainer>
@@ -22,7 +45,7 @@ export default function Summary() {
             <Button variant="contained" color="secondary" onClick={() => history.push("/")}>
               Cancel
             </Button>
-            <Button variant="contained" color="primary">
+            <Button variant="contained" color="primary" onClick={handleBookingButton}>
               Book & go to Home
             </Button>
           </Box>

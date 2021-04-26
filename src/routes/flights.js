@@ -48,15 +48,15 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.get("/:flightId", async (req, res) => {
+router.get("/flights/:flightId", async (req, res) => {
   try {
-    const flight = await Flight.find({
+    const flight = await Flight.findOne({
       flightNumber: req.params.flightId
     });
 
-    if (flight && flight.length > 0) {
+    if (flight) {
       return res.json({
-        flight: flight[0]
+        flight: flight
       });
     }
 
