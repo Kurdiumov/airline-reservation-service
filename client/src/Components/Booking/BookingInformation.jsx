@@ -56,7 +56,6 @@ export default function BookingInformation(props) {
   };
 
   const getPassengerInfo = (passenger) => {
-    debugger;
     const seat = passenger.selectedSeat ?? passenger.seat;
     const baggage = passenger.baggageCount ?? passenger.baggage;
     return (
@@ -104,7 +103,7 @@ export default function BookingInformation(props) {
           <Grid item xs={12} sm={4} md={5}>
             <Box display="flex" flexDirection="column" alignItems="center">
               <div style={{ "textAlign": "center" }}>
-                {moment(booking.departureTime)
+                {moment(booking.departureDate ?? booking.departureTime)
                   .tz(booking.originDetails.timezone)?.format("MMMM Do YYYY, hh:mm")}
                 ({moment.tz(booking.originDetails.timezone).zoneName()})
               </div>
@@ -136,7 +135,7 @@ export default function BookingInformation(props) {
           <Grid item xs={12} sm={4} md={5}>
             <Box display="flex" flexDirection="column" alignItems="center">
               <div style={{ "textAlign": "center" }}>
-                {moment(booking.arrivalTime)
+                {moment(booking.arrivalDate ?? booking.arrivalTime)
                   .tz(booking.destinationDetails.timezone)?.format("MMMM Do YYYY, hh:mm")}
                 ({moment.tz(booking.destinationDetails.timezone).zoneName()})
               </div>

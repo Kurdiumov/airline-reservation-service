@@ -56,6 +56,9 @@ router.get("/mybookings", authenticateJWT, async (req, res) => {
       booking.originDetails = origin;
       booking.destinationDetails = destination;
 
+      booking.departureTime = flight.departureTime;
+      booking.arrivalTime = flight.arrivalTime;
+      booking.flightDuration = flight.duration;
       booking.businessPrice = flight.businessPrice;
       booking.economyPrice = flight.economyPrice;
       booking.baggagePrice = flight.luggagePrice;
