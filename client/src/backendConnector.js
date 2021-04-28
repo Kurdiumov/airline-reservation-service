@@ -14,6 +14,7 @@ const currentWeatherUrl = `${process.env.REACT_APP_API_URL}/api/weather/current?
 const specialOffersUrl = `${process.env.REACT_APP_API_URL}/api/offers`;
 
 const bookingsUrl = `${process.env.REACT_APP_API_URL}/api/bookings`;
+const myBookingsUrl = `${process.env.REACT_APP_API_URL}/api/bookings/mybookings`;
 
 const getFlights = async (origin, destination, date) => {
   const json = await fetchFromBackend(flightsUrl, {
@@ -91,27 +92,42 @@ const getSpecialOffers = async () => {
 
 const createBooking = async (flightNumber, token, passengers) => {
   try {
-      const response = await fetch(bookingsUrl, {
-        method: "POST",
-        headers: new Headers({ "content-type": "application/json", "authorization": `Bearer ${token}` }),
-        body: JSON.stringify({
-          flightNumber: flightNumber,
-          passengers: passengers
-        })
-      });
+    const response = await fetch(bookingsUrl, {
+      method: "POST",
+      headers: new Headers({
+        "content-type": "application/json",
+        authorization: `Bearer ${token}`
+      }),
+      body: JSON.stringify({
+        flightNumber: flightNumber,
+        passengers: passengers
+      })
+    });
 
-      if (response.status === 201) {
-        const json = await response.json();
-        console.log("Booking created successfully, response:", json);
-
-        return;
-      }
-
-      const errorText = await response.text();
-      console.error("Got unexpected response:", errorText);
-    } catch (err) {
-      console.error("An error occurred:", err);
+    if (response.status === 201) {
+      const json = await response.json();
+      return;
     }
+
+    const errorText = await response.text();
+    console.error("Got unexpected response:", errorText);
+  } catch (err) {
+    console.error("An error occurred:", err);
+  }
+};
+
+const getMyBookings = async (token) => {
+  try {
+    const response = await fetch(myBookingsUrl, {
+      headers: new Headers({ authorization: `Bearer ${token}` })
+    });
+
+    const json = await response.json();
+    return json.bookings;
+  } catch (err) {
+    console.error("An error occurred:", err);
+    return null;
+  }
 };
 
 const fetchFromBackend = async (url, params) => {
@@ -143,6 +159,7 @@ const backendConnector = {
   getCurrencies: getCurrencies,
   getCurrentWeather: getCurrentWeather,
   getSpecialOffers: getSpecialOffers,
+  getMyBookings: getMyBookings,
   createBooking: createBooking
 };
 

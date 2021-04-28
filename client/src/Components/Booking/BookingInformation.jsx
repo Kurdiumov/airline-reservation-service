@@ -23,9 +23,19 @@ export default function BookingInformation(props) {
   if (!booking) {
     throw new Error("Booking must be provided");
   }
-  const adults = booking.passengers.adults;
-  const children = booking.passengers.children;
-  const infants = booking.passengers.infants;
+
+  let adults = null;
+  let children = null;
+  let infants = null;
+  if (Array.isArray(booking.passengers)) {
+    adults = booking.passengers.filter((passenger) => passenger.type === "adult");
+    children = booking.passengers.filter((passenger) => passenger.type === "child");
+    infants = booking.passengers.filter((passenger) => passenger.type === "infant");
+  } else {
+    adults = Object.values(booking.passengers.adults);
+    children = Object.values(booking.passengers.children);
+    infants = Object.values(booking.passengers.infants);
+  }
 
   const currentCurrency = useSelector(
     ({ currencies }) => currencies.currentCurrency
@@ -39,36 +49,37 @@ export default function BookingInformation(props) {
   };
 
   const getTotalPrice = () => {
-    const passengersArray = Object.values(adults).concat(
-      Object.values(children)
-    ); //Infants should be ignored
+    const passengersArray = adults.concat(children); //Infants should be ignored
     return passengersArray.reduce((acc, val) => {
-      return acc + calculatePrice(val.baggageCount, val.isBusinessSeat);
+      return acc + calculatePrice(val.baggageCount?? val.baggage, val.isBusinessSeat);
     }, 0);
   };
 
   const getPassengerInfo = (passenger) => {
+    debugger;
+    const seat = passenger.selectedSeat ?? passenger.seat;
+    const baggage = passenger.baggageCount ?? passenger.baggage;
     return (
       <>
         <TableCell scope="row">
           {passenger.name} {passenger.surname}
         </TableCell>
         <TableCell align="right">
-          {passenger.selectedSeat ? passenger.selectedSeat : "N/A"}
+          {seat ?? "N/A"}
         </TableCell>
         <TableCell align="right">
-          {passenger.selectedSeat
-            ? passenger.baggageCount > 0
-              ? passenger.baggageCount +
+          {seat
+            ? baggage > 0
+              ? baggage +
                 " x " +
                 getPriceInCurrentCurrency(booking.baggagePrice)
               : "-"
             : "N/A"}
         </TableCell>
         <TableCell align="right">
-          {passenger.selectedSeat
+          {seat
             ? getPriceInCurrentCurrency(
-                calculatePrice(passenger.baggageCount, passenger.isBusinessSeat)
+                calculatePrice(baggage, passenger.isBusinessSeat)
               )
             : "N/A"}
         </TableCell>
@@ -94,8 +105,7 @@ export default function BookingInformation(props) {
             <Box display="flex" flexDirection="column" alignItems="center">
               <div style={{ "textAlign": "center" }}>
                 {moment(booking.departureTime)
-                  .tz(booking.originDetails.timezone)
-                  .format("MMMM Do YYYY, hh:mm")}
+                  .tz(booking.originDetails.timezone)?.format("MMMM Do YYYY, hh:mm")}
                 ({moment.tz(booking.originDetails.timezone).zoneName()})
               </div>
               <div style={{ "textAlign": "center" }}>
@@ -127,8 +137,7 @@ export default function BookingInformation(props) {
             <Box display="flex" flexDirection="column" alignItems="center">
               <div style={{ "textAlign": "center" }}>
                 {moment(booking.arrivalTime)
-                  .tz(booking.destinationDetails.timezone)
-                  .format("MMMM Do YYYY, hh:mm")}
+                  .tz(booking.destinationDetails.timezone)?.format("MMMM Do YYYY, hh:mm")}
                 ({moment.tz(booking.destinationDetails.timezone).zoneName()})
               </div>
               <div style={{ "textAlign": "center" }}>
@@ -155,19 +164,19 @@ export default function BookingInformation(props) {
             </TableRow>
           </TableHead>
           <TableBody>
-            {Object.keys(adults).map((id) => {
+            {adults.map((adult, i) => {
               return (
-                <TableRow key={id}>{getPassengerInfo(adults[id])}</TableRow>
+                <TableRow key={"adult"+i}>{getPassengerInfo(adult)}</TableRow>
               );
             })}
-            {Object.keys(children).map((id) => {
+            {children.map((child, i) => {
               return (
-                <TableRow key={id}>{getPassengerInfo(children[id])}</TableRow>
+                <TableRow key={"child"+i}>{getPassengerInfo(child)}</TableRow>
               );
             })}
-            {Object.keys(infants).map((id) => {
+            {infants.map((infant, i) => {
               return (
-                <TableRow key={id}>{getPassengerInfo(infants[id])}</TableRow>
+                <TableRow key={"infant"+i}>{getPassengerInfo(infant)}</TableRow>
               );
             })}
             <TableRow>

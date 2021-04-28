@@ -209,7 +209,7 @@ export default function NavBar(props) {
           <Box>
             <Button
               size="large"
-              onClick={() => history.push("/#")}
+              onClick={() => history.push("/mybookings")}
               disableRipple
               disableFocusRipple
             >

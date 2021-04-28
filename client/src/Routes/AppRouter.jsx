@@ -5,6 +5,7 @@ import HomePage from "./HomePage";
 import LogInPage from "./LogInPage";
 import SignUpPage from "./SignUpPage";
 import BookingPage from "./BookingPage";
+import MyBookingsPage from "./MyBookingsPage";
 import SeatSelectionPage from "./SeatSelectionPage";
 import BookingSummaryPage from "./BookingSummaryPage";
 import FlightSearchResultsPage from "./FlightSearchResultsPage";
@@ -39,6 +40,7 @@ export default function AppRouter() {
             <Route path="/" component={HomePage} exact={true} />
             <Route path="/map" component={MapPage} exact={true} />
             <Route path="/booking" component={BookingPage} exact={true} />
+            <Route path="/mybookings" component={MyBookingsPage} exact={true} />
             <Route path="/seats" component={SeatSelectionPage} exact={true} />
             <Route path="/summary" component={BookingSummaryPage} exact={true} />
             <Route path="/signup" component={SignUpPage} exact={true} />
