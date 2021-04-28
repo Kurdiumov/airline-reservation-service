@@ -6,6 +6,7 @@ const airportNearestUrl = `${process.env.REACT_APP_API_URL}/api/airports/nearest
 const availableSourcesUrl = `${process.env.REACT_APP_API_URL}/api/flights/availableSources?`;
 const availableDestinationsUrl = `${process.env.REACT_APP_API_URL}/api/flights/availableDestinations?`;
 const availableDatesUrl = `${process.env.REACT_APP_API_URL}/api/flights/availableDates?`;
+const busySeatsUrl = `${process.env.REACT_APP_API_URL}/api/flights/getBusySeats/`;
 
 const currenciesUrl = `${process.env.REACT_APP_API_URL}/api/currencies/`;
 
@@ -55,6 +56,12 @@ const getAvailableDepartureDates = async (originCode, destinationCode) => {
 
   const dates = json?.dates;
   return dates;
+};
+
+const getBusySeats = async (flightId) => {
+  const json = await fetchFromBackend(busySeatsUrl + flightId);
+
+  return json?.busySeats;
 };
 
 const getCurrencies = async () => {
@@ -132,6 +139,7 @@ const backendConnector = {
   getAvailableSources: getAvailableSources,
   getAvailableDestinations: getAvailableDestinations,
   getAvailableDepartureDates: getAvailableDepartureDates,
+  getBusySeats: getBusySeats,
   getCurrencies: getCurrencies,
   getCurrentWeather: getCurrentWeather,
   getSpecialOffers: getSpecialOffers,

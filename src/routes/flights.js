@@ -2,6 +2,7 @@ import express from "express";
 import moment from "moment";
 import momentTimezone from "moment-timezone";
 import Flight from "../model/Flight.js";
+import Booking from "../model/Booking.js";
 import Airport from "../model/Airport.js";
 
 const router = express.Router();
@@ -48,7 +49,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.get("/flights/:flightId", async (req, res) => {
+router.get("/flightId", async (req, res) => {
   try {
     const flight = await Flight.findOne({
       flightNumber: req.params.flightId
@@ -60,7 +61,33 @@ router.get("/flights/:flightId", async (req, res) => {
       });
     }
 
-    res.status(404).send(`Flight with id ${req.params.flightId} does not exist.`);
+    res
+      .status(404)
+      .send(`Flight with id ${req.params.flightId} does not exist.`);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send(err);
+  }
+});
+
+router.get("/getBusySeats/:flightId", async (req, res) => {
+  try {
+    const bookings = await Booking.find({
+      flightNumber: req.params.flightId
+    });
+
+    const busySeats = [];
+    bookings.forEach((booking) => {
+      Object.values(booking.passengers).forEach((passenger) => {
+        if (passenger && passenger.seat) {
+          busySeats.push(passenger.seat);
+        }
+      });
+    });
+
+    return res.json({
+      busySeats: busySeats
+    });
   } catch (err) {
     console.error(err);
     res.status(500).send(err);

@@ -14,6 +14,7 @@ import TableCell from "@material-ui/core/TableCell";
 import TableHead from "@material-ui/core/TableHead";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Plane from "./Plane/Plane";
+import backendConnector from "../../backendConnector";
 
 import { setSeat } from "../../Actions/booking";
 const useStyles = makeStyles((theme) => ({
@@ -31,11 +32,11 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function SeatSelection(props) {
+export default function SeatSelection() {
   const dispatch = useDispatch();
   const classes = useStyles();
   const history = useHistory();
-  const aircraftModel = useSelector(({ booking }) => booking.aircraftModel);
+  const booking = useSelector((state) => state.booking);
 
   const [, forceUpdate] = useReducer(x => x + 1, 0);
   const passengers = useSelector(({ booking }) => { return ({...booking.passengers.adults, ...booking.passengers.children})});
@@ -43,10 +44,12 @@ export default function SeatSelection(props) {
   const [unavailableSeats, setUnavailableSeats] = useState(null);
 
   useEffect(() => {
-    //TODO Send request to backend for fetching available seats
-    setTimeout(() => {
-      setUnavailableSeats(["1A", "1B", "11A"]);
-    }, 1000);
+    async function fetchBusySeats(flightId) {
+      const busySeats = await backendConnector.getBusySeats(flightId);
+      setUnavailableSeats(busySeats);
+    }
+
+    fetchBusySeats(booking.selectedFlight);
   }, []);
 
   if (unavailableSeats == null) {
@@ -159,7 +162,7 @@ export default function SeatSelection(props) {
         <Grid item xs={12} md={8}>
           <Paper className={classes.paper}>
             <Plane
-              model={aircraftModel}
+              model={booking.aircraftModel}
               unavailableSeats={unavailableSeats}
               onSeatSelectionChanged={handleSeatSelection}
             />
