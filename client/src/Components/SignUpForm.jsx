@@ -111,8 +111,8 @@ export default function SignUpForm(props) {
   const getNameError = () => {
     if (validator.isEmpty(name.value)) return "First name must be provided.";
 
-    if (!validator.isLength(name.value, { min: 6, max: 255 })) {
-      if (validator.isLength(name.value, { min: 0, max: 6 }))
+    if (!validator.isLength(name.value, { min: 2, max: 255 })) {
+      if (validator.isLength(name.value, { min: 0, max: 2 }))
         return "First name is too short.";
       return "First name is too long.";
     }
@@ -127,8 +127,8 @@ export default function SignUpForm(props) {
   const getSurnameError = () => {
     if (validator.isEmpty(surname.value)) return "Last name must be provided.";
 
-    if (!validator.isLength(surname.value, { min: 6, max: 255 })) {
-      if (validator.isLength(surname.value, { min: 0, max: 6 }))
+    if (!validator.isLength(surname.value, { min: 2, max: 255 })) {
+      if (validator.isLength(surname.value, { min: 0, max: 2 }))
         return "Last name is too short.";
       return "Last name is too long.";
     }
