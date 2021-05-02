@@ -37,7 +37,6 @@ backendConnector.getCurrencies().then((rates) => {
 });
 
 store.dispatch(getOriginsAsync());
-store.dispatch(getDestinationsAsync());
 
 if (navigator.geolocation) {
   navigator.geolocation.getCurrentPosition(
