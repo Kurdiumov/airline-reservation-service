@@ -124,7 +124,14 @@ export default function NavBar(props) {
           <Box display="flex" flexDirection="column" p={4}>
             {isAuthenticated && (
               <Box className={classes.drawerItem}>
-                <Typography>{userName}</Typography>
+                <Button
+                  size="large"
+                  onClick={() => history.push("/mybookings")}
+                  disableRipple
+                  disableFocusRipple
+                >
+                  {userName}
+                </Button>
               </Box>
             )}
             <Box className={classes.drawerItem}>
