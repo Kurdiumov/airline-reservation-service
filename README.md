@@ -1,4 +1,10 @@
-# airline-reservation-service
+# Airline reservation service
+
+Live demo is [available](https://airline-reservation-service.herokuapp.com/) on heroku! You can sign up with your credentials or use the following for demo purposes:
+```
+email:  test@gmail.com
+password: test123
+```
 
 Development
 ---
@@ -29,6 +35,22 @@ cd client && npm run build
 You can start back-end live server which will watch for any changes (Back-end will be available on port 5000):
 ```
 npm run watch
+```
+
+You will also need to create suitable .ENV files with real values for backend and client sides:
+
+Client:
+```
+REACT_APP_API_URL=
+```
+
+Backend:
+```
+DB_CONNECTION_STRING=
+TOKEN_SECRET=
+WEATHER_API_KEY=
+PORT=
+REACT_APP_API_URL=
 ```
 
 Third-party APIs
